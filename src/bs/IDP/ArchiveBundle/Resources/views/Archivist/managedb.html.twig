@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block overlay %}
+{% endblock %}
+
+{% block content %}
+	<ol class="breadcrumb">
+		<li><a href="{{ path('bs_idp_archivist_manage_db')}}">Gérer la base Archives</a></li>
+		<li><a href="{{ path('bs_idp_archivist_manage_db')}}">Saisie</a></li>
+		<li><a href="{{ path('bs_idp_archivist_manage_db')}}">Services</a></li>
+	</ol>
+
+	{% include "bsIDPArchiveBundle:Archivist:partial.menumanagedb.html.twig" %}
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+
+	<script type="text/javascript">
+	    var JSON_URLS = {
+	    	bs_idp_archivist_manage_db: "{{ path('bs_idp_archivist_manage_db')}}",
+            bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+            bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+	    };
+	</script>
+
+
+	{% javascripts
+		'@bsIDPArchiveBundle/Resources/public/js/IDPMenuManageDB.0.9.10.js'
+	 %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+
+{% endblock %}

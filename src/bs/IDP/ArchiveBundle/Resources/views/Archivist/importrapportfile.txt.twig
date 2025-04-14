@@ -1,0 +1,17 @@
+Archimage - Rapport d'import
+
+Fichier d'import: {{ import.Filename }}
+Début d'import: {{ import.DateBegin|date('d/m/Y H:i:s') }}
+Fin d'import: {{ import.DateEnd|date('d/m/Y H:i:s') }}
+
+Statut d'import: {% if import.Status == 0 %}Inconnu{% endif %}{% if import.Status == 1 %}Import démarré{% endif %}{% if import.Status == 2 %}Import en cours{% endif %}{% if import.Status == 10 %}Import terminé avec succès{% endif %}{% if import.status == 50 %}Import terminé en erreur{% endif %}{% if import.Status == 75 %}Import en cours d'annulation{% endif %}{% if import.Status == 76 %}Import annulé{% endif %}{% if import.Status == 99 %}Import définitivement validé{% endif %}
+
+Nombre de lignes du fichier: {{ import.NbLinesFile }}
+Nombre de lignes importées: {{ import.NbLinesImported }}
+Nombre de lignes en erreur: {{ import.NbLinesError }}
+
+--
+
+{% for importcomm in importcomms %}
+{{ importcomm.Message }}
+{% endfor %}

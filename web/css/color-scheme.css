@@ -1,0 +1,21 @@
+/*
+ * besecu.re admin panel v0.1.0
+ *
+ * composition of admin panel:
+ * main.css				: core file
+ * color-scheme.css		: color definition
+ * navbar.css			: top navigation bar definition
+ * menu.css				: mneu definition
+ */
+
+.brand-color {
+  color: #000080 !important;
+}
+
+.panel-primary {
+	border-color: #000080 !important;
+}
+.panel-primary > .panel-heading {
+	background-color: #000080 !important;
+	border-color: #000080 !important;
+}

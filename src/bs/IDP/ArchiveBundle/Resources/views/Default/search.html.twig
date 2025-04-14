@@ -1,0 +1,186 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+ - Rechercher des unités d'archives
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('/css/bootstrap-table.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('/css/datepicker.css') }}" type="text/css" rel="stylesheet" />
+
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div id="ajaxInfo" class="alert alert-warning hidden"></div>
+		<div id="ajaxError" class="alert alert-danger hidden"></div>
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<form>
+					<div class="col-sm-2"><label class="control-label">Service est</label></div>
+					<div class="col-sm-2"><label class="control-label">Entité légale est</label></div>
+					<div class="col-sm-2"><label class="control-label">Descriptif 1 est</label></div>
+					<div class="col-sm-2"><label class="control-label">Descriptif 2 est</label></div>
+					<div class="col-sm-4"><label class="control-label">Nom contient</label></div>
+
+					<div class="col-sm-2">
+						<select class="form-control" id="service" disabled='disabled'>
+							<option value="">N/A</option>
+						</select>
+					</div>
+					<div class="col-sm-2">
+						<select class="form-control " id="legalentity" disabled='disabled'>
+							<option value="">N/A</option>
+						</select>
+					</div>
+					<div class="col-sm-2">
+						<select class="form-control " id="description1" disabled='disabled'>
+							<option value="">N/A</option>
+						</select>
+					</div>
+					<div class="col-sm-2">
+						<select class="form-control " id="description2" disabled='disabled'>
+							<option value="">N/A</option>
+						</select>
+					</div>
+					<div class="col-sm-4">
+						<input type="text" class="form-control " id="name" disabled='disabled'/>
+					</div>
+
+					<div class="col-sm-2"><label class="control-label">Borne Num. contient</label></div>
+					<div class="col-sm-2"><label class="control-label">Borne Alpha. contient</label></div>
+					<div class="col-sm-2"><label class="control-label">Borne Alphanum. contient</label></div>
+					<div class="col-sm-2"><label class="control-label">Borne Date contient</label></div>
+
+					<div class="clearfix"></div>
+					<div class="col-sm-2 ">
+						<input type="text" class="form-control " id="limitnum" disabled='disabled'/>
+					</div>
+					<div class="col-sm-2">
+						<input type="text" class="form-control " id="limitalpha" disabled='disabled'/>
+					</div>
+					<div class="col-sm-2">
+						<input type="text" class="form-control " id="limitalphanum" disabled='disabled'/>
+					</div>
+					<div class="col-sm-2">
+						<input type="text" class="form-control " id="limitdate" disabled='disabled'/>
+					</div>
+
+				</form>
+			</div>
+		</div>
+		<div class="panel panel-default" id="advancedSearch">
+			<div class="panel-heading" id="headAdvancedSearch">
+				<a data-toggle="collapse" data-parent="#advancedSearch" href="#collapseSearch" aria-expanded="false" aria-controls="collapseSearch">
+				Paramètres avancés
+				</a>
+			</div>
+			<div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headAdvancedSearch">
+				<div class="panel-body">
+					<form>
+						<div class="col-sm-2"><label class="control-label">Numéro d'ordre contient</label></div>
+						<div class="col-sm-2"><label class="control-label">Code budgétaire est</label></div>
+						<div class="col-sm-2"><label class="control-label">Nature du document est</label></div>
+						<div class="col-sm-2"><label class="control-label">Type du document est</label></div>
+						<div class="col-sm-2"><label class="control-label">Année de clôture inclus</label></div>
+						<div class="col-sm-2"><label class="control-label">Année de destruction inclus</label></div>
+
+						<div class="col-sm-2">
+							<input type="text" class="form-control " id="ordernumber" disabled='disabled'/>
+						</div>
+						<div class="col-sm-2">
+							<select class="form-control " id="budgetcode" disabled='disabled'>
+								<option value="">N/A</option>
+							</select>
+						</div>
+						<div class="col-sm-2">
+							<select class="form-control " id="documentnature" disabled='disabled'>
+								<option value="">N/A</option>
+							</select>
+						</div>
+						<div class="col-sm-2">
+							<select class="form-control " id="documenttype" disabled='disabled'>
+								<option value="">N/A</option>
+							</select>
+						</div>
+						<div class="col-sm-2">
+							<input type="text" class="form-control " id="closureyear" value="1900;2014"  disabled='disabled'/>
+						</div>
+						<div class="col-sm-2">
+							<input type="text" class="form-control " id="destructionyear" value="2014;2999" disabled='disabled'/>
+						</div>
+
+						<div class="col-sm-2"><label class="control-label">N° de document contient</label></div>
+						<div class="col-sm-2"><label class="control-label">N° de boite contient</label></div>
+						<div class="col-sm-2"><label class="control-label">N° de conteneur contient</label></div>
+						<div class="col-sm-2"><label class="control-label">Prestataire est</label></div>
+
+						<div class="clearfix"></div>
+						<div class="col-sm-2 ">
+							<input type="text" class="form-control " id="documentnumber" disabled='disabled'/>
+						</div>
+						<div class="col-sm-2">
+							<input type="text" class="form-control " id="boxnumber" disabled='disabled'/>
+						</div>
+						<div class="col-sm-2">
+							<input type="text" class="form-control " id="containernumber" disabled='disabled'/>
+						</div>
+						<div class="col-sm-2">
+							<select class="form-control " id="provider" disabled='disabled'>
+								<option value="">N/A</option>
+							</select>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<button type="button" class="btn btn-sm btn-info btn-block disabled" id="searchBtn"><img src="{{ asset('/img/ajax-loader.gif') }}" id="imgAjaxLoad"/><span class="hidden" id="txtBtn">Lancer la Recherche</span></button>
+		</div>
+
+		<div class="clearfix">&nbsp;</div>
+
+		<div class="col-md-9" id="list">
+			<table id="listsearchTable">
+			</table>
+		</div><!-- end of list -->
+
+		<div class="col-md-3" id="tab">
+			<ul class="nav nav-tabs" role="tablist" id="subtabmenu">
+				<li role="presentation" class="active"><a href="#tabview" role="tab" data-toggle="tab">Vue</a></li>
+				<li role="presentation"><a href="#tabmore" role="tab" data-toggle="tab">More</a></li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="tabview">
+					View
+				</div>
+				<div role="tabpanel" class="tab-pane" id="tabmore">
+					More
+				</div>
+			</div>
+		</div> <!-- end of tab -->
+
+	</div> <!-- end of row -->
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var JSON_URLS = {
+    	bs_idp_archive_form_initlists: "{{ path('bs_idp_archive_form_initlists')}}",
+		bs_idp_archive_search_ajax: "{{ path('bs_idp_archive_search_ajax')}}",
+        bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+        bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+    };
+	</script>
+	<script src="{{ asset('/js/bootstrap-table.1.15.2.js') }}"></script>
+	<script src="{{ asset('/js/bootstrap-table-fr-FR.js') }}"></script>
+	<script src="{{ asset('/js/bootstrap-datepicker.js') }}"></script>
+	{% javascripts '@bsIDPArchiveBundle/Resources/public/js/IDPArchiveSearch.1.2.0.js' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+	<script type="text/javascript">
+</script>
+{% endblock %}

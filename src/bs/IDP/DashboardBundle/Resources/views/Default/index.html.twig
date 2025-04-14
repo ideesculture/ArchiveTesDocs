@@ -1,0 +1,211 @@
+{% extends '::mini.html.twig' %}
+
+{% block overlay %}
+    <!-- waiting div while ajax response -->
+    <div class="overlay text-center" id="waitAjax"><br/><br/><br/>
+        <h2 style="color:#fff;"><span class="fal fa-2x fa-spinner fa-spin"></span>&nbsp;&nbsp;Veuillez patienter, attente de la réponse du serveur !</h2>
+    </div>
+    <!-- B#25 Show Detailled information about statistics -->
+    <div class="modal fade" id="DetailledInformationModal" tabindex="-1" role="dialog" aria-labelledby="DetailledInformationLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="DetailledInformationLabel">Informations complémentaires</h4>
+                </div>
+                <div class="modal-body" id="DetailledInformationContent">
+                    &nbsp; <!-- Datas will be updated with javascript queries -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+{%  if globalStatuses.ImportInProgress %}
+    <div class="col-md-12 alert alert-warning">
+        <strong>Attention</strong> une importation est en cours, il est déconseillé d'utiliser Archimage pendant ce processus !.
+        {% if ( userscale < 50 ) %}
+            Pour en savoir plus vous pouvez Accèder à la page de <a href="{{ path('bs_idp_archive_importsrapportsee') }}" class="btn btn-warning">résumé d'import</a></div>
+        {%  endif %}
+    </div>
+{%  endif %}
+
+<div class="col-md-12 dashboard-spacer">&nbsp;</div>
+
+<div class="col-md-3">
+	<ul class="list-group" id="listOperations">
+		<li class="list-group-item disabled" id="liTitle">{{ translations[0] }}</li>
+		<li class="btnlike list-group-item" id="liNbTransfer"><span class="badge" id="badgeNbTransfer">{{ nbs[0] }}</span>{{ translations[2] }}</li>
+		<li class="btnlike list-group-item" id="liNbConsult"><span class="badge" id="badgeNbConsult">{{ nbs[1] }}</span>{{ translations[3] }}</li>
+		<li class="btnlike list-group-item" id="liNbReturn"><span class="badge" id="badgeNbReturn">{{ nbs[2] }}</span>{{ translations[4] }}</li>
+		<li class="btnlike list-group-item" id="liNbExit"><span class="badge" id="badgeNbExit">{{ nbs[3] }}</span>{{ translations[5] }}</li>
+		<li class="btnlike list-group-item" id="liNbDestroy"><span class="badge" id="badgeNbDestroy">{{ nbs[4] }}</span>{{ translations[6] }}</li>
+        <li class="btnlike list-group-item" id="liNbReloc"><span class="badge" id="badgeNbReloc">{{ nbs[5] }}</span>{{ translations[27] }}</li>
+		<li class="list-group-item" id="liNbCommand"><span class="badge" id="badgeNbCmd">{{ nbCMD }}</span>{{ translations[8] }}</li>
+	</ul>
+
+</div>
+
+<div class="col-md-9" id="btnactions">
+
+    <div class="col-sm-12" id="btnuser" >
+        <!-- <center><h1 class="page-header page-header-no-underline">{{ translations[10] }}</h1><br/></center> -->
+
+        <div class="col-sm-4 col-sm-offset-1">
+            <div class="panel panel-info" id="panel-create-ua">
+                <div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#panel-create-ua" href="#create-ua-choices">{{ translations[11] }}<span class="pull-right big-caret"></span></a></h4></div>
+                <div id="create-ua-choices" class="panel-collapse collapse list-group">
+                    <h4 id="choice-create-ua"><a href="{{ path('bs_idp_archive_new') }}" class="list-group-item">{{ translations[12] }}</a></h4>
+                    <h4 id="choice-transfer-ua"><a href="{{ path('bs_idp_archive_transferscreen') }}" class="list-group-item">{{ translations[13] }}</a></h4>
+                    <h4 id="choice-reloc-ua"><a href="{{ path('bs_idp_archive_askreloc_screen') }}" class="list-group-item">{{ translations[28] }}</a></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-sm-offset-2">
+            <div class="panel panel-info" id="consult-ua-choice">
+                <div class="panel-heading"><h4 class="panel-title"><a href="{{ path('bs_idp_archive_askconsult_screen') }}">{{ translations[14] }}</a></h4></div>
+            </div>
+        </div>
+
+        <div class="clearfix col-sm-12 small-horizontal-divider">&nbsp;</div>
+
+        <div class="col-sm-4 col-sm-offset-1">
+            <div class="panel panel-info" id="delete-ua-choice">
+                <div class="panel-heading"><h4 class="panel-title"><a href="{{ path('bs_idp_archive_askdelete_screen') }}">{{ translations[15] }}</a></h4></div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-sm-offset-2">
+            <div class="panel panel-info" id="return-ua-choice">
+                <div class="panel-heading"><h4 class="panel-title"><a href="{{ path('bs_idp_archive_askreturn_screen') }}">{{ translations[16] }}</a></h4></div>
+            </div>
+        </div>
+
+        <div class="clearfix col-sm-12 small-horizontal-divider">&nbsp;</div>
+
+        <div class="col-sm-4 col-sm-offset-1">
+            <div class="panel panel-info" id="exit-ua-choice">
+                <div class="panel-heading"><h4 class="panel-title"><a href="{{ path('bs_idp_archive_askexit_screen') }}">{{ translations[17] }}</a></h4></div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-sm-offset-2">
+            <div class="panel panel-default" id="panel-furnitures-command">
+                <div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#panel-furnitures-command" href="#furnitures-command-choices">{{ translations[18] }}<span class="big-caret pull-right"></span></a></h4></div>
+                <div id="furnitures-command-choices" class="panel-collapse collapse list-group">
+                    <h4 id="pass-command-choice"><a href="#" class="list-group-item">{{ translations[19] }}</a></h4>
+                    <h4 id="follow-commands-choice"><a href="#" class="list-group-item">{{ translations[20] }}</a></h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% if ( userscale < 100 ) %}
+
+    <div class="col-sm-12" id="btnarchivist" >
+
+        <div class="clearfix col-sm-12 small-horizontal-divider">&nbsp;</div>
+
+        <div class="col-sm-4 col-sm-offset-1">
+            <div class="panel panel-success" id="panel_manage_user_wants">
+                <div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#panel_manage_user_wants" href="#manage-user-wants-choices">{{ translations[21] }}<span class="pull-right big-caret"></span></a></h4></div>
+                <div id="manage-user-wants-choices" class="panel-collapse collapse list-group">
+                    <h4 id="choice-manage-userwants"><a href="{{ path('bs_idp_archivist_manage_user_wants') }}" class="list-group-item">Valider les demandes des utilisateurs</a></h4>
+                    <h4 id="choice-manage-providerwants"><a href="{{ path('bs_idp_archivist_manage_provider_wants') }}" class="list-group-item">Gérer les demandes des prestataires</a></h4>
+                    <h4 id="choice-close-userwants"><a href="{{ path('bs_idp_archivist_close_user_wants') }}" class="list-group-item">Clôturer les demandes des utilisateurs</a></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-sm-offset-2">
+            <div class="panel panel-success" id="panel_manage_db">
+                <div class="panel-heading"><h4 class="panel-title"><a href="{{ path('bs_idp_archivist_managedb_input_services') }}">{{ translations[22] }}</a></h4></div>
+            </div>
+        </div>
+
+        <div class="clearfix col-sm-12 small-horizontal-divider">&nbsp;</div>
+
+        <div class="col-sm-4 col-sm-offset-1"> <!-- Suivre les opérations -->
+            <div class="panel panel-success" id="panel_follow_operations">
+                <div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#panel_follow_operations" href="#manage_follow_operations">Suivre les opérations<span class="pull-right big-caret"></span></a></h4></div>
+                <div id="manage_follow_operations" class="panel-collapse collapse list-group">
+                    <h4 id="choice-audit"><a href="#" class="list-group-item menu-disabled">Accéder à l'audit</a></h4>     <!-- Auditer -->
+                    <h4 id="choice-statistics"><a href="#" class="list-group-item menu-disabled">Consulter les statistiques</a></h4> <!-- Consulter les statistiques -->
+                    <h4 id="choice-manage-unlimited"><a href="{{ path('bs_idp_archivist_askunlimited_screen') }}" class="list-group-item">Gérer les conservations illimitées</a></h4>        <!-- Gérer les conservations iilimitées -->
+                    <h4 id="choice-audit"><a href="#" class="list-group-item menu-disabled">Voir la synthèse de l'activité</a></h4> <!-- Voir la synthèse de l'activité -->
+
+                    <h4 id="reconciliation"><a href="{{ path('bs_idp_archive_reconciliation_index') }}" class="list-group-item">Rapprocher les stocks</a></h4> <!-- Rapprocher les stocks -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-sm-offset-2"> <!-- Export or Import -->
+            <div class="panel panel-success" id="panel_export_import">
+                <div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#panel_export_import" href="#manage-export_import">{{ translations[24] }}<span class="pull-right big-caret"></span></a></h4></div>
+                <div id="manage-export_import" class="panel-collapse collapse list-group">
+                    <h4 id="choice-export-all"><a id="exportAllDashboard" class="list-group-item clicable">Exporter toutes les données</a></h4>
+                    <h4 id="choice-import"><a href="{{ path('bs_idp_archive_partialimportscreen') }}" class="list-group-item">Importer des données</a></h4>
+                    <h4 id="choice-importrapport"><a href="{{ path('bs_idp_archive_importsrapportsee') }}" class="list-group-item">Accéder au rapport des imports</a></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix col-sm-12 small-horizontal-divider">&nbsp;</div>
+
+        <div class="col-sm-4 col-sm-offset-1"> <!-- Gérer les commandes -->
+            <div class="panel panel-default" id="choice-manage-commands">
+                <div class="panel-heading"><h4 class="panel-title"><a href="#">{{ translations[25] }}</a></h4></div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-sm-offset-2"> <!-- Gérer le catalogue -->
+            <div class="panel panel-default" id="choice-manage-catalog">
+                <div class="panel-heading"><h4 class="panel-title"><a href="#">{{ translations[26] }}</a></h4></div>
+            </div>
+        </div>
+
+    </div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+        var IDP_CONST = {
+            bs_idp_userscale: '{{ userscale }}',
+            bs_translations: '{{translations|json_encode|escape('js')|raw}}'
+        };
+        var JSON_URLS = {
+            bs_idp_archive_detailled_information_ajax: "{{ path('bs_idp_archive_detailled_information_ajax')}}",
+            bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+            bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}'
+        };
+    </script>
+    <script>
+        $('#exportAllDashboard').click( function( e ){
+            e.preventDefault();
+            exportAll();
+        });
+    </script>
+    {% javascripts
+        '@bsIDPDashboardBundle/Resources/public/js/Dashboard.1.4.5.0.js'
+        '@bsIDPArchiveBundle/Resources/public/js/IDPExport.1.4.5.0.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}

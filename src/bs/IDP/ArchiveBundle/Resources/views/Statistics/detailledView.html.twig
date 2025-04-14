@@ -1,0 +1,140 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+ - {{ translations[1] }}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('/css/tauCharts.min.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+	<div class="row">
+
+		<div id="buttons" class="col-md-12 mb5" >
+			<div id="btnMainView" class="btn btn-info col-md-2 col-md-offset-2">{{ translations[2] }}</div>
+			<div id="btnDetailledView" class="btn btn-default col-md-2 col-md-offset-1">{{ translations[3] }}</div>
+		</div>
+
+		<div class="mb5 col-md-10">
+			<div id="divStatisticsChart" class="h500"></div>
+		</div>
+
+		<div id="parameters" class="col-md-2">
+			<div class="row">
+				<div class="col-md-12"><label class="control-label">{{ translations[27] }}:</label></div>
+				<div class="col-md-12">
+					<select class="form-control " id="begintype">
+						<option value="1" selected="selected">{{ translations[23] }}</option>
+						<option value="2">{{ translations[28] }}</option>
+					</select>
+				</div>
+				<div class="col-md-12" id="divInputBegin">
+					<input class="form-control mb5" id="begin" placeholder="{{ translations[36] }}"/>
+				</div>
+				<div class="col-md-12"><label class="control-label">{{ translations[29] }}:</label></div>
+				<div class="col-md-12">
+					<input class="form-control mb5" id="length" value="12"/>
+				</div>
+
+				<div class="col-md-12"><label class="control-label">{{ translations[30] }}:</label></div>
+				<div class="col-md-12">
+					<select class="form-control mb5" id="budgetcode">
+						<option value="-1" selected="selected">{{ translations[11] }}</option>
+					</select>
+				</div>
+				<div class="col-md-12"><label class="control-label">{{ translations[31] }}:</label></div>
+				<div class="col-md-12">
+					<select class="form-control mb5" id="legalentity">
+						<option value="-1" selected="selected">{{ translations[11] }}</option>
+					</select>
+				</div>
+				<div class="col-md-12"><label class="control-label">{{ translations[32] }}:</label></div>
+				<div class="col-md-12">
+					<select class="form-control mb5" id="where">
+						<option value="-1" selected="selected">Tous</option>
+						<option value="1" >{{ translations[33] }}</option>
+						<option value="2" >{{ translations[34] }}</option>
+						<option value="3" >{{ translations[35] }}</option>
+					</select>
+				</div>
+				<div class="col-md-12"><label class="control-label">{{ translations[16] }}:</label></div>
+				<div class="col-md-12">
+					<select class="form-control mb5" id="provider">
+						<option value="-1" selected="selected">{{ translations[11] }}</option>
+					</select>
+				</div>
+                <div class="col-md-12"><label class="control-label">{{ translations[38] }}:</label></div>
+                <div class="col-md-12">
+                    <select class="form-control mb5" id="localization">
+                        <option value="-1" selected="selected">{{ translations[11] }}</option>
+                    </select>
+                </div>
+				<div class="col-md-12"><label class="control-label">{{ translations[15] }}:</label></div>
+				<div class="col-md-12">
+					<select class="form-control mb5" id="service">
+						<option value="-1" selected="selected">{{ translations[11] }}</option>
+					</select>
+				</div>
+				<div class="col-md-12"><label class="control-label">{{ translations[10] }}:</label></div>
+				<div class="col-md-12">
+					<select class="form-control mb5" id="contain">
+						<option value="-1" selected="selected">{{ translations[11] }}</option>
+						<option value="1" >{{ translations[12] }}</option>
+						<option value="2" >{{ translations[13] }}</option>
+						<option value="3" >{{ translations[14] }}</option>
+					</select>
+				</div>
+				<div class="col-md-12"><label class="control-label">{{ translations[4] }}:</label></div>
+				<div class="col-md-12">
+					<select class="form-control mb5" id="move">
+						<option value="1" selected="selected">{{ translations[5] }}</option>
+						<option value="2" >{{ translations[6] }}</option>
+						<option value="3" >{{ translations[7] }}</option>
+						<option value="4" >{{ translations[8] }}</option>
+						<option value="5" >{{ translations[9] }}</option>
+                        <option value="6" >{{ translations[37] }}</option>
+					</select>
+				</div>
+
+				<div class="col-md-12 mb5">&nbsp;</div>
+				<div class="col-md-12"><label class="control-label">{{ translations[17] }}:</label></div>
+				<div class="col-md-12">
+					<select class="form-control mb5" id="graphictype">
+						<option value="0" selected="selected">{{ translations[18] }}</option>
+						<option value="1">{{ translations[19] }}</option>
+						<option value="2">{{ translations[20] }}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var JSON_URLS = {
+    	bs_idp_archive_form_initlists: "{{ path('bs_idp_archive_form_initlists')}}",
+    	bs_idp_statistics_askdatas: "{{ path('bs_idp_statistics_askdatas')}}",
+    	bs_idp_statistics_mainview: "{{ path('bs_idp_statistics_mainview')}}",
+        bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+        bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+    };
+var IDP_CONST = {
+	bs_translations: '{{translations|json_encode|escape('js')|raw}}'
+};
+	</script>
+
+	<script src="{{ asset('/js/d3.min.js') }}"></script>
+	<script src="{{ asset('/js/underscore-min.js') }}"></script>
+	<script src="{{ asset('/js/tauCharts.min.js') }}"></script>
+
+	{% javascripts '@bsIDPArchiveBundle/Resources/public/js/IDPStatisticsDetailledview.0.4.2.js' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}

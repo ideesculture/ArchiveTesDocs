@@ -1,0 +1,137 @@
+{% extends '::light.html.twig' %}
+
+{% block title %}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block content %}
+	<form method="post" action="" class="form-horizontal">
+
+	<input type="hidden" id="frm_id" name="frm[id]" value="{{ uaid }}" />
+	<input type="hidden" id="frm_token" name="frm[token]" value="{{token}}" />
+
+    <!-- Main form inputs -->
+	<div class="row">
+		<!-- line 1 -->
+		<div class="col-sm-6 mb1 ">
+			&nbsp;
+		</div>
+		<div class="col-sm-6 mb-special">
+			<div class="col-sm-3"><label class="control-label" for="frm_ordernumber"><strong>{{ translations[7] }}</strong><span class="text-danger">*</span></label></div>
+			<div class="col-sm-4 " id="form_ordernumber" >
+		   		<input type="text" id="frm_ordernumber" name="frm[ordernumber]" maxlength="9" class="form-control"  />
+		   	</div>
+		   	<div class="col-sm-5">&nbsp;</div>
+		</div>
+
+		<!-- line 2 /!\ complex -->
+		<div class="col-sm-6">
+			<div class="col-sm-12 mb1" id="divBlockProperty"><strong>{{ translations[8] }}</strong></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1"><label class="control-label idp_saved" for="frm_service">{{ translations[9] }}<span class="text-danger">*</span></label></div>
+			<div class="col-sm-6  mb1" id="divSelectService"><select id="frm_service" name="frm[service]" class="form-control"></select></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1"><label class="control-label idp_saved" for="frm_legalentity">{{ translations[10] }}<span class="text-danger">*</span></label></div>
+			<div class="col-sm-6  mb1" id="divSelectLegalentity"><select id="frm_legalentity" name="frm[legalentity]" class="form-control"></select></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1" id="divLblBudgetcode"><label class="control-label idp_saved" for="frm_budgetcode" id="lbl_budgetcode">{{ translations[11] }}</label></div>
+			<div class="col-sm-6  mb1" id="divSelectBudgetcode"><select id="frm_budgetcode" name="frm[budgetcode]" class="form-control"></select></div>
+
+			<div class="col-sm-12">&nbsp;</div>
+			<div class="col-sm-12 mb1" id="divBlockDescription" ><strong>{{ translations[12] }}</strong></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1" id="divLblDocumentnature"><label class="control-label idp_saved" for="frm_documentnature" id="lbl_documentnature">{{ translations[13] }}</label></div>
+			<div class="col-sm-6  mb1" id="divSelectDocumentnature"><select id="frm_documentnature" name="frm[documentnature]" class="form-control"></select></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1" id="divLblDocumenttype"><label class="control-label idp_saved" for="frm_documenttype" id="lbl_documenttype">{{ translations[14] }}</label></div>
+			<div class="col-sm-6  mb1" id="divSelectDocumenttype"><select id="frm_documenttype" name="frm[documenttype]" class="form-control"></select></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1" id="divLblDescription1"><label class="control-label idp_saved" for="frm_description1" id="lbl_description1">{{ translations[15] }}</label></div>
+			<div class="col-sm-6  mb1" id="divSelectDescription1"><select id="frm_description1" name="frm[description1]" class="form-control"></select></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1" id="divLblDescription2"><label class="control-label idp_saved" for="frm_description2" id="lbl_description2">{{ translations[16] }}</label></div>
+			<div class="col-sm-6  mb1" id="divSelectDescription2"><select id="frm_description2" name="frm[description2]" class="form-control"></select></div>
+
+			<div class="col-sm-12">&nbsp;</div>
+			<div class="col-sm-12 mb1" id="divBlockDuration"><strong>{{ translations[17] }}</strong></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1"><label class="control-label idp_saved" for="frm_closureyear">{{ translations[18] }}<span class="text-danger">*</span></label></div>
+			<div class="col-sm-6  mb1" id="divInputClosureyear"><input type="number" id="frm_closureyear" name="frm[closureyear]" class="form-control" " /></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1"><label class="control-label idp_saved" for="frm_destructionyear">{{ translations[19] }}<span class="text-danger">*</span></label></div>
+			<div class="col-sm-6  mb1" id="divInputDestructionyear"><input type="number" id="frm_destructionyear" name="frm[destructionyear]" class="form-control" " /></div>
+
+			<div class="col-sm-12">&nbsp;</div>
+			<div class="col-sm-12 mb1" id="divBlockProviderdatas"><strong>{{ translations[20] }}</strong></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1" id="divLblFilenumber"><label class="control-label" for="frm_documentnumber" id="lbl_filenumber">{{ translations[21] }}</label></div>
+			<div class="col-sm-6  mb1" id="divInputFilenumber"><input type="text" id="frm_documentnumber" name="frm[documentnumber]" class="form-control"  /></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1" id="divLblBoxnumber"><label class="control-label" for="frm_boxnumber" id="lbl_boxnumber">{{ translations[22] }}</label></div>
+			<div class="col-sm-6  mb1" id="divInputBoxnumber"><input type="text" id="frm_boxnumber" name="frm[boxnumber]" class="form-control" /></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1" id="divLblContainernumber"><label class="control-label" for="frm_containernumber" id="lbl_containernumber">{{ translations[23] }}</label></div>
+			<div class="col-sm-6  mb1" id="divInputContainernumber"><input type="text" id="frm_containernumber" name="frm[containernumber]" class="form-control" /></div>
+
+			<div class="col-sm-4 col-sm-offset-1 mb1" id="divLblProvider"><label class="control-label idp_saved" for="frm_provider" id="lbl_provider">{{ translations[24] }}</label></div>
+			<div class="col-sm-6  mb1" id="divSelectProvider"><select id="frm_provider" name="frm[provider]" class="form-control"></select></div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="col-sm-12 mb1"><center><strong>{{ translations[25] }}<span class="text-danger">*</span></strong></center></div>
+			<div class="col-sm-12 mb1" id="form_name" >
+				<textarea id="frm_name" name="frm[name]" rows="18" class="form-control"></textarea>
+			</div>
+
+			<div class="col-sm-12">&nbsp;</div>
+			<div class="col-sm-12 mb1" id="divBlockLimits"><center><strong>{{ translations[26] }}</strong></center></div>
+			<div class="col-sm-12" id="div2Limits">
+				<div class="col-sm-3 mb1" id="divLblLimitsdatemin"><label class="control-label" for="frm_limitdatemin" id="lbl_limitsdatemin">{{ translations[27] }}</label></div>
+				<div class="col-sm-4 mb1" id="divInputLimitsdatemin"><input type="text" id="frm_limitdatemin" name="frm[limitdatemin]" class="form-control"  /></div>
+				<div class="col-sm-1 mb1" id="divLblLimitsdatemax"><label class="control-label" for="frm_limitdatemax" id="lbl_limitsdatemax">{{ translations[28] }}</label></div>
+				<div class="col-sm-4 mb1" id="divInputLimitsdatemax"><input type="text" id="frm_limitdatemax" name="frm[limitdatemax]" class="form-control" /></div>
+
+				<div class="col-sm-3 mb1" id="divLblLimitsnummin"><label class="control-label" for="frm_limitnummin" id="lbl_limitsnummin">{{ translations[29] }}</label></div>
+				<div class="col-sm-4 mb1" id="divInputLimitsnummin"><input type="number" id="frm_limitnummin" name="frm[limitnummin]" class="form-control" /></div>
+				<div class="col-sm-1 mb1" id="divLblLimitsnummax"><label class="control-label" for="frm_limitnummax" id="lbl_limitsnummax">{{ translations[30] }}</label></div>
+				<div class="col-sm-4 mb1" id="divInputLimitsnummax"><input type="number" id="frm_limitnummax" name="frm[limitnummax]" class="form-control" /></div>
+
+				<div class="col-sm-3 mb1" id="divLblLimitsalphamin"><label class="control-label" for="frm_limitalphamin" id="lbl_limitsalphamin">{{ translations[31] }}</label></div>
+				<div class="col-sm-4 mb1" id="divInputLimitsalphamin"><input type="text" id="frm_limitalphamin" name="frm[limitalphamin]" maxlength="255" class="form-control" /></div>
+				<div class="col-sm-1 mb1" id="divLblLimitsalphamax"><label class="control-label" for="frm_limitalphamax" id="lbl_limitsalphamax">{{ translations[32] }}</label></div>
+				<div class="col-sm-4 mb1" id="divInputLimitsalphamax"><input type="text" id="frm_limitalphamax" name="frm[limitalphamax]" maxlength="255" class="form-control" /></div>
+
+				<div class="col-sm-3 mb1" id="divLblLimitsalphanummin"><label class="control-label" for="frm_limitalphanummin" id="lbl_limitsalphanummin">{{ translations[33] }}</label></div>
+				<div class="col-sm-4 mb1" id="divInputLimitsalphanummin"><input type="text" id="frm_limitalphanummin" name="frm[limitalphanummin]" maxlength="255" class="form-control" /></div>
+				<div class="col-sm-1 mb1" id="divLblLimitsalphanummax"><label class="control-label" for="frm_limitalphanummax" id="lbl_limitsalphanummax">{{ translations[34] }}</label></div>
+				<div class="col-sm-4 mb1" id="divInputLimitsalphanummax"><input type="text" id="frm_limitalphanummax" name="frm[limitalphanummax]" maxlength="255" class="form-control" /></div>
+			</div>
+		</div>
+	</div>
+
+	</form>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var JSON_URLS = {
+    	bs_idp_archive_form_initlists: "{{ path('bs_idp_archive_form_initlists')}}",
+        bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+        bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+    };
+var IDP_CONST = {
+	bs_idp_archive_id: '{{ uaid }}',
+	bs_idp_archive: '{{ua|json_encode|raw}}',
+	bs_idp_settings: '{{settings|json_encode|escape('js')|raw}}',
+	bs_translation_39: "{{ translations[39] }}"
+};
+	</script>
+	{% javascripts '@bsIDPArchiveBundle/Resources/public/js/IDPArchiveView.1.1.6.0.js' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}

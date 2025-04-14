@@ -1,0 +1,31 @@
+	<div id="btnaction" class="btn-group btn-group-justified mb5" role="group">
+		<div class="btn-group {% if menuaction == 1 %}active{% endif %}" role="group"><button type="button" class="btn btn-info btn-xs" id="btn_input">{{ partialmenuTranslations[1] }}</button></div>
+		<div class="btn-group {% if menuaction == 2 %}active{% endif %}" role="group"><button type="button" class="btn btn-info btn-xs" id="btn_users">{{ partialmenuTranslations[2] }}</button></div>
+		<div class="btn-group {% if menuaction == 3 %}active{% endif %}" role="group"><button type="button" class="btn btn-info btn-xs" id="btn_provider">{{ partialmenuTranslations[3] }}</button></div>
+		<div class="btn-group {% if menuaction == 4 %}active{% endif %}" role="group"><button type="button" class="btn btn-info btn-xs" id="btn_visibility">{{ partialmenuTranslations[4] }}</button></div>
+		<div class="btn-group {% if menuaction == 5 %}active{% endif %}" role="group"><button type="button" class="btn btn-info btn-xs" id="btn_settings">Paramètres</button></div>
+	</div>
+
+	{% if menuaction == 1 %}
+	<div id="btnsubactioninput" class="btn-group btn-group-justified mb5" role="group">
+		<div class="btn-group {% if submenuaction == 1 %}active{% endif %}" role="group"><button type="button" class="btn btn-success btn-xs" id="btn_input_service">{{ partialmenuTranslations[5] }}</button></div>
+		<div class="btn-group {% if submenuaction == 2 %}active{% endif %}" role="group"><button type="button" class="btn btn-success btn-xs" id="btn_input_legalentity">{{ partialmenuTranslations[6] }}</button></div>
+		<div class="btn-group {% if submenuaction == 3 %}active{% endif %}" role="group"><button type="button" class="btn btn-success btn-xs" id="btn_input_budgetcode">{{ partialmenuTranslations[7] }}</button></div>
+		<div class="btn-group {% if submenuaction == 4 %}active{% endif %}" role="group"><button type="button" class="btn btn-success btn-xs" id="btn_input_documentnature">{{ partialmenuTranslations[8] }}</button></div>
+		<div class="btn-group {% if submenuaction == 5 %}active{% endif %}" role="group"><button type="button" class="btn btn-success btn-xs" id="btn_input_documenttype">{{ partialmenuTranslations[9] }}</button></div>
+		<div class="btn-group {% if submenuaction == 6 %}active{% endif %}" role="group"><button type="button" class="btn btn-success btn-xs" id="btn_input_description1">{{ partialmenuTranslations[10] }}</button></div>
+		<div class="btn-group {% if submenuaction == 7 %}active{% endif %}" role="group"><button type="button" class="btn btn-success btn-xs" id="btn_input_description2">{{ partialmenuTranslations[11] }}</button></div>
+		<div class="btn-group {% if submenuaction == 8 %}active{% endif %}" role="group"><button type="button" class="btn btn-success btn-xs" id="btn_input_deliveraddress">{{ partialmenuTranslations[12] }}</button></div>
+		<div class="btn-group {% if submenuaction == 9 %}active{% endif %}" role="group"><button type="button" class="btn btn-success btn-xs" id="btn_input_localization">{{ partialmenuTranslations[14] }}</button></div>
+	</div>
+	{% endif %}
+
+    {% if menuaction == 5 %}
+        <div id="btnsubactionsettings" class="btn-group btn-group-justified mb5" role="group">
+            <div class="btn-group {% if submenuaction == 1 %}active{% endif %}" role="group"><button type="button" class="btn btn-warning btn-xs" id="btn_settings_password">Mots de passe</button></div>
+            <div class="btn-group" role="group"><button type="button" class="btn btn-default btn-xs" id="" disabled="disabled">Connexion</button></div>
+            <div class="btn-group" role="group"><button type="button" class="btn btn-default btn-xs" id="" disabled="disabled">&nbsp;</button></div>
+            <div class="btn-group" role="group"><button type="button" class="btn btn-default btn-xs" id="" disabled="disabled">&nbsp;</button></div>
+            <div class="btn-group" role="group"><button type="button" class="btn btn-default btn-xs" id="" disabled="disabled">&nbsp;</button></div>
+        </div>
+    {% endif %}

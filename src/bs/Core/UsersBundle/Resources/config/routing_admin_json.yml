@@ -1,0 +1,107 @@
+bs_core_admin_json_list_user:
+    path:     /list/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:list }
+    requirements:
+        _method: GET
+
+bs_core_admin_json_delete_user:
+    path:     /delete/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:delete }
+    requirements:
+        _method: GET
+
+bs_core_admin_get_roles_list:
+    path:     /getroleslist/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:getRolesList }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_get_rights_list:
+    path:     /getrightslist/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:getRightsList }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_get_userrights_list:
+    path:     /getuserrightslist/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:getUserRightsList }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_set_userright:
+    path:     /setuserright/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:setUserRight }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_unset_userright:
+    path:     /unsetuserright/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:unsetUserRight }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_toggle_changepass:
+    path:    /togglechangepass/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:toggleChangePass }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_unlock_user:
+    path:    /unlockuser/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:unlockUser }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_list_role:
+    path:     /roles/list/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:rolesList }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_delete_role:
+    path:     /roles/delete/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:rolesDelete }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_get_rolerights_list:
+    path:     /getrolerightslist/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:getRoleRightsList }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_set_roleright:
+    path:     /setroleright/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:setRoleRight }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_unset_roleright:
+    path:     /unsetroleright/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:unsetRoleRight }
+    requirements:
+        _method: POST
+
+bs_core_admin_json_updatefield_user:
+    path:     /updatefield
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:updatefield }
+    requirements:
+        _method: GET
+
+bs_core_admin_json_generate_initials:
+    path:     /generate/initials/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:generateinitials }
+    requirements:
+        _method: GET
+
+bs_core_admin_json_verify_initials:
+    path:     /verify/initials/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:verifyinitials }
+    requirements:
+        _method: GET
+
+bs_core_admin_json_verify_login_unicity:
+    path:     /verify/loginunicity/
+    defaults: { _controller: bsCoreUsersBundle:AdminJson:verifyloginunicity }
+    requirements:
+        _method: GET

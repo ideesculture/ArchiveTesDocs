@@ -1,0 +1,105 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+ - {{ translations[3] }}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('/css/bootstrap-table.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('/css/bsTable.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('/css/dragable.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('/css/datepicker.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block overlay %}
+	<!-- Add template of popup form asking for precisions of action -->
+    {% include "bsIDPArchiveBundle:Default:partial.precisions.html.twig" %}
+
+    {% include "bsIDPArchiveBundle:Default:partial.overlay.viewArchive.html.twig" %}
+{% endblock %}
+
+{% block content %}
+    {% set btnresults = 4 %}
+	<div class="row" id="bgWhite">
+        {% include "bsIDPArchiveBundle:Default:partial.tabMenu.html.twig" %}
+
+		<div class="tab-content">
+			{% include "bsIDPArchiveBundle:Default:partial.tabsearch.html.twig" %}
+
+			{% include "bsIDPArchiveBundle:Default:partial.tabfilter.html.twig" %}
+
+			{% include "bsIDPArchiveBundle:Default:partial.tabresults.html.twig" %}
+		</div>
+	</div> <!-- end of row -->
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+		var JSON_URLS = {
+			bs_idp_archive_form_initlists: "{{ path('bs_idp_archive_form_initlists')}}",
+			bs_idp_archive_search_ajax: "{{ path('bs_idp_archive_search_ajax')}}",
+			bs_idp_archive_view: '{{ path( "bs_idp_archive_view")}}',
+			bs_idp_archive_export: '{{ path( "bs_idp_archive_export")}}',
+            bs_idp_archive_export_offline: '{{ path("bs_idp_archive_export_offline") }}',
+            bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+			bs_idp_backoffice_ajax_settings: '{{  path("bs_idp_backoffice_ajax_settings") }}',
+			bs_idp_backoffice_ajax_usersettings_get: '{{ path("bs_idp_backoffice_ajax_usersettings_get") }}',
+			bs_idp_backoffice_usersettings_modify_page: '{{ path("bs_idp_backoffice_usersettings_modify_page") }}',
+			bs_idp_backoffice_usersettings_modify_column: '{{ path("bs_idp_backoffice_usersettings_modify_column") }}',
+			bs_idp_backoffice_usersettings_modify_column_order: '{{ path("bs_idp_backoffice_usersettings_modify_column_order") }}',
+            bs_idp_archive_print_table: '{{ path("bs_idp_archive_print_table") }}',
+            bs_idp_archive_print_table_offline: '{{ path("bs_idp_archive_print_table_offline") }}',
+			bs_idp_archive_print_sheet: '{{ path("bs_idp_archive_print_sheet") }}',
+            bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}'
+
+        };
+		var IDP_CONST = {
+			bs_idp_current_page: 5,
+			bs_idp_archive_action_search_showDY: true,
+			bs_idp_default_filter: 'filterAvailable',
+			bs_idp_menu_activated: 4,
+
+			bs_idp_commonsettings: '{{commonsettings|json_encode|escape('js')|raw}}',
+			bs_searchtranslations: '{{searchTranslations|json_encode|escape('js')|raw}}',
+			bs_filtertranslations: '{{filterTranslations|json_encode|escape('js')|raw}}',
+			bs_resulttranslations: '{{resultTranslations|json_encode|escape('js')|raw}}',
+			bs_tabletranslation: '{{ tableTranslations|json_encode|escape('js')|raw }}',
+			bs_translations: '{{translations|json_encode|escape('js')|raw}}',
+			bs_overlay: '{{ overlay|json_encode|escape('js')|raw }}',
+
+            bs_precisionTranslations: '{{precisionTranslations|json_encode|escape('js')|raw}}'
+		};
+	</script>
+
+	<script src="{{ asset('/js/bootstrap-table.1.15.2.js') }}"></script>
+	{% if language == 0  %}
+		<script src="{{ asset('/js/bootstrap-table-fr-FR.js') }}"></script>
+	{% endif %}
+	<script src="{{ asset('/js/jquery.dragable.js') }}"></script>
+	<script src="{{ asset('/js/bootstrap-table-reorder-columns.1.15.2.js') }}"></script>
+	<script src="{{ asset('/js/bootstrap-datepicker.js') }}"></script>
+	{% javascripts
+		'@bsIDPArchiveBundle/Resources/public/js/IDPConstants.1.1.6.0.js'
+		'@bsIDPArchiveBundle/Resources/public/js/systemPostGetDef.0.9.10.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPPrint.1.4.5.0.js'
+        '@bsIDPArchiveBundle/Resources/public/js/bsTable/bsTablePagination.0.1.9.js'
+		'@bsIDPBackofficeBundle/Resources/public/js/IDPUserSettingsManagement.1.2.0.0.js'
+		'@bsIDPArchiveBundle/Resources/public/js/partialUpdateLists.0.6.0.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPArchiveSearch.1.2.0.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPArchiveFilter.1.1.6.1.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPManageView.1.1.8.0.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPArchiveOverlayView.1.4.5.0.js'
+        '@bsIDPArchiveBundle/Resources/public/js/IDPPartialCheckTab.1.4.5.0.js'
+        '@bsIDPArchiveBundle/Resources/public/js/IDPArchiveSelectionMng.1.1.8.0.js'
+        '@bsIDPArchiveBundle/Resources/public/js/IDPArchivePrecisionsForm.1.1.6.0.js'
+        '@bsIDPArchiveBundle/Resources/public/js/IDPArchiveBasketMng.1.2.2.0.js'
+        '@bsIDPArchiveBundle/Resources/public/js/IDPArchivePrint.1.1.6.0.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPExport.1.4.5.0.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPArchiveExport.1.1.6.0.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPManageAskDelete.1.1.6.4.js'
+	 %}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}

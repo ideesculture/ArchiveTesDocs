@@ -1,0 +1,62 @@
+{% extends '::mini.html.twig' %}
+
+{% block meta %}
+    {%  if not error_wait_time == -1 %}
+        <meta http-equiv="refresh" content="{{ error_wait_time }}; URL={{ path(error_redirect) }}">
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    - Accès interdit - Droits insuffisants
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+    {% if error_type == 99 %}
+        <div class="jumbotron">
+            <h1 class="display-3">{{ error_title }}</h1>
+            <p class="lead">{{ error_message }}</p>
+            <hr class="my-4">
+        {%  if not error_wait_time == -1 %}
+            <p>Vous allez être redirigé dans {{ error_wait_time }} secondes, si cela ne fonctionne pas, veuillez cliquer sur le bouton ci-dessous.</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{ path(error_redirect) }}" role="button">Continuer</a>
+            </p>
+        {% endif %}
+        </div>
+    {% elseif error_type == 2 %}
+        <div class="jumbotron">
+            <h1 class="display-3">Accès momentanément indisponible !</h1>
+            <p class="lead">Nous sommes désolés, une opération de rapprochement des stocks est en cours, l'accès à cette fonctionnalité est momentanément indisponible !</p>
+            <hr class="my-4">
+        {%  if not error_wait_time == -1 %}
+            <p>Vous allez être redirigé vers l'accueil dans {{ error_wait_time }} secondes, si cela ne fonctionne pas, veuillez cliquer sur le bouton ci-dessous.</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{ path(error_redirect) }}" role="button">Revenir à l'accueil</a>
+            </p>
+        {% endif %}
+        </div>
+    {% else %}
+        <div class="jumbotron">
+            <h1 class="display-3">Accès interdit !</h1>
+            <p class="lead">Nous sommes désolés, vous n'avez pas les droits d'accès suffisants pour pouvoir accéder à cette page !</p>
+            <hr class="my-4">
+        {%  if not error_wait_time == -1 %}
+            <p>Vous allez être redirigé vers votre page d'origine dans {{ error_wait_time }} secondes, si cela ne fonctionne pas, veuillez cliquer sur le bouton ci-dessous.</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{ path(error_redirect) }}" role="button">Revenir à ma page précédente</a>
+            </p>
+        {% endif %}
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+

@@ -1,0 +1,31 @@
+bs_idp_backoffice_ajax_usersettings_get:
+    path:     /get/
+    defaults: { _controller: bsIDPBackofficeBundle:UserSettingsJson:getUserSettings }
+    requirements:
+        _method: GET
+
+bs_idp_backoffice_usersettings_create_foruser:
+    path:     /createforuser/
+    defaults: { _controller: bsIDPBackofficeBundle:UserSettingsJson:createForUser }
+
+bs_idp_backoffice_usersettings_delete_foruser:
+    path:     /deleteforuser/
+    defaults: { _controller: bsIDPBackofficeBundle:UserSettingsJson:deleteForUser }
+
+bs_idp_backoffice_usersettings_modify_column:
+    path:     /modifycolumn/
+    defaults: { _controller: bsIDPBackofficeBundle:UserSettingsJson:modifyColumn }
+    requirements:
+        _method: GET
+
+bs_idp_backoffice_usersettings_modify_page:
+    path:     /modifypage/
+    defaults: { _controller: bsIDPBackofficeBundle:UserSettingsJson:modifyPage }
+    requirements:
+        _method: GET
+
+bs_idp_backoffice_usersettings_modify_column_order:
+    path:     /modifycolumnorder/
+    defaults: { _controller: bsIDPBackofficeBundle:UserSettingsJson:modifyColumnOrder }
+    requirements:
+        _method: GET

@@ -1,0 +1,42 @@
+
+bs_idp_archivist_json_budgetcodes_list:
+    path:     /list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBBudgetCodesJson:budgetcodeslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_budgetcodes_delete:
+    path:     /delete/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBBudgetCodesJson:budgetcodesdelete }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_budgetcodes_add:
+    path:     /add/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBBudgetCodesJson:budgetcodesadd }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_budgetcodes_modify:
+    path:     /modify/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBBudgetCodesJson:budgetcodesmodify }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_budgetcodes_links_list:
+    path:     /links/list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBBudgetCodesJson:budgetcodeslinkslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_budgetcodes_links_set:
+    path:     /links/set/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBBudgetCodesJson:budgetcodeslinksset }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_budgetcodes_links_unset:
+    path:     /links/unset/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBBudgetCodesJson:budgetcodeslinksunset }
+    requirements:
+        _method: GET

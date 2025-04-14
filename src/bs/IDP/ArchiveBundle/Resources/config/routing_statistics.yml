@@ -1,0 +1,17 @@
+bs_idp_statistics_mainview:
+    path:     /mainview/
+    defaults: { _controller: bsIDPArchiveBundle:Statistics:mainview }
+
+bs_idp_statistics_askdatas:
+    path:     /askdatas/
+    defaults: { _controller: bsIDPArchiveBundle:Statistics:askdatas }
+    requirements:
+        _method: GET
+
+bs_idp_statistics_detailledview:
+    path:     /detailledview/
+    defaults: { _controller: bsIDPArchiveBundle:Statistics:detailledview }
+
+bs_idp_statistics_generatevalues:
+    path:     /generate/
+    defaults: { _controller: bsIDPArchiveBundle:Statistics:generate }

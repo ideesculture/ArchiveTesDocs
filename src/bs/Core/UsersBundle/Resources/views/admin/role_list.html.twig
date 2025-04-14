@@ -1,0 +1,82 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+ - Administration - Rôles - Liste
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('/css/bootstrap-table.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+	<ol class="breadcrumb">
+		<li><a href="#">Administration</a></li>
+		<li><a href="{{ path('bs_core_roles_admin_list') }}">Rôles</a></li>
+		<li class="active">Liste</li>
+	</ol>
+
+	<div class="modal fade" id="SuppressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Demande de Confirmation</h4>
+				</div>
+				<div class="modal-body" id="SuppressModalText">
+					Confirmez vous la suppression du rôle #NOM
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Abandonner</button>
+					<button type="button" class="btn btn-primary" id="btnSuppressModalConfirm">Confirmer la suppression</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<table data-toggle="table"
+		data-url="{{ path('bs_core_admin_json_list_role') }}"
+		data-pagination="true"
+		data-side-pagination="server"
+		data-method = "POST"
+		data-page-list="[5,10,20,50,100]"
+		id = "RolesListTable">
+		<thead>
+			<tr>
+				<th data-field="id" data-visible="false"></th>
+				<th data-field="name" data-sortable="true">Nom</th>
+				<th data-field="description" data-sortable="true">Description</th>
+				<th data-field="scale" data-sortable="true">Echelle</th>
+				<th data-field="action" data-formatter="actionFormatter" data-events="actionEvents">Actions</th>
+			</tr>
+		</thead>
+	</table>
+
+	<div class="panel panel-default">
+		<div class="panel-heading"><a href="{{ path('bs_core_roles_admin_add') }}">Créer un nouveau rôle</a></div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var JSON_URLS = {
+    	bs_core_admin_json_delete_role: '{{ path('bs_core_admin_json_delete_role')}}',
+		bs_core_roles_admin_modify: '{{ path('bs_core_roles_admin_modify')}}',
+		bs_core_roles_admin_finetune: '{{ path('bs_core_roles_admin_finetune')}}',
+        bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+        bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+    };
+	</script>
+	<script src="{{ asset('/js/bootstrap-table.1.15.2.js') }}"></script>
+	<script src="{{ asset('/js/bootstrap-table-fr-FR.js') }}"></script>
+	{% javascripts '@bsCoreUsersBundle/Resources/public/js/bsCoreAdminRolesList.0.9.10.js' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}

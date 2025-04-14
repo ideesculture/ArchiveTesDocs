@@ -1,0 +1,77 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+ - {{ translations[1] }}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('/css/bootstrap-table.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+    {% set menuaction = 2 %}
+    {% include "bsIDPArchiveBundle:Archivist:partial.menumanagedb.html.twig" %}
+
+	<ol class="breadcrumb">
+		<li><a href="{{ path('bs_idp_archivist_managedb_input_services')}}">{{ partialmenuTranslations[13] }}</a></li>
+		<li><a href="{{ path('bs_core_users_admin_list') }}">{{ translations[2] }}</a></li>
+		<li class="active">{{ translations[3] }}</li>
+	</ol>
+
+	<div class="overlay" id="waitAjax"><br/><br/><br/><center>
+		{{ translations[4] }}
+	</center></div>
+
+	<div class="panel panel-default" id="panelModifyRightsUser">
+		<div class="panel-heading">{{ translations[5] }}</div>
+			<div class="panel-body">
+			   	<table data-toggle="table"
+					data-pagination="false"
+					data-url="{{ path('bs_core_admin_json_get_rights_list') }}"
+					data-method="POST"
+					id = "RightsListTable">
+				<thead>
+					<tr>
+						<th data-field="state" data-checkbox="true"></th>
+						<th data-field="id" data-visible="false"></th>
+						<th data-field="description" data-sortable="true">{{ translations[6] }}</th>
+					</tr>
+				</thead>
+			   	</table>
+		   	</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var IDP_DATA = {
+		idp_user_id: "{{ user.id }}"
+	};
+	var JSON_URLS = {
+		bs_core_admin_json_get_userrights_list: "{{ path('bs_core_admin_json_get_userrights_list')}}",
+		bs_core_admin_json_set_userright: "{{ path('bs_core_admin_json_set_userright')}}",
+		bs_core_admin_json_unset_userright: "{{ path('bs_core_admin_json_unset_userright')}}",
+        bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+        bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+	};
+var IDP_CONST = {
+	bs_translations: '{{translations|json_encode|escape('js')|raw}}'
+};
+	</script>
+
+	{% include "bsIDPArchiveBundle:Archivist:partial.javascriptconstant.html.twig" %}
+
+	<script src="{{ asset('/js/bootstrap-table.1.15.2.js') }}"></script>
+	{% if language == 0 %}
+		<script src="{{ asset('/js/bootstrap-table-fr-FR.js') }}"></script>
+	{% endif %}
+	{% javascripts '@bsCoreUsersBundle/Resources/public/js/bsCoreAdminUsersFinetune.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPMenuManageDB.0.9.10.js' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}

@@ -1,0 +1,23 @@
+bs_core_translation:
+    resource: "@bsCoreTranslationBundle/Resources/config/routing.yml"
+    prefix:   /translation/
+
+bs_core_users:
+    resource: "@bsCoreUsersBundle/Resources/config/routing.yml"
+    prefix:   /user/
+
+bs_idp_backoffice:
+    resource: "@bsIDPBackofficeBundle/Resources/config/routing.yml"
+    prefix:   /backoffice/
+
+bs_idp_archive:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing.yml"
+    prefix:   /archive/
+
+_main:
+    resource: "@bsIDPDashboardBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

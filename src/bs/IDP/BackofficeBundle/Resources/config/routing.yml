@@ -1,0 +1,55 @@
+bs_idp_backoffice_usersettings:
+    resource: "@bsIDPBackofficeBundle/Resources/config/routing_usersettings.yml"
+    prefix:    /usersettings/
+
+bs_idp_backoffice_get_services_list:
+    path:     /json/getserviceslist/
+    defaults: { _controller: bsIDPBackofficeBundle:Json:getServicesList }
+    requirements:
+        _method: POST
+
+bs_idp_backoffice_get_localizations_list:
+    path:     /json/getlocalizationslist/
+    defaults: { _controller: bsIDPBackofficeBundle:Json:getLocalizationsList }
+    requirements:
+        _method: POST
+
+bs_idp_backoffice_get_addresses_list:
+    path:     /json/getaddresseslist/
+    defaults: { _controller: bsIDPBackofficeBundle:Json:getAddressesList }
+    requirements:
+        _method: POST
+
+bs_idp_backoffice_manage_visibility:
+    path:     /settings/manage/visibility/
+    defaults: { _controller: bsIDPBackofficeBundle:Settings:manageVisibility }
+
+bs_idp_backoffice_set_settings:
+    path:     /settings/set/
+    defaults: { _controller: bsIDPBackofficeBundle:Settings:set }
+    requirements:
+        _method: GET
+
+bs_idp_backoffice_ajax_settings:
+    path:     /settings/get/
+    defaults: { _controller: bsIDPBackofficeBundle:Json:getSettings }
+    requirements:
+        _method: GET
+
+bs_idp_backoffice_basket_settings:
+    path:     /settings/baskets/get/
+    defaults: { _controller: bsIDPBackofficeBundle:Json:getBasketsSettings }
+    requirements:
+        _method: GET
+
+bs_idp_backoffice_manage_globalsettings_passwords:
+    path:     /settings/manage/globalsettings/passwords
+    defaults: { _controller: bsIDPBackofficeBundle:Settings:manageGlobalSettingsPasswords }
+
+bs_idp_backoffice_update_globalsettings_passwords:
+    path:     /json/settings/update/globalsettings/passwords
+    defaults: { _controller: bsIDPBackofficeBundle:Settings:updateGlobalSettingsPasswords }
+    requirements:
+        _method: GET
+
+

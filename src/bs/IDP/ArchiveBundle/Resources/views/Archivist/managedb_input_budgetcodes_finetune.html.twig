@@ -1,0 +1,112 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('/css/bootstrap-table.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block overlay %}
+{% endblock %}
+
+{% block content %}
+
+    {% set menuaction = 1 %}
+	{% set submenuaction = 3 %}
+    {% include "bsIDPArchiveBundle:Archivist:partial.menumanagedb.html.twig" %}
+
+	<ol class="breadcrumb">
+		<li><a href="{{ path('bs_idp_archivist_managedb_input_services')}}">{{ partialmenuTranslations[13] }}</a></li>
+		<li><a href="{{ path('bs_idp_archivist_managedb_input_services')}}">{{ partialmenuTranslations[1] }}</a></li>
+		<li><a href="{{ path('bs_idp_archivist_managedb_input_budgetcodes', { 'offset': pageOffset, 'sortASC': sortASC })}}">{{ partialmenuTranslations[7] }}</a></li>
+		<li class="active">{{ translations[2] }}</li>
+	</ol>
+
+	<div id="prevNext" class="col-xs-12 mb5">
+		<div id="prev" class="col-xs-4 text-left">
+            {% if pagePrevNext.previous.id != null %}
+				<a href="{{ path('bs_idp_archivist_managedb_input_budgetcodes_finetune',
+                    {'budgetCodeId': pagePrevNext.previous.id,
+                        'pageOffset': pageOffset - 1,
+                        'sortASC': sortASC }) }}">
+					<i class="fal fa-arrow-alt-left"></i> {{ pagePrevNext.previous.longname }}</a>
+            {% else %}
+				&nbsp;
+            {% endif %}
+		</div>
+		<div id="current" class="col-xs-4 text-center">
+			<p><strong>{{ pagePrevNext.current.longname }}</strong></p>
+		</div>
+		<div id="next" class="col-xs-4 text-right">
+            {% if pagePrevNext.next.id != null %}
+				<a href="{{ path('bs_idp_archivist_managedb_input_budgetcodes_finetune',
+                    {'budgetCodeId': pagePrevNext.next.id,
+                        'pageOffset': pageOffset + 1,
+                        'sortASC': sortASC }) }}">
+                    {{ pagePrevNext.next.longname }} <i class="fal fa-arrow-alt-right"></i></a>
+            {% else %}
+				&nbsp;
+            {% endif %}
+		</div>
+	</div>
+
+	<div class="clearfix">&nbsp;</div>
+
+	<div class="overlay" id="waitAjax"><br/><br/><br/><center>
+		{{ translations[1] }}
+	</center></div>
+
+	<div class="panel panel-default" id="panelFinetune">
+		<div class="panel-heading">{{ translations[2] }}</div>
+			<div class="panel-body">
+			   	<table data-toggle="table"
+					data-pagination="false"
+					data-url="{{ path('bs_idp_archivist_json_services_list') }}"
+					data-method="GET"
+					id = "LinksListTable">
+				<thead>
+					<tr>
+						<th data-field="state" data-checkbox="true"></th>
+						<th data-field="id" data-visible="false"></th>
+						<th data-field="longname" data-sortable="true">{{ translations[3] }}</th>
+					</tr>
+				</thead>
+			   	</table>
+		   	</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var IDP_DATA = {
+    	idp_budgetcode_id: "{{ budgetCode.id }}"
+    };
+var ARCHIVIST_JSON_URLS = {
+	bs_idp_archivist_json_budgetcodes_links_list: "{{ path('bs_idp_archivist_json_budgetcodes_links_list')}}",
+	bs_idp_archivist_json_budgetcodes_links_set: "{{ path('bs_idp_archivist_json_budgetcodes_links_set')}}",
+	bs_idp_archivist_json_budgetcodes_links_unset: "{{ path('bs_idp_archivist_json_budgetcodes_links_unset')}}"
+};
+var JSON_URLS = {
+    bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+    bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+};
+var IDP_CONST = {
+	bs_translations: '{{translations|json_encode|escape('js')|raw}}'
+};
+
+	</script>
+
+	{% include "bsIDPArchiveBundle:Archivist:partial.javascriptconstant.html.twig" %}
+
+	<script src="{{ asset('/js/bootstrap-table.1.15.2.js') }}"></script>
+	{% if language == 0 %}
+		<script src="{{ asset('/js/bootstrap-table-fr-FR.js') }}"></script>
+	{% endif %}
+	{% javascripts
+		'@bsIDPArchiveBundle/Resources/public/js/IDPMenuManageDB.0.9.10.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPManageDBBudgetCodesFinetune.js' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}

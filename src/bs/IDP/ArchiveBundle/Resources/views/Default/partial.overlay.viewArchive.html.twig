@@ -1,0 +1,155 @@
+	<div class="overlay" id="viewArchive"><br/><br/>
+		<div class="panel panel-default col-sm-10 col-sm-offset-1">
+
+			<div class="panel-body">
+
+				<form method="post" action="#" class="form-horizontal">
+
+			    <!-- Main form inputs -->
+				<div class="row" id="divLine0" >
+
+                    <!-- line 0 -->
+                    <div class="col-sm-6 mb5">
+                        <div class="col-sm-4 mb5" id="divViewLblOldLocalization"><label class="control-label" for="frm_oldlocalization">{{ overlay[36] }}<span class="text-danger">*</span></label></div>
+                        <div class="col-sm-6 mb5" id="divViewSelectOldLocalization"><select id="frm_oldlocalization" name="frm[oldlocalization]" class="form-control"></select></div>
+                        <div class="col-sm-4 mb5" id="divViewLblOldLocalizationfree"><label class="control-label" for="frm_oldlocalizationfree">{{ overlay[36] }}<span class="text-danger">*</span></label></div>
+                        <div class="col-sm-6 mb5" id="divViewInputOldLocalizationfree"><input type="string" id="frm_oldlocalizationfree" name="frm[oldlocalizationfree]" class="form-control" value="" /></div>
+                    </div>
+                    <div class="col-sm-6 mb5">&nbsp;</div>
+                </div>
+
+                <div class="row">
+					<!-- line 1 -->
+                    <div class="col-sm-6 mb5">
+                        <div class="col-sm-4 mb5" id="divViewLblLocalization"><label class="control-label" for="frm_localization">{{ overlay[35] }}<span class="text-danger">*</span></label></div>
+                        <div class="col-sm-6 mb5" id="divViewSelectLocalization"><select id="frm_localization" name="frm[localization]" class="form-control"></select></div>
+                        <div class="col-sm-4 mb5" id="divViewLblLocalizationfree"><label class="control-label" for="frm_localizationfree">{{ overlay[35] }}<span class="text-danger">*</span></label></div>
+                        <div class="col-sm-6 mb5" id="divViewInputLocalizationfree"><input type="string" id="frm_localizationfree" name="frm[localizationfree]" class="form-control" value="" /></div>
+                        <div id="divViewNothingLine1">&nbsp;</div>
+                    </div>
+					<div class="col-sm-6 mb20">
+						<div class="col-sm-6" id="divViewLblOrdernumber"><label class="control-label" for="frm_ordernumber">{{ overlay[1] }}<span class="text-danger">*</span></label></div>
+						<div class="col-sm-6 " id="form_ordernumber" data-toglle="popover" data-trigger="focus" data-content="Vous devez saisir une numéro d'ordre !">
+					   		<input type="text" id="frm_ordernumber" name="frm[ordernumber]" maxlength="9" class="form-control" value="" />
+					   		<input type="hidden" id="frm_id" name="frm[id]" value=""/>
+					   	</div>
+					</div>
+                </div>
+                <div class ="row">
+					<!-- line 2 /!\ complex -->
+					<div class="col-sm-6">
+						<div class="col-sm-12 mb1" id="divBlockProperty"><strong>{{ overlay[2] }}</strong></div>
+						<div class="col-sm-10"><hr id="hrNew"></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblService"><label class="control-label" for="frm_service">{{ overlay[3] }}<span class="text-danger">*</span></label></div>
+						<div class="col-sm-6 mb5" id="divViewSelectService"><select id="frm_service" name="frm[service]" class="form-control"></select></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblLegalentity"><label class="control-label" for="frm_legalentity">{{ overlay[4] }}<span class="text-danger">*</span></label></div>
+						<div class="col-sm-6 mb5" id="divViewSelectLegalentity"><select id="frm_legalentity" name="frm[legalentity]" class="form-control"></select></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblBudgetcode"><label class="control-label" for="frm_budgetcode" id="lbl_budgetcode">{{ overlay[5] }}</label></div>
+						<div class="col-sm-6 mb5" id="divViewSelectBudgetcode"><select id="frm_budgetcode" name="frm[budgetcode]" class="form-control"></select></div>
+
+						<div class="col-sm-12">&nbsp;</div>
+						<div class="col-sm-12 mb1" id="divViewBlockInformations"><strong>{{ overlay[6] }}</strong></div>
+						<div class="col-sm-10"><hr id="hrNew"></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblDocumentnature"><label class="control-label" for="frm_documentnature" id="lbl_documentnature">{{ overlay[7] }}</label></div>
+						<div class="col-sm-6 mb5" id="divViewSelectDocumentnature"><select id="frm_documentnature" name="frm[documentnature]" class="form-control"></select></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblDocumenttype"><label class="control-label" for="frm_documenttype" id="lbl_documenttype">{{ overlay[8] }}</label></div>
+						<div class="col-sm-6 mb5" id="divViewSelectDocumenttype"><select id="frm_documenttype" name="frm[documenttype]" class="form-control"></select></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblDescription1"><label class="control-label" for="frm_description1" id="lbl_description1">{{ overlay[9] }}</label></div>
+						<div class="col-sm-6 mb5" id="divViewSelectDescription1"><select id="frm_description1" name="frm[description1]" class="form-control"></select></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblDescription2"><label class="control-label" for="frm_description2" id="lbl_description2">{{ overlay[10] }}</label></div>
+						<div class="col-sm-6 mb5" id="divViewSelectDescription2"><select id="frm_description2" name="frm[description2]" class="form-control"></select></div>
+
+						<div class="col-sm-12">&nbsp;</div>
+						<div class="col-sm-12 mb1" id="divBlockDuration"><strong>{{ overlay[11] }}</strong></div>
+						<div class="col-sm-10"><hr id="hrNew"></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblClosureyear"><label class="control-label" for="frm_closureyear" id="lblClosureyear">{{ overlay[12] }}<span class="text-danger">*</span></label></div>
+						<div class="col-sm-4 mb5" id="divViewInputClosureyear"><input type="number" id="frm_closureyear" name="frm[closureyear]" class="form-control" value="" /></div>
+						<div class="col-sm-2 mb5" id="divViewCheckUnlimited"><label><input type="checkbox" id="frm_unlimited" name="frm[unlimited]" /> Illimitée</label></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblDestructionyear"><label class="control-label" for="frm_destructionyear" id="lblDestructionyear">{{ overlay[13] }}<span class="text-danger">*</span></label></div>
+						<div class="col-sm-4 mb5" id="divViewInputDestructionyear"><input type="number" id="frm_destructionyear" name="frm[destructionyear]" class="form-control" value="" /></div>
+						<div class="col-sm-2 mb5" id="divViewButtonCommentsUnlimited"><div id="btn_commentsunlimited" class="form-control btn btn-default">?</div></div>
+
+						<div class="col-sm-12">&nbsp;</div>
+						<div class="col-sm-12 mb5" id="divViewBlockProviderdatas"><strong>{{ overlay[14] }}</strong></div>
+						<div class="col-sm-10"><hr id="hrNew"></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblFilenumber"><label class="control-label" for="frm_documentnumber" id="lbl_filenumber">{{ overlay[15] }}</label></div>
+						<div class="col-sm-6 mb5" id="divViewInputFilenumber"><input type="text" id="frm_documentnumber" name="frm[documentnumber]" class="form-control" /></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblBoxnumber"><label class="control-label" for="frm_boxnumber" id="lbl_boxnumber">{{ overlay[16] }}</label></div>
+						<div class="col-sm-6 mb5" id="divViewInputBoxnumber"><input type="text" id="frm_boxnumber" name="frm[boxnumber]" class="form-control" /></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblContainernumber"><label class="control-label" for="frm_containernumber" id="lbl_containernumber">{{ overlay[17] }}</label></div>
+						<div class="col-sm-6 mb5" id="divViewInputContainernumber"><input type="text" id="frm_containernumber" name="frm[containernumber]" class="form-control" /></div>
+
+						<div class="col-sm-4 mb5" id="divViewLblProvider"><label class="control-label" for="frm_provider" id="lbl_provider">{{ overlay[18] }}</label></div>
+						<div class="col-sm-6 mb5" id="divViewSelectProvider"><select id="frm_provider" name="frm[provider]" class="form-control"></select></div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="col-sm-12 mb5" id="divBlockName"><center><strong>{{ overlay[19] }}<span class="text-danger">*</span></strong></center></div>
+						<div class="col-sm-12 mb5" id="form_name">
+							<textarea id="frm_name" name="frm[name]" rows="18" class="form-control"></textarea>
+						</div>
+
+						<div class="col-sm-12">&nbsp;</div>
+						<div class="col-sm-12 mb5" id="divViewBlockLimits"><strong>{{ overlay[20] }}</strong></div>
+						<div class="col-sm-12"><hr id="hrNew"></div>
+						<div class="col-sm-12" id="zoneLimitDate">
+							<div class="col-sm-3 mb5" id="divViewLblLimitsdatemin"><label class="control-label" for="frm_limitdatemin" id="lbl_limitsdatemin">{{ overlay[21] }}</label></div>
+							<div class="col-sm-4 mb5" id="divViewInputLimitsdatemin"><input type="text" id="frm_limitdatemin" name="frm[limitdatemin]" class="form-control" /></div>
+							<div class="col-sm-1 mb5" id="divViewLblLimitsdatemax"><label class="control-label" for="frm_limitdatemax" id="lbl_limitsdatemax">{{ overlay[22] }}</label></div>
+							<div class="col-sm-4 mb5" id="divViewInputLimitsdatemax"><input type="text" id="frm_limitdatemax" name="frm[limitdatemax]" class="form-control" /></div>
+						</div>
+
+						<div class="col-sm-12" id="zoneLimitNum">
+							<div class="col-sm-3 mb5" id="divViewLblLimitsnummin"><label class="control-label" for="frm_limitnummin" id="lbl_limitsnummin">{{ overlay[23] }}</label></div>
+							<div class="col-sm-4 mb5" id="divViewInputLimitsnummin"><input type="number" id="frm_limitnummin" name="frm[limitnummin]" class="form-control" /></div>
+							<div class="col-sm-1 mb5" id="divViewLblLimitsnummax"><label class="control-label" for="frm_limitnummax" id="lbl_limitsnummax">{{ overlay[24] }}</label></div>
+							<div class="col-sm-4 mb5" id="divViewInputLimitsnummax"><input type="number" id="frm_limitnummax" name="frm[limitnummax]" class="form-control" /></div>
+						</div>
+
+						<div class="col-sm-12" id="zoneLimitAlpha">
+							<div class="col-sm-3 mb5" id="divViewLblLimitsalphamin"><label class="control-label" for="frm_limitalphamin" id="lbl_limitsalphamin">{{ overlay[25] }}</label></div>
+							<div class="col-sm-4 mb5" id="divViewInputLimitsalphamin"><input type="text" id="frm_limitalphamin" name="frm[limitalphamin]" maxlength="255" class="form-control" /></div>
+							<div class="col-sm-1 mb5" id="divViewLblLimitsalphamax"><label class="control-label" for="frm_limitalphamax" id="lbl_limitsalphamax">{{ overlay[26] }}</label></div>
+							<div class="col-sm-4 mb5" id="divViewInputLimitsalphamax"><input type="text" id="frm_limitalphamax" name="frm[limitalphamax]" maxlength="255" class="form-control" /></div>
+						</div>
+
+						<div class="col-sm-12" id="zoneLimitAlphanum">
+							<div class="col-sm-3 mb5" id="divViewLblLimitsalphanummin"><label class="control-label" for="frm_limitalphanummin" id="lbl_limitsalphamin">{{ overlay[27] }}</label></div>
+							<div class="col-sm-4 mb5" id="divViewInputLimitsalphanummin"><input type="text" id="frm_limitalphanummin" name="frm[limitalphanummin]" maxlength="255" class="form-control" /></div>
+							<div class="col-sm-1 mb5" id="divViewLblLimitsalphanummax"><label class="control-label" for="frm_limitalphanummax" id="lbl_limitsalphamax">{{ overlay[28] }}</label></div>
+							<div class="col-sm-4 mb5" id="divViewInputLimitsalphanummax"><input type="text" id="frm_limitalphanummax" name="frm[limitalphanummax]" maxlength="255" class="form-control" /></div>
+						</div>
+					</div>
+                </div>
+                <div class="row">
+					<!-- Line 3 -->
+					<div class="col-sm-12">&nbsp;</div>
+					<div class="col-sm-12" id="zoneButtonViewArchive">
+						<div class="col-sm-2 btn btn-primary" id="divModif">{{ overlay[29] }}</div>
+						<div class="col-sm-2 btn btn-primary" id="divSubmitModif">{{ overlay[30] }}</div>
+						<div class="col-sm-2 btn btn-danger" id="divDelete">{{ overlay[31] }}</div>
+
+						<div class="col-sm-2 btn btn-default" id="divCancel">{{ overlay[32] }}</div>
+
+						<div class="col-sm-2 btn btn-default" id="divPrint">{{ overlay[33] }}</div>
+
+						<div class="col-sm-2 btn btn-default" id="divPrintTag">{{ overlay[34] }}</div>
+					</div>
+					<div class="col-sm-12">&nbsp;</div>
+				</div>
+			</div>
+		</div>
+	</div>
+

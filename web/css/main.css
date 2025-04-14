@@ -1,0 +1,2281 @@
+
+@font-face {
+	font-family: "Roboto";
+	src: url(../webfonts/Roboto-Regular.ttf) format('truetype');
+	font-weight: normal;
+}
+
+body {
+	background-color: #E9E9E9;
+	line-height: 1.15 !important;
+	font-size: 12px !important;
+	font-family: "Roboto", sans-serif !important;
+}
+
+a:focus,
+a:hover {
+	text-decoration: none;
+}
+
+.small-horizontal-divider {
+	height: 0px;
+	margin-bottom: 0px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.clicable:hover {
+	cursor: pointer;
+}
+
+.datepicker, .clsDatePicker {
+	z-index: 1051 !important;
+}
+
+.datepicker:hover, .clsDatePicker:hover {
+	cursor: pointer;
+}
+
+#modalErrorMessage {
+	z-index: 1041 !important;
+}
+
+
+.bsalert:hover {
+	cursor: pointer;
+}
+
+.ml10 {
+	margin-left: 10px;
+}
+.mb0 {
+	margin-bottom: 0px;
+}
+.mb1 {
+	margin-bottom: 1px;
+}
+.mb5 {
+	margin-bottom: 5px;
+}
+.mb10{
+	margin-bottom: 10px;
+}
+.mt15 {
+	margin-top: 15px;
+}
+.mt20 {
+	margin-top: 20px;
+}
+.mt35 {
+	margin-top: 35px;
+}
+.mr0 {
+	margin-right: 0px !important;
+}
+.ml0 {
+	margin-left: 0px !important;
+}
+.nopaddinglr {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.nopaddingl {
+	padding-left: 0 !important;
+}
+.nopaddingr {
+	padding-right: 0 !important;
+}
+.mbpb5 {
+	margin-bottom: 5px ;
+	padding-bottom: 5px;
+}
+.mb-special {
+	margin-bottom: 35px;
+}
+.mblogo {
+	margin-bottom: 25px;
+}
+.mbcustomlogo {
+	margin-bottom: 25px;
+}
+.mt5 {
+	margin-top: 5px;
+}
+.mt10 {
+	margin-top: 10px;
+}
+
+.mt65 {
+	margin-top: 65px;
+}
+
+.mb20 {
+	margin-bottom: 20px;
+}
+
+.h500 {
+	height: 500px;
+}
+
+label[for="frmmodify[name]"] {
+	margin-top: 4px;
+}
+
+#divStatisticsChart > div {
+	overflow: hidden;
+}
+
+.bootstrap-table > .fixed-table-container > .fixed-table-body > .fixed-table-border {
+    height: 0px !important;
+}
+
+.overlay {
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1040;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	padding: 0px;
+}
+
+.locked {
+	background-color: whitesmoke;
+}
+
+.btnlike:hover {
+	cursor: pointer !important;
+}
+.btnlikedisabled:hover {
+	cursor: no-drop !important;
+}
+
+label {
+	font-weight: normal !important;
+}
+
+.page-header-no-underline{
+	border-bottom: 0px !important;
+	margin-top: 12px !important;
+}
+
+#hrefLogout {
+	padding-top: 53.5px !important;
+	padding-bottom: 53.5px !important;
+	padding-right: 51px !important;
+}
+
+.big-caret{
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 6px;
+	vertical-align: middle;
+	border-top: 6px solid;
+	border-right: 6px solid transparent;
+	border-left: 6px solid transparent;
+}
+
+span.dropup span.caret{
+	margin-left: 6px !important;
+	border-top: 6px solid !important;
+	border-bottom: 0px solid !important;
+	border-right: 6px solid transparent !important;
+	border-left: 6px solid transparent !important;
+}
+
+span.dropdw span.caret {
+	margin-left: 6px !important;
+	border-top: 0px solid !important;
+	border-bottom: 6px solid !important;
+	border-right: 6px solid transparent !important;
+	border-left: 6px solid transparent !important;
+}
+
+a.dropdown-toggle {
+	background-color: #3282BE !important;
+}
+
+#listOperations {
+	margin-top: 0px !important;
+	font-size: 13px !important;
+}
+
+#transferToService, #transferToIntermediate, #transferToProvider, #deliver, #deliverPrepare {
+	padding: 1px !important;
+	background-color: #fff !important;
+}
+
+#delete-ua-choice, #consult-ua-choice, #return-ua-choice, #exit-ua-choice {
+	color: #3282BE;
+	background-color: #FFE699;
+	border-color: #3282BE;
+	border-radius: 0;
+}
+
+#panel-create-ua {
+	border-radius: 0;
+	border-color: #3282BE;
+	color: #3282BE;
+}
+
+#panel-create-ua > .panel-heading, #delete-ua-choice > .panel-heading, #consult-ua-choice > .panel-heading, #return-ua-choice > .panel-heading, #exit-ua-choice > .panel-heading {
+    height: 46px;
+	background-color: #FFE699;
+    border: 0;
+    border-radius: 0;
+}
+
+#panel-create-ua > .panel-heading > .panel-title, #delete-ua-choice > .panel-heading > .panel-title, #consult-ua-choice > .panel-heading > .panel-title, #return-ua-choice > .panel-heading > .panel-title, #exit-ua-choice > .panel-heading > .panel-title {
+    padding-top: 6px;
+}
+
+#bgWhite {
+	background-color: white !important;
+	margin-right: 36px !important;
+	margin-top: 10px !important;
+	padding: 15px;
+	border: 1px solid #3282BE;
+}
+
+#tabUnlimited {
+	background-color: white !important;
+	margin-right: 36px !important;
+	padding: 15px;
+	border: 1px solid #3282BE;
+}
+
+#tabValidateUserWants, #tabCloseUserWants {
+	background-color: white !important;
+	margin-right: 36px !important;
+	padding: 15px;
+	margin-top: 45px;
+	border: 1px solid #3282BE;
+}
+
+#tabManageProvider {
+	background-color: white !important;
+	margin-right: 36px !important;
+	padding: 15px;
+	margin-top: 37px;
+	border: 1px solid #3282BE;
+}
+
+#btnstates {
+	padding-right: 66px !important;
+	padding-left: 30px !important;
+	margin-top: 10px;
+}
+
+#btnwhere > .where_provider {
+	padding-left: 15px !important;
+	padding-right: 7px !important;
+}
+
+div#btnwhere.col-xs-4 {
+    padding-left: 30px !important;
+    padding-right: 0 !important;
+}
+
+div#list.col-md-9 > div.bootstrap-table > div.fixed-table-container {
+	border-radius: 0 !important;
+	border: 0 !important;
+}
+
+div.card-view. > input {
+	border-radius: 0 !important;
+}
+
+#form_precisionBtn {
+	border-radius: 0 !important;
+	border: 0 !important;
+	width: 49%;
+	height: 30px;
+	font-size: 13px !important;
+	margin-left: 0 !important;
+}
+
+/* Onglet Filtres et Recherche */
+
+#localizationColumnChoices > input, #statusColumnChoices > input, #internalColumnChoices > input, #documentColumnChoices > input {
+	margin-top: 7px !important;
+	margin-right: 10px !important;
+}
+
+input#filterStatusAll, input#filterWhereAll, input#filterWithAll, input#filterLocalizationAll {
+	margin-right: 10px !important;
+}
+
+#btnChangeFilter, #searchBtn {
+	height: 30px !important;
+	width: 300px !important;
+	font-size: 13px !important;
+	background-color: #3282BE !important;
+	color: white !important;
+	border-radius: 0 !important;
+	border: 1px solid #3282BE !important;
+}
+
+#tabsearch > .panel > .panel-body > div > div > div > select, #tabsearch > .panel > .panel-body > div > div > div > input {
+	font-size: 13px !important;
+}
+
+#cancelSearchBtn {
+	height: 30px !important;
+	width: 300px !important;
+	font-size: 13px !important;
+	color: #3282BE !important;
+	border: 1px solid #3282BE !important;
+	border-radius: 0 !important;
+}
+
+/* Page de connexion */
+
+.bsUsersLoginBody {
+	background-color: #3282BE !important;
+}
+
+#form_bsUsersLogin, #form_bsUsersPassword {
+	height: 60px !important;
+	margin-top: 20px !important;
+	border-radius: 0 !important;
+	font-size: 16px !important;
+	text-indent: 15px !important;
+}
+
+#loginPanel.panel-danger > .panel-heading {
+	 padding: 30px;
+}
+
+.disabled > .fa-plus::before {
+	color: #777 !important;
+}
+
+#loginPanel.panel-danger > .panel-body {
+	background-color: #E9E9E9;
+	padding: 15px;
+	text-align: center;
+}
+
+#loginPanel {
+	border-radius: 0 !important;
+	border: 0 !important;
+}
+
+#loginPanel > .panel-heading {
+	background-color: #E9E9E9 !important;
+	color: #3282BE;
+	font-size: 40px;
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 0;
+	border: 0 !important;
+}
+
+#loginPanel > .form-horizontal > .panel-body {
+	background-color: #E9E9E9 !important;
+	padding-top: 10px !important;
+	padding-left: 46px !important;
+	padding-right: 46px !important;
+}
+
+#loginPanel > .form-horizontal > .panel-footer {
+	background-color: #E9E9E9 !important;
+	border: 0 !important;
+	text-align: center !important;
+	border-radius: 0 !important;
+	padding: 0 !important;
+}
+
+#form_bsUsersLoginBtn {
+	border-radius: 50% !important;
+	background-color: #AFCD0A !important;
+	font-size: 22px !important;
+	line-height: 1.15 !important;
+	width: 143px !important;
+	height: 143px !important;
+	border: 0 !important;
+	font-family: "Roboto",sans-serif;
+	margin-top: 15px !important;
+	margin-bottom: 30px !important;
+}
+
+::placeholder {
+	height: auto;
+	margin-top: 23.5px;
+	margin-bottom: 23.5px;
+}
+
+/* bootbox question à 2 boutons */
+
+.boxQuestionTwo > .modal-dialog > .modal-content > .modal-footer > .btn-primary {
+    width: 50% !important;
+}
+
+.boxQuestionTwo > .modal-dialog > .modal-content > .modal-footer > .btn-default {
+    border-radius: 0 !important;
+    background-color: white;
+    color: #3282BE;
+    height: 30px;
+    border: 0 !important;
+    width: 49%;
+    font-size: 13px !important;
+}
+
+.boxQuestionTwo > .modal-dialog > .modal-content > .modal-footer > .btn-danger {
+	border-radius: 0 !important;
+	background-color: white !important;
+	width: 49%;
+	font-size: 13px !important;
+	border: 0 !important;
+	color: #3282BE;
+}
+
+.boxQuestionTwo > .modal-dialog > .modal-content > .modal-footer > .btn-success {
+	border-radius: 0 !important;
+	background-color: #3282BE !important;
+	width: 49%;
+	font-size: 13px !important;
+	border: 0 !important;
+}
+
+#LocalizationModal > .modal-dialog > .modal-content > .modal-footer > .btn-default {
+	border-radius: 0 !important;
+	border: 0;
+	background-color: white;
+	color: #3282BE;
+	width: 49%;
+	height: 30px !important;
+	font-size: 13px !important;
+}
+
+#LocalizationModal > .modal-dialog > .modal-content > .modal-footer > .btn-primary {
+	border-radius: 0 !important;
+	border: 0;
+	background-color: #3282BE;
+	color: white;
+	width: 49%;
+	height: 30px !important;
+	font-size: 13px !important;
+}
+
+/* Fenêtre modale d'optimisation */
+
+/* Optimisation - niveau Conteneur */
+#OptimisationModalBody > .panel-success {
+	border-radius: 0 !important;
+	border: 1px solid #eea236 !important;
+}
+
+#OptimisationModalBody > .panel-success > .panel-heading {
+	border-radius: 0 !important;
+	background-color: #FFE699;
+	border-color: #FFE699;
+	color: #3282BE;
+}
+
+/* Optimisation - niveau Boîte */
+
+#OptimisationModalBody > .panel-success > .panel-collapse {
+	padding: 10px;
+}
+
+#OptimisationModalBody > .panel-success > .panel-collapse > .panel-info {
+	border: 1px solid #3c763d;
+	border-radius: 0 !important;
+}
+
+#OptimisationModalBody > .panel-success > .panel-collapse > .panel-info > .panel-heading {
+	background-color: #dff0D8;
+	border-color: #D6E9C6;
+	color: #3C763D;
+	border-radius: 0 !important;
+}
+
+/* Optimisation - niveau Dossier */
+
+#OptimisationModalBody > .panel-success > .panel-collapse > .panel-info > .panel-collapse > .list-group-item {
+	padding-left: 25px !important;
+}
+
+/* Espace de téléchargement des fichiers résultats */
+
+#userSpacePanel {
+    border: 1px solid #3282BE;
+    border-radius: 0;
+}
+
+#userSpacePanel > .panel-heading {
+    background-color: #3282BE;
+    color: white;
+    border-radius: 0;
+    border-bottom: 1px solid #3282BE;
+}
+
+#userSpaceUserFiles > thead > .bsUsersLoginBody {
+    background-color: white !important;
+}
+
+#userSpaceUserFiles > tbody > tr > td {
+    padding-top: 14px !important;
+}
+
+#userSpaceUserFiles > tbody > tr > .action_delete, #userSpaceUserFiles > tbody > tr > .action_fileformat {
+    padding-top: 11px !important;
+}
+
+/* Menu de gauche */
+
+#liTitle {
+    background-color: #E9E9E9;
+    color: #3282BE;
+    border: 0;
+    font-size: 30px;
+}
+
+#listOperations > .btnlike, #listOperations > #liNbCommand {
+    border: 1px solid #3282BE;
+}
+
+#btnAccueil > .list-group-item {
+	border-radius: 0 !important;
+	border: 1px solid #3282BE !important;
+}
+
+/* Page Visibilité */
+
+#tabVisibility {
+	background-color: white !important;
+	margin-right: 36px !important;
+	padding: 15px;
+	border: 1px solid #3282BE;
+}
+
+#tabVisibility > .row > .btn-group > .btn-success {
+	border-radius: 0 !important;;
+	background-color: #dff0d8 !important;
+	color: #3c763d !important;
+	min-width: 62px;
+}
+
+#tabVisibility > .row > .btn-group > .btn-warning {
+	border-radius: 0 !important;
+	background-color: #FFE699 !important;
+	color: #3282BE !important;
+	min-width: 62px;
+}
+
+#tabVisibility > .row > .btn-group > .btn-danger {
+	border-radius: 0 !important;
+	background-color: #FEA4A1 !important;
+	min-width: 62px;
+}
+
+#tabVisibility > .row > .btn-group > .btn-info {
+	border-radius: 0 !important;
+	background-color: #3282BE !important;
+	min-width: 62px;
+}
+
+#tabVisibility > .row > .btn-group > .btn-block {
+	border-radius: 0 !important;
+	min-width: 62px;
+}
+
+#tabVisibility > .row > .btn-group > .btn-block.disabled {
+	background-color: #eee !important;
+	color: #777 !important;
+	border: 1px solid #ddd !important;
+}
+
+#panelVisibility {
+	margin: 0 !important;
+	border-radius: 0 !important;
+	border: 1px solid #3282BE !important;
+}
+
+#panelVisibility > .panel-heading {
+	background-color: #3282BE !important;
+	color: white !important;
+    border-radius: 0 !important;
+    border: 0;
+}
+
+#rowPanelVisibility  {
+	padding: 0 !important;
+}
+
+#rowUnlimited {
+	padding: 0 !important;
+	margin-top: 10px !important;
+}
+
+#nameDescription1, #nameDescription2 {
+	border-radius: 0 !important;
+}
+
+#serviceConfig {
+	border-radius: 0;
+}
+
+/* Page de traitement des imports */
+
+#panelImportTreatment > .panel-heading {
+	background-color: #3282BE;
+	color: white;
+	border-radius: 0 !important;
+}
+
+#panelImportTreatment {
+	border-radius: 0 !important;
+	border: 1px solid #3282BE;
+}
+
+#panelImportTreatment > .panel-heading > .btn-warning {
+	background-color: #FFE699 !important;
+	color: #3282BE;
+}
+
+#panelMessages {
+	border-radius: 0 !important;
+	border: 1px solid #3282BE;
+}
+
+#panelMessages > .panel-heading {
+	background-color: #3282BE;
+	color: white;
+	border: 1px solid #3282BE;
+	border-radius: 0;
+}
+
+#btnImportSurvey, #btnImportRapport, #btnCancelImport, #btnValidateImport {
+	border-radius: 0 !important;
+}
+
+#btnImportSurvey {
+	background-color: #3282BE;
+	border-color: #3282BE;
+}
+
+.dropdown-menu {
+	border-radius: 0 !important;
+}
+
+/* Fenêtre modal d'illimité */
+
+#CommentsUnlimitedModal > .modal-dialog > .modal-content > .modal-footer > #CommentsUnlimitedValidate {
+	background-color: #3282BE;
+	border: 0 !important;
+	border-radius: 0 !important;
+	width: 49% !important;
+}
+
+#CommentsUnlimitedModal > .modal-dialog > .modal-content > .modal-footer > .btn-default {
+	border: 0 !important;
+	border-radius: 0 !important;
+	width: 49% !important;
+	height: 30px;
+	color: #3282BE;
+	font-size: 13px !important;
+}
+
+/* Page Paramètres des mots de passe */
+
+#panelPasswordSettings {
+	border: 1px solid #3282BE;
+	border-radius: 0;
+}
+
+#panelPasswordSettings > .panel-heading {
+	background-color: #3282BE !important;
+    border-radius: 0;
+}
+
+#panelPasswordSettings > .panel-heading > h4 {
+	color: white !important;
+}
+
+#panelPasswordSettings > .panel-footer {
+	padding: 0 !important;
+}
+
+#panelPasswordSettings > .panel-footer > #btnApply {
+	border-radius: 0 !important;
+	width: 100% !important;
+	height: 30px !important;
+	font-size: 13px !important;
+	padding-top: 5px !important;
+}
+
+#btn_settings_password {
+	background-color: transparent !important;
+	border-color: #3282BE !important;
+	border-radius: 0 !important;
+	color: #3282BE !important;
+}
+
+div#btnsubactionsettings > .btn-group > .btn-default:disabled, div#btnsubactionsettings > .btn-group > .btn-default[disabled] {
+	border-radius: 0 !important;
+	border-color: #333 !important;
+	background-color: transparent !important;
+}
+
+#passwordMinLength {
+	border-radius: 0 !important;
+}
+
+#tabUnlimited > .tab-content > #tabresults > #list {
+	width: 100% !important;
+}
+
+#panelUnlimited {
+	margin-bottom: 0 !important;
+	border-radius: 0;
+	border: 1px solid #3282BE;
+}
+
+#panelUnlimited > .panel-heading {
+	background-color: #3282BE;
+	color: white;
+    border-radius: 0;
+    border: 0;
+}
+
+/* Page import des données */
+
+#panelImport {
+	border-radius: 0;
+	border: 1px solid #3282BE;
+}
+
+#panelImport > .panel-heading {
+	background-color: #3282BE !important;
+	color: white !important;
+	border-radius: 0;
+}
+
+#form_import {
+	border: 1px solid #3282BE;
+	background-color: #3282BE;
+	color: white;
+	margin-top: 10px;
+	height: 30px;
+	font-size: 13px;
+}
+
+div#form > div > .required {
+	color: white;
+}
+
+/* Page rapport des imports */
+
+#labelImportRapport {
+	color: #3282BE;
+	margin-top: 0px !important;
+}
+
+#tabRapport {
+	background-color: white;
+	padding: 15px;
+	border: 1px solid #3282BE;
+	margin-right: 15px;
+}
+
+#rowPanelImport {
+	padding: 0 !important;
+}
+
+#panelImportRapport {
+	margin-bottom: 0 !important;
+	border-radius: 0 !important;
+	border: 1px solid #3282BE;
+}
+
+#panelImportRapport > .panel-heading {
+	background-color: #3282BE !important;
+	color: white !important;
+	font-size: 13px !important;
+	border-radius: 0;
+	border: 1px solid #3282BE;
+}
+
+#divLblLimitsdatemin, #divLblLimitsnummin, #divLblLimitsalphamin, #divLblLimitsalphanummin {
+	padding-left: 0 !important;
+}
+
+#divInputLimitsdatemin, #divInputLimitsdatemax, #divInputLimitsnummin, #divInputLimitsnummax, #divInputLimitsalphamin, #divInputLimitsalphamax, #divInputLimitsalphanummin, #divInputLimitsalphanummax {
+	padding: 0 !important;
+}
+
+#zoneLimitDate, #zoneLimitNum, #zoneLimitAlpha, #zoneLimitAlphanum {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+#divLblLimitsalphanummax, #divLblLimitsalphamax, #divLblLimitsnummax, #divLblLimitsdatemax {
+	text-align: center;
+}
+
+/* Modifications objets Bootstrap */
+
+.nav-tabs > li > a {
+	border: 1px solid #3282BE !important;
+	border-bottom-color: #3282BE !important;
+	border-radius: 0 !important;
+	margin: 0 !important;
+}
+
+.nav-tabs > li.active > a {
+	border: 1px solid #3282BE !important;
+	border-bottom-color: transparent !important;
+	border-radius: 0 !important;
+	margin: 0 !important;
+	color: #3282BE !important;
+}
+
+#navServicesAdresses {
+	border-bottom: 0 !important;
+}
+
+.lead > .btn-primary {
+	border-radius: 0 !important;
+	height: 30px !important;
+	font-size: 13px !important;
+	padding: 6px !important;
+}
+
+/* Page de changement de mot de passe */
+
+#passwordPanel {
+	border-radius: 0;
+	border: 1px solid #3282BE;
+}
+
+#passwordPanel > .panel-heading {
+	background-color: #3282BE;
+	color: white;
+	padding-top: 27px !important;
+	padding-bottom: 27px !important;
+    border-radius: 0;
+}
+
+#passwordPanel > .panel-heading > .panel-title {
+	font-size: 15px !important;
+}
+
+#passwordPanel > .panel-footer {
+	border-radius: 0 !important;
+	border-top: 1px solid #3282BE !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+#btnValidateChangeMdp {
+	border-radius: 0 !important;
+	border: 0 !important;
+	font-size: 15px !important;
+}
+
+#btnCancelChangeMdp {
+	border-radius: 0 !important;
+	border: 0 !important;
+	font-size: 15px !important;
+	color: #3282BE;
+}
+
+#inputChangeMdpOld, #inputChangeMdpNew, #inputChangeMdpConfirm {
+	border-radius: 0 !important;
+}
+
+.modal-dialog > .modal-content {
+	border-radius: 0;
+}
+
+.modal-dialog > .modal-content > .modal-body {
+	background-color: white;
+	color: #3282BE;
+}
+
+.modal-dialog > .modal-content > .modal-header {
+	background-color: #3282BE;
+	color: white;
+}
+
+.modal-dialog > .modal-content > .modal-body > .bootbox-close-button {
+	color: black;
+}
+
+.modal-dialog > .modal-content > .modal-footer {
+	border-radius: 0 !important;
+	border-top: 1px solid #3282BE !important;
+	padding: 0 !important;
+}
+
+.modal-dialog > .modal-content > .modal-footer > .btn-primary {
+	background-color: #3282BE;
+	border: 0 !important;
+	border-radius: 0 !important;
+	width: 100%;
+	height: 30px;
+	font-size: 13px !important;
+}
+
+/* Fenêtre modal de consultation */
+
+#actionModalDialog > .modal-dialog > .modal-content > .modal-body {
+	background-color: white;
+	color: #3282BE;
+	padding: 36px;
+	padding-top: 18px;
+}
+
+#actionModalDialog > .modal-dialog > .modal-content > .modal-footer {
+	border-radius: 0 !important;
+	border-top: 1px solid #3282BE !important;
+	padding: 0 !important;
+}
+
+#actionModalDialog > .modal-dialog > .modal-content > .modal-footer > .btn-default {
+	border-radius: 0 !important;
+	border: 0 !important;
+	width: 49%;
+	height: 30px;
+	font-size: 13px !important;
+	color: #3282BE;
+}
+
+/* Fenêtre modal d'erreur */
+
+#modalErrorMessage > .modal-dialog > .modal-content > .modal-footer > .btn-default {
+	width: 100% !important;
+	border-radius: 0 !important;
+	height: 30px;
+	font-size: 13px !important;
+	color: #3282BE !important;
+	border: 0 !important;
+}
+
+/* Page de saisie */
+
+.idp_saved {
+	color: #3282BE;
+}
+
+#divBlockProperty, #divBlockDescription, #divBlockDuration, #divBlockProviderdatas, #divBlockLimits, #divBlockName, #divViewBlockInformations, #divViewBlockProviderdatas, #divViewBlockLimits, #divBlockIdentification {
+	font-size: 15px !important;
+	font-weight: normal !important;
+}
+
+#hrNew {
+	border-top: 1px solid black !important;
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+}
+
+#frm_ordernumber {
+	border-color: #3282BE;
+	background-color: #FFE699;
+	border-radius: 0 !important;
+}
+
+#inputForm {
+	padding: 15px;
+	margin-right: 36px;
+	margin-top: 10px;
+	background-color: white;
+	border: 1px solid #3282BE;
+}
+
+#frm_service, #frm_legalentity, #frm_budgetcode, #frm_documentnature, #frm_documenttype, #frm_description1, #frm_description2,
+#frm_closureyear, #frm_destructionyear, #frm_documentnumber, #frm_boxnumber, #frm_containernumber, #frm_provider, #frm_name,
+#frm_limitdatemin, #frm_limitdatemax, #frm_limitnummin, #frm_limitnummax, #frm_limitalphamin, #frm_limitalphamax, #frm_limitalphanummin,
+#frm_limitalphanummax, #frm_oldlocalization, #frm_localization {
+	border-color: #3282BE;
+	height: 25px !important;
+	border-radius: 0 !important;
+}
+
+/* Fenêtre modal emplacement d'étiquettes */
+
+#modalTagsChoice > .modal-dialog > .modal-content > .modal-footer {
+	background-color: #3282BE;
+	height: 35px;
+	color: white;
+	text-align: center;
+	font-size: 13px;
+	padding-top: 10px !important;
+}
+
+/* Fenêtre de rapprochement des stocks */
+
+#dropzone {
+	padding: 30px !important;
+}
+
+#providerChoice {
+	padding: 15px;
+}
+
+#panelStock, #panelStockError, #panelStockResult, #panelStockStatus {
+	border-radius: 0 !important;
+	border: 1px solid #3282BE;
+}
+
+#panelStockError > .panel-heading, #panelStock > .panel-heading, #panelStockResult > .panel-heading, #panelStockStatus > .panel-heading {
+	border-radius: 0;
+	background-color: #3282BE;
+	color: white;
+	font-size: 13px;
+}
+
+#panelStockError > .panel-footer, #panelStockResult > .panel-footer {
+	padding: 0 !important;
+}
+
+#step1progress, #step2progress {
+	text-align: center;
+}
+
+#step1, #step2 {
+	padding: 15px;
+}
+
+#btnResetReconciliate {
+	background-color: #3282BE;
+	color: white;
+	border-radius: 0 !important;
+	border: 1px solid #3282BE;
+	height: 30px !important;
+	font-size: 15px !important;
+}
+
+/* Fenêtre modal de saisie */
+
+#modalTagChoice > .modal-dialog > .modal-content > .modal-body {
+	border: 0;
+}
+
+#modalTagChoice > .modal-dialog > .modal-content {
+	border: 0;
+}
+
+#modalTagChoice > .modal-dialog > .modal-content > .modal-footer {
+	background-color: #3282BE;
+	color: white;
+	text-align: center;
+	font-size: 13px;
+	padding: 10px !important;
+}
+
+/* Fenêtre de génération du connecteur prestataire */
+
+#ProviderConnectorModal > .modal-dialog > .modal-content > .modal-footer {
+	border-radius: 0 !important;
+	border-top: 1px solid #3282BE !important;
+	padding: 0 !important;
+}
+
+#ProviderConnectorModal > .modal-dialog > .modal-content > .modal-footer > .btn-default {
+	border-radius: 0 !important;
+	border: 0 !important;
+	width: 49%;
+	height: 30px;
+	font-size: 13px !important;
+	color: #3282BE;
+	margin-left: 0 !important;
+}
+
+#ProviderConnectorModalBtnConfirm {
+	border: 0 !important;
+	border-radius: 0 !important;
+	width: 50%;
+	height: 30px;
+	font-size: 13px !important;
+	margin-left: 0 !important;
+}
+
+#ProviderConnectorModal > .modal-dialog > .modal-content > .modal-body {
+	font-size: 13px !important;
+}
+
+#frm_pcb_contact, #frm_pcb_phone, #frm_pcb_address, #frm_pcb_remark {
+	font-size: 13px !important;
+	border-radius: 0 !important;
+}
+
+/* Page de modification des utilisateurs */
+
+#panel-add-user {
+	border-radius: 0;
+	border: 1px solid #3282BE;
+}
+
+#form_userFirstname, #form_userLastname, #form_userLogin, #form_userPassword, #form_userInitials, #form_userRole {
+	border-radius: 0 !important;
+	font-size: 13px !important;
+}
+
+#frm_userRole {
+	padding-bottom: 20px;
+}
+
+#btnVerifyInitials, #btnGenerateInitials {
+	border-radius: 0 !important;
+	color: #3282BE;
+	border-color: #3282BE;
+	font-size: 13px !important;
+	padding: 3px !important;
+}
+
+#btnVerifyInitials.disabled, #btnGenerateInitials.disabled {
+	background-color: #eee;
+	color: #777;
+	border-color: #ddd;
+}
+
+#services > .panel, #adresses > .panel {
+	border-radius: 0;
+	border-color: #3282BE;
+}
+
+#services > .panel > .panel-body > .bootstrap-table > .fixed-table-container, #adresses > .panel > .panel-body > .bootstrap-table > .fixed-table-container {
+	border-radius: 0;
+}
+
+#form_addUserBtn {
+	border-radius: 0 !important;
+	width: 100%;
+	font-size: 15px !important;
+	margin-top: -10px !important;
+	border: 1px solid #3282BE !important;
+}
+
+#form_addUserBtn:disabled {
+	color: #777;
+	background-color: #eee;
+	border-color: #ddd !important;
+}
+
+#panelModifyRightsUser > .panel-heading {
+	background-color: #3282BE;
+	color: white;
+	border-radius: 0;
+	border: 1px solid #3282BE;
+}
+
+#panelModifyRightsUser {
+	border: 1px solid #3282BE;
+}
+
+/* Page liste utilisateurs */
+
+.pull-right.search > .form-control {
+	border-radius: 0 !important;
+}
+
+.bootstrap-table {
+	background-color: white !important;
+	padding: 15px !important;
+}
+
+.bootstrap-table > .fixed-table-container {
+	border-radius: 0 !important;
+	border: 0 !important;
+}
+
+
+
+
+
+
+#transferToService > .bootstrap-table > .fixed-table-container > .fixed-table-body, #transferToIntermediate > .bootstrap-table > .fixed-table-container > .fixed-table-body, #transferToProvider > .bootstrap-table > .fixed-table-container > .fixed-table-body,
+#deliver > .bootstrap-table > .fixed-table-container > .fixed-table-body,
+#deliverPrepare > .bootstrap-table > .fixed-table-container > .fixed-table-body,
+#relocInternal > .bootstrap-table > .fixed-table-container > .fixed-table-body,
+#relocIntermediate > .bootstrap-table > .fixed-table-container > .fixed-table-body,
+#relocProvider > .bootstrap-table > .fixed-table-container > .fixed-table-body,
+#doAction > .bootstrap-table > .fixed-table-container > .fixed-table-body,
+#cancelAction > .bootstrap-table > .fixed-table-container > .fixed-table-body {
+	border: 1px solid #3282BE !important;
+}
+
+#listsearchTable > thead > tr > th {
+    border-bottom: 1px solid #ddd !important;
+}
+
+/*.bootstrap-table > .fixed-table-container > .fixed-table-body {
+	border: 1px solid #ddd !important;
+}*/
+
+.bootstrap-table > .fixed-table-pagination {
+	border: 0 !important;
+}
+
+#panelAddUser {
+	border: 0 !important;
+}
+
+#panelAddUser > .panel-heading {
+	background-color: #3282BE !important;
+	border-radius: 0;
+	text-align: center;
+}
+
+#panelAddUser > .panel-heading > a {
+	color: white;
+	font-size: 15px;
+}
+
+#SuppressModal > .modal-dialog > .modal-content > .modal-footer > .btn-default {
+	border: 0 !important;
+	border-radius: 0 !important;
+	width: 50%;
+	height: 30px;
+	font-size: 13px !important;
+	color: #3282BE !important;
+}
+
+#SuppressModal > .modal-dialog > .modal-content > .modal-footer > #btnSuppressModalConfirm {
+	width: 49% !important;
+	margin-left: 0 !important;
+}
+
+#panelModifyRightsUser {
+	border-radius: 0 !important;
+}
+
+/* Page de consultation */
+
+#subtabaction, #subtabmenu {
+	border-bottom: 1px solid #3282BE;
+}
+
+/* Fenêtre modale de modification */
+
+#ModifyModal > .modal-dialog > .modal-content > .modal-body {
+	padding: 36px;
+	padding-top: 18px;
+	padding-bottom: 18px;
+}
+
+#ModifyModal > .modal-dialog > .modal-content > .modal-footer > .btn-default {
+	border: 0 !important;
+	border-radius: 0 !important;
+	width: 50%;
+	height: 30px;
+	font-size: 13px !important;
+	color: #3282BE !important;
+}
+
+#ModifyModal > .modal-dialog > .modal-content > .modal-footer > #btnModifyModalConfirm {
+	width: 49% !important;
+	margin-left: 0 !important;
+}
+
+#frm_modify_name, #frm_modify_localization {
+	border-radius: 0 !important;
+	font-size: 13px !important;
+}
+
+/* Page de gestion des prestataires */
+
+div#viewAddName {
+	padding: 0;
+}
+
+div#viewAddName > input#frm_name {
+	height: 23px !important;
+	border-color: #ddd !important;
+}
+
+#panelAddProvider {
+	border-radius: 0 !important;
+	border: 1px solid #3282BE;
+}
+
+#panelAddProvider > .panel-heading {
+	background-color: #3282BE;
+	color: white;
+    border-radius: 0;
+}
+
+#panelAddProvider > .panel-body {
+	font-size: 13px !important;
+}
+
+form#frmAdd > label {
+	margin-top: 4px !important;
+}
+
+#panelProvider > .panel-heading {
+	background-color: #3282BE !important;
+	color: white;
+	border-radius: 0;
+}
+
+#panelModifyProviderServices {
+	border: 1px solid #3282BE;
+	border-radius: 0;
+}
+
+#panelModifyProviderServices > .panel-heading {
+	background-color: #3282BE;
+	color: white;
+	border-radius: 0;
+}
+
+table#ProvidersListTable > tbody > tr.danger > td {
+	background-color: #FFC8C7 !important;
+}
+
+#frm_localization {
+	border-radius: 0 !important;
+}
+
+#btn_add {
+	border-radius: 0 !important;
+	height: 23px !important;
+	font-size: 13px !important;
+    background-color: #3282BE;
+    border-color: #3282BE;
+}
+
+/* Fenêtre modale des opérations en cours */
+
+#DetailledInformationModal > .modal-dialog > .modal-content > .modal-footer > .btn-default {
+	border-radius: 0;
+	border: 0;
+	height: 30px;
+	width: 100%;
+	font-size: 13px !important;
+	color: #3282BE;
+}
+
+/* Page de validation des demandes */
+
+#askAction {
+	border-radius: 0;
+	border: 0;
+}
+
+#doAction, #cancelAction {
+	padding: 1px !important;
+	background-color: white !important;
+}
+
+#doAction > div.bootstrap-table > div.fixed-table-container, #cancelAction > div.bootstrap-table > div.fixed-table-container {
+	border-radius: 0 !important;
+	border-color: #3282BE !important;
+}
+
+#askCancel {
+	border-radius: 0;
+	border: 0 !important;
+}
+
+div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container {
+	border-radius: 0 !important;
+	border-left: 0 !important;
+	border-right: 0 !important;
+	border-bottom: 0 !important;
+}
+
+/* Page de gestion des demandes prestataires */
+
+#tabManageProvider > .col-xs-9 > .bootstrap-table > .fixed-table-container {
+	border-radius: 0 !important;
+	border-left: 0 !important;
+	border-right: 0 !important;
+	border-bottom: 0 !important;
+}
+
+#filter_provider {
+	border-radius: 0 !important;
+}
+
+/* Page de clôture des demandes utilisateurs */
+
+#tabCloseUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container {
+	border: 0 !important;
+}
+
+/* Fenêtres modal d'optimisation */
+
+#OptimisationModal > .modal-dialog > .modal-content > .modal-footer > .btn-default {
+	border-radius: 0 !important;
+	border: 0 !important;
+	width: 49%;
+	height: 30px;
+	font-size: 13px !important;
+	color: #3282BE;
+}
+
+#OptimisationModalBtnConfirm {
+	border-radius: 0 !important;
+	border: 0 !important;
+	width: 49%;
+	height: 30px;
+	font-size: 13px !important;
+	margin-left: 0 !important;
+}
+
+#OptimisationModalBody > .panel {
+	border-radius: 0 !important;
+}
+
+/* Fenêtre modal de modification des archives */
+
+#viewArchive > .panel {
+	border-radius: 0;
+	border: 1px solid #3282BE;
+}
+
+#divViewBlockLimits {
+	margin-top: 45px;
+}
+
+#viewArchive > .panel > .panel-body > form > .row > #zoneButton {
+	padding-right: 30px !important;
+}
+
+#zoneButtonViewArchive {
+	padding-left: 30px !important;
+	padding-right: 30px !important;
+}
+
+#zoneButtonViewArchive > #divPrintTag {
+	background-color: #3282BE;
+	border: 1px solid #3282BE;
+}
+
+#zoneButtonViewArchive > #divModif, #zoneButtonViewArchive > #divSubmitModif, #zoneButtonViewArchive > #divDelete, #zoneButtonViewArchive > #divCancel, #zoneButtonViewArchive > #divPrint, #zoneButtonViewArchive > #divPrintTag {
+	border-radius: 0 !important;
+	height: 30px;
+	font-size: 13px !important;
+	padding: 6px !important;
+	width: 24% !important;
+}
+
+#zoneButtonViewArchive > #divModif, #zoneButtonViewArchive > #divSubmitModif, #zoneButtonViewArchive > #divCancel {
+	margin-right: 1.33% !important;
+}
+
+#zoneButtonViewArchive > #divPrintTag {
+	margin-left: 1.33% !important;
+}
+
+#zoneButtonViewArchive > #divCancel {
+	color: #3282BE;
+	border: 1px solid #3282BE;
+}
+
+#zoneButtonViewArchive > #divPrint, #zoneButtonViewArchive > #divPrintTag {
+	margin-right: 0% !important;
+	background-color: #3282BE !important;
+	border: 1px solid #3282BE;
+	color: white !important;
+}
+
+
+
+/* Fenêtre modal de confirmation */
+
+#ConfirmModal > .modal-dialog > .modal-content > .modal-footer > .btn-default {
+	border-radius: 0 !important;
+	border: 0 !important;
+	width: 49%;
+	height: 30px;
+	font-size: 13px !important;
+	color: #3282BE;
+}
+
+#btnConfirmModalConfirm {
+	border-radius: 0 !important;
+	border: 0 !important;
+	width: 49%;
+	height: 30px;
+	font-size: 13px !important;
+	margin-left: 0 !important;
+}
+
+
+/* Page gérer la base archives - Saisie */
+
+#frmAdd > #div_frm_name > #frm_name {
+	height: 23px !important;
+	border-color: #ddd !important;
+}
+
+.tabSaisie > .bootstrap-table {
+	border: 1px solid #3282BE;
+	margin-top: 3px;
+}
+
+#panelInput, #panelFinetune {
+	border-radius: 0;
+	border: 1px solid #3282BE;
+}
+
+#panelInput > .panel-heading, #panelFinetune > .panel-heading {
+	background-color: #3282BE;
+	color: white;
+    border-radius: 0;
+}
+
+#sendLogoBtn {
+	border-radius: 0 !important;
+	height: 23px !important;
+	font-size: 13px !important;
+	width: 100% !important;
+}
+
+#panel-furnitures-command, #choice-manage-commands, #choice-manage-catalog {
+	color: #3282BE;
+	border-color: #3282BE;
+	border-radius: 0;
+}
+
+#panel-furnitures-command > .panel-heading, #choice-manage-commands > .panel-heading, #choice-manage-catalog > .panel-heading {
+    background-color: #eee;
+    border: 0;
+    height: 46px;
+    border-radius: 0;
+}
+
+#panel-furnitures-command > .panel-heading > .panel-title, #choice-manage-commands > .panel-heading > .panel-title, #choice-manage-catalog > .panel-heading > .panel-title {
+    padding-top: 6px;
+}
+
+#panel_manage_user_wants, #panel_manage_db, #panel_follow_operations, #panel_export_import {
+	color: #3282BE;
+	border-color: #3282BE;
+	border-radius: 0;
+}
+
+#panel_manage_user_wants > .panel-heading, #panel_manage_db > .panel-heading, #panel_follow_operations > .panel-heading, #panel_export_import > .panel-heading {
+    border: 0;
+    border-radius: 0;
+    background-color: #dff0d8;
+    height: 46px;
+}
+
+#panel_manage_user_wants > .panel-heading > .panel-title, #panel_manage_db > .panel-heading > .panel-title, #panel_follow_operations > .panel-heading > .panel-title, #panel_export_import > .panel-heading > .panel-title {
+    padding-top: 6px;
+}
+
+#frm_name {
+	border: 1px solid !important;
+	border-color: black !important;
+}
+
+#frm_destructionyear:disabled, #frm_documenttype:disabled {
+	border-color: grey;
+}
+
+.th-inner{
+	font-size: 13px !important;
+}
+#list {
+	margin-top: 15px !important;
+}
+
+#idpfooter {
+	background-color: #E9E9E9 !important;
+	margin-top: 43px !important;
+	margin-bottom: 36px !important;
+	margin-right: 51px !important;
+	font-size: 9px !important;
+}
+
+.icon-user {
+	font-size: 14px !important;
+}
+
+.menu-selected {
+	background: #FFE699 !important;
+}
+
+#panel-archives, #panel-gestion {
+	background-color: #3282BE !important;
+    border-radius: 0;
+    height: 45px !important;
+}
+
+#panel-fournitures {
+    height: 45px !important;
+    border-radius: 0;
+}
+
+#panel-archives > .panel-title, #panel-gestion > .panel-title, #panel-fournitures > .panel-title {
+    padding-top: 5px;
+}
+
+#btnGestion, #btnFournitures, #btnAccueil {
+	border-radius: 0 !important;
+	margin-top: 10px !important;
+	margin-left: 36px !important;
+	margin-right: 20px !important;
+}
+
+#btnArchives {
+	border-radius: 0 !important;
+	margin-top: 10px !important;
+	margin-left: 36px !important;
+	margin-right: 20px !important;
+}
+
+#addToProvider, #addToService, #addToIntermediate, #addToRelocInternal, #addToRelocIntermediate, #addToRelocProvider, #addToDeliver, #addToDeliverPrepare, #addToReturn, #addToExit, #addToDelete, #addToAction, #addToCancel
+{
+	border-radius: 50% !important;
+    background-color: #3282BE !important;
+    border-color: #3282BE !important;
+}
+
+#addToProvider.disabled, #addToService.disabled, #addToIntermediate.disabled, #addToRelocInternal.disabled, #addToRelocIntermediate.disabled, #addToRelocProvider.disabled, #addToDeliver.disabled,
+#addToDeliverPrepare.disabled, #addToReturn.disabled, #addToExit.disabled, #addToDelete.disabled, #addToAction.disabled, #addToCancel.disabled
+{
+	border-radius: 50% !important;
+	background-color: #eee !important;
+	border-color: #ddd !important;
+}
+
+#clearProvider, #clearService, #clearIntermediate, #clearDeliver, #clearDeliverPrepare, #clearReturn, #clearExit, #clearDelete, #clearRelocInternal, #clearRelocIntermediate, #clearRelocProvider, #clearAction, #clearCancel {
+	border-color: #3282BE !important;
+	background-color: #ffffff !important;
+}
+
+#btnwhat_transfer, #btnwhat_deliver, #btnwhat_return, #btnwhat_exit, #btnwhat_destroy, #btnwhat_reloc, #btn_input, #btn_users, #btn_provider, #btn_visibility, #btn_settings {
+	background-color: transparent !important;
+	border-color: #3282BE !important;
+	border-radius: 0 !important;
+	color: #3282BE !important;
+	font-weight: bold !important;
+	margin-top: auto;
+}
+
+#frm_name {
+	height: 340px !important;
+	width: 100% !important;
+}
+
+#zoneButton {
+    margin-top: 20px !important;
+	padding-right: 45px !important;
+    padding-left: 30px !important;
+}
+
+#divValidate, #divPrint, #divPrintTag, #divModify {
+	font-size: 15px !important;
+	width: 32% !important;
+	height: 30px !important;
+	border-radius: 0 !important;
+	background-color: #3282BE !important;
+    padding-top: 6px !important;
+}
+
+#divValidate > div, #divPrint > div, #divPrintTag > div, #divModify > div {
+	margin-top: 3px;
+}
+
+#divValidate, #divPrint {
+	margin-right: 2% !important;
+}
+
+#btn_input_service, #btn_input_legalentity, #btn_input_budgetcode, #btn_input_documentnature, #btn_input_documenttype, #btn_input_description1, #btn_input_description2, #btn_input_deliveraddress, #btn_input_localization {
+	background-color: transparent !important;
+	border-color: #3282BE !important;
+	border-radius: 0 !important;
+	color: #3282BE !important;
+	font-weight: bold !important;
+}
+
+#btnwhat_transfer.btn.btn-info.btn-xs.active, #btnwhat_deliver.btn.btn-info.btn-xs.active, #btnwhat_return.btn.btn-info.btn-xs.active, #btnwhat_exit.btn.btn-info.btn-xs.active, #btnwhat_destroy.btn.btn-info.btn-xs.active, #btnwhat_reloc.btn.btn-info.btn-xs.active {
+	background-color: #3282BE !important;
+	border-color: #3282BE !important;
+	color: white !important;
+	border-radius: 0 !important;
+}
+
+#btnaction > .btn-group.active {
+    background-color: #3282BE !important;
+}
+
+#btnaction > .btn-group.active > button {
+    color: white !important;
+}
+
+#btnsubactioninput > .btn-group.active {
+    background-color: #FFE699 !important;
+}
+
+#btnsubactioninput > .btn-group.active > button {
+    color: #3282BE !important;
+}
+
+#btnsubactionsettings > .btn-group.active {
+    background-color: #FFE699 !important;
+}
+
+#btnsubactionsettings > .btn-group.active > button {
+    color: #3282BE !important;
+}
+
+#btnwherehow, #btnwhere, #btnhow {
+	padding-left: 15px !important;
+	padding-right: 8px !important;
+}
+
+#btnwhere_provider, #btnwhere_intermediate, #btnwhere_internal, #btnwhere_new, #btnwhere_consult, btn_settings_password {
+	background-color: transparent !important;
+	border-color: #3282BE !important;
+	border-radius: 0 !important;
+	color: #3282BE !important;
+	font-weight: bold !important;
+}
+
+#btnwhere_provider.btn.btn-success.btn-xs.active, #btnwhere_intermediate.btn.btn-success.btn-xs.active, #btnwhere_internal.btn.btn-success.btn-xs.active, #btnwhere_new.btn.btn-success.btn-xs.active, #btnwhere_consult.btn.btn-success.btn-xs.active  {
+	background-color: #FFE699 !important;
+	border-color: #3282BE !important;
+	color: #3282BE !important;
+	border-radius: 0 !important;
+}
+
+#btnhow_withoutprepare, #btnhow_withprepare {
+	background-color: transparent !important;
+	border-color: #3282BE !important;
+	border-radius: 0 !important;
+	color: #3282BE !important;
+	font-weight: bold !important;
+}
+
+#btnhow_withoutprepare.btn.btn-success.btn-xs.active, #btnhow_withprepare.btn.btn-success.btn-xs.active {
+	background-color: #FFE699 !important;
+	border-color: #3282BE !important;
+	color: #3282BE !important;
+	border-radius: 0 !important;
+}
+
+.brand-logo{
+	padding: 5px !important;
+	padding-left: 0px !important;
+}
+
+#top-menu-bar {
+	height: 100%;
+}
+
+#idp-help {
+	font-size: 12px !important;
+	color: white !important;
+}
+
+#badgeHelp, #badgeImLost, #badgeAccount {
+	margin-right: 20px;
+	color: white;
+}
+
+#btnactions {
+    margin-top: 50px;
+}
+
+#idp-help > li > #menu-toggle > i {
+    background-color: white !important;
+    border-radius: 50% !important;
+    height: 30px !important;
+    width: 30px !important;
+    margin-top: 40px !important;
+    margin-right: 30px !important;
+    padding-top: 10px !important;
+}
+
+#btnHelpMe {
+	margin-top: 55px !important;
+	margin-bottom: 55px !important;
+	margin-right: 10px !important;
+	border-radius: 50% !important;
+	background-color: white !important;
+	height: 30px !important;
+	width: 30px !important;
+    color: white !important;
+    font-size: 13px !important;
+}
+
+#btnHelpMe > i {
+    margin-right: 20px;
+    padding-left: 6px;
+    padding-top: 1px;
+}
+
+#userFileResume {
+    margin-top: 42px !important;
+    margin-bottom: 42px !important;
+    margin-right: 10px !important;
+}
+
+#userFileResume > a {
+    color: white !important;
+    font-size: 15px !important;
+}
+
+#btnParamAccount {
+	margin-top: 42px !important;
+	margin-bottom: 42px !important;
+	margin-right: 10px !important;
+	border-radius: 50% !important;
+	background-color: white !important;
+}
+
+#liNbTransfer, #liNbConsult, #liNbReturn, #liNbExit, #liNbDestroy, #liNbReloc, #liNbCommand {
+	height: 48px !important;
+	margin-bottom: 8px !important;
+	margin-top: 4px !important;
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+
+#badgeNbTransfer, #badgeNbConsult, #badgeNbReturn, #badgeNbExit, #badgeNbDestroy, #badgeNbReloc, #badgeNbCmd {
+	background-color: transparent !important;
+	border: 1px solid !important;
+	border-color: #3282BE !important;
+	border-radius: 50% !important;
+	color: #3282BE !important;
+	height: 26px !important;
+	width: 26px !important;
+	padding-top: 6px !important;
+	padding-bottom: 6px !important;
+	margin-top: -5px !important;
+}
+
+#btnuser {
+	margin-top: 4px !important;
+}
+
+.opInProgress {
+	font-size: 32px !important;
+	color: #3282BE !important;
+	margin-bottom: 32.5px !important;
+}
+
+.logoArchimage {
+	width: 472px !important;
+	height: auto !important;
+}
+
+#tab {
+	margin-top: 35px !important;
+}
+
+#tab > #subtabmenu {
+    border: 0 !important;
+}
+
+#litabsearch.active, #litabfilter.active, #litabresults.active {
+	background-color: white !important;
+	border: 1px 0px 1px 1px solid #3282BE !important;
+	color: #3282BE !important;
+}
+
+#divCheckAll, #divUncheckAll, #divSetUnlimited, #divUnsetUnlimited, #divLinkContainer, #divLinkBox, #divExport, #divExportPartial, #divPrintTags, #divDeleteUAs, #divPrintList, #divPrintPartialList, #divLinkLocalization {
+	width: 30px !important;
+	height: 30px !important;
+	border-radius: 50% !important;
+	border: 2px solid #AFCD0A !important;
+}
+
+#moveCart, #titleAction {
+	border-radius: 0;
+	border: 1px solid #3282BE !important;
+	border-bottom: 0;
+	color: #3282BE;
+}
+
+#transferservice, #askDeliver, #askReturn, #askExit, #askDelete, #askRelocInternal {
+	border-radius: 0 !important;
+	border-top: 1px solid #3282BE !important;
+	border-bottom: 0 !important;
+	border-left: 0 !important;
+	border-right: 0 !important;
+}
+
+#transferintermediaire, #transferprestataire, #askDeliverPrepare, #askRelocIntermediate, #askRelocProvider {
+	border-radius: 0 !important;
+	border: 0 !important;
+}
+
+div#transferToService.panel-body > div.bootstrap-table > div.fixed-table-container, div#transferToIntermediate.panel-body > div.bootstrap-table > div.fixed-table-container, div#transferToProvider.panel-body > div.bootstrap-table > div.fixed-table-container {
+	border-radius: 0 !important;
+	border-color: #3282BE !important;
+}
+
+div#relocInternal.panel-body > div.bootstrap-table > div.fixed-table-container, div#relocIntermediate.panel-body > div.bootstrap-table > div.fixed-table-container, div#relocProvider.panel-body > div.bootstrap-table > div.fixed-table-container {
+	border-radius: 0 !important;
+	border-color: #3282BE !important;
+}
+
+div#deliver.panel-body > div.bootstrap-table > div.fixed-table-container, div#deliverPrepare.panel-body > div.bootstrap-table > div.fixed-table-container {
+	border-radius: 0 !important;
+	border-color: #3282BE !important;
+}
+
+#table-transfer-service, #table-transfer-intermediate, #table-transfer-provider, #table-deliver, #table-deliver-prepare, #table-return, #table-exit, #table-delete, #relocInternal, #relocIntermediate, #relocProvider, #table-action, #table-cancel {
+	color: #3282BE !important;
+    border: 0 !important;
+}
+
+#table-transfer-service > tbody > tr > td, #table-transfer-intermediate > tbody > tr > td, #table-transfer-provider > tbody > tr > td, #table-deliver > tbody > tr > td,
+#table-deliver-prepare > tbody > tr > td, #table-return > tbody > tr > td, #table-exit > tbody > tr > td, #table-delete > tbody > tr > td,
+#table-relocInternal > tbody > tr > td, #table-relocIntermediate > tbody > tr > td, #table-relocProvider > tbody > tr > td,
+#table-action > tbody > tr > td, #table-cancel > tbody > tr > td {
+    border: 0 !important;
+	border-bottom: 1px solid #3282BE !important;
+}
+
+#table-transfer-service > tbody > tr:last-child > td, #table-transfer-intermediate > tbody > tr:last-child > td, #table-transfer-provider > tbody > tr:last-child > td,
+#table-deliver > tbody > tr:last-child > td, #table-deliver-prepare > tbody > tr:last-child > td, #table-return > tbody > tr:last-child > td, #table-exit > tbody > tr:last-child > td,
+#table-delete > tbody > tr:last-child > td, #table-relocInternal > tbody > tr:last-child > td, #table-relocIntermediate > tbody > tr:last-child > td, #table-relocProvider > tbody > tr:last-child > td,
+#table-action > tbody > tr:last-child > td, #table-cancel > tbody > tr:last-child > td {
+	border-bottom-color: transparent !important;
+}
+
+.fa-power-off:before, .fa-2x::before, .fa-file::before {
+	color: white !important;
+}
+
+.fa-check::before, .fa-copy::before, .fa-trash-alt::before,  .fa-file-alt::before, .fa-clipboard-list::before, .fa-print::before, .fa-tasks::before, .fa-lock-alt::before, .fa-unlock-alt::before, .fa-lightbulb::before, .fa-question-circle::before, .fa-rectangle-portrait::before, .fa-archive::before {
+	color: #3282BE !important;
+	font-size: 15px !important;
+}
+
+.fa-chevron-down::before, .fa-user-circle::before {
+    color: white !important;
+    font-size: 15px !important;
+}
+
+.fa-file-excel::before, fa-file-pdf::before {
+    color: #3282BE !important;
+}
+
+.fa-trash::before {
+    color: #d43f3a !important;
+}
+
+#reconciliationIDPFile::before {
+	font-size: 48px !important;
+}
+
+#reconciliationExcelFile::before {
+	font-size: 48px !important;
+}
+
+.fa-exchange::before, .fa-pause::before {
+	color: #3282BE !important;
+	font-size: 13px !important;
+}
+
+.btn-danger > .fa-times::before {
+	color: #3282BE !important;
+}
+
+.search {
+	border-radius: 0 !important;
+	border: 1px !important;
+	border-color: #E9E9E9 !important;
+}
+
+#btnTransfer, #btnAskConsult, #btnAskReturn, #btnAskExit, #btnAskDelete, #btnAskReloc, #btnAction, #btnCancel {
+    background-color: #3282BE !important;
+    border-color: #3282BE !important;
+	border-radius: 0 !important;
+	height: 27px;
+	font-size: 14px !important;
+}
+
+#btnTransfer.disabled, #btnAskConsult.disabled, #btnAskReturn.disabled, #btnAskExit.disabled, #btnAskDelete.disabled, #btnAskReloc.disabled, #btnAction.disabled, #btnCancel.disabled {
+	background-color: #eee !important;
+	color: #777 !important;
+	border-color: #ddd !important;
+}
+
+
+
+.pull-right.search > input.form-control {
+	margin-top: 10px !important;
+	width: 190px !important;
+	height: 30px !important;
+	font-size: 13px !important;
+}
+
+div.columns.columns-right.btn-group.pull-right > button.btn.btn-default {
+	margin-top: 10px !important;
+	border-radius: 50% !important;
+	height: 30px !important;
+	width: 30px !important;
+	border: 2px solid #AFCD0A !important;
+}
+
+div.columns.columns-right.btn-group.pull-right > div.keep-open.btn-group > button.btn.btn-default.dropdown-toggle {
+	margin-top: 10px !important;
+	border-radius: 50% !important;
+	height: 30px !important;
+	width: 30px !important;
+	margin-left: 3px !important;
+	border: 2px solid #AFCD0A !important;
+}
+
+/* #tabSearch, #tabFilter, #tabResults {
+  border-radius: 0 !important;
+  border: 1px #3282BE !important;
+}*/
+
+div#tabfilter > .panel-default, div#tabsearch > .panel-default {
+	border: 0 !important;
+}
+
+div#tabfilter, div#tabsearch {
+	font-size: 13px !important;
+}
+
+li.page-pre > a, li.page-number > a, li.page-next > a, li.page-item > a {
+	border-color: #3282BE !important;
+	border-radius: 0 !important;
+	background-color: white !important;
+	color: #3282BE !important;
+}
+
+li.page-last-separator > a {
+	border-color: #3282BE !important;
+	border-radius: 0 !important;
+	background-color: white !important;
+	color: #ddd !important;
+}
+
+li.page-last > a {
+	border-color: #3282BE !important;
+	border-radius: 0 !important;
+	background-color: white !important;
+	color: #3282BE !important;
+}
+
+li.page-number.active > a, li.page-item.active > a {
+	border-color: #3282BE !important;
+	border-radius: 0 !important;
+	background-color: #FFE699 !important;
+	color: black !important;
+}
+
+.pagination-info {
+	padding-left: 8px !important;
+	color: #aaa;
+}
+
+.page-list {
+	color: #aaa !important;
+}
+
+#ModifyModal > .modal-dialog > .modal-content {
+	border-radius: 0;
+	color: #3282BE;
+}
+
+
+.logocustomer{
+	height: 45px;
+	margin-top: 3px;
+	margin-left: 10px;
+}
+
+.dashboard-spacer{
+	padding-top: 60px;
+}
+
+#tabletoolbar {
+	line-height: 13px !important;
+}
+
+#idp-main-navbar {
+	text-align: center;
+}
+#idp-help {
+	margin-left: 20px;
+}
+
+.navbar {
+	background-color: #3282BE;
+	border-radius: 0;
+	border: 1px solid #3282BE;
+}
+
+.navbar-center
+{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	text-align: center;
+	margin: auto;
+}
+
+/* Rapport des imports */
+
+.idp-import{
+	border: 1px solid #999;
+	border-left-width: 10px;
+	border-radius: 3px;
+
+	margin-top: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+
+	padding: 5px;
+
+	background-color: #eee;
+}
+
+.idp-import a {
+	color: #eee;
+	text-decoration: none;
+}
+
+.idp-import-unknown, .idp-import-error {
+	border-left-color: #d43f3a;
+	background-color: #FEA4A1;
+}
+
+.idp-import-start, .idp-import-in-progress {
+	border-left-color: #3282BE;
+	background-color: #C1E9F5;
+}
+
+.idp-import-end {
+	border-left-color: #3c763d;
+	background-color: #dff0d8;
+}
+
+.idp-import-cancel-in-progress {
+	border-left-color: #FFE699;
+	background-color: #F2DAB8;
+}
+
+.idp-import-canceled, .idp-import-definitive-validation {
+	border-left-color: #999;
+	color: #bbb;
+}
+
+/* Redéfinition de quelques éléments par dessus bootstrap */
+
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+    border-bottom-width: 1px !important;
+}
+
+.form-control{
+	padding: 2px 3px !important;
+	font-size: 11px !important;
+	line-height: 1.15 !important;
+	height: auto !important;
+	border-bottom-left-radius: 2px !important;
+	border-bottom-right-radius: 2px !important;
+	border-top-left-radius: 2px !important;
+	border-top-right-radius: 2px !important;
+}
+.control-label{
+	padding-top: 3px !important;
+}
+.panel{
+	margin-bottom: 8px !important;
+}
+
+h4{
+	font-size: 14px !important;
+	line-height: 1.1 !important;
+}
+.panel-title{
+	font-size: 13px !important;
+}
+
+.header {
+	overflow: hidden;
+	background-color: #3282BE;
+	padding: 20px 10px;
+}
+
+.header-menu-right {
+	float: right;
+}
+
+.logo {
+	max-height: 120px;
+	padding-left: 15px;
+}
+
+
+
+.navbar-btn{
+	margin-top: 16px !important;
+}
+
+.navbar-brand {
+	padding: 0px;
+	height: 140px !important;
+}
+
+.btn{
+	font-size: 11px !important;
+	line-height: 1.15 !important;
+	padding: 2px 3px !important;
+	border-bottom-left-radius: 2px !important;
+	border-bottom-right-radius: 2px !important;
+	border-top-left-radius: 2px !important;
+	border-top-right-radius: 2px !important;
+}
+.panel-group{
+	margin-bottom: 12px !important;
+}
+.list-group-item:last-child {
+
+	border-bottom-right-radius: 2px !important;
+	border-bottom-left-radius: 2px !important;
+}
+.list-group-item:first-child {
+	border-top-left-radius: 2px !important;
+	border-top-right-radius: 2px !important;
+}
+
+#sliderClosure .slider-selection, #sliderDestruction .slider-selection{
+	background: green;
+}
+
+.idpFCFi{
+	margin-right: 10px !important;
+	margin-top: 5px !important;
+}
+.idpFCFs{
+	margin-right: 23px !important;
+	margin-top: 8px !important;
+}
+.formNOK {
+	color: #a94442 !important;
+}
+.formOK {
+	color: #3c763d !important;
+}
+
+.menu-disabled, .menu-disabled:hover{
+	color: darkgrey !important;
+	cursor: not-allowed !important;
+}
+
+.bringToFront{
+	z-index: 1041 !important;
+}
+
+.has-error .form-control {
+	border-width: 2px !important;
+}
+.has-success .form-control {
+	border-width: 2px !important;
+}
+
+.popover{
+	width: 100%; /* Max Width of the popover (depending on the container!) */
+}

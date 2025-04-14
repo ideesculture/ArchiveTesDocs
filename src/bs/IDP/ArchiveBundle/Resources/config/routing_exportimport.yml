@@ -1,0 +1,65 @@
+bs_idp_archive_export:
+    path:     /export/
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:export }
+    requirements:
+        _method: GET
+
+bs_idp_archive_export_offline:
+    path:     /exportoffline/
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:exportOffline }
+    requirements:
+        _method: GET
+
+bs_idp_export_all:
+    path:     /exportall/
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:doExportAll }
+
+bs_idp_export_all_offline:
+    path:     /exportalloffline/
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:exportAllOffline }
+
+bs_idp_archive_partialimportscreen:
+    path:     /partialimportscreen/
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:partialimportscreen }
+
+bs_idp_archive_partialimportdo:
+    path:     /partialimportdo/
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:partialimportdo }
+    requirements:
+        _method: POST
+
+bs_idp_archive_partialimporttreatmentscreen:
+    path:     /importtreatmentscreen/
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:importtreatmentscreen }
+
+bs_idp_archive_importtreatmentdo:
+    path:     /importtreatmentdo/
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:importtreatmentdo }
+
+bs_idp_archive_importtreatmentsee:
+    path:     /importtreatmentsee/{id}
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:importtreatmentsee }
+
+bs_idp_archive_ajaximporttreatmentsurvey:
+    path:     /ajaximporttreatmentsurvey/
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:ajaximporttreatmentsurvey }
+
+bs_idp_archive_importsrapportsee:
+    path:     /importsrapportsee/
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:importsrapportsee }
+
+bs_idp_archive_importrapportfile:
+    path:     /importrapportfile/{id}
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:importrapportfile }
+
+bs_idp_archive_importerrorfile:
+    path:     /importerrorfile/{id}
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:importerrorfile }
+
+bs_idp_archive_importcancel:
+    path:     /importcancel/{id}
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:importcancel }
+
+bs_idp_archive_importvalidate:
+    path:     /importvalidate/{id}
+    defaults: { _controller: bsIDPArchiveBundle:ExportImport:importvalidate }

@@ -1,0 +1,24 @@
+
+bs_idp_archivist_json_deliveraddress_list:
+    path:     /list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDeliverAddressJson:deliveraddresslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_deliveraddress_delete:
+    path:     /delete/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDeliverAddressJson:deliveraddressdelete }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_deliveraddress_add:
+    path:    /add/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDeliverAddressJson:deliveraddressadd }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_deliveraddress_modify:
+    path:     /modify/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDeliverAddressJson:deliveraddressModify }
+    requirements:
+        _method: GET

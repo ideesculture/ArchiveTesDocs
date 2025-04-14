@@ -1,0 +1,9 @@
+bs_idp_dashboard_homepage:
+    path:     /
+    defaults: { _controller: bsIDPDashboardBundle:Default:index }
+
+bs_idp_system_mail_viewed:
+    path:     /bssystem/bsmail/viewed
+    defaults: { _controller: bsIDPDashboardBundle:SystemBSMail:viewed }
+    requirements:
+        _method: POST

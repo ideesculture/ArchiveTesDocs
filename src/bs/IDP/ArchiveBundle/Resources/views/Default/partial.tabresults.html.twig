@@ -1,0 +1,214 @@
+			<div role="tabpanel" class="tab-pane active" id="tabresults">
+				<div class="col-md-9" id="list">
+					<div id="tabletoolbar" class="">
+                        <button type="button" class="btn btn-default" id="divCheckAll" data-toggle="tooltip" title="{{ resultTranslations[38] }}"><i class="fal fa-check"></i></button>
+                        <button type="button" class="btn btn-default" id="divUncheckAll" data-toggle="tooltip" title="{{ resultTranslations[44] }}"><i class="fal fa-check-square"></i></button>
+						<button type="button" class="btn btn-default" id="divExport" data-toggle="tooltip" title="{{ resultTranslations[30] }}"><i class="fal fa-file-alt"></i></button>
+						<button type="button" class="btn btn-default" id="divExportPartial" data-toggle="tooltip" title="{{ resultTranslations[41] }}"><i class="fal fa-clipboard-list"></i></button>
+						<button type="button" class="btn btn-default" id="divPrintTags" data-toggle="tooltip" title="Imprimer les étiquettes"><i class="fal fa-copy"></i></button>
+						<button type="button" class="btn btn-default" id="divDeleteUAs" data-toggle="tooltip" title="Supprimer la sélection"><i class="fal fa-trash-alt"></i></button>
+                        <button type="button" class="btn btn-default" id="divPrintList" data-toggle="tooltip" title="{{ resultTranslations[31] }}"><i class="fal fa-print"></i></button>
+						<button type="button" class="btn btn-default" id="divPrintPartialList" data-toggle="tooltip" title="{{ resultTranslations[40] }}"><i class="fal fa-tasks"></i></button>
+						<button type="button" class="btn btn-default" id="divSetUnlimited" data-toggle="tooltip" title="{{ resultTranslations[42] }}"><i class="far fa-lock-alt"></i></button>
+						<button type="button" class="btn btn-default" id="divUnsetUnlimited" data-toggle="tooltip" title="{{ resultTranslations[43] }}"><i class="far fa-unlock-alt"></i></button>
+                    </div>
+					<table id="listsearchTable">
+						<thead></thead>
+						<tbody></tbody>
+					</table>
+					<div id="bsTablePagination"></div>
+
+				</div><!-- end of list -->
+				<div class="col-md-3 scroll" id="tab">
+                    {% if ( btnresults >= 0  and btnresults <= 5 ) %}
+					<ul class="nav nav-tabs" role="tablist" id="subtabmenu">
+						<li role="presentation" class="active"><a href="#tabmore" role="tab" data-toggle="tab" id="moveCart">
+						{% if btnresults == 0 %}
+							Transfert
+						{% endif %}
+						{% if btnresults == 1 %}
+							{{ resultTranslations[2] }}
+						{% endif %}
+						{% if btnresults == 2 %}
+							{{ resultTranslations[27] }}
+						{% endif %}
+						{% if btnresults == 3 %}
+							{{ resultTranslations[28] }}
+						{% endif %}
+						{% if btnresults == 4 %}
+							{{ resultTranslations[29] }}
+						{% endif %}
+                        {% if btnresults == 5 %}
+                            {{ resultTranslations[32] }}
+                        {% endif %}
+
+						</a></li>
+					</ul>
+					<div class="tab-content">
+
+						{% if btnresults == 0 %}
+							<div role="tabpanel" class="tab-pane active" id="tabtransfer">
+								<div class="panel panel-default hidden" id="transferservice">
+									<div class="panel-heading">
+										<button type="button" class="btn btn-info disabled" id="addToService"><i class="far fa-plus"></i></button><b><span class="text-info">&nbsp;&nbsp;&nbsp;Demande en salle interne</span></b>
+										<button type="button" class="btn btn-danger pull-right disabled" id="clearService"><i class="far fa-times"></i></button>
+									</div>
+									<div class="panel-body" id="transferToService">
+										<table id="table-transfer-service" ></table>
+									</div>
+								</div>
+								<br/>
+								<div class="panel panel-default hidden" id="transferintermediaire">
+									<div class="panel-heading">
+										<button type="button" class="btn btn-info disabled" id="addToIntermediate"><i class="far fa-plus"></i></button><b><span class="text-info">&nbsp;&nbsp;&nbsp;Demande en salle intermédiaire</span></b>
+										<button type="button" class="btn btn-danger pull-right disabled" id="clearIntermediate"><i class="far fa-times"></i></button>
+									</div>
+									<div class="panel-body" id="transferToIntermediate">
+										<table id="table-transfer-intermediate" ></table>
+									</div>
+								</div>
+								<br/>
+								<div class="panel panel-default hidden" id="transferprestataire">
+									<div class="panel-heading">
+										<button type="button" class="btn btn-info disabled" id="addToProvider"><i class="far fa-plus"></i></button><b><span class="text-info">&nbsp;&nbsp;&nbsp;Demande chez le prestataire</span></b>
+										<button type="button" class="btn btn-danger pull-right disabled" id="clearProvider"><i class="far fa-times"></i></button>
+									</div>
+									<div class="panel-body" id="transferToProvider">
+										<table id="table-transfer-provider" ></table>
+									</div>
+								</div>
+								<br/>
+								<button type="button" class="btn btn-info btn-block disabled" id="btnTransfer">Demander le transfert</button>
+								<br/>
+							</div>
+                        {% endif %}
+
+						{% if btnresults == 1 %}
+						<div role="tabpanel" class="tab-pane active" id="tabmore">
+							<div class="panel panel-default" id="askDeliver">
+								<div class="panel-heading">
+									<button type="button" class="btn btn-info disabled" id="addToDeliver"><i class="far fa-plus"></i></button>
+									<b><span class="text-info">&nbsp;&nbsp;&nbsp;{{ resultTranslations[17] }}</span></b>
+									<button type="button" class="btn btn-danger pull-right disabled" id="clearDeliver"><i class="far fa-times"></i></button>
+								</div>
+								<div class="panel-body" id="deliver">
+									<table id="table-deliver" ></table>
+								</div>
+							</div>
+							<br/>
+							<div class="panel panel-default" id="askDeliverPrepare">
+								<div class="panel-heading">
+									<button type="button" class="btn btn-info disabled" id="addToDeliverPrepare"><i class="far fa-plus"></i></button>
+									<b><span class="text-info">&nbsp;&nbsp;&nbsp;{{ resultTranslations[18] }}</span></b>
+									<button type="button" class="btn btn-danger pull-right disabled" id="clearDeliverPrepare"><i class="far fa-times"></i></button>
+								</div>
+								<div class="panel-body" id="deliverPrepare">
+									<table id="table-deliver-prepare" ></table>
+								</div>
+							</div>
+							<br/>
+							<button type="button" class="btn btn-info btn-block disabled" id="btnAskConsult" >{{ resultTranslations[16] }}</button>
+							<br/>
+						</div>
+						{% endif %}
+
+						{% if btnresults == 2 %}
+						<div role="tabpanel" class="tab-pane active" id="tabmore">
+							<div class="panel panel-default" id="askReturn">
+								<div class="panel-heading">
+									<button type="button" class="btn btn-info disabled" id="addToReturn"><i class="far fa-plus"></i></button>
+									<b><span class="text-info">&nbsp;&nbsp;&nbsp;{{ resultTranslations[22] }}</span></b>
+									<button type="button" class="btn btn-danger pull-right disabled" id="clearReturn"><i class="far fa-times"></i></button>
+								</div>
+								<div class="panel-body" id="deliver">
+									<table id="table-return" ></table>
+								</div>
+							</div>
+							<br/>
+							<button type="button" class="btn btn-info btn-block disabled" id="btnAskReturn" >{{ resultTranslations[21] }}</button>
+							<br/>
+						</div>
+						{% endif %}
+
+						{% if btnresults == 3 %}
+						<div role="tabpanel" class="tab-pane active" id="tabmore">
+							<div class="panel panel-default" id="askExit">
+								<div class="panel-heading">
+									<button type="button" class="btn btn-info disabled" id="addToExit"><i class="far fa-plus"></i></button>
+									<b><span class="text-info">&nbsp;&nbsp;&nbsp;{{ resultTranslations[24] }}</span></b>
+									<button type="button" class="btn btn-danger pull-right disabled" id="clearExit"><i class="far fa-times"></i></button>
+								</div>
+								<div class="panel-body" id="deliver">
+									<table id="table-exit" ></table>
+								</div>
+							</div>
+							<br/>
+							<button type="button" class="btn btn-info btn-block disabled" id="btnAskExit" >{{ resultTranslations[23] }}</button>
+							<br/>
+						</div>
+						{% endif %}
+
+						{% if btnresults == 4 %}
+						<div role="tabpanel" class="tab-pane active" id="tabmore">
+							<div class="panel panel-default" id="askDelete">
+								<div class="panel-heading">
+									<button type="button" class="btn btn-info disabled" id="addToDelete"><i class="far fa-plus"></i></button>
+									<b><span class="text-info">&nbsp;&nbsp;&nbsp;{{ resultTranslations[26] }}</span></b>
+									<button type="button" class="btn btn-danger pull-right disabled" id="clearDelete"><i class="far fa-times"></i></button>
+								</div>
+								<div class="panel-body" id="deliver">
+									<table id="table-delete" ></table>
+								</div>
+							</div>
+							<br/>
+							<button type="button" class="btn btn-info btn-block disabled" id="btnAskDelete" >{{ resultTranslations[25] }}</button>
+							<br/>
+						</div>
+						{% endif %}
+
+                        {% if btnresults == 5 %}
+                            <div role="tabpanel" class="tab-pane active" id="tabmore">
+                                <div class="panel panel-default hidden" id="askRelocInternal">
+                                    <div class="panel-heading">
+										<button type="button" class="btn btn-info disabled" id="addToRelocInternal"><i class="far fa-plus"></i></button>
+										<b><span class="text-info">&nbsp;&nbsp;&nbsp;{{ resultTranslations[33] }}</span></b>
+										<button type="button" class="btn btn-danger pull-right disabled" id="clearRelocInternal"><i class="far fa-times"></i></button>
+									</div>
+                                    <div class="panel-body" id="relocInternal">
+                                        <table id="table-relocInternal" ></table>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="panel panel-default hidden" id="askRelocIntermediate">
+                                    <div class="panel-heading">
+										<button type="button" class="btn btn-info disabled" id="addToRelocIntermediate"><i class="far fa-plus"></i></button>
+										<b><span class="text-info">&nbsp;&nbsp;&nbsp;{{ resultTranslations[34] }}</span></b>
+										<button type="button" class="btn btn-danger pull-right disabled" id="clearRelocIntermediate"><i class="far fa-times"></i></button>
+									</div>
+                                    <div class="panel-body" id="relocIntermediate">
+                                        <table id="table-relocIntermediate" ></table>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="panel panel-default hidden" id="askRelocProvider">
+                                    <div class="panel-heading">
+										<button type="button" class="btn btn-info disabled" id="addToRelocProvider"><i class="far fa-plus"></i></button>
+										<b><span class="text-info">&nbsp;&nbsp;&nbsp;{{ resultTranslations[35] }}</span></b>
+										<button type="button" class="btn btn-danger pull-right disabled" id="clearRelocProvider"><i class="far fa-times"></i></button>
+									</div>
+                                    <div class="panel-body" id="relocProvider">
+                                        <table id="table-relocProvider" ></table>
+                                    </div>
+                                </div>
+                                <br/>
+                                <button type="button" class="btn btn-info btn-block disabled" id="btnAskReloc" >{{ resultTranslations[36] }}</button>
+                                <br/>
+                            </div>
+                        {% endif %}
+
+
+                    </div>
+                    {% else %}&nbsp;
+                    {% endif %}
+				</div> <!-- end of tab -->
+			</div>
