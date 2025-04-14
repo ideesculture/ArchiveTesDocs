@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+		{% block morehead %}{% endblock %}
+        <title>{{ headTranslations[1] }} {% block title %}{% endblock %}</title>
+
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    	<meta content="" name="description" />
+	    <meta content="" name="author" />
+        <!--[if IE]>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+        {% block meta %}
+        {% endblock %}
+
+		{% block stylesheets %}
+		    <link href="{{ asset('/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+		    <link href="{{ asset('/css/fontawesome-all.min.css') }}" type="text/css" rel="stylesheet" />
+		    <link href="{{ asset('/css/color-scheme.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('/css/tutorialize.css') }}" type="text/css" rel="stylesheet" />
+			  <link href="{{ asset('/css/jquery-ui.css') }}" type="text/css" rel="stylesheet" />
+		    <link href="{{ asset('/css/main.css') }}" type="text/css" rel="stylesheet" />
+		    <link href="{{ asset('/css/print.css') }}" type="text/css" rel="stylesheet" media="print" />
+		{% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+<!-- BEGIN BODY -->
+<body class="">
+
+	<div id="mainOverlay">
+		{% block overlay %}{% endblock %}
+	</div>
+
+	<!-- HEADER SECTION -->
+	<header class="navbar navbar-default" role="navigation">
+		<div class="container-fluid" id="top-menu-bar">
+			<!-- Brand logo and toggle button -->
+			<div class="navbar-header col-md-2">
+				<a class="navbar-brand" href="{{ path('bs_idp_dashboard_homepage') }}"><img class="logo img-responsive" src="{{ asset('img/Logo_blanc.png') }}" alt="{% if headTranslations is defined %}{{ headTranslations[2] }}{% endif %}"/></a>
+			</div> <!-- navbar-header -->
+
+			<!-- nav links -->
+			<div class="collapse navbar-collapse" id="idp-main-navbar">
+				<div class="col-md-3">
+					<ul class="nav navbar-nav" id="idp-help">
+						<li><a id="menu-toggle" href="#left-menu" data-parent="#menu-toggle" data-toggle="collapse">
+								<i class="fal fa-align-justify"></i>
+							</a></li>
+						<li ><button type="button" class="btn btn-default navbar-btn" id="btnHelpMe"><i class="fal fa-lightbulb"></i>&nbsp;{% if headTranslation is defined %}{{ headTranslations[3] }}{% else %}Aide{% endif %}</button>&nbsp;</li>
+					</ul>
+				</div>
+
+				<div>
+					<ul class="nav navbar-nav navbar-right">
+						{% if userFilesResume['in_progress'] %}
+							<li id="userFileResume"><a href="{{ path('bs_core_userspace_userfile_viewmainscreen') }}"><i class="fad fa-file text-primary"></i>&nbsp;<i class="fal fa-compact-disc fa-spin text-primary"></i></a></li>
+						{% elseif userFilesResume['nb_files_unseen'] > 0 %}
+							<li id="userFileResume"><a href="{{ path('bs_core_userspace_userfile_viewmainscreen') }}" class="text-success"><i class="fas fa-file text-success"></i>&nbsp;{{ userFilesResume['nb_files_unseen'] }}</a></li>
+						{% else %}
+							<li id="userFileResume"></li>
+						{%  endif %}
+
+						<li class="dropdown" id="btnParamAccount">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fal fa-user-circle"></i>&nbsp;
+								<i class="fal fa-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="{{ path('bs_core_user_change_mdp_screen') }}"><i class="fal fa-key"></i>&nbsp;&nbsp;Changer de mot de passe</a></li>
+								<li class="dropdown-divider">&nbsp;</li>
+								<li><a href="{{ path('bs_core_userspace_userfile_viewmainscreen') }}"><i class="fal fa-file"></i>&nbsp;&nbsp;Télécharger mes fichiers</a></li>
+							</ul>
+						</li>
+						<li><a href="{{ path('bs_core_user_logout') }}" id="hrefLogout" alt="{% if headTranslation is defined %}{{ headTranslations[6] }}{% endif %}"><i class="fal fa-power-off fa-2x text-danger"></i></a></li>
+					</ul>
+				</div>
+
+			</div> <!-- idp-main-navbar -->
+
+		</div> <!-- container-fluid -->
+	</header>
+
+	<!-- ENDOF HEADER SECTION -->
+
+	<!-- MAIN SECTION (MENU, CONTENT) -->
+	<div class="container-fluid">
+
+		<div class="row">
+
+			<!-- MENU SECTION -->
+			<div id="left-menu" class="col-md-2 panel-group" role="tablist" aria-multiselectable="true">
+				<div class="list-group" class="accueil" id="btnAccueil">
+					<a href="{{ path('bs_idp_dashboard_homepage') }}" class="list-group-item">{{ headTranslations[7] }}</a>	<!-- accueil -->
+				</div> <!-- accueil -->
+				<div class="panel panel-primary" id="btnArchives">
+					<div class="panel-heading" role="tab" id="panel-archives" >
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#left-menu" href="#archives" aria-expanded="true" aria-controls="archives">{{ headTranslations[8] }}</a> <!-- archives -->
+						</h4>
+					</div>
+					<div id="archives" class="panel-collapse collapse {% if ( currentMenu < 10 or currentMenu == 28 ) %}in{% endif %} list-group" role="tabpanel" aria-labelledby="panel-archives">
+						<a href="{{ path('bs_idp_archive_new') }}" class="{% if currentMenu == 1 %}menu-selected{% endif %} list-group-item">{{ headTranslations[9] }}</a>					<!-- saisir -->
+						<a href="{{ path('bs_idp_archive_transferscreen') }}" class="{% if currentMenu == 2 %}menu-selected{% endif %} list-group-item">{{ headTranslations[10] }}</a>		<!-- transférer -->
+						<a href="{{ path('bs_idp_archive_askconsult_screen') }}" class="{% if currentMenu == 3 %}menu-selected{% endif %} list-group-item">{{ headTranslations[11] }}</a>		<!-- consulter -->
+						<a href="{{ path('bs_idp_archive_askreturn_screen') }}" class="{% if currentMenu == 4 %}menu-selected{% endif %} list-group-item">{{ headTranslations[12] }}</a>		<!-- renvoyer -->
+						<a href="{{ path('bs_idp_archive_askexit_screen') }}" class="{% if currentMenu == 5 %}menu-selected{% endif %} list-group-item">{{ headTranslations[13] }}</a>		<!-- récupérer -->
+						<a href="{{ path('bs_idp_archive_askdelete_screen') }}" class="{% if currentMenu == 6 %}menu-selected{% endif %} list-group-item">{{ headTranslations[14] }}</a>		<!-- détruire -->
+                        <a href="{{ path('bs_idp_archive_askreloc_screen') }}" class="{% if currentMenu == 28 %}menu-selected{% endif %} list-group-item">{{ headTranslations[26] }}</a>  <!-- relocaliser -->
+					</div>
+				</div> <!-- panel archives -->
+
+				<div class="panel panel-default" id="btnFournitures">
+
+					<div class="panel-heading" role="tab" id="panel-fournitures">
+						<h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#left-menu" href="#fournitures" aria-expanded="false" aria-controls="fournitures">{{ headTranslations[15] }}</a>	 <!-- Fournitures -->
+						</h4>
+					</div>
+					<!--
+					<div id="fournitures" class="panel-collapse collapse list-group" role="tabpanel" aria-labelledby="panel-fournitures">
+						<a href="#" class="list-group-item">{{ headTranslations[16] }}</a>		 Commander
+						<a href="#" class="list-group-item">{{ headTranslations[17] }}</a>		 En cours
+							{% if ( userscale < 100 ) %}
+							<a href="#" class="list-group-item">{{ headTranslations[18] }}</a>	 Gérer
+							{% endif %}
+					</div>
+					-->
+				</div> <!-- panel fournitures -->
+
+				{% if ( userscale < 100 )  %}
+
+				<div class="panel panel-primary" id="btnGestion">
+					<div class="panel-heading" role="tab" id="panel-gestion">
+						<h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#left-menu" href="#gestion" aria-expanded="false" aria-controls="gestion">{{ headTranslations[19] }}</a>	<!-- Gestion des archives -->
+						</h4>
+					</div>
+					<div id="gestion" class="panel-collapse collapse {% if ( currentMenu == 21 or currentMenu == 22 or currentMenu == 23 or currentMenu == 24 or currentMenu == 25 or currentMenu == 26 or currentMenu == 27 or currentMenu == 35 ) %}in{% endif %} list-group" role="tabpanel" aria-labelledby="panel-gestion">
+						<a href="{{ path('bs_idp_archivist_manage_user_wants') }}" class="{% if currentMenu == 21 %}menu-selected{% endif %} list-group-item">{{ headTranslations[20] }}</a>		<!-- Valider les demandes des utilisateurs -->
+						<a href="{{ path('bs_idp_archivist_manage_provider_wants') }}" class="{% if currentMenu == 26 %}menu-selected{% endif %} list-group-item">Gérer les demandes des prestataires</a>		<!-- Gérer les demandes des prestataires-->
+						<a href="{{ path('bs_idp_archivist_close_user_wants') }}" class="{% if currentMenu == 27 %}menu-selected{% endif %} list-group-item">Clôturer les demandes des utilisateurs</a>		<!-- Clôturer les demandes des utilisateurs -->
+						<a href="{{ path('bs_idp_archivist_managedb_input_services') }}" class="{% if currentMenu == 22 %}menu-selected{% endif %} list-group-item">{{ headTranslations[21] }}</a>	<!-- Gérer la base -->
+                        <a href="#" class="disabled {% if currentMenu == 36 %}menu-selected{% endif %} list-group-item">Auditer</a>				<!-- Auditer -->
+						<a href="#" class="disabled {% if currentMenu == 23 %}menu-selected{% endif %} list-group-item">{{ headTranslations[22] }}</a>				<!-- Consulter les statistiques {{ path('bs_idp_statistics_mainview') }} -->
+                        <a href="{{ path('bs_idp_archivist_askunlimited_screen') }}" class="{% if currentMenu == 35 %}menu-selected{% endif %} list-group-item">Gérer les archives illimitées</a>		<!-- Gérer les archives illimitées -->
+                        <a href="#" class="disabled {% if currentMenu == 37 %}menu-selected{% endif %} list-group-item">Voir la synthèse de l'activité</a>				<!-- Voir la synthèse de l'activité -->
+						<a href="{{ path('bs_idp_export_all') }}" class="{% if currentMenu == 24 %}menu-selected{% endif %} list-group-item">{{ headTranslations[23] }}</a>							<!-- Exporter toutes les données -->
+						<a href="{{ path('bs_idp_archive_partialimportscreen') }}" class="{% if currentMenu == 25 %}menu-selected{% endif %} list-group-item">{{ headTranslations[25] }}</a>		<!-- Importer des données -->
+					</div>
+				</div> <!-- panel gestion -->
+
+				{% endif %}
+
+			</div> <!-- left-menu -->
+			<!-- ENDOF MENU SECTION -->
+
+			<!-- CONTENT SECTION -->
+			<div class="col-md-10" role="main">
+				{% block content %}{% endblock %}
+			</div>
+			<!-- ENDOF CONTENT SECTION -->
+		</div> <!-- row -->
+
+	</div>
+	<!-- ENDOF MAIN SECTION -->
+
+	<!-- FOOTER SECTION -->
+	{% include 'footer.html.twig' %}
+	<!-- ENDOF FOOTER SECTION -->
+
+		{% block javascripts %}
+			<script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
+			<script src="{{ asset('/js/jquery-ui.js') }}"></script>
+			<script src="{{ asset('/js/bootstrap.js') }}"></script>
+            <script src="{{ asset('/js/jquery.tutorialize.js') }}"></script>
+            <script src="{{ asset('/js/bootbox.min.js') }}"></script>
+			<script src="{{ asset('/js/IDPArchiveHeader.1.4.5.0.js') }}"></script>
+		{% endblock %}
+    </body>
+</html>

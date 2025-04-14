@@ -1,0 +1,54 @@
+.bsTable_TablePagination::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.bsTable_TablePagination > .bsTable_PaginationDetail,
+.bsTable_TablePagination > .bsTable_Pagination {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.bsTable_TablePagination > .bsTable_PaginationDetail .bsTable_PaginationInfo {
+    line-height: 34px;
+    margin-right: 5px;
+}
+.bsTable_TablePagination > .bsTable_PaginationDetail .bsTable_PageList {
+    display: inline-block;
+}
+.bsTable_TablePagination > .bsTable_PaginationDetail .bsTable_PageList .btn-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+.bsTable_TablePagination > .bsTable_PaginationDetail .bsTable_PageList .btn-group .dropdown-menu {
+    margin-bottom: 0;
+}
+.bsTable_TablePagination > .bsTable_Pagination ul.bsTable_Pagination {
+    margin: 0;
+}
+.bsTable_TablePagination > .bsTable_Pagination ul.bsTable_Pagination a {
+    padding: 6px 12px;
+    line-height: 1.428571429;
+}
+.bsTable_TablePagination > .bsTable_Pagination ul.bsTable_Pagination li.disabled a {
+    pointer-events: none;
+    cursor: default;
+}
+
+.bsTable_Page.active > a {
+    border-color: #3282BE !important;
+    border-radius: 0 !important;
+    background-color: #FFE699 !important;
+    color: black !important;
+}
+
+.bsTable_PagePre > a, .bsTable_PageNext > a, .bsTable_Page > a {
+    border-color: #3282BE !important;
+    border-radius: 0 !important;
+    background-color: white !important;
+    color: #3282BE !important;
+}
+
+.bsTable_PageSeparator.disabled > a {
+    border-color: #3282BE !important;
+}

@@ -1,0 +1,15 @@
+bs_core_userspace_userfile_viewmainscreen:
+    path:     /viewmainscreen/
+    defaults: { _controller: bsCoreUsersBundle:UserSpaceUserFile:viewMainScreen }
+
+bs_core_userspace_userfile_deletefile:
+    path:     /deletefile/
+    defaults: { _controller: bsCoreUsersBundle:UserSpaceUserFile:deleteFile }
+    requirements:
+        _method: GET
+
+bs_core_userspace_userfile_downloadfile:
+    path:     /downloadfile/
+    defaults: { _controller: bsCoreUsersBundle:UserSpaceUserFile:downloadFile }
+    requirements:
+        _method: GET

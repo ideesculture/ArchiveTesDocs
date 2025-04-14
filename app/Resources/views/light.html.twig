@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html  lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{{ headTranslations[1] }} {% block title %}{% endblock %}</title>
+
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    	<meta content="" name="description" />
+	    <meta content="" name="author" />
+        <!--[if IE]>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+
+		{% block stylesheets %}
+		    <link href="{{ asset('/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+		    <link href="{{ asset('/css/fontawesome-all.min.css') }}" type="text/css" rel="stylesheet" />
+		    <link href="{{ asset('/css/color-scheme.css') }}" type="text/css" rel="stylesheet" />
+			<link href="{{ asset('/css/main.css') }}" type="text/css" rel="stylesheet" />
+			<link href="{{ asset('/css/print.css') }}" type="text/css" rel="stylesheet" media="print" />
+		{% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+<!-- BEGIN BODY -->
+<body class="">
+
+	<!-- MAIN SECTION (MENU, CONTENT) -->
+	<div class="container-fluid">
+
+		{% block content %}{% endblock %}
+
+	</div>
+	<!-- ENDOF MAIN SECTION -->
+
+		{% block javascripts %}
+			<script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
+			<script src="{{ asset('/js/bootstrap.js') }}"></script>
+            <script src="{{ asset('/js/bootbox.min.js') }}"></script>
+		{% endblock %}
+    </body>
+</html>
+
+
+

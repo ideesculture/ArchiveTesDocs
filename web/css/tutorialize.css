@@ -1,0 +1,160 @@
+@charset "UTF-8";
+/*
+ * Tutorialize - jQuery Plugin
+ * Copyright (c) 2015 Gael Stucki (http://www.cvwanted.com/gael_stucki)
+ * Documentation (http://gamaki-studio.com/envato/tutorialize)
+ * Licensed under Regular license
+ */
+
+ /*
+  * General
+  */
+.tutorialize-slide{
+	box-shadow: 0px 0px 5px #999;
+	display:none;
+	position:absolute;
+	z-index:19999;
+}
+.tutorialize-slide-arrow{
+	background-repeat: no-repeat;
+	position:absolute;
+}
+.tutorialize-slide-close{
+	border-radius: 50%;
+	font-size:11px;
+	height:20px;
+	line-height:18px;
+	position:absolute;
+	right:8px;
+	text-align:center;
+	top:8px;
+	width:20px;
+}
+.tutorialize-slide-close:hover{
+	cursor:pointer;
+	background-color: transparent !important;
+}
+.tutorialize-slide-content{
+	line-height:1.3;
+	padding:10px 0;
+	overflow-y:auto;
+
+    text-align: justify;
+    text-justify: inter-word;
+}
+.tutorialize-slide-content img{
+	max-width: 100%;
+	height:100;
+}
+.tutorialize-slide-content-media{
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+.tutorialize-slide-content-media embed,
+.tutorialize-slide-content-media iframe,
+.tutorialize-slide-content-media object,
+.tutorialize-slide-content-media video{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+.tutorialize-slide-control{
+	display:block;
+	list-style: none;
+	padding:10px 0 0 0;
+	margin:0;
+	overflow-y:auto;
+}
+.tutorialize-slide-control li{
+	float:right;
+	margin-left:5px;
+}
+.tutorialize-slide-control li:hover{
+	background-color: transparent !important;
+}
+.tutorialize-slide-control li.counter{
+	float:left;
+	margin-left:0;
+	background-color: transparent !important;
+	padding:5px 0;
+}
+.tutorialize-slide-control li.hide{
+	display:none !important;
+}
+.tutorialize-slide-control li span{
+	cursor:pointer;
+	display:inline-block;
+	padding:5px 8px;
+}
+.tutorialize-slide-overlay{
+	position:fixed;
+	z-index:19998;
+}
+.tutorialize-slide-title{
+	font-weight:bold;
+}
+.tutorialize-slide.minWidthCSS .tutorialize-slide-control{
+	text-align:center;
+}
+.tutorialize-slide.minWidthCSS .tutorialize-slide-control li{
+	display:block;
+	float:none;
+	margin:5px 0;
+}
+
+ /*
+  * Themes
+  */
+
+ /* Your Theme Here */
+.tutorialize-slide.yourThemeClassHere{
+
+}
+
+ /* Lined Theme */
+.tutorialize-slide.lined{
+	box-shadow: 0px 0px 5px #999;
+}
+.tutorialize-slide.lined .tutorialize-slide-close{
+	background-color:rgba(0, 0, 0, 0.3) !important;
+	color:#fff;
+}
+.tutorialize-slide.lined .tutorialize-slide-close:hover{
+	background-color:transparent !important;
+}
+.tutorialize-slide.lined .tutorialize-slide-content{
+	background-color:#f9f9f9;
+	padding:20px;
+}
+.tutorialize-slide.lined .tutorialize-slide-content p{
+	margin-bottom:10px;
+}
+.tutorialize-slide.lined .tutorialize-slide-control{
+	padding:10px 20px;
+	background-color:#e5e5e5;
+	border-top:1px solid #ddd;
+	border-radius: 0 0 5px 5px;
+}
+.tutorialize-slide.lined .tutorialize-slide-control li{
+	border-radius:2px
+}
+.tutorialize-slide.lined .tutorialize-slide-control li:hover span{
+	color:#666 !important;
+}
+.tutorialize-slide.lined .tutorialize-slide-control li.close{
+	background-color: transparent !important;
+	opacity:1;
+}
+.tutorialize-slide.lined .tutorialize-slide-control li.close span{
+	color:#999 !important;
+}
+.tutorialize-slide.lined .tutorialize-slide-title{
+	padding:15px 20px;
+	color:#fff;
+	border-radius: 5px 5px 0 0;
+}

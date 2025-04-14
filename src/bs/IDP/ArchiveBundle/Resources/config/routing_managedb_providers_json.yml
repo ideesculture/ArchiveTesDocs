@@ -1,0 +1,42 @@
+
+bs_idp_archivist_json_providers_list:
+    path:     /list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBProvidersJson:providerslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_providers_delete:
+    path:     /delete/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBProvidersJson:providersdelete }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_providers_add:
+    path:     /add/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBProvidersJson:providersadd }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_providers_modify:
+    path:     /modify/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBProvidersJson:providersmodify }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_providers_links_list:
+    path:     /links/list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBProvidersJson:providerslinkslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_providers_links_set:
+    path:     /links/set/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBProvidersJson:providerslinksset }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_providers_links_unset:
+    path:     /links/unset/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBProvidersJson:providerslinksunset }
+    requirements:
+        _method: GET

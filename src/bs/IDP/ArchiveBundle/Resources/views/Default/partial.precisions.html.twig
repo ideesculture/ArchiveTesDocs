@@ -1,0 +1,73 @@
+<div class="modal fade" id="actionModalDialog" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Abandonner</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{ precisionTranslations[19] }}</h4>
+            </div>
+            <div class="modal-body">
+
+                {% if currentMenu == 2 %}
+                    {{ form_start(form, {'action': path('bs_idp_archive_transferaction'), 'attr': {'class': 'form-horizontal'}}) }}
+                    {{ form_label(form.precisiondate, precisionTranslations[7], { 'label_attr': {'class': 'control-label'} }) }}<span class="text-danger">*</span>
+                {%  elseif currentMenu == 3 %}
+                    {{ form_start(form, {'action': path('bs_idp_archive_askconsult_action'), 'attr': {'class': 'form-horizontal'}}) }}
+                    {{ form_label(form.precisiondate, precisionTranslations[9], { 'label_attr': {'class': 'control-label'} }) }}<span class="text-danger">*</span>
+                {%  elseif currentMenu == 4 %}
+                    {{ form_start(form, {'action': path('bs_idp_archive_askreturn_action'), 'attr': {'class': 'form-horizontal'}}) }}
+                    {{ form_label(form.precisiondate, precisionTranslations[11], { 'label_attr': {'class': 'control-label'} }) }}<span class="text-danger">*</span>
+                {% elseif currentMenu == 5 %}
+                    {{ form_start(form, {'action': path('bs_idp_archive_askexit_action'), 'attr': {'class': 'form-horizontal'}}) }}
+                    {{ form_label(form.precisiondate, precisionTranslations[13], { 'label_attr': {'class': 'control-label'} }) }}<span class="text-danger">*</span>
+                {% elseif currentMenu == 6 %}
+                    {{ form_start(form, {'action': path('bs_idp_archive_askdelete_action'), 'attr': {'class': 'form-horizontal'}}) }}
+                    {{ form_label(form.precisiondate, precisionTranslations[15], { 'label_attr': {'class': 'control-label'} }) }}<span class="text-danger">*</span>
+                {% elseif currentMenu == 28 %}
+                    {{ form_start(form, {'action': path('bs_idp_archive_askreloc_action'), 'attr': {'class': 'form-horizontal'}}) }}
+                    {{ form_label(form.precisiondate, precisionTranslations[17], { 'label_attr': {'class': 'control-label'} }) }}<span class="text-danger">*</span>
+                {% endif %}
+                {{ form_widget(form.precisiondate, { 'attr': {'class': 'form-control clsDatePicker', 'readonly': true} }) }}
+
+                {{ form_label(form.precisionwho, precisionTranslations[1], { 'label_attr': {'class': 'control-label'} }) }}
+                {% if (currentMenu == 2 or currentMenu == 3 or currentMenu == 4 or currentMenu == 5 or currentMenu == 6 or currentMenu ==28) %}
+                    <span class="text-danger">*</span>
+                {% endif %}
+                {{ form_widget(form.precisionwho, { 'attr': {'class': 'form-control'} }) }}
+
+                {{ form_label(form.precisionwhere, precisionTranslations[2], { 'label_attr': {'class': 'control-label'} }) }}
+                {% if currentMenu == 2 or currentMenu == 3 or currentMenu == 4 or currentMenu == 5 %}
+                    <span class="text-danger">*</span>
+                {% endif %}
+                {{ form_widget(form.precisionwhere, { 'attr': {'class': 'form-control'} }) }}
+
+                {{ form_label(form.precisionfloor, precisionTranslations[3], { 'label_attr': {'class': 'control-label'} }) }}
+                {% if currentMenu == 2 or currentMenu == 3 or currentMenu == 4 or currentMenu == 5 %}
+                    <span class="text-danger">*</span>
+                {% endif %}
+                {{ form_widget(form.precisionfloor, { 'attr': {'class': 'form-control'} }) }}
+
+                {{ form_label(form.precisionoffice, precisionTranslations[4], { 'label_attr': {'class': 'control-label'} }) }}
+                {% if currentMenu == 2 or currentMenu == 3 or currentMenu == 4 or currentMenu == 5 %}
+                    <span class="text-danger">*</span>
+                {% endif %}
+                {{ form_widget(form.precisionoffice, { 'attr': {'class': 'form-control'} }) }}
+
+                {{ form_label(form.precisioncomment, precisionTranslations[5], { 'label_attr': {'class': 'control-label', 'id': 'lblPrecisionComment'} }) }}
+                {% if false %}
+                    <span class="text-danger">*</span>
+                {% endif %}
+                {{ form_widget(form.precisioncomment, { 'attr': {'class': 'form-control'} }) }}
+
+                {{ form_widget(form.ids) }}
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ precisionTranslations[26] }}</button>
+                {{ form_widget(form.precisionBtn, { 'attr': {'class': 'btn btn-primary'} }) }}
+
+                {{ form_rest(form) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>

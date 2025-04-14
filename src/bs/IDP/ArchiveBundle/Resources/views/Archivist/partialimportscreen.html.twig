@@ -1,0 +1,69 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+ - Importer des données
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+	<div id="ajaxInfo" class="alert alert-warning hidden"></div>
+	<div id="ajaxError" class="alert alert-danger hidden"></div>
+
+    <!-- Main form inputs -->
+	<div class="row">
+
+		{%  if globalStatuses.ImportInProgress %}
+            <div class="col-md-12 alert alert-warning">
+                <strong>Attention</strong> une importation est en cours, il est déconseillé d'utiliser Archimage pendant ce processus !.
+                {% if ( userscale < 50 ) %}
+                    Pour en savoir plus vous pouvez Accèder à la page de <a href="{{ path('bs_idp_archive_importsrapportsee') }}" class="btn btn-warning">résumé d'import</a></div>
+                {%  endif %}
+            </div>
+
+        {%  else %}
+
+            <div class="col-sm-10 col-sm-offset-1 mb1">
+                <div class="panel panel-default mt10" id="panelImport">
+                    <div class="panel-heading">Importation des données</div>
+                        <div class="panel-body">
+                        Merci de respecter les spécifications du fichier d’import afin que tout se passe dans les meilleures conditions.<br/>
+                        <br/>
+                        Le séparateur choisi pour tous les champs présents dans le fichier CSV est le point-virgule ( ; ). Par conséquent, ce dernier ne devra être présent dans <strong>aucun</strong> champ sous peine d’empêcher le bon déroulement de l’import.<br/>
+                        <br/>
+                        Le nombre total de champs étant de 28, le fichier d’import doit toujours compter 27 points-virgules. Lorsqu’un champ est non rempli (parce que facultatif), le séparateur, c’est-à-dire le point-virgule, doit être collé au précédent.<br/>
+                        <br>
+
+                        {{ form(importForm) }}
+                        </div>
+                </div>
+            </div>
+        {%  endif %}
+
+
+		{% if ( userscale < 50 )  %}
+		<!--
+		<div class="col-sm-12 mb1">
+			<a href="{{path('bs_idp_archive_partialimporttreatmentscreen')}}"><button type="button" class="btn btn-default">Aller à la page Traitement</button></a>
+		</div>
+		-->
+		{% endif %}
+
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var JSON_URLS = {
+    };
+	var IDP_CONST = {
+
+	};
+	</script>
+
+{% endblock %}

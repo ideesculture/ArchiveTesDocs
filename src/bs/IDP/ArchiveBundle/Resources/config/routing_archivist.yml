@@ -1,0 +1,107 @@
+bs_idp_archive_archivist_json:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_archivist_json.yml"
+    prefix:   /json/
+
+bs_idp_archivist_manage_user_wants:
+    path:     /manageuserwants/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:manageuserwants }
+
+bs_idp_archivist_manage_provider_wants:
+    path:     /manageproviderwants/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:manageproviderwants }
+
+bs_idp_archivist_close_user_wants:
+    path:     /closeuserwants/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:closeuserwants }
+
+bs_idp_archivist_managedb_input_services:
+    path:     /managedb_input_services/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputservices }
+
+bs_idp_archivist_managedb_input_legalentities:
+    path:     /managedb_input_legalentities/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputlegalentities }
+
+bs_idp_archivist_managedb_input_legalentities_finetune:
+    path:     /managedb_input_legalentities_finetune/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputlegalentitiesfinetune }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_managedb_input_budgetcodes:
+    path:     /managedb_input_budgetcodes/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputbudgetcodes }
+
+bs_idp_archivist_managedb_input_budgetcodes_finetune:
+    path:     /managedb_input_budgetcodes_finetune/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputbudgetcodesfinetune }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_managedb_input_documentnatures:
+    path:     /managedb_input_documentnatures/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputdocumentnatures }
+
+bs_idp_archivist_managedb_input_documentnatures_finetune:
+    path:     /managedb_input_documentnatures_finetune/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputdocumentnaturesfinetune }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_managedb_input_descriptions1:
+    path:     /managedb_input_descriptions1/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputdescriptions1 }
+
+bs_idp_archivist_managedb_input_descriptions1_finetune:
+    path:     /managedb_input_descriptions1_finetune/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputdescriptions1finetune }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_managedb_input_descriptions2:
+    path:     /managedb_input_descriptions2/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputdescriptions2 }
+
+bs_idp_archivist_managedb_input_descriptions2_finetune:
+    path:     /managedb_input_descriptions2_finetune/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputdescriptions2finetune }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_managedb_input_deliveraddress:
+    path:     /managedb_input_deliveraddress/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputdeliveraddress }
+
+bs_idp_archivist_managedb_input_documenttypes:
+    path:     /managedb_input_documenttypes/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputdocumenttypes }
+
+bs_idp_archivist_managedb_input_documenttypes_finetune:
+    path:     /managedb_input_documenttypes_finetune/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputdocumenttypesfinetune }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_managedb_providers:
+    path:     /managedb_providers/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbproviders }
+
+bs_idp_archivist_managedb_providers_finetune:
+    path:     /managedb_providers_finetune/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbprovidersfinetune }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_managedb_input_localizations:
+    path:     /managedb_input_localizations/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputlocalizations }
+
+bs_idp_archivist_managedb_input_localizations_finetune:
+    path:     /managedb_input_localizations_finetune/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:managedbinputlocalizationsfinetune }
+    requirements:
+      _method: GET
+
+bs_idp_archivist_askunlimited_screen:
+    path:     /askunlimited/
+    defaults: { _controller: bsIDPArchiveBundle:Archivist:askUnlimitedScreen }

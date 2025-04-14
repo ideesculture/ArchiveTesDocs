@@ -1,0 +1,5 @@
+bs_core_user_asf_update:
+    path:     /update/
+    defaults: { _controller: bsCoreUsersBundle:UserAutoSaveFieldJson:updateAsf }
+    requirements:
+        _method: GET

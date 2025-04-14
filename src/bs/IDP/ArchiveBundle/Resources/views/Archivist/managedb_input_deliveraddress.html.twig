@@ -1,0 +1,152 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('/css/bootstrap-table.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block overlay %}
+{% endblock %}
+
+{% block content %}
+
+    {% set menuaction = 1 %}
+	{% set submenuaction = 8 %}
+    {% include "bsIDPArchiveBundle:Archivist:partial.menumanagedb.html.twig" %}
+
+	<div class="modal fade" id="SuppressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">{{ translations[1] }}</h4>
+				</div>
+				<div class="modal-body" id="SuppressModalText">
+					{{ translations[2] }}
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">{{ translations[3] }}</button>
+					<button type="button" class="btn btn-primary" id="btnSuppressModalConfirm">{{ translations[4] }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="ModifyModal" tabindex="-1" role="dialog" aria-labelledby="ModifyModalHeader" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="ModifyModalHeader">{{ translations[5] }}</h4>
+				</div>
+				<div class="modal-body" id="ModifyModalBody">
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="frmmodify[name]" class="label-control col-sm-2">{{ translations[6] }}</label>
+							<div class="col-sm-10">
+								<input name="frmmodify[name]" id="frm_modify_name" type="text" class="form-control col-sm-11"/>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">{{ translations[7] }}</button>
+					<button type="button" class="btn btn-primary" id="btnModifyModalConfirm">{{ translations[8] }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="tabSaisie">
+
+		<ol class="breadcrumb">
+			<li><a href="{{ path('bs_idp_archivist_managedb_input_services')}}">{{ partialmenuTranslations[13] }}</a></li>
+			<li><a href="{{ path('bs_idp_archivist_managedb_input_services')}}">{{ partialmenuTranslations[1] }}</a></li>
+			<li><a href="{{ path('bs_idp_archivist_managedb_input_deliveraddress')}}">{{ partialmenuTranslations[12] }}</a></li>
+		</ol>
+
+		<br/><br/>
+
+		<table data-toggle="table"
+			data-url="{{ path('bs_idp_archivist_json_deliveraddress_list') }}"
+			data-pagination="true"
+			data-side-pagination="server"
+			   data-row-style = "dbrowstyle"
+			data-method = "GET"
+			   data-sort-name="longname"
+			   data-sort-order="asc"
+			   data-search = "true"
+			   data-search-on-enter-key = "true"
+			   data-page-list="[ 10, 25, 50, 100]"
+
+			   id = "DeliverAddressListTable">
+			<thead>
+				<tr>
+					<th data-field="id" data-visible="false"></th>
+					<th data-field="longname" data-sortable="true">{{ translations[9] }}</th>
+					<th data-field="cansuppress" data-visible="false"></th>
+					<th data-field="action" data-formatter="actionFormatter" data-events="actionEvents" data-width="50px">{{ translations[10] }}</th>
+				</tr>
+			</thead>
+		</table>
+
+	</div>
+
+	<div class="panel panel-default" id="panelInput">
+		<div class="panel-heading">{{ translations[11] }}</div>
+		<div class="panel-body">
+			<form class="form-horizontal" id="frmAdd">
+				<label for="frm[name]" class="label-control col-sm-1">{{ translations[6] }}</label>
+				<div class="col-sm-9" id="div_frm_name">
+					<input name="frm[name]" id="frm_name" type="text" class="form-control col-sm-9"/>
+				</div>
+				<button type="button" class="btn btn-info col-sm-2" id="btn_add">{{ translations[12] }}</button>
+			</form>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var ARCHIVIST_JSON_URLS = {
+    	bs_idp_archivist_json_deliveraddress_add: "{{ path('bs_idp_archivist_json_deliveraddress_add')}}",
+    	bs_idp_archivist_json_deliveraddress_delete: "{{ path('bs_idp_archivist_json_deliveraddress_delete')}}",
+    	bs_idp_archivist_json_deliveraddress_modify: "{{ path('bs_idp_archivist_json_deliveraddress_modify')}}",
+        bs_idp_backoffice_ajax_usersettings_get: '{{ path("bs_idp_backoffice_ajax_usersettings_get") }}',
+    };
+    var JSON_URLS = {
+        bs_idp_backoffice_usersettings_modify_page: '{{ path("bs_idp_backoffice_usersettings_modify_page") }}',
+        bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+        bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+    };
+	var IDP_CONST = {
+		bs_translations: '{{translations|json_encode|escape('js')|raw}}'
+	};
+	</script>
+
+	{% include "bsIDPArchiveBundle:Archivist:partial.javascriptconstant.html.twig" %}
+
+	<script src="{{ asset('/js/bootstrap-table.1.15.2.js') }}"></script>
+	{% if language == 0 %}
+		<script src="{{ asset('/js/bootstrap-table-fr-FR.js') }}"></script>
+	{% endif %}
+
+	{% javascripts
+        '@bsIDPArchiveBundle/Resources/public/js/systemPostGetDef.0.9.10.js'
+        '@bsIDPArchiveBundle/Resources/public/js/IDPConstants.1.1.6.0.js'
+        '@bsIDPBackofficeBundle/Resources/public/js/IDPUserSettingsManagement.1.2.0.0.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPMenuManageDB.0.9.10.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPManageDBDeliverAddress.0.9.11.js'
+	 %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+
+{% endblock %}

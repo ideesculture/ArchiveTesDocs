@@ -1,0 +1,186 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+ - {{ translations[10] }} {% if ( action == 'ADD' ) %} {{ translations[8] }} {% else %} {{ translations[9] }} {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('/css/bootstrap-table.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block overlay %}
+    {% include "bsIDPArchiveBundle:Default:partial.overlay.waitAjax.html.twig" %}
+{% endblock %}
+
+{% block content %}
+
+    {% set menuaction = 2 %}
+    {% include "bsIDPArchiveBundle:Archivist:partial.menumanagedb.html.twig" %}
+
+	<ol class="breadcrumb">
+		<li><a href="{{ path('bs_idp_archivist_managedb_input_services')}}">{{ partialmenuTranslations[13] }}</a></li>
+		<li><a href="{{ path('bs_core_users_admin_list') }}">{{ translations[11] }}</a></li>
+		<li class="active">{% if ( action == 'ADD' ) %} {{ translations[8] }} {% else %} {{ translations[9] }} {% endif %}</li>
+	</ol>
+
+
+	<div class="panel panel-default col-sm-6 col-sm-offset-2" id="panel-add-user">
+		<div class="panel-body">
+			{% if ( action == 'ADD' ) %}
+				{{ form_start(form, {'action': path('bs_core_users_admin_doadd'), 'method' : 'POST' } ) }}
+			{% else %}
+				{{ form_start(form, {'action': path('bs_core_users_admin_domodify'), 'method' : 'POST' } ) }}
+			{% endif %}
+
+			<div class="col-sm-12">{{ form_label(form.userFirstname, translations[2], { 'label_attr': {'class': 'control-label'} }) }}</div>
+			<div class="col-sm-12" id="frm_userFirstname">
+		   		{{ form_widget(form.userFirstname, { 'attr': {'class': 'form-control', 'data-fv-field': 'formuserFirstname'} }) }}
+				<i class="form-control-feedback idpFCFi fal" data-fv-icon-for="formuserFirstname" id="iconFrmFirstname"></i>
+		   	</div>
+
+			<div class="col-sm-12">{{ form_label(form.userLastname, translations[1], { 'label_attr': {'class': 'control-label'} }) }}</div>
+			<div class="col-sm-12" id="frm_userLastname">
+		   		{{ form_widget(form.userLastname, { 'attr': {'class': 'form-control', 'data-fv-field': 'iconFrmLastname'} }) }}
+				<i class="form-control-feedback idpFCFi fal" data-fv-icon-for="iconFrmLastname" id="iconFrmLastname"></i>
+		   	</div>
+
+			<div class="col-sm-12">{{ form_label(form.userLogin, translations[3], { 'label_attr': {'class': 'control-label'} }) }}</div>
+			<div class="col-sm-12" id="frm_userLogin">
+		   		{{ form_widget(form.userLogin, { 'attr': {'class': 'form-control', 'data-fv-field': 'formuserLogin'} }) }}
+				<i class="form-control-feedback idpFCFi fal" data-fv-icon-for="formuserLogin" id="iconFrmLogin"></i>
+		   	</div>
+
+			<div class="col-sm-12">
+				{% if ( action == 'ADD' ) %}
+					{{ form_label(form.userPassword, translations[4], { 'label_attr': {'class': 'control-label'} }) }}
+				{% else %}
+					{{ form_label(form.userPassword, translations[5], { 'label_attr': {'class': 'control-label'} }) }}
+				{% endif %}
+			</div>
+			<div class="col-sm-12" id="frm_userPassword">
+		   		{{ form_widget(form.userPassword, { 'attr': {'class': 'form-control', 'data-fv-field': 'formuserPassword'} }) }}
+				<i class="form-control-feedback idpFCFi fal" data-fv-icon-for="formuserPassword" id="iconFrmPassword"></i>
+		   	</div>
+
+			<div class="col-sm-12">{{ form_label(form.userInitials, translations[7], { 'label_attr': {'class': 'control-label'} }) }}</div>
+			<div class="col-sm-9" id="frm_userInitials">
+		   		{{ form_widget(form.userInitials, { 'attr': {'class': 'form-control col-sm-10', 'data-fv-field': 'formuserInitials'} }) }}
+				<i class="form-control-feedback idpFCFi fal" data-fv-icon-for="formuserInitials" id="iconFrmInitials"></i>
+		   	</div>
+			<div class="btn btn-default col-sm-2" id="btnGenerateInitials">Générer</div>
+			<div class="btn btn-default col-sm-2" id="btnVerifyInitials">Vérifier</div>
+
+			<div class="col-sm-12"><label class="control-label" for="form_userRole">{{ translations[12] }}</label></div>
+			<div class="col-sm-12" id="frm_userRole">
+		   		<select id="form_userRole" name="form[userRole]" class="form-control" data-fv-field="formuserRole">
+		   		</select>
+				<i class="form-control-feedback idpFCFs fal" data-fv-icon-for="formuserRole" id="iconFrmRole"></i>
+		   	</div>
+
+		   	<div class="clearfix small-horizontal-divider col-sm-12">&nbsp;</div>
+
+			<div>
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist" id="navServicesAdresses">
+					<li role="presentation" class="active" ><a href="#services" aria-controls="services" role="tab" data-toggle="tab" >Services <i id="navtabServices" class="fal"></i></a></li>
+					<li role="presentation" ><a href="#adresses" aria-controls="adresses" role="tab" data-toggle="tab" >Adresses <i id="navtabAdresses" class="fal"></i></a></li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="services">
+						<div class="panel panel-default">
+
+							<div class="panel-body">
+								<table data-toggle="table"
+									   data-pagination="false"
+									   data-url="{{ path('bs_idp_backoffice_get_services_list') }}"
+									   data-method="POST"
+									   id = "ServicesListTable">
+									<thead>
+									<tr>
+										<th data-field="state" data-checkbox="true"></th>
+										<th data-field="id" data-visible="false"></th>
+										<th data-field="longname" data-sortable="true">{{ translations[14] }}</th>
+									</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="adresses">
+						<div class="panel panel-default">
+
+							<div class="panel-body">
+								<table data-toggle="table"
+									   data-pagination="false"
+									   data-url="{{ path('bs_idp_backoffice_get_addresses_list') }}"
+									   data-method="POST"
+									   id = "AddressesListTable">
+									<thead>
+									<tr>
+										<th data-field="state" data-checkbox="true"></th>
+										<th data-field="id" data-visible="false"></th>
+										<th data-field="longname" data-sortable="true">Adresse</th>
+									</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			{% if ( action == 'ADD' ) %}
+		   		{{ form_widget(form.addUserBtn, { 'attr': {'class': 'btn btn-primary'} }) }}
+		   	{% else %}
+		   		<!-- {{ form_widget(form.modifyUserBtn, { 'attr': {'class': 'btn btn-primary'} }) }} -->
+		   	{% endif %}
+
+		   	{{ form_rest(form) }}
+			{{ form_end(form) }}
+
+		</div>
+	</div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var JSON_URLS = {
+    	bs_core_admin_get_roles_list: "{{ path('bs_core_admin_get_roles_list')}}",
+        bs_core_admin_json_updatefield_user: "{{ path('bs_core_admin_json_updatefield_user') }}",
+        bs_core_admin_json_generate_initials: "{{ path('bs_core_admin_json_generate_initials') }}",
+        bs_core_admin_json_verify_initials: "{{ path('bs_core_admin_json_verify_initials') }}",
+        bs_core_admin_json_verify_login_unicity: "{{ path('bs_core_admin_json_verify_login_unicity') }}",
+        bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+        bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+    };
+	var IDP_DATA = {
+
+		modify: '{{ action }}',
+		idp_user_role: {% if action == 'MODIFY' %}"{{ role.id }}"{% else %}""{% endif %}
+	};
+var IDP_CONST = {
+    bsuser_id: {% if action == 'MODIFY' %}"{{ user.id }}"{% else %}"-1"{% endif %},
+	bs_translations: '{{translations|json_encode|escape('js')|raw}}',
+    password_global_settings: '{{ passwordGlobalSettings|json_encode|escape('js')|raw }}'
+};
+	</script>
+
+	{% include "bsIDPArchiveBundle:Archivist:partial.javascriptconstant.html.twig" %}
+
+	<script src="{{ asset('/js/bootstrap-table.1.15.2.js') }}"></script>
+	<script src="{{ asset('/js/bootstrap-table-fr-FR.js') }}"></script>
+	{% javascripts
+		'@bsIDPArchiveBundle/Resources/public/js/IDPConstants.1.1.6.0.js'
+		'@bsCoreUsersBundle/Resources/public/js/bsCorePasswordVerification.0.9.10.js'
+		'@bsCoreUsersBundle/Resources/public/js/bsCoreAdminUsersAdd.1.4.5.0.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPMenuManageDB.0.9.10.js' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+
+{% endblock %}

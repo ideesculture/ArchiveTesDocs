@@ -1,0 +1,35 @@
+bs_idp_archive_reconciliation_index:
+  path:     /index
+  defaults: { _controller: bsIDPArchiveBundle:Reconciliation:index }
+
+bs_idp_archive_reconciliation_status:
+  path:     /status
+  defaults: { _controller: bsIDPArchiveBundle:Reconciliation:status }
+
+bs_idp_archive_reconciliation_result:
+  path:     /result
+  defaults: { _controller: bsIDPArchiveBundle:Reconciliation:result }
+
+bs_idp_archive_reconciliation_error:
+  path:     /error
+  defaults: { _controller: bsIDPArchiveBundle:Reconciliation:error }
+
+bs_idp_archive_reconciliation_upload:
+  path:     /upload
+  defaults: { _controller: bsIDPArchiveBundle:Reconciliation:upload }
+
+bs_idp_archive_reconciliation_setstatus:
+  path:     /setstatus
+  defaults: { _controller: bsIDPArchiveBundle:Reconciliation:setStatus }
+  requirements:
+    __method: GET
+
+bs_idp_archive_reconciliation_getstatus:
+  path:     /getstatus
+  defaults: { _controller: bsIDPArchiveBundle:Reconciliation:getStatus }
+  requirements:
+    __method: GET
+
+bs_idp_archive_reconciliation_reset:
+  path:     /reset
+  defaults: { _controller: bsIDPArchiveBundle:Reconciliation:reset }

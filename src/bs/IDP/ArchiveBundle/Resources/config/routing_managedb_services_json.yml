@@ -1,0 +1,24 @@
+
+bs_idp_archivist_json_services_list:
+    path:     /list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBServicesJson:serviceslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_services_delete:
+    path:     /delete/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBServicesJson:servicesdelete }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_services_add:
+    path:    /add/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBServicesJson:servicesadd }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_services_modify:
+    path:     /modify/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBServicesJson:servicesModify }
+    requirements:
+        _method: GET

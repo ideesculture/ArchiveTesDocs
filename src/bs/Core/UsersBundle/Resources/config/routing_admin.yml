@@ -1,0 +1,68 @@
+bs_core_users_admin_json:
+    resource: "@bsCoreUsersBundle/Resources/config/routing_admin_json.yml"
+    prefix:   /json/
+
+bs_core_users_admin_list:
+    path:     /list/
+    defaults: { _controller: bsCoreUsersBundle:Admin:list }
+
+bs_core_users_admin_add:
+    path:     /add/
+    defaults: { _controller: bsCoreUsersBundle:Admin:add }
+
+bs_core_users_admin_doadd:
+    path:    /doadd/
+    defaults: { _controller: bsCoreUsersBundle:Admin:doadd }
+    requirements:
+        _method: POST
+
+bs_core_users_admin_modify:
+    path:    /modify/
+    defaults: { _controller: bsCoreUsersBundle:Admin:modify }
+    requirements:
+        _method: POST
+
+bs_core_users_admin_domodify:
+    path:    /domodify/
+    defaults: { _controller: bsCoreUsersBundle:Admin:domodify }
+    requirements:
+        _method: POST
+
+bs_core_users_admin_finetune:
+    path:     /finetune/
+    defaults: { _controller: bsCoreUsersBundle:Admin:finetune }
+    requirements:
+        _method: POST
+
+
+bs_core_roles_admin_list:
+    path:     /roles/list/
+    defaults: { _controller: bsCoreUsersBundle:Admin:rolesList }
+
+bs_core_roles_admin_add:
+    path:     /roles/add/
+    defaults: { _controller: bsCoreUsersBundle:Admin:rolesAdd }
+
+bs_core_roles_admin_doadd:
+    path:     /roles/doadd/
+    defaults: { _controller: bsCoreUsersBundle:Admin:rolesDoAdd }
+    requirements:
+        _method: POST
+
+bs_core_roles_admin_modify:
+    path:     /roles/modify/
+    defaults: { _controller: bsCoreUsersBundle:Admin:rolesModify }
+    requirements:
+        _method: POST
+
+bs_core_roles_admin_domodify:
+    path:     /roles/domodify/
+    defaults: { _controller: bsCoreUsersBundle:Admin:rolesDoModify }
+    requirements:
+        _method: POST
+
+bs_core_roles_admin_finetune:
+    path:     /roles/finetune/
+    defaults: { _controller:bsCoreUsersBundle:Admin:rolesFinetune }
+    requirements:
+        _method: POST

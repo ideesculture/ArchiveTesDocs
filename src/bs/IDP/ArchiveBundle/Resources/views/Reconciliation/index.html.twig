@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+- Rapprocher les stocks [télécharger le fichier à analyser]
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('/css/dropzone.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block overlay %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default mt10" id="panelStock">
+                <div class="panel-heading">Rapprochement des stocks</div>
+                <div class="panel-body">
+                    <p>Cette fonctionnalité permet de rapprocher et d'identifier les écarts entre le stock d'un prestataire et le stock logique de ce prestataire dans la base Archimage.</p>
+                    <hr class="my-4">
+                    <p>Pour pouvoir effectuer cette analyse, veuillez choisir un prestataire et télécharger le fichier fourni par celui-ci.</p><br>
+                    <div class="row" id="providerChoice">
+                        <div class="col-sm-1 nopaddingl"><label class="control-label" for="selectLocalization" id="lbl_selectLocalization">Prestataire : </label></div>
+                        <div class="col-sm-4"><select id="selectLocalization" name="frm[selectLocalization]" class="form-control"><option>N/A</option></select></div>
+                    </div>
+                    <div class="row">
+                        <div id="dropzone">
+                            <form action="{{ path('bs_idp_archive_reconciliation_upload') }}" class="dropzone"></form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var JSON_URLS = {
+            bs_idp_archive_reconciliation_upload: "{{ path('bs_idp_archive_reconciliation_upload')}}",
+            bs_idp_archive_reconciliation_setstatus: "{{ path('bs_idp_archive_reconciliation_setstatus') }}",
+            bs_idp_archive_reconciliation_status: "{{ path('bs_idp_archive_reconciliation_status') }}",
+            bs_idp_backoffice_get_localizations_list: "{{ path('bs_idp_backoffice_get_localizations_list') }}",
+            bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+            bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+        };
+        var IDP_CONST = {
+            bs_idp_current_page: {{ currentMenu }}
+        };
+    </script>
+    <script src="{{ asset('/js/dropzone.js') }}"></script>
+{% javascripts
+    '@bsIDPArchiveBundle/Resources/public/js/IDPReconciliationIndex.1.4.5.0.js'
+%}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}

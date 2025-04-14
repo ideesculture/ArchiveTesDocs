@@ -1,0 +1,66 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+ - Administration - Rôles - Modification droits
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('/css/bootstrap-table.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+	<ol class="breadcrumb">
+		<li><a href="#">Administration</a></li>
+		<li><a href="{{ path('bs_core_roles_admin_list') }}">Rôles</a></li>
+		<li class="active">Modification droits</li>
+	</ol>
+
+	<div class="overlay" id="waitAjax"><br/><br/><br/><center>
+		Votre demande est en cours de traitement. <br/><br/> Merci de patienter.
+	</center></div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Droits octroyés</div>
+			<div class="panel-body">
+			   	<table data-toggle="table"
+					data-pagination="false"
+					data-url="{{ path('bs_core_admin_json_get_rights_list') }}"
+					data-method="POST"
+					id = "RightsListTable">
+				<thead>
+					<tr>
+						<th data-field="state" data-checkbox="true"></th>
+						<th data-field="id" data-visible="false"></th>
+						<th data-field="description" data-sortable="true">Description du droit</th>
+					</tr>
+				</thead>
+			   	</table>
+		   	</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var IDP_DATA = {
+    	idp_role_id: "{{ role.id }}"
+    };
+var JSON_URLS = {
+	bs_core_admin_json_get_rolerights_list: "{{ path('bs_core_admin_json_get_rolerights_list')}}",
+	bs_core_admin_json_set_roleright: "{{ path('bs_core_admin_json_set_roleright')}}",
+	bs_core_admin_json_unset_roleright: "{{ path('bs_core_admin_json_unset_roleright')}}",
+    bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+    bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+};
+
+	</script>
+	<script src="{{ asset('/js/bootstrap-table.1.15.2.js') }}"></script>
+	<script src="{{ asset('/js/bootstrap-table-fr-FR.js') }}"></script>
+	{% javascripts '@bsCoreUsersBundle/Resources/public/js/bsCoreAdminRolesFinetune.js' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}

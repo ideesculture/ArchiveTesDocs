@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    - ERROR PAGE
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block overlay %}
+    {% include "bsIDPArchiveBundle:Default:partial.overlay.waitAjax.html.twig" %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default mt10" id="panelStockError">
+                <div class="panel-heading">Rapprochement des stocks</div>
+                <div class="panel-body">
+                    <p class="lead">Une erreur est survenue durant le processus de rapprochement:</p>
+                    <hr class="my-4">
+                    <p class="lead text-danger">{{ errormessage }}</p>
+                    <p>Veuillez essayer de nouveau, si l'erreur persiste, merci de contacter le support technique.</p>
+                </div>
+                <div class="panel-footer">
+                        <button class="btn btn-info btn-block" id="btnResetReconciliate">Réinitialiser le rapprochement</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var JSON_URLS = {
+            bs_idp_archive_reconciliation_index: "{{ path('bs_idp_archive_reconciliation_index')}}",
+            bs_idp_archive_reconciliation_reset: "{{ path('bs_idp_archive_reconciliation_reset')}}",
+            bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+            bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+        };
+        var IDP_CONST = {
+            bs_idp_current_page: {{ currentMenu }}
+        };
+    </script>
+
+    {% javascripts
+        '@bsIDPArchiveBundle/Resources/public/js/IDPReconciliationError.1.1.6.2.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

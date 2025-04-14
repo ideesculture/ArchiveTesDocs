@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+ - Importer des données
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+{% for message in app.session.flashbag.get('error') %}
+    <p>Message flash : {{ message }}</p>
+{% endfor %}
+
+<div class="list-group mt10">
+	<a href="#" class="list-group-item disabled">Choisissez un fichier à importer:</a>
+{% for key,value in fileList %}
+	{% if (( value != '.' ) and ( value != '..' )) %}
+		<a href="#" class="list-group-item fileBtn" id="{{value}}">{{ value }}</a>
+	{% endif %}
+{% endfor %}
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var JSON_URLS = { bs_idp_archive_importtreatmentdo: "{{path('bs_idp_archive_importtreatmentdo')}}",
+        bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+        bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+    };
+	var IDP_CONST = {
+	};
+	</script>
+
+	{% javascripts '@bsIDPArchiveBundle/Resources/public/js/IDPArchiveImport.js' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}

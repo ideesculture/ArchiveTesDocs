@@ -1,0 +1,127 @@
+bs_idp_archive_archivist:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_archivist.yml"
+    prefix:   /archivist/
+
+bs_idp_archive_statistics:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_statistics.yml"
+    prefix:    /statistics/
+
+bs_idp_archive_exportimport:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_exportimport.yml"
+    prefix:   /exportimport/
+
+bs_idp_archive_print:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_print.yml"
+    prefix:   /print/
+
+bs_idp_archives_reconciliation:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_reconciliation.yml"
+    prefix:   /reconciliation/
+
+bs_idp_archive_new:
+    path:     /new/
+    defaults: { _controller: bsIDPArchiveBundle:Default:new }
+
+bs_idp_archive_view:
+    path:     /view/
+    defaults: { _controller: bsIDPArchiveBundle:Default:view }
+
+bs_idp_archive_donew:
+    path:     /donew/
+    defaults: { _controller: bsIDPArchiveBundle:Default:donew }
+
+bs_idp_archive_modify:
+    path:     /modify/{archiveId}
+    defaults: { _controller: bsIDPArchiveBundle:Default:modify }
+
+bs_idp_archive_domodify:
+    path:     /domodify/
+    defaults: { _controller: bsIDPArchiveBundle:Default:domodify }
+
+bs_idp_archive_transferscreen:
+    path:     /transfer
+    defaults: { _controller: bsIDPArchiveBundle:Default:transferScreen }
+
+bs_idp_archive_transferaction:
+    path:     /docusttransfer
+    defaults: { _controller: bsIDPArchiveBundle:Default:doCustomerTransfer }
+
+bs_idp_archive_updatefield_json:
+    path:     /json/updatefield
+    defaults: { _controller: bsIDPArchiveBundle:ArchiveJson:updatefield }
+    requirements:
+        _method: GET
+
+bs_idp_archive_delete_ajax:
+    path:     /ajax/delete
+    defaults: { _controller: bsIDPArchiveBundle:ArchiveJson:delete }
+    requirements:
+        _method: POST
+
+bs_idp_archive_modify_ajax:
+    path:     /ajax/modify
+    defaults: { _controller: bsIDPArchiveBundle:ArchiveJson:modify }
+    requirements:
+        method: GET
+
+bs_idp_archive_search:
+    path:     /search
+    defaults: { _controller: bsIDPArchiveBundle:Default:search }
+
+bs_idp_archive_search_ajax:
+    path:     /ajax/search
+    defaults: { _controller: bsIDPArchiveBundle:ArchiveJson:search }
+    requirements:
+        _method: GET
+
+bs_idp_archive_form_initlists:
+    path:     /get_json/forminitlists
+    defaults: { _controller: bsIDPArchiveBundle:ArchiveJson:forminitlists }
+    requirements:
+        _method: POST
+
+bs_idp_archive_askconsult_screen:
+    path:     /askconsult
+    defaults: { _controller: bsIDPArchiveBundle:Default:askconsultScreen }
+
+bs_idp_archive_askconsult_action:
+    path:     /doaskconsult
+    defaults: { _controller: bsIDPArchiveBundle:Default:doAskConsult }
+
+bs_idp_archive_askreturn_screen:
+    path:     /askreturn
+    defaults: { _controller: bsIDPArchiveBundle:Default:askreturnScreen }
+
+bs_idp_archive_askreturn_action:
+    path:     /doaskreturn
+    defaults: { _controller: bsIDPArchiveBundle:Default:doAskReturn }
+
+bs_idp_archive_askexit_screen:
+    path:     /askexit
+    defaults: { _controller: bsIDPArchiveBundle:Default:askexitScreen }
+
+bs_idp_archive_askexit_action:
+    path:     /doaskexit
+    defaults: { _controller: bsIDPArchiveBundle:Default:doAskExit }
+
+bs_idp_archive_askdelete_screen:
+    path:     /askdelete
+    defaults: { _controller: bsIDPArchiveBundle:Default:askdeleteScreen }
+
+bs_idp_archive_askdelete_action:
+    path:     /doaskdelete
+    defaults: { _controller: bsIDPArchiveBundle:Default:doAskDelete }
+
+bs_idp_archive_askreloc_screen:
+    path:     /askreloc
+    defaults: { _controller: bsIDPArchiveBundle:Default:askrelocScreen }
+
+bs_idp_archive_askreloc_action:
+    path:     /doaskreloc
+    defaults: { _controller: bsIDPArchiveBundle:Default:doAskReloc }
+
+bs_idp_archive_detailled_information_ajax:
+    path:     /ajax/detailledinformation
+    defaults: { _controller: bsIDPArchiveBundle:ArchiveJson:detailledinformation }
+    requirements:
+        _method: GET

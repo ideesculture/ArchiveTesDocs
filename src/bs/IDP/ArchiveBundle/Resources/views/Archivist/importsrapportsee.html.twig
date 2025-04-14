@@ -1,0 +1,122 @@
+{% extends '::base.html.twig' %}
+
+{% block morehead %}
+    <!-- <meta http-equiv="refresh" content="5"> -->
+{% endblock %}
+
+{% block title %}
+    - Rapport des imports
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 mt10" id="rowPanelImport">
+            <div class="panel panel-default" id="panelImportRapport">
+                <div class="panel-heading">Rapport des imports</div>
+            </div>
+        </div>
+
+        <div class="col-md-10 col-md-offset-1" id="tabRapport">
+
+    {% if imports %}
+
+        {%  for import in imports %}
+
+            <div class="idp-import
+                {% if import.Status == 0 %}idp-import-unknown{% endif %}
+                {% if import.Status == 1 %}idp-import-start{% endif %}
+                {% if import.Status == 2 %}idp-import-in-progress{% endif %}
+                {% if import.Status == 10 %}idp-import-end{% endif %}
+                {% if import.Status == 50 %}idp-import-error{% endif %}
+                {% if import.Status == 75 %}idp-import-cancel-in-progress{% endif %}
+                {% if import.Status == 76 %}idp-import-canceled{% endif %}
+                {% if import.Status == 99 %}idp-import-definitive-validation{% endif %}
+            ">
+                <span>Import du : {{ import.dateBegin|date('d/m/Y H:i:s') }}</span><br/>
+                <span>Fichier: {{ import.Filename }}</span><br/>
+                <span>Statut: <strong>
+                    {% if import.Status == 0 %}INCONNU{% endif %}
+                    {% if import.Status == 1 %}DEBUT D'IMPORT{% endif %}
+                    {% if import.Status == 2 %}IMPORT EN COURS{% endif %}
+                    {% if import.Status == 10 %}IMPORT TERMINE SANS ERREUR{% endif %}
+                    {% if import.Status == 50 %}IMPORT TERMINE AVEC ERREUR{% endif %}
+                    {% if import.Status == 75 %}ANNULATION EN COURS{% endif %}
+                    {% if import.Status == 76 %}IMPORT ANNULE{% endif %}
+                    {% if import.Status == 99 %}IMPORT DEFINITIVEMENT VALIDE{% endif %}
+                        </strong>
+                </span><br/>
+
+                {% if import.DateEnd != null %}
+                    <span>Fin d'import: {{ import.DateEnd|date('d/m/Y H:i:s') }}</span><br/>
+                {% endif %}
+
+                {% if import.status == 2 %}
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ import.Progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ import.Progress }}%;">
+                            {{ import.Progress }}%
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if import.Status == 2 %}
+                    <span>Estimation de fin d'import: {{ import.EstimatedEnd|date('d/m/Y H:i:s') }}</span><br/>
+                {% endif %}
+
+                {% if import.Status != 0 and import.Status != 76 %}
+                    <span>Nombre de lignes du fichier: {{ import.NbLinesFile }}</span><br/>
+                {% endif %}
+
+                {% if import.Status == 2 or import.Status == 10 or import.Status == 50 or import.Status == 99 %}
+                    <span>Nombre de lignes importées : {{ import.NbLinesImported }}</span><br/>
+                    <span>Nombre de lignes en erreur : {{ import.NbLinesError }}</span><br/>
+                {% endif %}
+
+                {% if globalStatuses.ImportInProgress == false %}
+                    <br/>
+                    {% if import.Status == 10 or import.Status == 50 %}
+                        <button type="button" class="btn btn-primary" id="btnImportRapport">
+                            <a href="{{ path('bs_idp_archive_importrapportfile', {'id': import.Id}) }}">Rapport d'import</a></button>
+                    {% endif %}
+                    {% if import.Status == 50 and import.NbLinesError > 0 %}
+                        <button type="button" class="btn btn-primary" id="btnErrorFile">
+                            <a href="{{ path('bs_idp_archive_importerrorfile', {'id': import.Id}) }}">Fichier des Anomalies</a></button>
+                    {% endif %}
+                    {% if import.Status == 10 or import.Status == 50 %}
+                        <button type="button" class="btn btn-danger" id="btnCancelImport">
+                            <a href="{{ path('bs_idp_archive_importcancel', {'id': import.Id}) }}">Annuler l'import</a></button>
+                    {% endif %}
+                    {% if import.Status == 10 %}
+                        <button type="button" class="btn btn-primary" id="btnValidateImport">
+                            <a href="{{ path('bs_idp_archive_importvalidate', {'id': import.Id}) }}">Valider définitivement l'import</a></button>
+                    {% endif %}
+                {% else %}
+                    {% if globalStatuses.CurrentImportId == import.Id and import.Status == 2 %}
+                        <button type="button" class="btn btn-info" id="btnImportSurvey">
+                            <a href="{{ path('bs_idp_archive_importtreatmentsee', {'id': import.Id}) }}">Accéder à la page de suivi de l'import</a></button>
+                    {% endif %}
+                {% endif %}
+
+            </div>
+
+        {%  endfor %}
+
+    {% else %}
+
+        <div class="idp-import">
+            Il n'y a aucun rapport d'import à afficher !
+        </div>
+    {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,31 @@
+@page{
+	size: landscape;
+}
+
+#topheader{
+	display: none !important;
+}
+
+#left-menu{
+	display: none !important;
+}
+.panel{
+	display: none !important;
+}
+.list-group-item{
+	display: none !important;
+}
+#tab, #subtabmenu, #btnTransfer, #subtabaction{
+	display: none !important;
+}
+.fixed-table-toolbar{
+	display: none !important;
+}
+
+#btnstates, #btnwherehow, #btnwithnothing, #btnAction, #btnCancel{
+	display: none !important;
+}
+
+#buttons, #parameters{
+	display: none !important;
+}

@@ -1,0 +1,8 @@
+# bs/IDP/ArchiveBundle/Resources/config/validation.yml
+
+bs\IDP\ArchiveBundle\Entity\Archive:
+    properties:
+        name:
+            - NotBlank: ~
+        ordernumber:
+            - NotBlank: ~

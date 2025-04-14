@@ -1,0 +1,290 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    - Transférer des unités d'archives
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('/css/bootstrap-table.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/datepicker.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <form method="post" action="" class="form-horizontal" id="frmUA">
+
+            <input type="hidden" id="frm_id" name="frm[id]" value="{{ uaid }}" />
+            <input type="hidden" id="frm_token" name="frm[token]" value="{{token}}" />
+
+            <!-- Main form inputs -->
+            <div class="row" id="inputForm">
+                <!-- line 1 -->
+                <div class="col-sm-6 mb1 ">
+                    &nbsp;
+                    <!-- bg-info
+                <p class="text-primary"><strong>
+                {% if (modify == 0) %}Ajouter {% else %} Modifier {% endif %} une archive.
+                </strong></p>
+                -->
+                </div>
+                <div class="col-sm-6 mb20 mt5">
+                    <div class="col-sm-3"><label class="control-label" for="frm_ordernumber"><strong>{{ translations[7] }}</strong><span class="text-danger">*</span></label></div>
+                    <div class="col-sm-3 " id="form_ordernumber" >
+                        <input type="text" id="frm_ordernumber" name="frm[ordernumber]" maxlength="9" class="form-control"  />
+                    </div>
+                    <div class="col-sm-5">&nbsp;</div>
+                </div>
+
+                <!-- line 2 /!\ complex -->
+                <div class="col-sm-6">
+                    <div id="zoneProprietaire">
+                        <div class="row">
+                            <div class="col-sm-12 mb1" id="divBlockProperty"><strong>{{ translations[8] }}</strong></div>
+                            <div class="col-sm-10"><hr id="hrNew"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4  mb5"><label class="control-label" for="frm_service" id="lbl_service">{{ translations[9] }}<span class="text-danger">*</span></label></div>
+                            <div class="col-sm-6  mb5" id="divSelectService"><select id="frm_service" name="frm[service]" class="form-control"></select></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4  mb5"><label class="control-label" for="frm_legalentity" id="lbl_legalentity">{{ translations[10] }}<span class="text-danger">*</span></label></div>
+                            <div class="col-sm-6  mb5" id="divSelectLegalentity"><select id="frm_legalentity" name="frm[legalentity]" class="form-control"></select></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4  mb5" id="divLblBudgetcode"><label class="control-label" for="frm_budgetcode" id="lbl_budgetcode">{{ translations[11] }}</label></div>
+                            <div class="col-sm-6  mb5" id="divSelectBudgetcode"><select id="frm_budgetcode" name="frm[budgetcode]" class="form-control"></select></div>
+                        </div>
+                    </div>
+
+                    <div id="zoneDescriptives">
+                        <div class="row">
+                            <div class="col-sm-12">&nbsp;</div>
+                            <div class="col-sm-12 mb1" id="divBlockDescription" ><strong>{{ translations[12] }}</strong></div>
+                            <div class="col-sm-10"><hr id="hrNew"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4  mb5" id="divLblDocumentnature"><label class="control-label" for="frm_documentnature" id="lbl_documentnature">{{ translations[13] }}</label></div>
+                            <div class="col-sm-6  mb5" id="divSelectDocumentnature"><select id="frm_documentnature" name="frm[documentnature]" class="form-control"></select></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4  mb5" id="divLblDocumenttype"><label class="control-label" for="frm_documenttype" id="lbl_documenttype">{{ translations[14] }}</label></div>
+                            <div class="col-sm-6  mb5" id="divSelectDocumenttype"><select id="frm_documenttype" name="frm[documenttype]" class="form-control"></select></div>
+                        </div>
+
+                        <div id="zoneDescription">
+                            <div class="row">
+                                <div class="col-sm-4  mb5" id="divLblDescription1"><label class="control-label" for="frm_description1" id="lbl_description1">{{ translations[15] }}</label></div>
+                                <div class="col-sm-6  mb5" id="divSelectDescription1"><select id="frm_description1" name="frm[description1]" class="form-control"></select></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-4  mb5" id="divLblDescription2"><label class="control-label" for="frm_description2" id="lbl_description2">{{ translations[16] }}</label></div>
+                                <div class="col-sm-6  mb5" id="divSelectDescription2"><select id="frm_description2" name="frm[description2]" class="form-control"></select></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="zoneDuree">
+                        <div class="row">
+                            <div class="col-sm-12">&nbsp;</div>
+                            <div class="col-sm-12 mb1" id="divBlockDuration"><strong>{{ translations[17] }}</strong></div>
+                            <div class="col-sm-10"><hr id="hrNew"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4  mb5"><label class="control-label" for="frm_closureyear" id="lbl_closureyear">{{ translations[18] }}<span class="text-danger">*</span></label></div>
+                            <div class="col-sm-6  mb5" id="divInputClosureyear"><input type="number" id="frm_closureyear" name="frm[closureyear]" class="form-control"  /></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4  mb5"><label class="control-label" for="frm_destructionyear" id="lbl_destructionyear">{{ translations[19] }}<span class="text-danger">*</span></label></div>
+                            <div class="col-sm-6  mb5" id="divInputDestructionyear"><input type="number" id="frm_destructionyear" name="frm[destructionyear]" class="form-control"  /></div>
+                        </div>
+                    </div>
+
+                    <div id="zonePrestataire">
+                        <div class="row">
+                            <div class="col-sm-12">&nbsp;</div>
+                            <div class="col-sm-12 mb1 mt20" id="divBlockProviderdatas"><strong>{{ translations[20] }}</strong></div>
+                            <div class="col-sm-10"><hr id="hrNew"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4  mb5" id="divLblFilenumber"><label class="control-label" for="frm_documentnumber" id="lbl_filenumber">{{ translations[21] }}</label></div>
+                            <div class="col-sm-6  mb5" id="divInputFilenumber"><input type="text" id="frm_documentnumber" name="frm[documentnumber]" class="form-control"  /></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4  mb5" id="divLblBoxnumber"><label class="control-label" for="frm_boxnumber" id="lbl_boxnumber">{{ translations[22] }}</label></div>
+                            <div class="col-sm-6  mb5" id="divInputBoxnumber"><input type="text" id="frm_boxnumber" name="frm[boxnumber]" class="form-control" /></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4  mb5" id="divLblContainernumber"><label class="control-label" for="frm_containernumber" id="lbl_containernumber">{{ translations[23] }}</label></div>
+                            <div class="col-sm-6  mb5" id="divInputContainernumber"><input type="text" id="frm_containernumber" name="frm[containernumber]" class="form-control" /></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4  mb5" id="divLblProvider"><label class="control-label" for="frm_provider" id="lbl_provider">{{ translations[24] }}</label></div>
+                            <div class="col-sm-6  mb5" id="divSelectProvider"><select id="frm_provider" name="frm[provider]" class="form-control"></select></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="col-sm-12 mb10" id="divBlockName"><center><strong><span id="lbl_name">{{ translations[25] }}</span><span class="text-danger">*</span></strong></center></div>
+                    <div class="col-sm-12 mb1" id="form_name" >
+                        <textarea id="frm_name" name="frm[name]" rows="18" class="form-control"></textarea>
+                    </div>
+
+                    <div id="zoneBornes">
+                        <div class="col-sm-12">&nbsp;</div>
+                        <div class="col-sm-12 mb1 mt65" id="divBlockLimits"><strong>{{ translations[26] }}</strong></div>
+                        <div class="col-sm-12"><hr id="hrNew"></div>
+                        <div class="col-sm-12" id="div2Limits">
+                            <div class="col-sm-12" id="zoneLimitDate">
+                                <div class="col-sm-3 mb5" id="divLblLimitsdatemin"><label class="control-label" for="frm_limitdatemin" id="lbl_limitsdatemin">{{ translations[27] }}</label></div>
+                                <div class="col-sm-4 mb5" id="divInputLimitsdatemin"><input type="text" id="frm_limitdatemin" name="frm[limitdatemin]" class="form-control"  /></div>
+                                <div class="col-sm-1 mb5" id="divLblLimitsdatemax"><label class="control-label" for="frm_limitdatemax" id="lbl_limitsdatemax">{{ translations[28] }}</label></div>
+                                <div class="col-sm-4 mb5" id="divInputLimitsdatemax"><input type="text" id="frm_limitdatemax" name="frm[limitdatemax]" class="form-control" /></div>
+                            </div>
+
+                            <div class="col-sm-12" id="zoneLimitNum">
+                                <div class="col-sm-3 mb5" id="divLblLimitsnummin"><label class="control-label" for="frm_limitnummin" id="lbl_limitsnummin">{{ translations[29] }}</label></div>
+                                <div class="col-sm-4 mb5" id="divInputLimitsnummin"><input type="number" id="frm_limitnummin" name="frm[limitnummin]" class="form-control" /></div>
+                                <div class="col-sm-1 mb5" id="divLblLimitsnummax"><label class="control-label" for="frm_limitnummax" id="lbl_limitsnummax">{{ translations[30] }}</label></div>
+                                <div class="col-sm-4 mb5" id="divInputLimitsnummax"><input type="number" id="frm_limitnummax" name="frm[limitnummax]" class="form-control" /></div>
+                            </div>
+
+                            <div class="col-sm-12" id="zoneLimitAlpha">
+                                <div class="col-sm-3 mb5" id="divLblLimitsalphamin"><label class="control-label" for="frm_limitalphamin" id="lbl_limitsalphamin">{{ translations[31] }}</label></div>
+                                <div class="col-sm-4 mb5" id="divInputLimitsalphamin"><input type="text" id="frm_limitalphamin" name="frm[limitalphamin]" maxlength="255" class="form-control" /></div>
+                                <div class="col-sm-1 mb5" id="divLblLimitsalphamax"><label class="control-label" for="frm_limitalphamax" id="lbl_limitsalphamax">{{ translations[32] }}</label></div>
+                                <div class="col-sm-4 mb5" id="divInputLimitsalphamax"><input type="text" id="frm_limitalphamax" name="frm[limitalphamax]" maxlength="255" class="form-control" /></div>
+                            </div>
+
+                            <div class="col-sm-12" id="zoneLimitAlphanum">
+                                <div class="col-sm-3 mb5" id="divLblLimitsalphanummin"><label class="control-label" for="frm_limitalphanummin" id="lbl_limitsalphanummin">{{ translations[33] }}</label></div>
+                                <div class="col-sm-4 mb5" id="divInputLimitsalphanummin"><input type="text" id="frm_limitalphanummin" name="frm[limitalphanummin]" maxlength="255" class="form-control" /></div>
+                                <div class="col-sm-1 mb5" id="divLblLimitsalphanummax"><label class="control-label" for="frm_limitalphanummax" id="lbl_limitsalphanummax">{{ translations[34] }}</label></div>
+                                <div class="col-sm-4 mb5" id="divInputLimitsalphanummax"><input type="text" id="frm_limitalphanummax" name="frm[limitalphanummax]" maxlength="255" class="form-control" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="clearfix col-sm-12 small-horizontal-divider">&nbsp;</div>
+            <div class="clearfix col-sm-12 small-horizontal-divider">&nbsp;</div>
+            <!-- Buttons -->
+            <div class="row">
+                <div class="col-sm-12" id="zoneButton">
+                {% if ( modify == 0 ) %}
+                    <!--		<div class="col-sm-2 col-sm-offset-2 btn btn-primary" id="divSave"><center>{{ translations[35] }}</center></div>  !-->
+                    <div class="col-sm-2 btn btn-primary" id="divValidate"><center>{{ translations[36] }}</center></div>
+                    <div class="col-sm-2 btn btn-primary" id="divPrint"><center>{{ translations[37] }}</center></div>
+                    <div class="col-sm-2 btn btn-primary" id="divPrintTag"><center>Imprimer l'étiquette</center></div>
+                {% else %}
+                    <div class="col-sm-2 btn btn-primary" id="divModify"><center>{{ translations[38] }}</center></div>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+
+        </form>
+    </div>
+
+    <div class="modal fade" id="modalErrorMessage">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                    <h4 class="modal-title">{{ translations[4] }}</h4>
+                </div>
+                <div class="modal-body">
+                    <p  id="textErrorMessage">{{ translations[5] }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ translations[6] }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalTagChoice">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                    <h4 class="modal-title">Choisir un emplacement d'étiquette</h4>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-default col-xs-3" style="height:50px;" id="btnTag1" data-dismiss="modal">1</button>
+                    <button type="button" class="btn btn-default col-xs-3" style="height:50px;" id="btnTag2" data-dismiss="modal">2</button>
+                    <button type="button" class="btn btn-default col-xs-3" style="height:50px;" id="btnTag3" data-dismiss="modal">3</button>
+                    <button type="button" class="btn btn-default col-xs-3" style="height:50px;" id="btnTag4" data-dismiss="modal">4</button>
+                    <p>&nbsp;</p>
+                </div>
+                <div class="modal-footer">
+                    Cliquer sur l'emplacement souhaité pour générer le pdf correspondant.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    <div id="ajaxInfo" class="alert alert-warning hidden"></div>
+    <div id="ajaxError" class="alert alert-danger hidden"></div>
+    -->
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+        var JSON_URLS = {
+            bs_idp_archive_form_initlists: "{{ path('bs_idp_archive_form_initlists')}}",
+            bs_idp_archive_updatefield_json: "{{ path('bs_idp_archive_updatefield_json')}}",
+            bs_idp_archive_donew: "{{ path('bs_idp_archive_donew')}}",
+            bs_idp_archive_domodify: "{{ path('bs_idp_archive_domodify')}}",
+            bs_idp_archive_print_tag: "{{ path('bs_idp_archive_print_tag')}}",
+            bs_idp_archive_print_sheet: "{{ path('bs_idp_archive_print_sheet') }}",
+            bs_idp_backoffice_ajax_settings: "{{  path('bs_idp_backoffice_ajax_settings') }}",
+            bs_core_user_asf_update: "{{ path('bs_core_user_asf_update') }}",
+            bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+            bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+        };
+        var IDP_CONST = {
+            bs_idp_archive_action_modify: '{{ modify }}',
+            bs_idp_archive_id: '{{ uaid }}',
+            bs_idp_archive: '{{ua|json_encode|escape('js')|raw}}',
+            bs_idp_settings: '{{settings|json_encode|escape('js')|raw}}',
+            bs_translations: '{{translations|json_encode|escape('js')|raw}}',
+            bs_user_id: '{{ user_id }}',
+            bs_idp_userscale: '{{ userscale }}',
+            user_asf_array: '{{user_asf_array|json_encode|escape('js')|raw}}'
+        };
+	</script>
+    <script src="{{ asset('/js/bootstrap-table.1.15.2.js') }}"></script>
+	<script src="{{ asset('/js/bootstrap-datepicker.js') }}"></script>
+	{% javascripts
+        '@bsIDPArchiveBundle/Resources/public/js/systemPostGetDef.0.9.10.js'
+	    '@bsIDPArchiveBundle/Resources/public/js/IDPArchiveForm.1.2.2.0.js'
+        '@bsIDPArchiveBundle/Resources/public/js/IDPArchiveAutoSaveFields.1.1.6.8.js'
+
+	    '@bsIDPArchiveBundle/Resources/public/js/lost/lostNew.0.4.2.js'%}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+
+{% endblock %}

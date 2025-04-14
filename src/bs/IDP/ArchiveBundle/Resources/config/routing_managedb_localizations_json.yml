@@ -1,0 +1,30 @@
+
+bs_idp_archivist_json_localizations_list:
+    path:     /list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBLocalizationsJson:localizationslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_localizations_delete:
+    path:     /delete/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBLocalizationsJson:localizationsdelete }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_localizations_add:
+    path:     /add/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBLocalizationsJson:localizationsadd }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_localizations_modify:
+    path:     /modify/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBLocalizationsJson:localizationsmodify }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_localizations_change_logo:
+    path:     /change/logo/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBLocalizationsJson:localizationschangelogo }
+    requirements:
+        _method: POST

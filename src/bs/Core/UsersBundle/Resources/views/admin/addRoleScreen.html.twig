@@ -1,0 +1,66 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+ - Administration - Rôles - {% if ( action == 'ADD' ) %} Ajouter {% else %} Modifier {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('/css/bootstrap-table.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+	<ol class="breadcrumb">
+		<li><a href="#">Administration</a></li>
+		<li><a href="{{ path('bs_core_roles_admin_list') }}">Rôles</a></li>
+		<li class="active">{% if ( action == 'ADD' ) %} Ajouter {% else %} Modifier {% endif %}</li>
+	</ol>
+
+	<div class="panel panel-default col-sm-6 col-sm-offset-2" id="panel-add-user">
+		<div class="panel-body">
+			{% if ( action == 'ADD' ) %}
+				{{ form_start(form, {'action': path('bs_core_roles_admin_doadd'), 'method' : 'POST' } ) }}
+			{% else %}
+				{{ form_start(form, {'action': path('bs_core_roles_admin_domodify'), 'method' : 'POST' } ) }}
+			{% endif %}
+		    {{ form_errors(form) }}
+
+			<div class="">{{ form_label(form.roleName, 'Nom', { 'label_attr': {'class': 'control-label'} }) }}</div>
+			<div class="" id="frm_roleName">
+		   		{{ form_errors(form.roleName) }}
+		   		{{ form_widget(form.roleName, { 'attr': {'class': 'form-control'} }) }}
+		   	</div>
+
+			<div class="">{{ form_label(form.roleDescription, 'Description', { 'label_attr': {'class': 'control-label'} }) }}</div>
+			<div class="" id="frm_roleDescription">
+		   		{{ form_errors(form.roleDescription) }}
+		   		{{ form_widget(form.roleDescription, { 'attr': {'class': 'form-control'} }) }}
+		   	</div>
+
+			<div class="">{{ form_label(form.roleScale, 'Echelle', { 'label_attr': {'class': 'control-label'} }) }}</div>
+			<div class="" id="frm_roleScale">
+		   		{{ form_errors(form.roleScale) }}
+		   		{{ form_widget(form.roleScale, { 'attr': {'class': 'form-control'} }) }}
+		   	</div>
+
+			{% if ( action == 'ADD' ) %}
+		   		{{ form_widget(form.addRoleBtn, { 'attr': {'class': 'btn btn-primary'} }) }}
+		   	{% else %}
+		   		{{ form_widget(form.modifyRoleBtn, { 'attr': {'class': 'btn btn-primary'} }) }}
+		   	{% endif %}
+		   	{{ form_rest(form) }}
+			{{ form_end(form) }}
+
+		</div>
+	</div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="{{ asset('/js/bootstrap-table.1.15.2.js') }}"></script>
+	<script src="{{ asset('/js/bootstrap-table-fr-FR.js') }}"></script>
+
+{% endblock %}

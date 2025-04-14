@@ -1,0 +1,247 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+
+{% endblock %}
+
+{% block overlay %}
+	{%  include "bsIDPArchiveBundle:Default:partial.overlay.waitAjax.html.twig" %}
+{% endblock %}
+
+{% block content %}
+
+    {% set menuaction = 4 %}
+    {% include "bsIDPArchiveBundle:Archivist:partial.menumanagedb.html.twig" %}
+
+	<ol class="breadcrumb">
+		<li><a href="{{ path('bs_idp_archivist_managedb_input_services')}}">{{ partialmenuTranslations[13] }}</a></li>
+		<li><a href="{{ path('bs_idp_backoffice_manage_visibility')}}">{{ translations[1] }}</a></li>
+	</ol>
+
+	<br/>
+	<div class="fluid-container">
+
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1" id="rowPanelVisibility">
+				<div class="panel panel-default" id="panelVisibility">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							Visibilité du formulaire de saisie
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1" id="tabVisibility">
+				<div class="row mbpb5">
+					<div class="col-md-3"><label>Service à configurer</label></div>
+					<div class="col-md-3">
+						<select id="serviceConfig" class="btn-block">
+						</select>
+					</div>
+					<div class="col-md-6"><input type="checkbox" id="all_in_once" /><label>&nbsp;Configurer tous les services de manière identique</label></div>
+				</div>
+
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[2] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewBudgetcode">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryBudgetcode">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[5] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewDocumentnature">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryDocumentnature">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[6] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewDocumenttype">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryDocumenttype">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[7] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewDescription1">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryDescription1">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-1">{{ translations[9] }}</div>
+					<form>
+					<div class="col-md-5 form-group mb0" id="divNameDescription1">
+						<input name="description1_name" id="nameDescription1" class="form-control" value="Descriptif 1" disabled="disabled"/>
+					</div>
+					</form>
+				</div>
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[8] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewDescription2">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryDescription2">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-1">{{ translations[9] }}</div>
+					<form>
+					<div class="col-md-5 form-group mb0" id="divNameDescription2">
+						<input name="description2_name" id="nameDescription2" class="form-control" value="Descriptif 2" disabled="disabled"/>
+					</div>
+					</form>
+				</div>
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[10] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewLimitsnum">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryLimitsnum">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[11] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewLimitsalpha">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryLimitsalpha">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[12] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewLimitsalphanum">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryLimitsalphanum">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[13] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewLimitsdate">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryLimitsdate">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[14] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewFilenumber">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryFilenumber">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[15] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewBoxnumber">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryBoxnumber">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+				<div class="row mb5">
+					<div class="col-md-3"><label>{{ translations[16] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewContainernumber">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryContainernumber">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+				<div class="row mbpb5">
+					<div class="col-md-3"><label>{{ translations[17] }}</label></div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewProvider">{{ translations[3] }}</label>
+					</div>
+					<div class="btn-group col-md-1 col-md-offset-1">
+						<label class="btn btn-default btn-block disabled" id="mandatoryProvider">{{ translations[4] }}</label>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+
+				<div class="row mbpb5">
+					<div class="col-md-2"><label>{{ translations[21] }}</label></div>
+					<div class="col-md-1 text-center">{{ translations[22] }}</div>
+					<div class="btn-group col-md-1">
+						<label class="btn btn-default btn-block disabled" id="viewTransferInternalBasket">{{ translations[22] }}</label>
+					</div>
+					<div class="col-md-1 text-center">{{ translations[23] }}</div>
+					<div class="btn-group col-md-1 ">
+						<label class="btn btn-default btn-block disabled" id="viewTransferIntermediateBasket">{{ translations[23] }}</label>
+					</div>
+					<div class="col-md-1 text-center">{{ translations[24] }}</div>
+					<div class="btn-group col-md-1 ">
+						<label class="btn btn-default btn-block disabled" id="viewTransferProviderBasket">{{ translations[24] }}</label>
+					</div>
+				</div>
+
+				<div class="row mb5 hidden">
+					<div class="col-md-3"><label>{{ translations[18] }}</label></div>
+					<div class="col-md-3">
+						<select class="btn-block disabled" id="defaultLanguage" disabled="disabled">
+							<option value="0">{{ translations[25] }}</option>
+							<option value="1">{{ translations[26] }}</option>
+						</select>
+					</div>
+					<div class="col-md-6">&nbsp;</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+	    var JSON_URLS = {
+	    	bs_idp_backoffice_set_settings: "{{ path('bs_idp_backoffice_set_settings')}}",
+            bs_idp_archive_form_initlists: "{{ path('bs_idp_archive_form_initlists') }}",
+            bs_idp_backoffice_ajax_settings: "{{ path('bs_idp_backoffice_ajax_settings') }}",
+            bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+            bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+	    };
+		var IDP_CONST = {
+            bs_idp_allserviceatonce: '{{ allServiceAtOnce|json_encode }}',
+			bs_idp_settings: '{{settings|json_encode|escape('js')|raw}}',
+            bs_translations: '{{translations|json_encode|escape('js')|raw}}'
+		};
+	</script>
+
+	{% include "bsIDPArchiveBundle:Archivist:partial.javascriptconstant.html.twig" %}
+
+	{% javascripts
+		'@bsIDPArchiveBundle/Resources/public/js/systemPostGetDef.0.9.10.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPMenuManageDB.0.9.10.js'
+		'@bsIDPBackofficeBundle/Resources/public/js/IDPBackofficeManageVisibility.1.4.5.0.js'
+	 %}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}

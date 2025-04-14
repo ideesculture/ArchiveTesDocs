@@ -1,0 +1,80 @@
+{% extends '::mini.html.twig' %}
+
+{% block title %}
+    - Changement de mot de passe
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="col-sm-6 col-sm-offset-3">
+
+            <div class="panel panel-default" id="passwordPanel">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">Changement du mot de passe du compte <strong>{{ curruser.login }}</strong> - {{ curruser.firstname }} {{ curruser.lastname }}</h3>
+                </div>
+                <div class="panel-body">
+                    {% if not curruser.changepass %}
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-1 mb1"><label class="control-label">Ancien mot de passe</label></div>
+                        <div class="col-sm-5 col-sm-offset-1 mb1"><input type="password" class="form-control" id="inputChangeMdpOld"/></div>
+                    </div>
+                    {% else %}
+                        <div class="row mb10 text-center">Vous devez changer de mot de passe avant de continuer à utiliser Archimage</div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-1 mb1"><label class="control-label">Nouveau mot de passe</label></div>
+                        <div class="col-sm-5 col-sm-offset-1 mb1" id="divInputChangeMdpNew"><input type="password" class="form-control" id="inputChangeMdpNew"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-1 mb1"><label class="control-label">Confirmation mot de passe</label></div>
+                        <div class="col-sm-5 col-sm-offset-1 mb1"><input type="password" class="form-control" id="inputChangeMdpConfirm"/></div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <button type="button" class="col-sm-6 btn btn-sm btn-primary" id="btnValidateChangeMdp">Modifier le mot de passe</button>
+                        {% if not curruser.changepass %}
+                            <button type="button" class="col-sm-6 btn btn-sm btn-default" id="btnCancelChangeMdp">Annuler</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var JSON_URLS = {
+            bs_idp_dashboard_homepage: "{{ path('bs_idp_dashboard_homepage')}}",
+            bs_core_user_change_mdp: "{{ path('bs_core_user_change_mdp') }}",
+            bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+            bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+        };
+        var IDP_CONST = {
+            cuid: {{ curruser.id }},
+            password_global_settings: '{{ passwordGlobalSettings|json_encode|escape('js')|raw }}'
+        };
+    </script>
+
+    {% include "bsIDPArchiveBundle:Archivist:partial.javascriptconstant.html.twig" %}
+    {% javascripts
+        '@bsIDPArchiveBundle/Resources/public/js/IDPConstants.1.1.6.0.js'
+        '@bsIDPArchiveBundle/Resources/public/js/systemPostGetDef.0.9.10.js'
+        '@bsCoreUsersBundle/Resources/public/js/bsCorePasswordVerification.0.9.10.js'
+        '@bsCoreUsersBundle/Resources/public/js/bsCoreUserChangeMdp.1.4.5.0.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}

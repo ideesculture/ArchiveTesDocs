@@ -1,0 +1,159 @@
+bs_idp_archivist_managedb_services_json:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_managedb_services_json.yml"
+    prefix:   /services/
+
+bs_idp_archivist_managedb_legalentities_json:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_managedb_legalentities_json.yml"
+    prefix:   /legalentities/
+
+bs_idp_archivist_managedb_budgetcode_json:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_managedb_budgetcodes_json.yml"
+    prefix:    /budgetcodes/
+
+bs_idp_archivist_managedb_documentnatures_json:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_managedb_documentnatures_json.yml"
+    prefix:    /documentnatures/
+
+bs_idp_archivist_managedb_descriptions1_json:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_managedb_descriptions1_json.yml"
+    prefix:    /descriptions1/
+
+bs_idp_archivist_managedb_descriptions2_json:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_managedb_descriptions2_json.yml"
+    prefix:    /descriptions2/
+
+bs_idp_archivist_managedb_deliveraddress_json:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_managedb_deliveraddress_json.yml"
+    prefix:    /deliveraddress/
+
+bs_idp_archivist_managedb_documenttypes_json:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_managedb_documenttypes_json.yml"
+    prefix:    /documenttypes/
+
+bs_idp_archivist_managedb_providers_json:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_managedb_providers_json.yml"
+    prefix:    /providers/
+
+bs_idp_archivist_json_loaddatas:
+    path:     /loaddatas/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:loaddatas }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_action:
+    path:     /action/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:action }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_cancel:
+    path:     /cancel/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:cancel }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_managedb_localizations_json:
+    resource: "@bsIDPArchiveBundle/Resources/config/routing_managedb_localizations_json.yml"
+    prefix: /localizations/
+
+bs_idp_archivist_json_update_container:
+    path:     /updatecontainer/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:updatecontainer }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_update_localization:
+    path:     /updatelocalization/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:updatelocalization }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_update_box:
+    path:     /updatebox/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:updatebox }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_providerconnectorbackup_get:
+    path:     /providerconnectorbackup/get/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:getProviderConnectorBackup }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_providerconnectorbackup_set:
+    path:     /providerconnectorbackup/set/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:setProviderConnectorBackup }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_providerconnector_optimisationstatus:
+    path:     /providerconnector_optimisationstatus/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:getOptimisationStatus }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_is_basket_verified:
+    path:     /containerbox_verification/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:isBasketVerified }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_allowed_providers:
+    path:     /get_allowed_providers/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:getAllowedProviders }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_update_unlimited:
+    path:     /updateunlimited/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:updateunlimited }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_undo_manage_optimizationask:
+    path:     /undo_manage_optimizationask/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:undoManageOptimizationAsk }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_is_basket_verified:
+    path:     /basket_verification/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:isBasketVerified }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_provider_connector_lock_basket:
+    path:     /providerconnector_lockbasket/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:lockBasket }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_provider_connector_unlock_basket:
+    path:     /providerconnector_unlockbasket/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:unlockBasket }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_provider_connector_manage_optimization_choices:
+    path:     /providerconnector_manageoptimizationchoices/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:manageOptimizationChoices }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_provider_connector_unmanage_optimization_choices:
+    path:     /providerconnector_unmanageoptimizationchoices/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:unmanageOptimizationChoices }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_provider_connector_optimisation:
+    path:     /providerconnectoroptimisation/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:providerConnectorOptimisation }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_provider_connector_ungray:
+    path:     /providerconnectorungray/
+    defaults: { _controller: bsIDPArchiveBundle:ArchivistJson:providerConnectorUngray }
+    requirements:
+        _method: GET

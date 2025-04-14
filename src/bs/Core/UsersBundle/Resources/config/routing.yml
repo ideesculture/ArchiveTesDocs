@@ -1,0 +1,33 @@
+bs_core_users_admin:
+    resource: "@bsCoreUsersBundle/Resources/config/routing_admin.yml"
+    prefix:   /admin/
+
+bs_core_user_asf:
+    resource: "@bsCoreUsersBundle/Resources/config/routing_user_asf_json.yml"
+    prefix:   /asf/json/
+
+bs_core_userspace:
+    resource: "@bsCoreUsersBundle/Resources/config/routing_userspace.yml"
+    prefix:   /userspace/
+
+bs_core_user_login:
+    path:     /login/
+    defaults: { _controller: bsCoreUsersBundle:Users:login }
+
+bs_core_user_checklogin:
+    path:     /checklogin/
+    defaults: { _controller: bsCoreUsersBundle:Users:checklogin }
+
+bs_core_user_logout:
+    path:     /logout/
+    defaults: { _controller: bsCoreUsersBundle:Users:logout }
+
+bs_core_user_change_mdp_screen:
+    path:     /changemdpscreen/
+    defaults: { _controller: bsCoreUsersBundle:Users:changemdpscreen }
+
+bs_core_user_change_mdp:
+    path:     /changemdp/
+    defaults: { _controller: bsCoreUsersBundle:Users:changemdp }
+    requirements:
+        _method: GET

@@ -1,0 +1,37 @@
+
+bs_idp_archive_print_tag:
+    path:     /tag/
+    defaults: { _controller: bsIDPArchiveBundle:Print:printTag }
+    requirements:
+        _method: POST
+
+bs_idp_archive_print_tags:
+    path:     /tags/
+    defaults: { _controller: bsIDPArchiveBundle:Print:printTags }
+    requirements:
+        _method: POST
+
+bs_idp_archive_print_table:
+    path:     /table/
+    defaults: { _controller: bsIDPArchiveBundle:Print:printTable }
+    requirements:
+        _method: GET
+
+bs_idp_archive_print_table_offline:
+    path:     /table_offline/
+    defaults: { _controller: bsIDPArchiveBundle:Print:printTableOffline }
+    requirements:
+        _method: GET
+
+bs_idp_archive_print_sheet:
+    path:     /sheet/
+    defaults: { _controller: bsIDPArchiveBundle:Print:printSheet }
+    requirements:
+        _method: GET
+
+
+bs_idp_archivist_print_provider_connector:
+    path:     /providerconnector/
+    defaults: { _controller: bsIDPArchiveBundle:Print:printProviderConnector }
+    requirements:
+        _method: GET

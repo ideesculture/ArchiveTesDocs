@@ -1,0 +1,42 @@
+
+bs_idp_archivist_json_documenttypes_list:
+    path:     /list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentTypesJson:documenttypeslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documenttypes_delete:
+    path:     /delete/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentTypesJson:documenttypesdelete }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documenttypes_add:
+    path:     /add/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentTypesJson:documenttypesadd }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documenttypes_modify:
+    path:     /modify/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentTypesJson:documenttypesmodify }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documenttypes_links_list:
+    path:     /links/list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentTypesJson:documenttypeslinkslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documenttypes_links_set:
+    path:     /links/set/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentTypesJson:documenttypeslinksset }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documenttypes_links_unset:
+    path:     /links/unset/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentTypesJson:documenttypeslinksunset }
+    requirements:
+        _method: GET

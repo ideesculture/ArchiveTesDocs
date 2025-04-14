@@ -1,0 +1,185 @@
+			<div role="tabpanel" class="tab-pane" id="tabsearch">
+
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form>
+							<input type="hidden" name="whereToSearch" id="wheretosearch" value=""/>
+
+							<div class="col-sm-6">
+
+                                <div class="row">
+								<div class="col-sm-12 mb5" id="divBlockProperty"><strong>{{ searchTranslations[1] }}</strong></div>
+									<div class="col-sm-10"><hr id="hrNew"></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" ><label class="control-label">{{ searchTranslations[2] }}</label></div>
+								<div class="col-sm-6 mb5"><select class="form-control" id="service" disabled='disabled'><option value="">{{ searchTranslations[3] }}</option></select></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5"><label class="control-label">{{ searchTranslations[4] }}</label></div>
+								<div class="col-sm-6  mb5"><select class="form-control" id="legalentity" disabled='disabled'><option value="">{{ searchTranslations[3] }}</option></select></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblBudgetCode"><label class="control-label">{{ searchTranslations[5] }}</label></div>
+								<div class="col-sm-6  mb5" id="divSelectBudgetcode"><select class="form-control" id="budgetcode" disabled='disabled'><option value="">{{ searchTranslations[3] }}</option></select></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-12">&nbsp;</div>
+								<div class="col-sm-12 mb5" id="divBlockDescription" ><strong>{{ searchTranslations[6] }}</strong></div>
+									<div class="col-sm-10"><hr id="hrNew"></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblDocumentnature" ><label class="control-label">{{ searchTranslations[7] }}</label></div>
+								<div class="col-sm-6  mb5" id="divSelectDocumentnature" ><select class="form-control" id="documentnature" disabled='disabled'><option value="">{{ searchTranslations[3] }}</option></select></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblDocumenttype"><label class="control-label">{{ searchTranslations[8] }}</label></div>
+								<div class="col-sm-6  mb5" id="divSelectDocumenttype" ><select class="form-control" id="documenttype" disabled='disabled'><option value="">{{ searchTranslations[3] }}</option></select></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblDescription1"><label class="control-label" id="lbl_description1">Descriptif 1 est</label></div>
+								<div class="col-sm-6  mb5" id="divSelectDescription1"><select class="form-control" id="description1" disabled='disabled'><option value="">{{ searchTranslations[3] }}</option></select></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblDescription2"><label class="control-label" id="lbl_description2">Descriptif 2 est</label></div>
+								<div class="col-sm-6  mb5" id="divSelectDescription2"><select class="form-control" id="description2" disabled='disabled'><option value="">{{ searchTranslations[3] }}</option></select></div>
+                                </div>
+
+                                <div class="row mt15">
+								<div class="col-sm-12">&nbsp;</div>
+								<div class="col-sm-12 mb5" id="divBlockProviderdatas"><strong>{{ searchTranslations[9] }}</strong></div>
+									<div class="col-sm-10"><hr id="hrNew"></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblFilenumber"><label class="control-label" id="lbl_filenumber">{{ searchTranslations[10] }}</label></div>
+								<div class="col-sm-6  mb5" id="divInputFilenumber"><input type="text" class="form-control" id="documentnumber" disabled='disabled'/></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblBoxnumber"><label class="control-label" id="lbl_boxnumber">{{ searchTranslations[11] }}</label></div>
+								<div class="col-sm-6  mb5" id="divInputBoxnumber"><input type="text" class="form-control" id="boxnumber" disabled='disabled'/></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblContainernumber"><label class="control-label" id="lbl_containernumber">{{ searchTranslations[12] }}</label></div>
+								<div class="col-sm-6  mb5" id="divInputContainernumber"><input type="text" class="form-control" id="containernumber" disabled='disabled'/></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblProvider"><label class="control-label" id="lbl_provider">{{ searchTranslations[13] }}</label></div>
+								<div class="col-sm-6  mb5" id="divSelectProvider"><select class="form-control" id="provider" disabled='disabled'><option value="">{{ searchTranslations[3] }}</option></select></div>
+                                </div>
+
+							</div>
+
+							<div class="col-sm-6">
+
+                                <div class="row">
+								<div class="col-sm-12 mb5" id="divBlockIdentification"><strong>{{ searchTranslations[14] }}</strong></div>
+									<div class="col-sm-10"><hr id="hrNew"></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5"><label class="control-label">{{ searchTranslations[15] }}</label></div>
+								<div class="col-sm-6  mb5"><input type="text" id="ordernumber" class="form-control" disabled='disabled'/></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-12">&nbsp;</div>
+								<div class="col-sm-12 mb5" id="divBlockDescription"><strong>{{ searchTranslations[16] }}</strong></div>
+									<div class="col-sm-10"><hr id="hrNew"></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5"><label class="control-label">{{ searchTranslations[17] }}</label></div>
+								<div class="col-sm-6  mb5"><input type="text" id="name" class="form-control" disabled='disabled'/></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-12">&nbsp;</div>
+								<div class="col-sm-12 mb5" id="divBlockDuration"><strong>{{ searchTranslations[18] }}</strong></div>
+									<div class="col-sm-10"><hr id="hrNew"></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4"><label class="control-label">{{ searchTranslations[19] }}</label></div>
+
+									<div class="col-sm-6 mb5">
+										<div class="col-sm-2 text-left nopaddinglr" id="minClosureYear">&nbsp;</div>
+										<input type="text" class="form-control hidden" id="closureyear" readonly/>
+										<div class="col-sm-8 nopaddinglr"><div id="closureyear-range"></div></div>
+										<div class="col-sm-2 text-right nopaddinglr" id="maxClosureYear">&nbsp;</div>
+									</div>
+
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4"><label class="control-label">{{ searchTranslations[20] }}</label></div>
+
+									<div class="col-sm-6 mb5">
+										<div class="col-sm-2 text-left nopaddinglr" id="minDestructionYear">&nbsp;</div>
+										<input type="text" class="form-control hidden" id="destructionyear" readonly />
+										<div class="col-sm-8 nopaddinglr"><div id="destructionyear-range"></div></div>
+										<div class="col-sm-2 text-right nopaddinglr" id="maxDestructionYear">&nbsp;</div>
+									</div>
+
+                                </div>
+
+								<div class="row">
+									<div class="col-sm-4"><label class="control-label">Archives illimitées</label></div>
+
+									<div class="col-sm-6 mb5">
+										<select class="form-control" id="unlimited" >
+											<option value="0">Illimitées seulement</option>
+											<option value="1">Non illimitées seulement</option>
+											<option value="2">Peu importe</option>
+										</select>
+									</div>
+
+								</div>
+
+								<div class="row">
+								<div class="col-sm-12">&nbsp;</div>
+								<div class="col-sm-12 mb5" id="divBlockLimits"><strong>{{ searchTranslations[21] }}</strong></div>
+									<div class="col-sm-10"><hr id="hrNew"></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblLimitsdate"><label class="control-label">{{ searchTranslations[22] }}</label></div>
+								<div class="col-sm-6  mb5" id="divInputLimitsdate"><input type="text" class="form-control" id="limitdate" disabled='disabled'/></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblLimitsalpha"><label class="control-label">{{ searchTranslations[23] }}</label></div>
+								<div class="col-sm-6  mb5" id="divInputLimitsalpha"><input type="text" class="form-control" id="limitalpha" disabled='disabled'/></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblLimitsnum"><label class="control-label">{{ searchTranslations[24] }}</label></div>
+								<div class="col-sm-6  mb5" id="divInputLimitsnum"><input type="text" class="form-control" id="limitnum" disabled='disabled'/></div>
+                                </div>
+
+                                <div class="row">
+								<div class="col-sm-4 mb5" id="divLblLimitsalphanum"><label class="control-label">{{ searchTranslations[25] }}</label></div>
+								<div class="col-sm-6  mb5" id="divInputLimitsalphanum"><input type="text" class="form-control" id="limitalphanum" disabled='disabled'/></div>
+                                </div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<button type="button" class="col-sm-2 col-sm-offset-3 btn btn-sm btn-info disabled" id="searchBtn"><img src="{{ asset('/img/ajax-loader.gif') }}" id="imgAjaxLoad"/><span class="hidden" id="txtBtn">{{ searchTranslations[26] }}</span></button>
+					<button type="button" class="col-sm-2 col-sm-offset-1 btn btn-sm btn-default" id="cancelSearchBtn">Réinitialiser la recherche</button>
+				</div>
+			</div>

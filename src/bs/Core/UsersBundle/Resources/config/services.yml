@@ -1,0 +1,4 @@
+services:
+#    bs_core_users.example:
+#        class: bs\Core\UsersBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,119 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+ - {{ translations[1] }}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('/css/bootstrap-table.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block overlay %}
+    {% include "bsIDPArchiveBundle:Default:partial.overlay.waitAjax.html.twig" %}
+{% endblock %}
+
+
+{% block content %}
+
+    {% set menuaction = 2 %}
+    {% include "bsIDPArchiveBundle:Archivist:partial.menumanagedb.html.twig" %}
+
+	<div class="modal fade" id="SuppressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">{{ translations[3] }}</h4>
+				</div>
+				<div class="modal-body" id="SuppressModalText">
+					{{ translations[4] }}
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">{{ translations[5] }}</button>
+					<button type="button" class="btn btn-primary" id="btnSuppressModalConfirm">{{ translations[6] }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="tabSaisie">
+
+		<ol class="breadcrumb">
+			<li><a href="{{ path('bs_idp_archivist_managedb_input_services')}}">{{ partialmenuTranslations[13] }}</a></li>
+			<li><a href="{{ path('bs_core_users_admin_list') }}">{{ translations[2] }}</a></li>
+		</ol>
+
+		<table data-toggle="table"
+			data-url="{{ path('bs_core_admin_json_list_user') }}"
+			data-pagination="true"
+			data-side-pagination="server"
+			data-method = "GET"
+			data-search = "true"
+			data-sort-name="login"
+			data-sort-order="asc"
+			data-search-on-enter-key = "true"
+			data-checkbox-header = "false"
+			data-row-style = "userstablestyle"
+			data-page-list="[10, 25, 50, 100]"
+			id = "UsersListTable">
+			<thead>
+				<tr>
+					<th data-field="id" data-visible="false"></th>
+					<th data-field="lastname" data-sortable="true">{{ translations[7] }}</th>
+					<th data-field="firstname" data-sortable="true">{{ translations[8] }}</th>
+					<th data-field="login" data-sortable="true">{{ translations[9] }}</th>
+					<th data-checkbox="true" data-field="changepass" >{{ translations[17] }}</th>
+					<th data-field="action" data-formatter="actionFormatter" data-events="actionEvents">{{ translations[10] }}</th>
+				</tr>
+			</thead>
+		</table>
+
+	</div>
+
+	<div class="panel panel-default" id="panelAddUser">
+		<div class="panel-heading"><a href="{{ path('bs_core_users_admin_add') }}">{{ translations[11] }}</a></div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+    var JSON_URLS = {
+    	bs_core_admin_json_delete_user: '{{ path('bs_core_admin_json_delete_user')}}',
+		bs_core_users_admin_modify: '{{ path('bs_core_users_admin_modify')}}',
+		bs_core_users_admin_finetune: '{{ path('bs_core_users_admin_finetune')}}',
+        bs_core_admin_json_toggle_changepass: '{{ path('bs_core_admin_json_toggle_changepass') }}',
+        bs_core_admin_json_unlock_user: '{{ path('bs_core_admin_json_unlock_user') }}',
+        bs_idp_backoffice_ajax_usersettings_get: '{{ path("bs_idp_backoffice_ajax_usersettings_get") }}',
+        bs_idp_backoffice_usersettings_modify_page: '{{ path("bs_idp_backoffice_usersettings_modify_page") }}',
+        bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+        bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+    };
+    var IDP_CONST = {
+        bs_translations: '{{translations|json_encode|escape('js')|raw}}',
+        bs_currentuserid: '{{ curruser.id }}',
+        curr_phpsessid: '{{ currphpsessid }}',
+        sesslifetime: {{ sesslifetime }}
+    };
+	</script>
+
+	{% include "bsIDPArchiveBundle:Archivist:partial.javascriptconstant.html.twig" %}
+
+	<script src="{{ asset('/js/bootstrap-table.1.15.2.js') }}"></script>
+	{% if language == 0 %}
+		<script src="{{ asset('/js/bootstrap-table-fr-FR.js') }}"></script>
+	{% endif %}
+
+	{% javascripts
+        '@bsIDPArchiveBundle/Resources/public/js/IDPConstants.1.1.6.0.js'
+        '@bsIDPBackofficeBundle/Resources/public/js/IDPUserSettingsManagement.1.2.0.0.js'
+		'@bsCoreUsersBundle/Resources/public/js/bsCoreAdminUsersList.1.4.5.0.js'
+		'@bsIDPArchiveBundle/Resources/public/js/IDPMenuManageDB.0.9.10.js' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}

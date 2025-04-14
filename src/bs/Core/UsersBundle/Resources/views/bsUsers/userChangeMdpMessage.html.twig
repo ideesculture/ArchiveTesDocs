@@ -1,0 +1,42 @@
+{% extends '::mini.html.twig' %}
+
+{% block meta %}
+    {% if type == 1 %}
+        <META HTTP-EQUIV="Refresh" CONTENT="2;URL={{ path('bs_core_user_change_mdp_screen') }}">
+    {% else %}
+        <META HTTP-EQUIV="Refresh" CONTENT="2;URL={{ path('bs_idp_dashboard_homepage') }}">
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    - Changement de mot de passe
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="col-sm-6 col-sm-offset-3">
+
+            <div class="panel {% if type == 1 %}panel-danger{% else %}panel-success{% endif %}">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">Résultat du changement de mot de passe</h3>
+                </div>
+                <div class="panel-body">
+                    {{ message }}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

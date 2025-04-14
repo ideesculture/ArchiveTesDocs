@@ -1,0 +1,4 @@
+services:
+#    bs_core_translation.example:
+#        class: bs\Core\TranslationBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,96 @@
+			<div role="tabpanel" class="tab-pane" id="tabfilter">
+				<div class="panel panel-default">
+					<div class="panel-body">
+
+                        <div class="row">
+                            <!-- STATUS COLUMN CHOICE -->
+                            <div class="col-sm-3">
+                                <div class="mbpb5">
+                                    <input type="checkbox" id="filterStatusAll" value="filterStatusAll">
+                                    <label for="filterStatusAll"><strong>Etat</strong></label>
+                                </div>
+
+                                <div id="statusColumnChoices">
+                                    <div style="display: none;">
+                                        <input type="checkbox" id="filterStatusDTA" value="filterStatusDTA" class="status">
+                                        <label for="filterStatusDTA">DTA</label><br/>
+                                    </div>
+
+                                    <input type="checkbox" id="filterStatusAvailable" value="filterStatusAvailable" class="status">
+                                    <label for="filterStatusAvailable">Disponible</label><br/>
+
+                                    <input type="checkbox" id="filterStatusTransfer" value="filterStatusTransfer" class="status">
+                                    <label for="filterStatusTransfer">En attente de transfert</label><br/>
+
+                                    <input type="checkbox" id="filterStatusInConsult" value="filterStatusInConsult" class="status">
+                                    <label for="filterStatusInConsult">En attente de consultation</label><br/>
+
+                                    <input type="checkbox" id="filterStatusConsult" value="filterStatusConsult" class="status">
+                                    <label for="filterStatusConsult">En consultation</label><br/>
+
+                                    <input type="checkbox" id="filterStatusReturn" value="filterStatusReturn" class="status">
+                                    <label for="filterStatusReturn">En attente de retour</label><br/>
+
+                                    <input type="checkbox" id="filterStatusExit" value="filterStatusExit" class="status">
+                                    <label for="filterStatusExit">En attente de sortie définitive</label><br/>
+
+                                    <input type="checkbox" id="filterStatusDelete" value="filterStatusDelete" class="status">
+                                    <label for="filterStatusDelete">En attente de destruction</label><br/>
+
+                                    <input type="checkbox" id="filterStatusReloc" value="filterStatusReloc" class="status">
+                                    <label for="filterStatusReloc">En attente de relocalisation</label>
+                                </div>
+                            </div>
+                            <!-- INTERNAL COLUMN CHOICE -->
+                            <div class="col-sm-3">
+                                <div class="mbpb5">
+                                    <input type="checkbox" id="filterWhereAll" value="filterWhereAll">
+                                    <label for="filterWhereAll"><strong>Localisation</strong></label>
+                                </div>
+
+                                <div id="internalColumnChoices">
+                                    <input type="checkbox" id="filterWhereInternal" value="filterWhereInternal" class="where">
+                                    <label for="filterWhereInternal">En salle interne service</label><br/>
+
+                                    <input type="checkbox" id="filterWhereIntermediate" value="filterWhereIntermediate" class="where">
+                                    <label for="filterWhereIntermediate">En salle intermédiaire</label><br/>
+
+                                    <input type="checkbox" id="filterWhereProvider" value="filterWhereProvider" class="where">
+                                    <label for="filterWhereProvider">Chez le prestataire</label>
+                                </div>
+                            </div>
+                            <!-- DOCUMENT / BOX COLUMN CHOICE -->
+                            <div class="col-sm-3">
+                                <div class="mbpb5">
+                                    <input type="checkbox" id="filterWithAll" value="filterWithAll">
+                                    <label for="filterWithAll"><strong>Contenant</strong></label>
+                                </div>
+
+                                <div id="documentColumnChoices">
+                                    <input type="checkbox" id="filterWithDocument" value="filterWithDocument" class="with">
+                                    <label for="filterWithDocument">Dossier</label><br/>
+
+                                    <input type="checkbox" id="filterWithBox" value="filterWithBox" class="with">
+                                    <label for="filterWithBox">Boîte</label><br/>
+
+                                    <input type="checkbox" id="filterWithContainer" value="filterWithContainer" class="with">
+                                    <label for="filterWithContainer">Conteneur</label>
+                                </div>
+                            </div>
+                            <!-- LOCALIZATION COLUMN CHOICE -->
+                            <div class="col-sm-3" >
+                                <div class="mbpb5">
+                                    <input type="checkbox" id="filterLocalizationAll" value="filterLocalizationAll">
+                                    <label for="filterLocalizationAll"><strong>Prestataire</strong></label>
+                                </div>
+                                <div id="localizationColumnChoices">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2 col-sm-offset-5"><button class="btn btn-block" id="btnChangeFilter">Appliquer le nouveau filtre</button></div>
+                        </div>
+					</div>
+				</div>
+			</div>

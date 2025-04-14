@@ -1,0 +1,42 @@
+
+bs_idp_archivist_json_documentnatures_list:
+    path:     /list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentNaturesJson:documentnatureslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documentnatures_delete:
+    path:     /delete/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentNaturesJson:documentnaturesdelete }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documentnatures_add:
+    path:     /add/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentNaturesJson:documentnaturesadd }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documentnatures_modify:
+    path:     /modify/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentNaturesJson:documentnaturesmodify }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documentnatures_links_list:
+    path:     /links/list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentNaturesJson:documentnatureslinkslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documentnatures_links_set:
+    path:     /links/set/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentNaturesJson:documentnatureslinksset }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_documentnatures_links_unset:
+    path:     /links/unset/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDocumentNaturesJson:documentnatureslinksunset }
+    requirements:
+        _method: GET

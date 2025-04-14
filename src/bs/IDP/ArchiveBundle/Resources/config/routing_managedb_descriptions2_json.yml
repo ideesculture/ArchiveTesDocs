@@ -1,0 +1,42 @@
+
+bs_idp_archivist_json_descriptions2_list:
+    path:     /list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDescriptions2Json:descriptions2list }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_descriptions2_delete:
+    path:     /delete/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDescriptions2Json:descriptions2delete }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_descriptions2_add:
+    path:     /add/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDescriptions2Json:descriptions2add }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_descriptions2_modify:
+    path:     /modify/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDescriptions2Json:descriptions2modify }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_descriptions2_links_list:
+    path:     /links/list/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDescriptions2Json:descriptions2linkslist }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_descriptions2_links_set:
+    path:     /links/set/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDescriptions2Json:descriptions2linksset }
+    requirements:
+        _method: GET
+
+bs_idp_archivist_json_descriptions2_links_unset:
+    path:     /links/unset/
+    defaults: { _controller: bsIDPArchiveBundle:ManageDBDescriptions2Json:descriptions2linksunset }
+    requirements:
+        _method: GET

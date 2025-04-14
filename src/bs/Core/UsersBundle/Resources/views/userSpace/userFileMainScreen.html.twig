@@ -1,0 +1,146 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    - Espace fichiers utilisateur
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% macro bytesToSize(bytes) %}
+    {% spaceless %}
+        {% set kilobyte = 1024 %}
+        {% set megabyte = kilobyte * 1024 %}
+        {% set gigabyte = megabyte * 1024 %}
+        {% set terabyte = gigabyte * 1024 %}
+
+        {% if bytes < kilobyte %}
+            {{ bytes ~ ' o' }}
+        {% elseif bytes < megabyte %}
+            {{ (bytes / kilobyte)|number_format(2, '.') ~ ' Ko' }}
+        {% elseif bytes < gigabyte %}
+            {{ (bytes / megabyte)|number_format(2, '.') ~ ' Mo' }}
+        {% elseif bytes < terabyte %}
+            {{ (bytes / gigabyte)|number_format(2, '.') ~ ' Go' }}
+        {% else %}
+            {{ (bytes / terabyte)|number_format(2, '.') ~ ' To' }}
+        {% endif %}
+    {% endspaceless %}
+{% endmacro %}
+
+{%  import _self as mymacros %}
+
+{% block overlay %}
+    {% include "bsIDPArchiveBundle:Default:partial.overlay.waitAjax.html.twig" %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="panel panel-default" id="userSpacePanel">
+            <div class="panel-heading text-center">
+                <h3>Espace de téléchargement des fichiers résultats</h3>
+                Utilisateur: <strong>{{ curruser.login }}</strong> - {{ curruser.firstname }} {{ curruser.lastname }}
+            </div>
+            <th class="panel-body">
+                <table class="table" id="userSpaceUserFiles">
+                    <thead>
+                        <tr class="bsUsersLoginBody">
+                            <th scope="col">&nbsp;</th>
+                            <th scope="col">Titre</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Taille</th>
+                            <th scope="col">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+{%  if userFilesResume['nb_files'] <= 0 %}
+                        <tr class="userFileNothing">
+                            <td colspan="5">Il n'y a aucun fichier dans votre espace</td>
+                        </tr>
+{% else %}
+    {%  for file in userFilesList %}
+        <tr class="
+            {% if file.filetype == 1 %} userFileExcel
+            {%  elseif file.filetype == 2 %} userFilePdf
+            {% endif %}
+
+            {% if file.inprogress %} userFileInProgress bg-primary
+            {% elseif file.nbdownload <= 0 %} userFileNeverDownloaded bg-success
+            {% else %} userFileDownloaded
+            {% endif %}
+            ">
+
+            <td class="action_fileformat text-center"><i class="far
+                {% if file.inprogress %} fa-compact-disc fa-spin
+                {% elseif file.filetype == 1 %} fa-file-excel
+                {% elseif file.filetype == 2 %} fa-file-pdf
+                {% endif %}
+
+                 fa-2x"></i>
+            </td>
+
+            <td class="action_download">
+                {% if not file.inprogress %}
+                    <a target="_blank" href="{{ path('bs_core_userspace_userfile_downloadfile', { 'fileid' : file.id } ) }}" {% if file.nbdownload > 0 %}class="idp_std_style"{% endif %}>{{ file.name }}</a>
+                {% else %}
+                    {{ file.name }}
+                {% endif %}
+            </td>
+
+            <td>
+                {% if not file.inprogress %}
+                    {{ file.filetime|date('d/m/Y H:i') }}
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+
+            <td>
+                {% if not file.inprogress %}
+                    {{ mymacros.bytesToSize( file.filesize ) }}
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+
+            <td class="action_delete">
+                {% if not file.inprogress %}
+                    <a href="#" data-id="{{ file.id }}" data-filename="{{ file.name }}"><i class="far fa-trash fa-2x text-danger"></i></a>
+                {% else %}
+                    &nbsp;
+                {% endif %}
+            </td>
+
+        </tr>
+
+    {% endfor %}
+{%  endif %}
+                    </tbody>
+            </table>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var JSON_URLS = {
+            bs_core_userspace_userfile_deletefile: "{{ path('bs_core_userspace_userfile_deletefile')}}",
+            bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}',
+            bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
+        };
+    </script>
+
+    {% javascripts
+        '@bsIDPArchiveBundle/Resources/public/js/IDPConstants.1.1.6.0.js'
+        '@bsIDPArchiveBundle/Resources/public/js/systemPostGetDef.0.9.10.js'
+        '@bsCoreUsersBundle/Resources/public/js/userSpace/IDPUserFiles.1.2.0.0.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

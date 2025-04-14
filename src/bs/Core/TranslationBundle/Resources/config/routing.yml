@@ -1,0 +1,3 @@
+bs_core_translation_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: bsCoreTranslationBundle:Default:index }

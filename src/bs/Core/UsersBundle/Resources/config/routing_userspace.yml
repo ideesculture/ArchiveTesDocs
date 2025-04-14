@@ -1,0 +1,4 @@
+
+bs_core_userspace_userfile:
+    resource: "@bsCoreUsersBundle/Resources/config/routing_userspace_userfile.yml"
+    prefix:   /userfile/
