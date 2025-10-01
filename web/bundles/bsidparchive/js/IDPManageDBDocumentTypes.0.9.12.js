@@ -1,0 +1,176 @@
+var $documentTypeID = 0;
+var $_translations = null;
+var $_currentPage = PAGE_BDD_ENTRY_DOCUMENT_TYPES;
+var $_lastPageSize = 0;
+
+function actionFormatter( value, row, index ){
+    $pageOffset = ($('#DocumentTypesListTable').bootstrapTable('getOptions')['pageNumber']-1) * $('#DocumentTypesListTable').bootstrapTable('getOptions')['pageSize']+index;
+    $sortASC = ($('#DocumentTypesListTable').bootstrapTable('getOptions')['sortOrder']=='asc')?'1':'0';
+    $rightLink = window.ARCHIVIST_JSON_URLS.bs_idp_archivist_managedb_input_documenttypes_finetune;
+    $rightLink += '?documentTypeId=' + row['id'];
+    $rightLink += '&pageOffset=' + $pageOffset;
+    $rightLink += '&sortASC=' + $sortASC;
+
+    if( row['cansuppress'] == true )
+	return [
+	'<a class="edit ml10" href="javascript:void(0)" title="'+$_translations[13]+'">',
+	'<i class="fal fa-edit"></i>',
+	'</a>',
+	'<a class="right ml10" href="'+$rightLink+'" title="'+$_translations[16]+'">',
+	'<i class="fal fa-cog"></i>',
+	'</a>',
+	'<a class="remove ml10" href="javascript:void(0)" title="'+$_translations[14]+'">',
+	'<i class="far fa-times"></i>',
+	'</a>'
+	].join('');
+	else
+	return [
+	'<a class="edit ml10" href="javascript:void(0)" title="'+$_translations[13]+'">',
+	'<i class="fal fa-edit"></i>',
+	'</a>',
+	'<a class="right ml10" href="'+$rightLink+'" title="'+$_translations[16]+'">',
+	'<i class="fal fa-cog"></i>',
+	'</a>'
+	].join('');
+}
+
+window.actionEvents = {
+	'click .edit': function (e, value, row, index){
+		$('#frm_modify_name').val( row['longname'] );
+		$('#frm_modify_duration').val( row['keepaliveduration'])
+		$documentTypeID = row['id'];
+		$('#ModifyModal').modal( 'show' );
+
+	},
+	'click .remove': function (e, value, row, index){
+		$('#SuppressModalText').html( $_translations[2]+' <b>' + row['longname'] + '</b> ?' );
+		$documentTypeID = row['id'];
+		$('#SuppressModal').modal('show');
+	}
+};
+
+function onClickBtnSuppressModalConfirm(){
+	$dataStr = "id=" + $documentTypeID;
+	$url = window.ARCHIVIST_JSON_URLS.bs_idp_archivist_json_documenttypes_delete;
+	$.ajax({
+		type: "GET",
+		url: $url,
+		data: $dataStr,
+		cache: false,
+		success: function($response) {
+			$('#DocumentTypesListTable').bootstrapTable('refresh');
+		},
+		error: function (xhr, ajaxOptions, thrownError) {
+			alert( $_translations[15] );
+		}
+	});
+
+	return true;
+}
+
+function onClickBtnModifyModalConfirm(){
+	$dataStr = "id=" + $documentTypeID + "&name=" + encodeURIComponent($('#frm_modify_name').val()) + "&duration=" + $('#frm_modify_duration').val();
+	$url = window.ARCHIVIST_JSON_URLS.bs_idp_archivist_json_documenttypes_modify;
+	$.ajax({
+		type: "GET",
+		url: $url,
+		data: $dataStr,
+		cache: false,
+		success: function( $response ){
+			$('#DocumentTypesListTable').bootstrapTable( 'refresh' );
+		},
+		error: function( xhr, ajaxOptions, thrownError){
+			alert( $_translations[15] );
+		}
+	});
+	return true;
+}
+
+$(document).ready(function(){
+	$_translations = JSON.parse( window.IDP_CONST.bs_translations );
+    $_pageOffset = window.IDP_CONST.page_offset;
+    $_sortASC = window.IDP_CONST.page_sortASC == '1' ? 'asc' : 'desc';
+
+    // Get back User Settings to init Main Tab
+    $dataStr = "page=" + $_currentPage;
+    $.ajax({
+        type: "GET",
+        url: window.ARCHIVIST_JSON_URLS.bs_idp_backoffice_ajax_usersettings_get,
+        data: $dataStr,
+        cache: false,
+        success: function($response) {
+            $_lastPageSize = $response.data.userPageSettings.nb_row_per_page;
+            initBDDTab( $('#DocumentTypesListTable'), $response.data, $_pageOffset, $_sortASC );
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert( 'Error while retreiving user Settings !' );
+        }
+    });
+
+    $('#btnSuppressModalConfirm').click( function(){
+		onClickBtnSuppressModalConfirm();
+		$('#SuppressModal').modal('hide');
+		return true;
+	})
+
+	$('#btnModifyModalConfirm').click( function(){
+		onClickBtnModifyModalConfirm();
+		$('#ModifyModal').modal( 'hide' );
+		return true;
+	})
+
+	$('#frm_modify_name').keydown(function (e){
+		if(e.keyCode == 13){
+			$('#btnModifyModalConfirm').click();
+		}
+	})
+
+    $('#frm_name').keydown( function( event ){
+        if( event.keyCode == 13 ){
+            $('#btn_add').click();
+        }
+    });
+    $('#frm_duration').keydown( function( event ){
+        if( event.keyCode == 13 ){
+            $('#btn_add').click();
+        }
+    });
+
+    $('#frmAdd').on('submit', function( event ){	// catch auto-submit with enter on some browser, and do nothing
+        return false;
+    });
+
+    $('#btn_add').click( function(){
+        if( $('#frm_name').val()==null || $('#frm_name').val().trim().length <= 0 ||
+			$('#frm_duration').val()==null || $('#frm_duration').val().trim().length <= 0 || isNaN($('#frm_duration').val().trim()) ){
+            if( $('#frm_name').val()==null || $('#frm_name').val().trim().length <= 0 )
+            	popError( $('#div_frm_name'), "Le nom du type de document ne peut pas être vide.", 'top' );
+            if( $('#frm_duration').val()==null || $('#frm_duration').val().trim().length <= 0 )
+                popError( $('#div_frm_duration'), "La durée du type de document ne peut pas être vide.", 'top' );
+            else if( isNaN($('#frm_duration').val().trim() ) )
+                popError( $('#div_frm_duration'), "La durée du type de document doit être un nombre.", 'top' );
+            return false;
+        } else {
+            $dataStr = "name=" + encodeURIComponent($('#frm_name').val()) + "&duration=" + $('#frm_duration').val();
+            $pageNumber = $('#DocumentTypesListTable').bootstrapTable('getOptions')['pageNumber'];
+            $url = window.ARCHIVIST_JSON_URLS.bs_idp_archivist_json_documenttypes_add;
+            $.ajax({
+                type: "GET",
+                url: $url,
+                data: $dataStr,
+                cache: false,
+                success: function ($response) {
+                    $('#frm_name').val('');
+                    $('#frm_duration').val('');
+                    $('#DocumentTypesListTable').bootstrapTable('refresh', {'pageNumber': $pageNumber});
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    $('#frm_name').val('');
+                    $('#frm_duration').val('');
+                    alert($_translations[15]);
+                }
+            });
+            return true;
+        }
+	});
+});
