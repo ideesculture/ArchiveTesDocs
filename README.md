@@ -4,7 +4,7 @@ ArchiveTesDocs est un logiciel dédié à la gestion d'archives et de documents 
 ## Historique
 
 Développé par IDP Consulting, ArchiveTesDocs a été conçu pour vous simplifier au maximum la gestion de vos documents sous format papier. Simple et ludique, il s’adresse aux entreprises qui possèdent des salles d’archives en interne et / ou qui ont des documents chez un ou plusieurs prestataires d’archivage.
-Grâce à cet outil, vous pourrez conserver votre indépendance vis-à-vis des stockeurs, mais également gérer facilement vos documents ainsi que les délais de conservation,accéder aux statistiques des mouvements d’archives réalisés ou bien encore personnaliser l'outil par service et par utilisateur.La traçabilité et l’accessibilité de vos documents seront alors garanties.
+Grâce à cet outil, vous pourrez conserver votre indépendance vis-à-vis des stockeurs, mais également gérer facilement vos documents ainsi que les délais de conservation,accéder aux statistiques des mouvements d’archives réalisés ou bien encore personnaliser l'outil par service et par utilisateur. La traçabilité et l’accessibilité de vos documents seront alors garanties.
 
 ## Opensource
 
