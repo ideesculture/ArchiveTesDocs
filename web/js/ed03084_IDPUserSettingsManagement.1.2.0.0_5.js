@@ -248,7 +248,7 @@ function initMainTabColumns ( $init, $table, $url, $userSettings, $tabletranslat
             showToggle: true,
             showColumns: true,
             smartDisplay: false,
-            pagination: true,
+            pagination: false, /*true,*/
             sidePagination: $sidePagination,
             method: $method,
             iconsPrefix: 'fas',
