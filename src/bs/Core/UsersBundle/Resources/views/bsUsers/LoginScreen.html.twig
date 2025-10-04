@@ -16,6 +16,17 @@
 			<link href="{{ asset('/css/fontawesome-all.min.css') }}" type="text/css" rel="stylesheet" />
 		    <link href="{{ asset('/css/color-scheme.css') }}" type="text/css" rel="stylesheet" />
 		    <link href="{{ asset('/css/main.css') }}" type="text/css" rel="stylesheet" />
+		    <style>
+		    	.login-panel-footer .btn-primary:hover {
+		    		background: #2a6fa0 !important;
+		    		box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
+		    		transform: translateY(-1px);
+		    	}
+		    	.login-panel-footer .btn-primary:active {
+		    		transform: translateY(0);
+		    		box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+		    	}
+		    </style>
 		{% endblock %}
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -29,8 +40,8 @@
 			<div class="col-md-8 login_photo" style="background-size:cover;background-image:url('/img/login-illustration.jpg');height:100vh" >
 
 			</div>
-			<div class="col-md-4 col-sm-12">
-				<img class="logoArchimage" src="{{ asset('img/Logo_black.png') }}" style="margin-top:100px"/>
+			<div class="col-md-4 col-sm-12" style="padding: 60px 50px;">
+				<img class="logoArchimage" src="{{ asset('img/Logo_black.png') }}" style="margin-top:40px; margin-bottom:60px;"/>
 				{% if msg != null %}
 					<div class="alert alert-danger alert-dismissible" role="alert">
 						<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -39,19 +50,23 @@
 				{% endif %}
 
 				{% if (versions['upToDate'] or versions['dev_mode']) %}
-					<div class="panel-heading" style="font-size:20px">{{ translations[2] }}</div>
+					<div class="panel-heading" style="font-size:24px; font-weight:300; margin-bottom:30px; padding:0;">{{ translations[2] }}</div>
 
 					{{ form_start(form, {'action': path('bs_core_user_checklogin'), 'attr': {'class': 'form-horizontal'}}) }}
 
-					<div class="panel-body">
+					<div class="panel-body" style="padding:0;">
 
-						{{ form_widget(form.bsUsersLogin, { 'attr': {'class': 'form-control', 'placeholder' : 'Identifiant'} }) }}
-						{{ form_widget(form.bsUsersPassword, { 'attr': {'class': 'form-control', 'placeholder' : 'Mot de passe'} }) }}
+						<div style="margin-bottom:20px;">
+							{{ form_widget(form.bsUsersLogin, { 'attr': {'class': 'form-control', 'placeholder' : 'Identifiant', 'style': 'padding:12px 16px; font-size:15px; border-radius:4px;'} }) }}
+						</div>
+						<div style="margin-bottom:30px;">
+							{{ form_widget(form.bsUsersPassword, { 'attr': {'class': 'form-control', 'placeholder' : 'Mot de passe', 'style': 'padding:12px 16px; font-size:15px; border-radius:4px;'} }) }}
+						</div>
 
 					</div>
 
-					<div class="panel-footer login-panel-footer">
-						{{ form_widget(form.bsUsersLoginBtn, { 'attr': {'class': 'btn btn-primary'} }) }}
+					<div class="panel-footer login-panel-footer" style="padding:0; background:transparent; border:none;">
+						{{ form_widget(form.bsUsersLoginBtn, { 'attr': {'class': 'btn btn-primary', 'style': 'width:100%; padding:14px; font-size:16px; font-weight:500; border-radius:4px; background:#3282BE; border:none; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.3s ease;'} }) }}
 					</div>
 
 					{{ form_rest(form) }}
