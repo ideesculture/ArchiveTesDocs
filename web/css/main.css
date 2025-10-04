@@ -389,6 +389,8 @@ input#filterStatusAll, input#filterWhereAll, input#filterWithAll, input#filterLo
 	padding: 0 !important;
 }
 
+/*
+GM/MG 31/03/2025
 #form_bsUsersLoginBtn {
 	border-radius: 50% !important;
 	background-color: #AFCD0A !important;
@@ -400,6 +402,20 @@ input#filterStatusAll, input#filterWhereAll, input#filterWithAll, input#filterLo
 	font-family: "Roboto",sans-serif;
 	margin-top: 15px !important;
 	margin-bottom: 30px !important;
+}
+*/
+#form_bsUsersLoginBtn {
+    background-color: #AFCD0A !important;
+    line-height: 1em !important;
+    border: 0 !important;
+    font-family: "Roboto", sans-serif;
+    margin-top: 15px !important;
+    margin-bottom: 30px !important;
+    width: 100%;
+    text-transform: uppercase;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    font-size: 20px !important;
 }
 
 ::placeholder {
