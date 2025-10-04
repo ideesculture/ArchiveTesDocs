@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="min-height:100%">
     <head>
         <meta charset="UTF-8" />
         <title>{{ translations[1] }} {% block title %}{% endblock %}</title>
@@ -22,58 +22,54 @@
     </head>
 
 	<!-- BEGIN BODY -->
-	<body class="bsUsersLoginBody">
+	<body class="bsUsersLoginBody" style="min-height:100%">
 
 		<div id="bsUsersLogin">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 mblogo text-center"><img class="logoArchimage" src="{{ asset('img/Logo_blanc.png') }}" /></div>
+		<div class="row">
+			<div class="col-md-8 login_photo" style="background-size:cover;background-image:url('/img/login-illustration.jpg');height:100vh" >
 
-					<div class="col-xs-8 col-xs-offset-2">
-			   			{% if msg != null %}
-			   				<div class="alert alert-danger alert-dismissible" role="alert">
-			   					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-			   					{{ msg }}
-			   				</div>
-			   			{% endif %}
-
-						<div class="panel {% if versions['upToDate'] %}panel-default{% else %}panel-danger{% endif %} form-wrap" id="loginPanel">
-
-                            {% if (versions['upToDate'] or versions['dev_mode']) %}
-								<div class="panel-heading">{{ translations[2] }}</div>
-
-                                {{ form_start(form, {'action': path('bs_core_user_checklogin'), 'attr': {'class': 'form-horizontal'}}) }}
-
-								<div class="panel-body">
-
-									{{ form_widget(form.bsUsersLogin, { 'attr': {'class': 'form-control', 'placeholder' : 'Identifiant'} }) }}
-									{{ form_widget(form.bsUsersPassword, { 'attr': {'class': 'form-control', 'placeholder' : 'Mot de passe'} }) }}
-
-								</div>
-
-								<div class="panel-footer">
-									{{ form_widget(form.bsUsersLoginBtn, { 'attr': {'class': 'btn btn-primary'} }) }}
-								</div>
-
-                                {{ form_rest(form) }}
-                                {{ form_end(form) }}
-							{% endif %}
-                            {% if not versions['upToDate'] %}
-								<div class="panel-heading"><strong>Erreur critique</strong> de configuration</div>
-								<div class="panel-body">
-									Archimage n'est pas en mesure de fonctionner correctement !<br>
-									<br>
-									Veuillez prendre contact avec IDP Consulting pour résoudre le soucis.<br>
-									<br>
-									sw : <kbd>{{ versions['current_sw'] }}</kbd> - <kbd>{{ versions['target_sw'] }}</kbd><br>
-									<br>
-									bdd: <kbd>{{ versions['current_bdd'] }}</kbd> - <kbd>{{ versions['target_bdd'] }}</kbd><br>
-								</div>
-							{% endif %}
-
-						</div>
+			</div>
+			<div class="col-md-4 col-sm-12">
+				<img class="logoArchimage" src="{{ asset('img/Logo_black.png') }}" style="margin-top:100px"/>
+				{% if msg != null %}
+					<div class="alert alert-danger alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						{{ msg }}
 					</div>
-				</div>
+				{% endif %}
+
+				{% if (versions['upToDate'] or versions['dev_mode']) %}
+					<div class="panel-heading" style="font-size:20px">{{ translations[2] }}</div>
+
+					{{ form_start(form, {'action': path('bs_core_user_checklogin'), 'attr': {'class': 'form-horizontal'}}) }}
+
+					<div class="panel-body">
+
+						{{ form_widget(form.bsUsersLogin, { 'attr': {'class': 'form-control', 'placeholder' : 'Identifiant'} }) }}
+						{{ form_widget(form.bsUsersPassword, { 'attr': {'class': 'form-control', 'placeholder' : 'Mot de passe'} }) }}
+
+					</div>
+
+					<div class="panel-footer login-panel-footer">
+						{{ form_widget(form.bsUsersLoginBtn, { 'attr': {'class': 'btn btn-primary'} }) }}
+					</div>
+
+					{{ form_rest(form) }}
+					{{ form_end(form) }}
+				{% endif %}
+				{% if not versions['upToDate'] %}
+					<div class="panel-heading"><strong>Erreur critique</strong> de configuration</div>
+					<div class="panel-body">
+						Archimage n'est pas en mesure de fonctionner correctement !<br>
+						<br>
+						Veuillez prendre contact avec IDP Consulting pour résoudre le soucis.<br>
+						<br>
+						sw : <kbd>{{ versions['current_sw'] }}</kbd> - <kbd>{{ versions['target_sw'] }}</kbd><br>
+						<br>
+						bdd: <kbd>{{ versions['current_bdd'] }}</kbd> - <kbd>{{ versions['target_bdd'] }}</kbd><br>
+					</div>
+				{% endif %}
+
 			</div>
 		</div>
 
