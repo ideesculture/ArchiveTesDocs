@@ -1875,7 +1875,7 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 .logoArchimage {
-	width: 472px !important;
+	width: 100% !important;
 	height: auto !important;
 }
 
