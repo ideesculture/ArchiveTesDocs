@@ -4,8 +4,8 @@ namespace bs\Core\AdminBundle\Translation;
 class bsDefaultTranslation
 {
     const _bsTranslation = [
-        [20,1,0,"IDP Consulting Archimage"],
-        [20,1,1,"IDP Consulting Archimage"],
+        [20,1,0,"ArchiveTesDocs"],
+        [20,1,1,"ArchiveTesDocs"],
         [20,2,0,"Identifiez-vous"],
         [20,2,1,"Identify"],
         [20,3,0,"Identifiant"],
@@ -20,8 +20,8 @@ class bsDefaultTranslation
         [20,7,1,"Your login or your password is wrong !"],
         [20,8,0,"Une erreur est survenue, merci de ré-essayer ultérieurement !"],
         [20,8,1,"An error occured, please try again later !"],
-        [1,1,0,"IDP Consulting Archimage"],
-        [1,1,1,"IDP Consulting Archimage"],
+        [1,1,0,"ArchiveTesDocs"],
+        [1,1,1,"ArchiveTesDocs"],
         [1,2,0,"IDP Consulting"],
         [1,2,1,"IDP Consulting"],
         [1,3,0,"Aide"],
@@ -120,8 +120,8 @@ class bsDefaultTranslation
         [40,115,1,"Thanks to these buttons you can choose an action you want to make"],
         [40,0,0,"Vos opérations en cours"],
         [40,0,1,"Your current operations"],
-        [2,1,0,"IDP Consulting Archimage"],
-        [2,1,1,"IDP Consulting Archimage"],
+        [2,1,0,"ArchiveTesDocs"],
+        [2,1,1,"ArchiveTesDocs"],
         [2,2,0,"IDP Consulting"],
         [2,2,1,"IDP Consulting"],
         [2,3,0,"Aide"],
