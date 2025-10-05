@@ -334,7 +334,7 @@ input#filterStatusAll, input#filterWhereAll, input#filterWithAll, input#filterLo
 /* Page de connexion */
 
 .bsUsersLoginBody {
-	background-color: #3282BE !important;
+	background-color: #f8f8f8 !important;
 }
 
 #form_bsUsersLogin, #form_bsUsersPassword {
@@ -405,7 +405,7 @@ GM/MG 31/03/2025
 }
 */
 #form_bsUsersLoginBtn {
-    background-color: #AFCD0A !important;
+    background-color: #023061 !important
     line-height: 1em !important;
     border: 0 !important;
     font-family: "Roboto", sans-serif;
