@@ -1,4 +1,6 @@
 # ArchiveTesDocs
+![](web/img/Logo_Archive_Tes_Docs_150x150.png)
+
 ArchiveTesDocs est un logiciel dédié à la gestion d'archives et de documents papiers au sein d'une entreprise ou d'une organisation.
 
 ## Historique
