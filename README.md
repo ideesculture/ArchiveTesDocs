@@ -25,4 +25,8 @@ Actuellement, ArchiveTesDocs utilise Symfony 3.3 et PHP 7. Le passage dans les d
 
 ## Installation
 
-(à rédiger).
+*Répertoire des fichiers temporaires*
+```
+mkdir -p var/tmp/IDPUserFiles
+chmod 755 var/tmp/IDPUserFiles
+```
