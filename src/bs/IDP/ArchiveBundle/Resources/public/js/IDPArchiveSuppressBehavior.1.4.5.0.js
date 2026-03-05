@@ -72,7 +72,7 @@ function doDeleteUAs(){
         data: $dataStr,
         cache: false,
         success: function($response) {
-            $('#listsearchTable').bootstrapTable('refresh');
+            location.reload();
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert( 'Error Ajax' );
