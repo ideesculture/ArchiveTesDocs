@@ -683,15 +683,15 @@ class ArchivistJsonController extends Controller
                                 // Perhaps we are talking about box
                                 if(( $archive->getBoxnumber() != null && strlen( $archive->getBoxnumber() ) > 0 )
                                     && in_array( $archive->getBoxNumber(), $list_object_computed['boxes'][$archive->getService()->getId()] ) ) {
-                                    $object_type_during_movement = IDPConstant::AUDIT_OBJECT_TYPE_BOX;
+                                    $object_type_during_movement = IDPConstants::AUDIT_OBJECT_TYPE_BOX;
                                 } else {
                                     // Or about document
                                     if( ( $archive->getDocumentnumber() != null && strlen( $archive->getDocumentnumber() ) > 0 )
                                         && in_array( $archive->getDocumentNumber(), $list_object_computed['documents'][$archive->getService()->getId()] ) ) {
-                                        $object_type_during_movement = IDPConstant::AUDIT_OBJECT_TYPE_DOCUMENT;
+                                        $object_type_during_movement = IDPConstants::AUDIT_OBJECT_TYPE_DOCUMENT;
                                     } else {
                                         // Neither box neither document so it must be container
-                                        $object_type_during_movement = IDPConstant::AUDIT_OBJECT_TYPE_CONTAINER;
+                                        $object_type_during_movement = IDPConstants::AUDIT_OBJECT_TYPE_CONTAINER;
                                     }
                                 }
                             } else {
@@ -699,10 +699,10 @@ class ArchivistJsonController extends Controller
                                 if( $archive->getBoxnumber() != null && strlen( $archive->getBoxnumber() ) > 0 ){
                                     if( ( $archive->getDocumentnumber() != null && strlen( $archive->getDocumentnumber() ) > 0 )
                                         && in_array( $archive->getDocumentnumber(), $list_object_computed['documents'][$archive->getService()->getId()] ) ) {
-                                        $object_type_during_movement = IDPConstant::AUDIT_OBJECT_TYPE_DOCUMENT;
+                                        $object_type_during_movement = IDPConstants::AUDIT_OBJECT_TYPE_DOCUMENT;
                                     } else {
                                         // It's not a box, so it must be a box
-                                        $object_type_during_movement == IDPConstant::AUDIT_OBJECT_TYPE_BOX;
+                                        $object_type_during_movement = IDPConstants::AUDIT_OBJECT_TYPE_BOX;
                                     }
                                 } else {
                                     // So the archive does not contain any container nor box information, so it cannot be a container nor a box, probably a box
