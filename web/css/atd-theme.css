@@ -1551,3 +1551,41 @@ ul.pagination li.active a, ul.pagination li.active span {
   color: var(--atd-navy) !important;
   border-bottom: 1px solid var(--atd-g100) !important;
 }
+
+/* ---------- bootstrap-table : mode "card view" (bascule cartes) ---------- */
+/* la cellule card-view porte un colspan (contrairement aux td normaux) */
+.fixed-table-container tbody tr td[colspan] {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 0 10px 0 !important;
+}
+.fixed-table-container td[colspan] > .card-views {
+  border: 1px solid var(--atd-g200);
+  border-radius: var(--atd-radius-card);
+  background: var(--atd-white);
+  padding: 10px 16px;
+}
+.card-views > .card-view {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--atd-g100);
+  font-size: 12.5px;
+}
+.card-views > .card-view:last-child { border-bottom: none; }
+.card-views > .card-view > .card-view-title {
+  flex: 0 0 38%;
+  min-width: 0;
+  color: var(--atd-g500);
+  font-weight: 600;
+  text-align: left !important;
+}
+.card-views > .card-view > .card-view-value {
+  flex: 1;
+  min-width: 0;
+  color: var(--atd-g700);
+  word-break: break-word;
+}
+/* première "carte" = case à cocher : discrète, alignée à droite */
+.card-views > .card-view:first-child { border-bottom: none; padding: 0; justify-content: flex-end; }
