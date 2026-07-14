@@ -1,3 +1,5 @@
+/* ATD 2025 : palette legacy remappée vers les tokens du thème (atd-theme.css)
+   #3282BE->--atd-blue, #FFE699->--atd-gold-light, #dff0d8->--atd-green-pale, #E9E9E9->--atd-sand */
 
 @font-face {
 	font-family: "Roboto";
@@ -6,7 +8,7 @@
 }
 
 body {
-	background-color: #E9E9E9;
+	background-color: var(--atd-sand);
 	line-height: 1.15 !important;
 	font-size: 12px !important;
 	font-family: "Roboto", sans-serif !important;
@@ -195,7 +197,7 @@ span.dropdw span.caret {
 }
 
 a.dropdown-toggle {
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
 }
 
 
@@ -210,21 +212,21 @@ a.dropdown-toggle {
 }
 
 #delete-ua-choice, #consult-ua-choice, #return-ua-choice, #exit-ua-choice {
-	color: #3282BE;
-	background-color: #FFE699;
-	border-color: #3282BE;
+	color: var(--atd-blue);
+	background-color: var(--atd-gold-light);
+	border-color: var(--atd-blue);
 	border-radius: 0;
 }
 
 #panel-create-ua {
 	border-radius: 0;
-	border-color: #3282BE;
-	color: #3282BE;
+	border-color: var(--atd-blue);
+	color: var(--atd-blue);
 }
 
 #panel-create-ua > .panel-heading, #delete-ua-choice > .panel-heading, #consult-ua-choice > .panel-heading, #return-ua-choice > .panel-heading, #exit-ua-choice > .panel-heading {
     height: 46px;
-	background-color: #FFE699;
+	background-color: var(--atd-gold-light);
     border: 0;
     border-radius: 0;
 }
@@ -234,18 +236,18 @@ a.dropdown-toggle {
 }
 
 #bgWhite {
-	background-color: white !important;
-	margin-right: 36px !important;
-	margin-top: 10px !important;
-	padding: 15px;
-	border: 1px solid #3282BE;
+	/* ATD 2025 : conteneur de page neutre (le fond/cadres viennent du thème) */
+	background-color: transparent !important;
+	margin: 0 !important;
+	padding: 0;
+	border: none;
 }
 
 #tabUnlimited {
 	background-color: white !important;
 	margin-right: 36px !important;
 	padding: 15px;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #tabValidateUserWants, #tabCloseUserWants {
@@ -253,7 +255,7 @@ a.dropdown-toggle {
 	margin-right: 36px !important;
 	padding: 15px;
 	margin-top: 45px;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #tabManageProvider {
@@ -261,7 +263,7 @@ a.dropdown-toggle {
 	margin-right: 36px !important;
 	padding: 15px;
 	margin-top: 37px;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #btnstates {
@@ -313,10 +315,10 @@ input#filterStatusAll, input#filterWhereAll, input#filterWithAll, input#filterLo
 	height: 30px !important;
 	width: 300px !important;
 	font-size: 13px !important;
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
 	color: white !important;
 	border-radius: 0 !important;
-	border: 1px solid #3282BE !important;
+	border: 1px solid var(--atd-blue) !important;
 }
 
 #tabsearch > .panel > .panel-body > div > div > div > select, #tabsearch > .panel > .panel-body > div > div > div > input {
@@ -327,8 +329,8 @@ input#filterStatusAll, input#filterWhereAll, input#filterWithAll, input#filterLo
 	height: 30px !important;
 	width: 300px !important;
 	font-size: 13px !important;
-	color: #3282BE !important;
-	border: 1px solid #3282BE !important;
+	color: var(--atd-blue) !important;
+	border: 1px solid var(--atd-blue) !important;
 	border-radius: 0 !important;
 }
 
@@ -355,7 +357,7 @@ input#filterStatusAll, input#filterWhereAll, input#filterWithAll, input#filterLo
 }
 
 #loginPanel.panel-danger > .panel-body {
-	background-color: #E9E9E9;
+	background-color: var(--atd-sand);
 	padding: 15px;
 	text-align: center;
 }
@@ -366,8 +368,8 @@ input#filterStatusAll, input#filterWhereAll, input#filterWithAll, input#filterLo
 }
 
 #loginPanel > .panel-heading {
-	background-color: #E9E9E9 !important;
-	color: #3282BE;
+	background-color: var(--atd-sand) !important;
+	color: var(--atd-blue);
 	font-size: 40px;
 	text-align: center;
 	padding-top: 40px;
@@ -376,14 +378,14 @@ input#filterStatusAll, input#filterWhereAll, input#filterWithAll, input#filterLo
 }
 
 #loginPanel > .form-horizontal > .panel-body {
-	background-color: #E9E9E9 !important;
+	background-color: var(--atd-sand) !important;
 	padding-top: 10px !important;
 	padding-left: 46px !important;
 	padding-right: 46px !important;
 }
 
 #loginPanel > .form-horizontal > .panel-footer {
-	background-color: #E9E9E9 !important;
+	background-color: var(--atd-sand) !important;
 	border: 0 !important;
 	text-align: center !important;
 	border-radius: 0 !important;
@@ -434,7 +436,7 @@ GM/MG 31/03/2025
 .boxQuestionTwo > .modal-dialog > .modal-content > .modal-footer > .btn-default {
     border-radius: 0 !important;
     background-color: white;
-    color: #3282BE;
+    color: var(--atd-blue);
     height: 30px;
     border: 0 !important;
     width: 49%;
@@ -447,12 +449,12 @@ GM/MG 31/03/2025
 	width: 49%;
 	font-size: 13px !important;
 	border: 0 !important;
-	color: #3282BE;
+	color: var(--atd-blue);
 }
 
 .boxQuestionTwo > .modal-dialog > .modal-content > .modal-footer > .btn-success {
 	border-radius: 0 !important;
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
 	width: 49%;
 	font-size: 13px !important;
 	border: 0 !important;
@@ -462,7 +464,7 @@ GM/MG 31/03/2025
 	border-radius: 0 !important;
 	border: 0;
 	background-color: white;
-	color: #3282BE;
+	color: var(--atd-blue);
 	width: 49%;
 	height: 30px !important;
 	font-size: 13px !important;
@@ -471,7 +473,7 @@ GM/MG 31/03/2025
 #LocalizationModal > .modal-dialog > .modal-content > .modal-footer > .btn-primary {
 	border-radius: 0 !important;
 	border: 0;
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
 	width: 49%;
 	height: 30px !important;
@@ -488,9 +490,9 @@ GM/MG 31/03/2025
 
 #OptimisationModalBody > .panel-success > .panel-heading {
 	border-radius: 0 !important;
-	background-color: #FFE699;
-	border-color: #FFE699;
-	color: #3282BE;
+	background-color: var(--atd-gold-light);
+	border-color: var(--atd-gold-light);
+	color: var(--atd-blue);
 }
 
 /* Optimisation - niveau Boîte */
@@ -520,15 +522,15 @@ GM/MG 31/03/2025
 /* Espace de téléchargement des fichiers résultats */
 
 #userSpacePanel {
-    border: 1px solid #3282BE;
+    border: 1px solid var(--atd-blue);
     border-radius: 0;
 }
 
 #userSpacePanel > .panel-heading {
-    background-color: #3282BE;
+    background-color: var(--atd-blue);
     color: white;
     border-radius: 0;
-    border-bottom: 1px solid #3282BE;
+    border-bottom: 1px solid var(--atd-blue);
 }
 
 #userSpaceUserFiles > thead > .bsUsersLoginBody {
@@ -546,19 +548,19 @@ GM/MG 31/03/2025
 /* Menu de gauche */
 
 #liTitle {
-    background-color: #E9E9E9;
-    color: #3282BE;
+    background-color: var(--atd-sand);
+    color: var(--atd-blue);
     border: 0;
     font-size: 30px;
 }
 
 #listOperations > .btnlike, #listOperations > #liNbCommand {
-    border: 1px solid #3282BE;
+    border: 1px solid var(--atd-blue);
 }
 
 #btnAccueil > .list-group-item {
 	border-radius: 0 !important;
-	border: 1px solid #3282BE !important;
+	border: 1px solid var(--atd-blue) !important;
 }
 
 /* Page Visibilité */
@@ -567,20 +569,20 @@ GM/MG 31/03/2025
 	background-color: white !important;
 	margin-right: 36px !important;
 	padding: 15px;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #tabVisibility > .row > .btn-group > .btn-success {
 	border-radius: 0 !important;;
-	background-color: #dff0d8 !important;
+	background-color: var(--atd-green-pale) !important;
 	color: #3c763d !important;
 	min-width: 62px;
 }
 
 #tabVisibility > .row > .btn-group > .btn-warning {
 	border-radius: 0 !important;
-	background-color: #FFE699 !important;
-	color: #3282BE !important;
+	background-color: var(--atd-gold-light) !important;
+	color: var(--atd-blue) !important;
 	min-width: 62px;
 }
 
@@ -592,7 +594,7 @@ GM/MG 31/03/2025
 
 #tabVisibility > .row > .btn-group > .btn-info {
 	border-radius: 0 !important;
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
 	min-width: 62px;
 }
 
@@ -610,11 +612,11 @@ GM/MG 31/03/2025
 #panelVisibility {
 	margin: 0 !important;
 	border-radius: 0 !important;
-	border: 1px solid #3282BE !important;
+	border: 1px solid var(--atd-blue) !important;
 }
 
 #panelVisibility > .panel-heading {
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
 	color: white !important;
     border-radius: 0 !important;
     border: 0;
@@ -640,30 +642,30 @@ GM/MG 31/03/2025
 /* Page de traitement des imports */
 
 #panelImportTreatment > .panel-heading {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
 	border-radius: 0 !important;
 }
 
 #panelImportTreatment {
 	border-radius: 0 !important;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #panelImportTreatment > .panel-heading > .btn-warning {
-	background-color: #FFE699 !important;
-	color: #3282BE;
+	background-color: var(--atd-gold-light) !important;
+	color: var(--atd-blue);
 }
 
 #panelMessages {
 	border-radius: 0 !important;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #panelMessages > .panel-heading {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 	border-radius: 0;
 }
 
@@ -672,8 +674,8 @@ GM/MG 31/03/2025
 }
 
 #btnImportSurvey {
-	background-color: #3282BE;
-	border-color: #3282BE;
+	background-color: var(--atd-blue);
+	border-color: var(--atd-blue);
 }
 
 .dropdown-menu {
@@ -683,7 +685,7 @@ GM/MG 31/03/2025
 /* Fenêtre modal d'illimité */
 
 #CommentsUnlimitedModal > .modal-dialog > .modal-content > .modal-footer > #CommentsUnlimitedValidate {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	border: 0 !important;
 	border-radius: 0 !important;
 	width: 49% !important;
@@ -694,19 +696,19 @@ GM/MG 31/03/2025
 	border-radius: 0 !important;
 	width: 49% !important;
 	height: 30px;
-	color: #3282BE;
+	color: var(--atd-blue);
 	font-size: 13px !important;
 }
 
 /* Page Paramètres des mots de passe */
 
 #panelPasswordSettings {
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 	border-radius: 0;
 }
 
 #panelPasswordSettings > .panel-heading {
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
     border-radius: 0;
 }
 
@@ -728,9 +730,9 @@ GM/MG 31/03/2025
 
 #btn_settings_password {
 	background-color: transparent !important;
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 	border-radius: 0 !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 }
 
 div#btnsubactionsettings > .btn-group > .btn-default:disabled, div#btnsubactionsettings > .btn-group > .btn-default[disabled] {
@@ -750,11 +752,11 @@ div#btnsubactionsettings > .btn-group > .btn-default:disabled, div#btnsubactions
 #panelUnlimited {
 	margin-bottom: 0 !important;
 	border-radius: 0;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #panelUnlimited > .panel-heading {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
     border-radius: 0;
     border: 0;
@@ -764,18 +766,18 @@ div#btnsubactionsettings > .btn-group > .btn-default:disabled, div#btnsubactions
 
 #panelImport {
 	border-radius: 0;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #panelImport > .panel-heading {
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
 	color: white !important;
 	border-radius: 0;
 }
 
 #form_import {
-	border: 1px solid #3282BE;
-	background-color: #3282BE;
+	border: 1px solid var(--atd-blue);
+	background-color: var(--atd-blue);
 	color: white;
 	margin-top: 10px;
 	height: 30px;
@@ -789,14 +791,14 @@ div#form > div > .required {
 /* Page rapport des imports */
 
 #labelImportRapport {
-	color: #3282BE;
+	color: var(--atd-blue);
 	margin-top: 0px !important;
 }
 
 #tabRapport {
 	background-color: white;
 	padding: 15px;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 	margin-right: 15px;
 }
 
@@ -807,15 +809,15 @@ div#form > div > .required {
 #panelImportRapport {
 	margin-bottom: 0 !important;
 	border-radius: 0 !important;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #panelImportRapport > .panel-heading {
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
 	color: white !important;
 	font-size: 13px !important;
 	border-radius: 0;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #divLblLimitsdatemin, #divLblLimitsnummin, #divLblLimitsalphamin, #divLblLimitsalphanummin {
@@ -838,18 +840,18 @@ div#form > div > .required {
 /* Modifications objets Bootstrap */
 
 .nav-tabs > li > a {
-	border: 1px solid #3282BE !important;
-	border-bottom-color: #3282BE !important;
+	border: 1px solid var(--atd-blue) !important;
+	border-bottom-color: var(--atd-blue) !important;
 	border-radius: 0 !important;
 	margin: 0 !important;
 }
 
 .nav-tabs > li.active > a {
-	border: 1px solid #3282BE !important;
+	border: 1px solid var(--atd-blue) !important;
 	border-bottom-color: transparent !important;
 	border-radius: 0 !important;
 	margin: 0 !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 }
 
 #navServicesAdresses {
@@ -867,11 +869,11 @@ div#form > div > .required {
 
 #passwordPanel {
 	border-radius: 0;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #passwordPanel > .panel-heading {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
 	padding-top: 27px !important;
 	padding-bottom: 27px !important;
@@ -884,7 +886,7 @@ div#form > div > .required {
 
 #passwordPanel > .panel-footer {
 	border-radius: 0 !important;
-	border-top: 1px solid #3282BE !important;
+	border-top: 1px solid var(--atd-blue) !important;
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
 }
@@ -899,7 +901,7 @@ div#form > div > .required {
 	border-radius: 0 !important;
 	border: 0 !important;
 	font-size: 15px !important;
-	color: #3282BE;
+	color: var(--atd-blue);
 }
 
 #inputChangeMdpOld, #inputChangeMdpNew, #inputChangeMdpConfirm {
@@ -912,11 +914,11 @@ div#form > div > .required {
 
 .modal-dialog > .modal-content > .modal-body {
 	background-color: white;
-	color: #3282BE;
+	color: var(--atd-blue);
 }
 
 .modal-dialog > .modal-content > .modal-header {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
 }
 
@@ -926,12 +928,12 @@ div#form > div > .required {
 
 .modal-dialog > .modal-content > .modal-footer {
 	border-radius: 0 !important;
-	border-top: 1px solid #3282BE !important;
+	border-top: 1px solid var(--atd-blue) !important;
 	padding: 0 !important;
 }
 
 .modal-dialog > .modal-content > .modal-footer > .btn-primary {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	border: 0 !important;
 	border-radius: 0 !important;
 	width: 100%;
@@ -943,14 +945,14 @@ div#form > div > .required {
 
 #actionModalDialog > .modal-dialog > .modal-content > .modal-body {
 	background-color: white;
-	color: #3282BE;
+	color: var(--atd-blue);
 	padding: 36px;
 	padding-top: 18px;
 }
 
 #actionModalDialog > .modal-dialog > .modal-content > .modal-footer {
 	border-radius: 0 !important;
-	border-top: 1px solid #3282BE !important;
+	border-top: 1px solid var(--atd-blue) !important;
 	padding: 0 !important;
 }
 
@@ -960,7 +962,7 @@ div#form > div > .required {
 	width: 49%;
 	height: 30px;
 	font-size: 13px !important;
-	color: #3282BE;
+	color: var(--atd-blue);
 }
 
 /* Fenêtre modal d'erreur */
@@ -970,14 +972,14 @@ div#form > div > .required {
 	border-radius: 0 !important;
 	height: 30px;
 	font-size: 13px !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 	border: 0 !important;
 }
 
 /* Page de saisie */
 
 .idp_saved {
-	color: #3282BE;
+	color: var(--atd-blue);
 }
 
 #divBlockProperty, #divBlockDescription, #divBlockDuration, #divBlockProviderdatas, #divBlockLimits, #divBlockName, #divViewBlockInformations, #divViewBlockProviderdatas, #divViewBlockLimits, #divBlockIdentification {
@@ -992,8 +994,8 @@ div#form > div > .required {
 }
 
 #frm_ordernumber {
-	border-color: #3282BE;
-	background-color: #FFE699;
+	border-color: var(--atd-blue);
+	background-color: var(--atd-gold-light);
 	border-radius: 0 !important;
 }
 
@@ -1002,7 +1004,7 @@ div#form > div > .required {
 	margin-right: 36px;
 	margin-top: 10px;
 	background-color: white;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 /* ATD 2025 : height 25px + bordures bleues des champs supprimées (croppaient
@@ -1011,7 +1013,7 @@ div#form > div > .required {
 /* Fenêtre modal emplacement d'étiquettes */
 
 #modalTagsChoice > .modal-dialog > .modal-content > .modal-footer {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	height: 35px;
 	color: white;
 	text-align: center;
@@ -1031,12 +1033,12 @@ div#form > div > .required {
 
 #panelStock, #panelStockError, #panelStockResult, #panelStockStatus {
 	border-radius: 0 !important;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #panelStockError > .panel-heading, #panelStock > .panel-heading, #panelStockResult > .panel-heading, #panelStockStatus > .panel-heading {
 	border-radius: 0;
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
 	font-size: 13px;
 }
@@ -1054,10 +1056,10 @@ div#form > div > .required {
 }
 
 #btnResetReconciliate {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
 	border-radius: 0 !important;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 	height: 30px !important;
 	font-size: 15px !important;
 }
@@ -1073,7 +1075,7 @@ div#form > div > .required {
 }
 
 #modalTagChoice > .modal-dialog > .modal-content > .modal-footer {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
 	text-align: center;
 	font-size: 13px;
@@ -1084,7 +1086,7 @@ div#form > div > .required {
 
 #ProviderConnectorModal > .modal-dialog > .modal-content > .modal-footer {
 	border-radius: 0 !important;
-	border-top: 1px solid #3282BE !important;
+	border-top: 1px solid var(--atd-blue) !important;
 	padding: 0 !important;
 }
 
@@ -1094,7 +1096,7 @@ div#form > div > .required {
 	width: 49%;
 	height: 30px;
 	font-size: 13px !important;
-	color: #3282BE;
+	color: var(--atd-blue);
 	margin-left: 0 !important;
 }
 
@@ -1120,7 +1122,7 @@ div#form > div > .required {
 
 #panel-add-user {
 	border-radius: 0;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #form_userFirstname, #form_userLastname, #form_userLogin, #form_userPassword, #form_userInitials, #form_userRole {
@@ -1134,8 +1136,8 @@ div#form > div > .required {
 
 #btnVerifyInitials, #btnGenerateInitials {
 	border-radius: 0 !important;
-	color: #3282BE;
-	border-color: #3282BE;
+	color: var(--atd-blue);
+	border-color: var(--atd-blue);
 	font-size: 13px !important;
 	padding: 3px !important;
 }
@@ -1148,7 +1150,7 @@ div#form > div > .required {
 
 #services > .panel, #adresses > .panel {
 	border-radius: 0;
-	border-color: #3282BE;
+	border-color: var(--atd-blue);
 }
 
 #services > .panel > .panel-body > .bootstrap-table > .fixed-table-container, #adresses > .panel > .panel-body > .bootstrap-table > .fixed-table-container {
@@ -1160,7 +1162,7 @@ div#form > div > .required {
 	width: 100%;
 	font-size: 15px !important;
 	margin-top: -10px !important;
-	border: 1px solid #3282BE !important;
+	border: 1px solid var(--atd-blue) !important;
 }
 
 #form_addUserBtn:disabled {
@@ -1170,14 +1172,14 @@ div#form > div > .required {
 }
 
 #panelModifyRightsUser > .panel-heading {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
 	border-radius: 0;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #panelModifyRightsUser {
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 /* Page liste utilisateurs */
@@ -1221,7 +1223,7 @@ div#form > div > .required {
 }
 
 #panelAddUser > .panel-heading {
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
 	border-radius: 0;
 	text-align: center;
 }
@@ -1237,7 +1239,7 @@ div#form > div > .required {
 	width: 50%;
 	height: 30px;
 	font-size: 13px !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 }
 
 #SuppressModal > .modal-dialog > .modal-content > .modal-footer > #btnSuppressModalConfirm {
@@ -1252,7 +1254,7 @@ div#form > div > .required {
 /* Page de consultation */
 
 #subtabaction, #subtabmenu {
-	border-bottom: 1px solid #3282BE;
+	border-bottom: 2px solid var(--atd-g200);
 }
 
 /* Fenêtre modale de modification */
@@ -1269,7 +1271,7 @@ div#form > div > .required {
 	width: 50%;
 	height: 30px;
 	font-size: 13px !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 }
 
 #ModifyModal > .modal-dialog > .modal-content > .modal-footer > #btnModifyModalConfirm {
@@ -1295,11 +1297,11 @@ div#viewAddName > input#frm_name {
 
 #panelAddProvider {
 	border-radius: 0 !important;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #panelAddProvider > .panel-heading {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
     border-radius: 0;
 }
@@ -1313,18 +1315,18 @@ form#frmAdd > label {
 }
 
 #panelProvider > .panel-heading {
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
 	color: white;
 	border-radius: 0;
 }
 
 #panelModifyProviderServices {
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 	border-radius: 0;
 }
 
 #panelModifyProviderServices > .panel-heading {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
 	border-radius: 0;
 }
@@ -1341,8 +1343,8 @@ table#ProvidersListTable > tbody > tr.danger > td {
 	border-radius: 0 !important;
 	height: 23px !important;
 	font-size: 13px !important;
-    background-color: #3282BE;
-    border-color: #3282BE;
+    background-color: var(--atd-blue);
+    border-color: var(--atd-blue);
 }
 
 /* Fenêtre modale des opérations en cours */
@@ -1353,7 +1355,7 @@ table#ProvidersListTable > tbody > tr.danger > td {
 	height: 30px;
 	width: 100%;
 	font-size: 13px !important;
-	color: #3282BE;
+	color: var(--atd-blue);
 }
 
 /* Page de validation des demandes */
@@ -1370,7 +1372,7 @@ table#ProvidersListTable > tbody > tr.danger > td {
 
 #doAction > div.bootstrap-table > div.fixed-table-container, #cancelAction > div.bootstrap-table > div.fixed-table-container {
 	border-radius: 0 !important;
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 }
 
 #askCancel {
@@ -1412,7 +1414,7 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 	width: 49%;
 	height: 30px;
 	font-size: 13px !important;
-	color: #3282BE;
+	color: var(--atd-blue);
 }
 
 #OptimisationModalBtnConfirm {
@@ -1432,7 +1434,7 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 
 #viewArchive > .panel {
 	border-radius: 0;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #divViewBlockLimits {
@@ -1449,8 +1451,8 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 #zoneButtonViewArchive > #divPrintTag {
-	background-color: #3282BE;
-	border: 1px solid #3282BE;
+	background-color: var(--atd-blue);
+	border: 1px solid var(--atd-blue);
 }
 
 #zoneButtonViewArchive > #divModif, #zoneButtonViewArchive > #divSubmitModif, #zoneButtonViewArchive > #divDelete, #zoneButtonViewArchive > #divCancel, #zoneButtonViewArchive > #divPrint, #zoneButtonViewArchive > #divPrintTag {
@@ -1470,14 +1472,14 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 #zoneButtonViewArchive > #divCancel {
-	color: #3282BE;
-	border: 1px solid #3282BE;
+	color: var(--atd-blue);
+	border: 1px solid var(--atd-blue);
 }
 
 #zoneButtonViewArchive > #divPrint, #zoneButtonViewArchive > #divPrintTag {
 	margin-right: 0% !important;
-	background-color: #3282BE !important;
-	border: 1px solid #3282BE;
+	background-color: var(--atd-blue) !important;
+	border: 1px solid var(--atd-blue);
 	color: white !important;
 }
 
@@ -1491,7 +1493,7 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 	width: 49%;
 	height: 30px;
 	font-size: 13px !important;
-	color: #3282BE;
+	color: var(--atd-blue);
 }
 
 #btnConfirmModalConfirm {
@@ -1512,17 +1514,17 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 .tabSaisie > .bootstrap-table {
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 	margin-top: 3px;
 }
 
 #panelInput, #panelFinetune {
 	border-radius: 0;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 #panelInput > .panel-heading, #panelFinetune > .panel-heading {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	color: white;
     border-radius: 0;
 }
@@ -1535,8 +1537,8 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 #panel-furnitures-command, #choice-manage-commands, #choice-manage-catalog {
-	color: #3282BE;
-	border-color: #3282BE;
+	color: var(--atd-blue);
+	border-color: var(--atd-blue);
 	border-radius: 0;
 }
 
@@ -1552,15 +1554,15 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 #panel_manage_user_wants, #panel_manage_db, #panel_follow_operations, #panel_export_import {
-	color: #3282BE;
-	border-color: #3282BE;
+	color: var(--atd-blue);
+	border-color: var(--atd-blue);
 	border-radius: 0;
 }
 
 #panel_manage_user_wants > .panel-heading, #panel_manage_db > .panel-heading, #panel_follow_operations > .panel-heading, #panel_export_import > .panel-heading {
     border: 0;
     border-radius: 0;
-    background-color: #dff0d8;
+    background-color: var(--atd-green-pale);
     height: 46px;
 }
 
@@ -1585,7 +1587,7 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 #idpfooter {
-	background-color: #E9E9E9 !important;
+	background-color: var(--atd-sand) !important;
 	margin-top: 43px !important;
 	margin-bottom: 36px !important;
 	margin-right: 51px !important;
@@ -1597,11 +1599,11 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 .menu-selected {
-	background: #FFE699 !important;
+	background: var(--atd-gold-light) !important;
 }
 
 #panel-archives, #panel-gestion {
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
     border-radius: 0;
     height: 45px !important;
 }
@@ -1625,8 +1627,8 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 #addToProvider, #addToService, #addToIntermediate, #addToRelocInternal, #addToRelocIntermediate, #addToRelocProvider, #addToDeliver, #addToDeliverPrepare, #addToReturn, #addToExit, #addToDelete, #addToAction, #addToCancel
 {
 	border-radius: 50% !important;
-    background-color: #3282BE !important;
-    border-color: #3282BE !important;
+    background-color: var(--atd-blue) !important;
+    border-color: var(--atd-blue) !important;
 }
 
 #addToProvider.disabled, #addToService.disabled, #addToIntermediate.disabled, #addToRelocInternal.disabled, #addToRelocIntermediate.disabled, #addToRelocProvider.disabled, #addToDeliver.disabled,
@@ -1638,15 +1640,15 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 #clearProvider, #clearService, #clearIntermediate, #clearDeliver, #clearDeliverPrepare, #clearReturn, #clearExit, #clearDelete, #clearRelocInternal, #clearRelocIntermediate, #clearRelocProvider, #clearAction, #clearCancel {
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 	background-color: #ffffff !important;
 }
 
 #btnwhat_transfer, #btnwhat_deliver, #btnwhat_return, #btnwhat_exit, #btnwhat_destroy, #btnwhat_reloc, #btn_input, #btn_users, #btn_provider, #btn_visibility, #btn_settings {
 	background-color: transparent !important;
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 	border-radius: 0 !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 	font-weight: bold !important;
 	margin-top: auto;
 }
@@ -1667,7 +1669,7 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 	width: 32% !important;
 	height: 30px !important;
 	border-radius: 0 !important;
-	background-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
     padding-top: 6px !important;
 }
 
@@ -1681,21 +1683,21 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 
 #btn_input_service, #btn_input_legalentity, #btn_input_budgetcode, #btn_input_documentnature, #btn_input_documenttype, #btn_input_description1, #btn_input_description2, #btn_input_deliveraddress, #btn_input_localization {
 	background-color: transparent !important;
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 	border-radius: 0 !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 	font-weight: bold !important;
 }
 
 #btnwhat_transfer.btn.btn-info.btn-xs.active, #btnwhat_deliver.btn.btn-info.btn-xs.active, #btnwhat_return.btn.btn-info.btn-xs.active, #btnwhat_exit.btn.btn-info.btn-xs.active, #btnwhat_destroy.btn.btn-info.btn-xs.active, #btnwhat_reloc.btn.btn-info.btn-xs.active {
-	background-color: #3282BE !important;
-	border-color: #3282BE !important;
+	background-color: var(--atd-blue) !important;
+	border-color: var(--atd-blue) !important;
 	color: white !important;
 	border-radius: 0 !important;
 }
 
 #btnaction > .btn-group.active {
-    background-color: #3282BE !important;
+    background-color: var(--atd-blue) !important;
 }
 
 #btnaction > .btn-group.active > button {
@@ -1703,19 +1705,19 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 #btnsubactioninput > .btn-group.active {
-    background-color: #FFE699 !important;
+    background-color: var(--atd-gold-light) !important;
 }
 
 #btnsubactioninput > .btn-group.active > button {
-    color: #3282BE !important;
+    color: var(--atd-blue) !important;
 }
 
 #btnsubactionsettings > .btn-group.active {
-    background-color: #FFE699 !important;
+    background-color: var(--atd-gold-light) !important;
 }
 
 #btnsubactionsettings > .btn-group.active > button {
-    color: #3282BE !important;
+    color: var(--atd-blue) !important;
 }
 
 #btnwherehow, #btnwhere, #btnhow {
@@ -1725,31 +1727,31 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 
 #btnwhere_provider, #btnwhere_intermediate, #btnwhere_internal, #btnwhere_new, #btnwhere_consult, btn_settings_password {
 	background-color: transparent !important;
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 	border-radius: 0 !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 	font-weight: bold !important;
 }
 
 #btnwhere_provider.btn.btn-success.btn-xs.active, #btnwhere_intermediate.btn.btn-success.btn-xs.active, #btnwhere_internal.btn.btn-success.btn-xs.active, #btnwhere_new.btn.btn-success.btn-xs.active, #btnwhere_consult.btn.btn-success.btn-xs.active  {
-	background-color: #FFE699 !important;
-	border-color: #3282BE !important;
-	color: #3282BE !important;
+	background-color: var(--atd-gold-light) !important;
+	border-color: var(--atd-blue) !important;
+	color: var(--atd-blue) !important;
 	border-radius: 0 !important;
 }
 
 #btnhow_withoutprepare, #btnhow_withprepare {
 	background-color: transparent !important;
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 	border-radius: 0 !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 	font-weight: bold !important;
 }
 
 #btnhow_withoutprepare.btn.btn-success.btn-xs.active, #btnhow_withprepare.btn.btn-success.btn-xs.active {
-	background-color: #FFE699 !important;
-	border-color: #3282BE !important;
-	color: #3282BE !important;
+	background-color: var(--atd-gold-light) !important;
+	border-color: var(--atd-blue) !important;
+	color: var(--atd-blue) !important;
 	border-radius: 0 !important;
 }
 
@@ -1807,9 +1809,9 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 #badgeNbTransfer, #badgeNbConsult, #badgeNbReturn, #badgeNbExit, #badgeNbDestroy, #badgeNbReloc, #badgeNbCmd {
 	background-color: transparent !important;
 	border: 1px solid !important;
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 	border-radius: 50% !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 	height: 26px !important;
 	width: 26px !important;
 	padding-top: 6px !important;
@@ -1823,7 +1825,7 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 
 .opInProgress {
 	font-size: 32px !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 	margin-bottom: 32.5px !important;
 }
 
@@ -1842,8 +1844,8 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 
 #litabsearch.active, #litabfilter.active, #litabresults.active {
 	background-color: white !important;
-	border: 1px 0px 1px 1px solid #3282BE !important;
-	color: #3282BE !important;
+	border: 1px 0px 1px 1px solid var(--atd-blue) !important;
+	color: var(--atd-blue) !important;
 }
 
 #divCheckAll, #divUncheckAll, #divSetUnlimited, #divUnsetUnlimited, #divLinkContainer, #divLinkBox, #divExport, #divExportPartial, #divPrintTags, #divDeleteUAs, #divPrintList, #divPrintPartialList, #divLinkLocalization {
@@ -1853,16 +1855,11 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 	border: 2px solid #AFCD0A !important;
 }
 
-#moveCart, #titleAction {
-	border-radius: 0;
-	border: 1px solid #3282BE !important;
-	border-bottom: 0;
-	color: #3282BE;
-}
+/* ATD 2025 : onglets stylés par atd-theme.css (nav-tabs) */
 
 #transferservice, #askDeliver, #askReturn, #askExit, #askDelete, #askRelocInternal {
 	border-radius: 0 !important;
-	border-top: 1px solid #3282BE !important;
+	border-top: 1px solid var(--atd-blue) !important;
 	border-bottom: 0 !important;
 	border-left: 0 !important;
 	border-right: 0 !important;
@@ -1875,21 +1872,21 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 
 div#transferToService.panel-body > div.bootstrap-table > div.fixed-table-container, div#transferToIntermediate.panel-body > div.bootstrap-table > div.fixed-table-container, div#transferToProvider.panel-body > div.bootstrap-table > div.fixed-table-container {
 	border-radius: 0 !important;
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 }
 
 div#relocInternal.panel-body > div.bootstrap-table > div.fixed-table-container, div#relocIntermediate.panel-body > div.bootstrap-table > div.fixed-table-container, div#relocProvider.panel-body > div.bootstrap-table > div.fixed-table-container {
 	border-radius: 0 !important;
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 }
 
 div#deliver.panel-body > div.bootstrap-table > div.fixed-table-container, div#deliverPrepare.panel-body > div.bootstrap-table > div.fixed-table-container {
 	border-radius: 0 !important;
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 }
 
 #table-transfer-service, #table-transfer-intermediate, #table-transfer-provider, #table-deliver, #table-deliver-prepare, #table-return, #table-exit, #table-delete, #relocInternal, #relocIntermediate, #relocProvider, #table-action, #table-cancel {
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
     border: 0 !important;
 }
 
@@ -1898,7 +1895,7 @@ div#deliver.panel-body > div.bootstrap-table > div.fixed-table-container, div#de
 #table-relocInternal > tbody > tr > td, #table-relocIntermediate > tbody > tr > td, #table-relocProvider > tbody > tr > td,
 #table-action > tbody > tr > td, #table-cancel > tbody > tr > td {
     border: 0 !important;
-	border-bottom: 1px solid #3282BE !important;
+	border-bottom: 1px solid var(--atd-blue) !important;
 }
 
 #table-transfer-service > tbody > tr:last-child > td, #table-transfer-intermediate > tbody > tr:last-child > td, #table-transfer-provider > tbody > tr:last-child > td,
@@ -1919,7 +1916,7 @@ div#deliver.panel-body > div.bootstrap-table > div.fixed-table-container, div#de
 }
 
 .fa-file-excel::before, fa-file-pdf::before {
-    color: #3282BE !important;
+    color: var(--atd-blue) !important;
 }
 
 .fa-trash::before {
@@ -1935,23 +1932,23 @@ div#deliver.panel-body > div.bootstrap-table > div.fixed-table-container, div#de
 }
 
 .fa-exchange::before, .fa-pause::before {
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 	font-size: 13px !important;
 }
 
 .btn-danger > .fa-times::before {
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 }
 
 .search {
 	border-radius: 0 !important;
 	border: 1px !important;
-	border-color: #E9E9E9 !important;
+	border-color: var(--atd-sand) !important;
 }
 
 #btnTransfer, #btnAskConsult, #btnAskReturn, #btnAskExit, #btnAskDelete, #btnAskReloc, #btnAction, #btnCancel {
-    background-color: #3282BE !important;
-    border-color: #3282BE !important;
+    background-color: var(--atd-blue) !important;
+    border-color: var(--atd-blue) !important;
 	border-radius: 0 !important;
 	height: 27px;
 	font-size: 14px !important;
@@ -1972,26 +1969,11 @@ div#deliver.panel-body > div.bootstrap-table > div.fixed-table-container, div#de
 	font-size: 13px !important;
 }
 
-div.columns.columns-right.btn-group.pull-right > button.btn.btn-default {
-	margin-top: 10px !important;
-	border-radius: 50% !important;
-	height: 30px !important;
-	width: 30px !important;
-	border: 2px solid #AFCD0A !important;
-}
-
-div.columns.columns-right.btn-group.pull-right > div.keep-open.btn-group > button.btn.btn-default.dropdown-toggle {
-	margin-top: 10px !important;
-	border-radius: 50% !important;
-	height: 30px !important;
-	width: 30px !important;
-	margin-left: 3px !important;
-	border: 2px solid #AFCD0A !important;
-}
+/* ATD 2025 : boutons refresh/colonnes stylés par atd-theme.css (toolbar) */
 
 /* #tabSearch, #tabFilter, #tabResults {
   border-radius: 0 !important;
-  border: 1px #3282BE !important;
+  border: 1px var(--atd-blue) !important;
 }*/
 
 div#tabfilter > .panel-default, div#tabsearch > .panel-default {
@@ -2003,31 +1985,31 @@ div#tabfilter, div#tabsearch {
 }
 
 li.page-pre > a, li.page-number > a, li.page-next > a, li.page-item > a {
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 	border-radius: 0 !important;
 	background-color: white !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 }
 
 li.page-last-separator > a {
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 	border-radius: 0 !important;
 	background-color: white !important;
 	color: #ddd !important;
 }
 
 li.page-last > a {
-	border-color: #3282BE !important;
+	border-color: var(--atd-blue) !important;
 	border-radius: 0 !important;
 	background-color: white !important;
-	color: #3282BE !important;
+	color: var(--atd-blue) !important;
 }
 
 li.page-number.active > a, li.page-item.active > a {
-	border-color: #3282BE !important;
-	border-radius: 0 !important;
-	background-color: #FFE699 !important;
-	color: black !important;
+	border-color: var(--atd-blue) !important;
+	border-radius: 6px !important;
+	background-color: var(--atd-blue) !important;
+	color: white !important;
 }
 
 .pagination-info {
@@ -2041,7 +2023,7 @@ li.page-number.active > a, li.page-item.active > a {
 
 #ModifyModal > .modal-dialog > .modal-content {
 	border-radius: 0;
-	color: #3282BE;
+	color: var(--atd-blue);
 }
 
 
@@ -2067,9 +2049,9 @@ li.page-number.active > a, li.page-item.active > a {
 }
 
 .navbar {
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	border-radius: 0;
-	border: 1px solid #3282BE;
+	border: 1px solid var(--atd-blue);
 }
 
 .navbar-center
@@ -2108,17 +2090,17 @@ li.page-number.active > a, li.page-item.active > a {
 }
 
 .idp-import-start, .idp-import-in-progress {
-	border-left-color: #3282BE;
+	border-left-color: var(--atd-blue);
 	background-color: #C1E9F5;
 }
 
 .idp-import-end {
 	border-left-color: #3c763d;
-	background-color: #dff0d8;
+	background-color: var(--atd-green-pale);
 }
 
 .idp-import-cancel-in-progress {
-	border-left-color: #FFE699;
+	border-left-color: var(--atd-gold-light);
 	background-color: #F2DAB8;
 }
 
@@ -2160,7 +2142,7 @@ h4{
 
 .header {
 	overflow: hidden;
-	background-color: #3282BE;
+	background-color: var(--atd-blue);
 	padding: 20px 10px;
 }
 

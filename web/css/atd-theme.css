@@ -1215,3 +1215,149 @@ a.atd-action-card .atd-action-label { font-size: 14px; font-weight: 600; color: 
   width: 30px;
   height: 30px;
 }
+
+/* ============================================================
+   POLISH — finitions écran par écran vs maquettes
+   ============================================================ */
+
+/* tables de résultats plus denses (maquette : rangées fines) */
+.fixed-table-container .table > tbody > tr > td {
+  padding: 8px 12px !important;
+  line-height: 1.45;
+  font-size: 12.5px;
+}
+.fixed-table-container thead th { padding: 9px 12px !important; }
+
+/* icônes d'action dans les cellules : discrètes, bleu au survol */
+.fixed-table-container td a > i { color: var(--atd-g500); transition: color 0.12s; }
+.fixed-table-container td a:hover > i { color: var(--atd-blue); }
+
+/* titres des paniers latéraux (file de transfert) */
+#textDoAction, #textCancelAction {
+  color: var(--atd-navy) !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* boutons "Ajouter" des écrans référentiels -> primaire */
+#btn_add, #btn_input_service, #btn_input_legalentity, #btn_input_budgetcode,
+#btn_input_documentnature, #btn_input_documenttype, #btn_input_description1,
+#btn_input_description2, #btn_input_deliveraddress, #btn_input_localization {
+  border-radius: var(--atd-radius) !important;
+}
+#btn_add {
+  background: var(--atd-blue) !important;
+  color: var(--atd-white) !important;
+  border-color: var(--atd-blue) !important;
+}
+
+/* selects : chevron custom façon maquette */
+select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 10px center !important;
+  padding-right: 32px !important;
+}
+select.form-control::-ms-expand { display: none; }
+
+/* jQuery UI datepicker au thème */
+.ui-datepicker {
+  border: 1px solid var(--atd-g200) !important;
+  border-radius: var(--atd-radius-card) !important;
+  box-shadow: 0 8px 24px rgba(15, 27, 45, 0.12) !important;
+  background: var(--atd-white) !important;
+  font-family: var(--atd-font) !important;
+  font-size: 12.5px !important;
+  padding: 8px !important;
+}
+.ui-datepicker .ui-datepicker-header {
+  background: var(--atd-white) !important;
+  border: none !important;
+  color: var(--atd-navy) !important;
+  font-weight: 600;
+}
+.ui-datepicker .ui-state-default {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 6px !important;
+  color: var(--atd-g600) !important;
+  text-align: center !important;
+}
+.ui-datepicker .ui-state-hover { background: var(--atd-blue-pale) !important; color: var(--atd-blue) !important; }
+.ui-datepicker .ui-state-active { background: var(--atd-blue) !important; color: var(--atd-white) !important; }
+
+/* datepicker bootstrap (bornes date) */
+.datepicker.dropdown-menu {
+  border-radius: var(--atd-radius-card) !important;
+  border: 1px solid var(--atd-g200) !important;
+  box-shadow: 0 8px 24px rgba(15, 27, 45, 0.12) !important;
+  font-family: var(--atd-font) !important;
+}
+.datepicker table tr td.active,
+.datepicker table tr td.active:hover {
+  background: var(--atd-blue) !important;
+  background-image: none !important;
+}
+.datepicker table tr td.day:hover { background: var(--atd-blue-pale) !important; }
+
+/* sidebar : logo un poil plus grand (maquette 200px max) */
+.atd-sidebar-logo img { max-width: 190px; }
+
+/* labels non gras dans les cellules th du tri bootstrap-table */
+.th-inner { font-size: 11px !important; }
+/* onglets : état actif sans boîte (bat bootstrap + main.css spécificité id) */
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,
+#litabsearch.active, #litabfilter.active, #litabresults.active,
+#litabsearch, #litabfilter, #litabresults {
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,
+#litabsearch.active, #litabfilter.active, #litabresults.active {
+  border-bottom-color: var(--atd-blue) !important;
+  color: var(--atd-blue) !important;
+  font-weight: 600;
+}
+/* ancres directement enfants d'un ul.nav-tabs (markup legacy sans <li>) */
+.nav-tabs > a {
+  display: inline-block;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--atd-g500) !important;
+  font-size: 13px;
+  padding: 12px 20px;
+  margin-bottom: -2px;
+}
+.nav-tabs > a.active, .nav-tabs > a:hover {
+  color: var(--atd-blue) !important;
+  border-bottom-color: var(--atd-blue) !important;
+}
+
+/* pagination : bulldozer final (bat les règles id/classes de main.css) */
+ul.pagination li a, ul.pagination li span {
+  background: var(--atd-white) !important;
+  border: 1px solid var(--atd-g200) !important;
+  color: var(--atd-g600) !important;
+  border-radius: 6px !important;
+  margin: 0 2px;
+}
+ul.pagination li.active a, ul.pagination li.active span {
+  background: var(--atd-blue) !important;
+  border-color: var(--atd-blue) !important;
+  color: var(--atd-white) !important;
+}
+
+/* en-têtes des paniers latéraux (tous écrans de demandes) */
+.tab-pane .panel > .panel-heading { display: flex; align-items: center; gap: 8px; }
+.tab-pane .panel > .panel-heading .pull-right { float: none !important; margin-left: auto; }
+.tab-pane .panel-heading .text-info, .tab-pane .panel-heading b > .text-info {
+  color: var(--atd-navy) !important;
+  font-weight: 600;
+  font-size: 13.5px;
+}
