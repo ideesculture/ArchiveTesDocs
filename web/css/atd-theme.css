@@ -1459,3 +1459,15 @@ ul.pagination li.active a, ul.pagination li.active span {
   padding: 0 !important;
   line-height: 0 !important;
 }
+/* Boutons "×" des paniers (clear*) : même format compact que les "+" */
+#clearProvider, #clearService, #clearIntermediate, #clearDeliver, #clearDeliverPrepare,
+#clearReturn, #clearExit, #clearDelete, #clearRelocInternal, #clearRelocIntermediate,
+#clearRelocProvider, #clearAction, #clearCancel {
+  width: 40px !important;
+  height: 26px !important;
+  display: inline-block !important;
+  text-align: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+}
