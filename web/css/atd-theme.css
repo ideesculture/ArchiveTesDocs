@@ -1371,3 +1371,68 @@ ul.pagination li.active a, ul.pagination li.active span {
   color: var(--atd-navy) !important;
   border-bottom: 1px solid var(--atd-g100) !important;
 }
+
+/* ============================================================
+   TABLES — refonte élégante (séparateurs horizontaux only,
+   zébrage doux, survol), fin du rendu "tableur".
+   Placé en fin de fichier pour primer sur les règles P2.
+   ============================================================ */
+.table, .fixed-table-container table,
+.table-bordered, .table-bordered > tbody > tr > td, .table-bordered > thead > tr > th {
+  border-left: none !important;
+  border-right: none !important;
+}
+/* En-têtes : gris doux sur g50, un seul filet bas */
+.table > thead > tr > th,
+.fixed-table-container thead th {
+  background: var(--atd-g50) !important;
+  color: var(--atd-g500) !important;
+  text-transform: uppercase;
+  font-size: 11px !important;
+  letter-spacing: 0.6px;
+  font-weight: 600 !important;
+  border: none !important;
+  border-bottom: 1px solid var(--atd-g200) !important;
+  padding: 12px 14px !important;
+  vertical-align: middle !important;
+  white-space: nowrap;
+}
+/* Cellules : uniquement séparateur horizontal fin */
+.table > tbody > tr > td,
+.fixed-table-container tbody td {
+  border: none !important;
+  border-bottom: 1px solid var(--atd-g100) !important;
+  padding: 11px 14px !important;
+  vertical-align: middle !important;
+  color: var(--atd-g700);
+}
+/* Zébrage doux — hors lignes contextuelles (danger/success/warning/info) */
+.table > tbody > tr:nth-child(even):not(.danger):not(.success):not(.warning):not(.info) > td,
+.fixed-table-container tbody tr:nth-child(even):not(.danger):not(.success):not(.warning):not(.info) td {
+  background: var(--atd-g50) !important;
+}
+/* Survol */
+.table > tbody > tr:hover > td,
+.fixed-table-container tbody tr:hover td {
+  background: var(--atd-blue-pale) !important;
+}
+/* Dernière ligne sans filet (le conteneur-carte ferme visuellement) */
+.fixed-table-container tbody tr:last-child td { border-bottom: none !important; }
+/* Colonne case à cocher : resserrée et centrée */
+.fixed-table-container thead th:first-child,
+.fixed-table-container tbody td:first-child,
+.table > thead > tr > th:first-child,
+.table > tbody > tr > td:first-child {
+  width: 40px; text-align: center;
+}
+.fixed-table-container input[type=checkbox], .table input[type=checkbox] { accent-color: var(--atd-blue); }
+/* Icônes de tri bootstrap-table : discrètes */
+.fixed-table-container thead th .sortable .th-inner { cursor: pointer; }
+.fixed-table-container thead th .both,
+.fixed-table-container thead th .asc,
+.fixed-table-container thead th .desc { opacity: 0.5; }
+/* Colonne N° d'ordre en style code monospace bleu (comme la modale) */
+.fixed-table-container td .ordernumber,
+.fixed-table-container td code { color: var(--atd-blue); font-family: monospace; }
+/* padding des en-têtes triables (demande utilisateur : 30px -> 20px) */
+.bootstrap-table .fixed-table-container .table thead th .sortable { padding-right: 20px !important; }
