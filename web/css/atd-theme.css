@@ -1623,39 +1623,82 @@ input.form-control:disabled {
 }
 #divViewLblOrdernumber { text-align: right !important; padding-right: 8px; }
 #divViewLblOrdernumber .control-label { font-weight: 500; }
-/* 3. boutons de la modale : footer flex, boutons au thème */
+/* 3. boutons de la modale : footer aligné à droite, hiérarchie claire
+   (1 action primaire pleine, le reste discret ; Annuler repoussé à gauche) */
 #zoneButtonViewArchive {
   display: flex !important;
   flex-wrap: wrap;
+  align-items: center;
   gap: 10px;
-  justify-content: flex-end;
   float: none !important;
   width: 100% !important;
-  padding: 12px 0 0 !important;
+  margin-top: 8px !important;
+  padding: 18px 0 4px !important;
+  border-top: 1px solid var(--atd-g200) !important;
 }
 #zoneButtonViewArchive > .btn {
   width: auto !important;
   height: auto !important;
+  min-width: 0 !important;
   float: none !important;
   margin: 0 !important;
-  min-width: 150px;
-  padding: 10px 18px !important;
+  padding: 9px 20px !important;
   border-radius: var(--atd-radius) !important;
   font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  transition: background-color .12s ease, border-color .12s ease, color .12s ease;
 }
+/* Annuler : bouton fantôme, repoussé à gauche pour se détacher des actions */
 #zoneButtonViewArchive > #divCancel {
+  margin-right: auto !important;
+  background: transparent !important;
+  color: var(--atd-g600) !important;
+  border: 1px solid transparent !important;
+  font-weight: 500 !important;
+}
+#zoneButtonViewArchive > #divCancel:hover {
   background: var(--atd-g100) !important;
   color: var(--atd-g700) !important;
-  border: none !important;
 }
+/* Actions primaires (Modifier / Valider) : bleu plein */
 #zoneButtonViewArchive > #divModif,
-#zoneButtonViewArchive > #divPrint {
+#zoneButtonViewArchive > #divSubmitModif {
   background: var(--atd-blue) !important;
   color: #fff !important;
-  border: none !important;
+  border: 1px solid var(--atd-blue) !important;
 }
+#zoneButtonViewArchive > #divModif:hover,
+#zoneButtonViewArchive > #divSubmitModif:hover {
+  background: var(--atd-blue-dark, #1d4ed8) !important;
+  border-color: var(--atd-blue-dark, #1d4ed8) !important;
+}
+/* Impressions : boutons secondaires en contour bleu */
+#zoneButtonViewArchive > #divPrint {
+  background: #fff !important;
+  color: var(--atd-blue) !important;
+  border: 1px solid var(--atd-blue-border) !important;
+}
+#zoneButtonViewArchive > #divPrint:hover {
+  background: var(--atd-blue-pale) !important;
+  border-color: var(--atd-blue) !important;
+}
+/* Impression étiquette : contour gold, cohérent avec l'accent secondaire */
 #zoneButtonViewArchive > #divPrintTag {
-  background: var(--atd-gold-light) !important;
+  background: #fff !important;
   color: var(--atd-gold) !important;
   border: 1px solid var(--atd-gold-border) !important;
+}
+#zoneButtonViewArchive > #divPrintTag:hover {
+  background: var(--atd-gold-light) !important;
+}
+/* Supprimer : contour rouge (destructif, discret jusqu'au survol) */
+#zoneButtonViewArchive > #divDelete {
+  background: #fff !important;
+  color: var(--atd-red) !important;
+  border: 1px solid var(--atd-red) !important;
+}
+#zoneButtonViewArchive > #divDelete:hover {
+  background: var(--atd-red) !important;
+  color: #fff !important;
 }
