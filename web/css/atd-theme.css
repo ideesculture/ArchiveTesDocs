@@ -1515,7 +1515,10 @@ ul.pagination li.active a, ul.pagination li.active span {
 /* état désactivé */
 #addToService.disabled, #clearService.disabled, [id^="addTo"].disabled, [id^="clear"].disabled { opacity: .4 !important; }
 /* #list de l'écran résultats : sans padding latéral (table à fleur du conteneur) */
-#tabresults > #list { padding-left: 0 !important; padding-right: 0 !important; }
+#tabresults > #list,
+#tabValidateUserWants > #list { padding-left: 0 !important; padding-right: 0 !important; }
+/* Demandes utilisateurs : colonne de droite resserrée (comme Consulter) */
+#tabValidateUserWants > #tab { padding-left: 18px !important; }
 /* barre d'outils bootstrap-table (droite) : espace entre bascule et choix des colonnes */
 .bootstrap-table .fixed-table-toolbar .columns-right > .keep-open.btn-group,
 .bootstrap-table .fixed-table-toolbar .columns-right > .btn + .btn-group { margin-left: 6px !important; }
