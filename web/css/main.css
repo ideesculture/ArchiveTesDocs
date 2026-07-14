@@ -592,34 +592,23 @@ GM/MG 31/03/2025
 	min-width: 62px;
 }
 
-#tabVisibility > .row > .btn-group > .btn-info {
-	border-radius: 0 !important;
-	background-color: var(--atd-blue) !important;
-	min-width: 62px;
+/* ATD 2025 : bascules de visibilité -> pastilles pâles lisibles (thème gère les
+   couleurs d'état btn-success/warning/danger/info) ; largeur suffisante + nowrap */
+#tabVisibility > .row > .btn-group > .btn {
+	border-radius: var(--atd-radius) !important;
+	min-width: 88px;
+	white-space: nowrap;
+	font-size: 11.5px !important;
+	padding: 5px 8px !important;
 }
-
-#tabVisibility > .row > .btn-group > .btn-block {
-	border-radius: 0 !important;
-	min-width: 62px;
-}
-
 #tabVisibility > .row > .btn-group > .btn-block.disabled {
-	background-color: #eee !important;
-	color: #777 !important;
-	border: 1px solid #ddd !important;
+	background-color: var(--atd-g100) !important;
+	color: var(--atd-g400) !important;
+	border: 1px solid var(--atd-g200) !important;
 }
 
 #panelVisibility {
 	margin: 0 !important;
-	border-radius: 0 !important;
-	border: 1px solid var(--atd-blue) !important;
-}
-
-#panelVisibility > .panel-heading {
-	background-color: var(--atd-blue) !important;
-	color: white !important;
-    border-radius: 0 !important;
-    border: 0;
 }
 
 #rowPanelVisibility  {

@@ -1362,3 +1362,12 @@ ul.pagination li.active a, ul.pagination li.active span {
   font-weight: 600;
   font-size: 13.5px;
 }
+
+/* footer : toujours en bas, plein largeur, ne flotte plus à côté du contenu court */
+#idpfooter { clear: both; width: 100%; display: block; }
+/* en-tête de panneau primaire cohérent (aucune barre bleue vive) */
+.panel-primary > .panel-heading, #panelVisibility > .panel-heading {
+  background: var(--atd-white) !important;
+  color: var(--atd-navy) !important;
+  border-bottom: 1px solid var(--atd-g100) !important;
+}
