@@ -1436,3 +1436,5 @@ ul.pagination li.active a, ul.pagination li.active span {
 .fixed-table-container td code { color: var(--atd-blue); font-family: monospace; }
 /* padding des en-têtes triables (demande utilisateur : 30px -> 20px) */
 .bootstrap-table .fixed-table-container .table thead th .sortable { padding-right: 20px !important; }
+/* th-inner : padding retiré (le padding est porté par le th ; évite le double espacement) */
+.bootstrap-table .fixed-table-container .table thead th .th-inner { padding: 0 !important; }
