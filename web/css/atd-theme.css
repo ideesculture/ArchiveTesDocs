@@ -1444,3 +1444,6 @@ ul.pagination li.active a, ul.pagination li.active span {
   padding: 0 22px 0 0 !important;
   background-position: right center !important;
 }
+/* Colonne Libellé (data-field name) : largeur mini confortable (texte le plus long) */
+.fixed-table-container th[data-field="name"] { min-width: 300px !important; }
+.fixed-table-container th[data-field="name"] .th-inner { white-space: normal !important; }
