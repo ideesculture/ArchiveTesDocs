@@ -1632,7 +1632,7 @@ input.form-control:disabled {
   display: flex !important;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 8px;
   float: none !important;
   width: 100% !important;
@@ -1694,4 +1694,8 @@ input.form-control:disabled {
 #zoneButtonViewArchive > #divDelete:hover {
   background: var(--atd-red-dark, #b91c1c) !important;
   border-color: var(--atd-red-dark, #b91c1c) !important;
+}
+/* Imprimer l'étiquette : reste flottant à droite (les autres alignés à gauche) */
+#zoneButtonViewArchive > #divPrintTag {
+  margin-left: auto !important;
 }
