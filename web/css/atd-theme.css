@@ -1067,3 +1067,144 @@ a.atd-action-card .atd-action-label { font-size: 14px; font-weight: 600; color: 
 #doAction .fixed-table-container, #cancelAction .fixed-table-container { border: none !important; }
 #doAction .fixed-table-toolbar, #cancelAction .fixed-table-toolbar { display: none; }
 #doAction .table td, #cancelAction .table td { background: transparent !important; border: none !important; font-size: 12.5px; color: var(--atd-g400); text-align: center; }
+
+/* ---------- P3.6 Formulaire de saisie (new.html.twig) ---------- */
+.atd-page-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+.atd-ordernumber-badge {
+  background: var(--atd-blue-pale);
+  border: 1px solid var(--atd-blue-border);
+  border-radius: var(--atd-radius);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.atd-ordernumber-badge label {
+  font-size: 12px !important;
+  color: var(--atd-g500) !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  white-space: nowrap;
+}
+.atd-ordernumber-badge input.form-control {
+  width: 110px;
+  font-family: monospace !important;
+  font-weight: 700 !important;
+  color: var(--atd-blue) !important;
+  font-size: 14px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  text-align: center;
+}
+
+.atd-form-layout { display: flex; gap: 24px; align-items: flex-start; }
+.atd-form-main { flex: 1; min-width: 0; }
+.atd-form-side { width: 360px; flex-shrink: 0; }
+
+.atd-form-card {
+  background: var(--atd-white);
+  border: 1px solid var(--atd-g200);
+  border-radius: var(--atd-radius-card);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.atd-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--atd-navy);
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--atd-g100);
+  font-family: var(--atd-font);
+}
+/* si le JS masque le titre de bloc (zone désactivée pour le service), la card disparaît */
+.atd-form-card:has(> .atd-card-title[style*="none"]) { display: none; }
+
+.atd-form-grid { display: flex; flex-wrap: wrap; gap: 0 16px; }
+.atd-field { margin-bottom: 14px; width: 100%; }
+.atd-field.half { width: calc(50% - 8px); }
+.atd-field .control-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--atd-g700);
+  padding-top: 0 !important;
+  text-align: left !important;
+}
+#zoneDescription { display: contents; }
+
+/* bornes : rangées label / de / à */
+#div2Limits > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+#div2Limits > div > div:first-child {
+  width: 86px;
+  flex-shrink: 0;
+}
+#div2Limits > div > div:first-child .control-label { margin-bottom: 0; color: var(--atd-g500); font-weight: 400 !important; }
+#div2Limits > div > div:nth-child(3) { flex-shrink: 0; }
+#div2Limits > div > div:nth-child(3) .control-label { margin-bottom: 0; color: var(--atd-g400); font-weight: 400 !important; font-size: 12px !important; }
+#div2Limits > div > div:nth-child(2), #div2Limits > div > div:nth-child(4) { flex: 1; min-width: 0; }
+
+#frm_name { min-height: 220px; resize: vertical; }
+
+/* barre d'actions */
+.atd-form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
+  padding: 20px 24px;
+  background: var(--atd-white);
+  border: 1px solid var(--atd-g200);
+  border-radius: var(--atd-radius-card);
+}
+.atd-form-actions .btn { min-width: 170px; text-align: center; }
+
+@media (max-width: 1100px) {
+  .atd-form-layout { flex-direction: column; }
+  .atd-form-side { width: 100%; }
+}
+/* neutralisation legacy formulaire de saisie */
+#inputForm {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+#zoneButton { margin-top: 8px !important; padding: 20px 24px !important; }
+#divValidate, #divPrint, #divPrintTag, #divModify {
+  font-size: 13px !important;
+  width: auto !important;
+  min-width: 170px;
+  height: auto !important;
+  border-radius: var(--atd-radius) !important;
+  padding: 10px 18px !important;
+  margin: 0 !important;
+}
+#divValidate, #divModify {
+  background-color: var(--atd-blue) !important;
+  color: var(--atd-white) !important;
+}
+#divPrint {
+  background-color: var(--atd-g100) !important;
+  color: var(--atd-g700) !important;
+}
+#divPrintTag {
+  background-color: var(--atd-gold-light) !important;
+  color: var(--atd-gold) !important;
+  border: 1px solid var(--atd-gold-border) !important;
+}

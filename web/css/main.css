@@ -198,6 +198,7 @@ a.dropdown-toggle {
 	background-color: #3282BE !important;
 }
 
+
 #listOperations {
 	margin-top: 0px !important;
 	font-size: 13px !important;
@@ -1628,19 +1629,12 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
     padding-top: 5px;
 }
 
-#btnGestion, #btnFournitures, #btnAccueil {
-	border-radius: 0 !important;
-	margin-top: 10px !important;
-	margin-left: 36px !important;
-	margin-right: 20px !important;
+/* ATD 2025 : marges legacy du menu accordéon neutralisées (les sections vivent
+   désormais dans la sidebar, stylée par atd-theme.css) */
+#btnGestion, #btnFournitures, #btnAccueil, #btnArchives {
+	margin: 0 !important;
 }
 
-#btnArchives {
-	border-radius: 0 !important;
-	margin-top: 10px !important;
-	margin-left: 36px !important;
-	margin-right: 20px !important;
-}
 
 #addToProvider, #addToService, #addToIntermediate, #addToRelocInternal, #addToRelocIntermediate, #addToRelocProvider, #addToDeliver, #addToDeliverPrepare, #addToReturn, #addToExit, #addToDelete, #addToAction, #addToCancel
 {
@@ -1780,6 +1774,7 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 
 #top-menu-bar {
 	height: 100%;
+	background: linear-gradient(0deg, rgba(255,255,255,0.6) 20%, transparent);
 }
 
 #idp-help {
@@ -1793,36 +1788,9 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 #btnactions {
-    margin-top: 50px;
+    
 }
 
-#idp-help > li > #menu-toggle > i {
-    background-color: white !important;
-    border-radius: 50% !important;
-    height: 30px !important;
-    width: 30px !important;
-    margin-top: 40px !important;
-    margin-right: 30px !important;
-    padding-top: 10px !important;
-}
-
-#btnHelpMe {
-	margin-top: 55px !important;
-	margin-bottom: 55px !important;
-	margin-right: 10px !important;
-	border-radius: 50% !important;
-	background-color: white !important;
-	height: 30px !important;
-	width: 30px !important;
-    color: white !important;
-    font-size: 13px !important;
-}
-
-#btnHelpMe > i {
-    margin-right: 20px;
-    padding-left: 6px;
-    padding-top: 1px;
-}
 
 #userFileResume {
     margin-top: 42px !important;
@@ -1846,7 +1814,6 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 #liNbTransfer, #liNbConsult, #liNbReturn, #liNbExit, #liNbDestroy, #liNbReloc, #liNbCommand {
 	height: 48px !important;
 	margin-bottom: 8px !important;
-	margin-top: 4px !important;
 	padding-top: 15px !important;
 	padding-bottom: 15px !important;
 }
@@ -1865,7 +1832,7 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 }
 
 #btnuser {
-	margin-top: 4px !important;
+	
 }
 
 .opInProgress {
@@ -1966,7 +1933,7 @@ div#deliver.panel-body > div.bootstrap-table > div.fixed-table-container, div#de
 
 .fa-chevron-down::before, .fa-user-circle::before {
     color: white !important;
-    font-size: 15px !important;
+    font-size: 24px !important;
 }
 
 .fa-file-excel::before, fa-file-pdf::before {
@@ -2220,8 +2187,9 @@ h4{
 }
 
 .logo {
-	max-height: 120px;
-	padding-left: 15px;
+    height: 120px;
+    margin-top: 8px;
+    margin-left: 20px;
 }
 
 
