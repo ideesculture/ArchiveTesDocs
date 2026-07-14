@@ -1536,3 +1536,18 @@ ul.pagination li.active a, ul.pagination li.active span {
 .bootstrap-table .fixed-table-toolbar .search { order: 2; margin: 0 0 0 auto !important; float: none !important; }
 .bootstrap-table .fixed-table-toolbar .columns-right { order: 3; margin: 0 !important; float: none !important; }
 .bootstrap-table .fixed-table-toolbar .search > input.form-control { height: 34px; }
+
+/* Harmonisation des en-têtes de panneaux nommés (legacy bleu/coloré -> sable) ;
+   même spécificité que main.css mais chargé après -> prime */
+#panelAddProvider > .panel-heading, #panelAddUser > .panel-heading, #panelFinetune > .panel-heading, #panelImport > .panel-heading, #panelImportRapport > .panel-heading, #panelImportTreatment > .panel-heading, #panelMessages > .panel-heading, #panelModifyProviderServices > .panel-heading, #panelModifyRightsUser > .panel-heading, #panelPasswordSettings > .panel-heading, #panelProvider > .panel-heading, #panelStockStatus > .panel-heading, #panelUnlimited > .panel-heading, #passwordPanel > .panel-heading, #userSpacePanel > .panel-heading {
+  background: #fefbf7 !important;
+  color: var(--atd-navy) !important;
+  border-bottom: 1px solid var(--atd-g100) !important;
+}
+/* en-têtes de panneaux à sélecteurs groupés (réconciliation, input/finetune) */
+#panelStockError > .panel-heading, #panelStock > .panel-heading, #panelStockResult > .panel-heading,
+#panelInput > .panel-heading {
+  background: #fefbf7 !important;
+  color: var(--atd-navy) !important;
+  border-bottom: 1px solid var(--atd-g100) !important;
+}
