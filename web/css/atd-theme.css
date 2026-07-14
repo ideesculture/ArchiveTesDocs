@@ -1514,3 +1514,5 @@ ul.pagination li.active a, ul.pagination li.active span {
 #clearAction:hover, #clearCancel:hover { background: var(--atd-red-pale) !important; color: var(--atd-red) !important; }
 /* état désactivé */
 #addToService.disabled, #clearService.disabled, [id^="addTo"].disabled, [id^="clear"].disabled { opacity: .4 !important; }
+/* #list de l'écran résultats : sans padding latéral (table à fleur du conteneur) */
+#tabresults > #list { padding-left: 0 !important; padding-right: 0 !important; }
