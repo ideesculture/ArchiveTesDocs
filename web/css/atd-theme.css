@@ -603,3 +603,209 @@ code {
   border-radius: var(--atd-radius-card) !important;
   box-shadow: none !important;
 }
+
+/* ============================================================
+   P3 — COMPOSANTS D'ÉCRANS (maquettes)
+   ============================================================ */
+
+/* ---------- En-tête de page ---------- */
+.atd-page-head { margin-bottom: 28px; }
+.atd-page-head h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+.atd-page-head p { color: var(--atd-g500); font-size: 14px; margin: 4px 0 0; }
+
+/* ---------- Grille de stat-cards (dashboard) ---------- */
+.atd-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.atd-stat-card {
+  background: var(--atd-white);
+  border: 1px solid var(--atd-g200);
+  border-radius: var(--atd-radius-card);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.atd-stat-card:hover {
+  box-shadow: 0 4px 14px rgba(15, 27, 45, 0.08);
+  transform: translateY(-1px);
+}
+.atd-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.atd-icon-box.blue { background: var(--atd-blue-pale); color: var(--atd-blue); }
+.atd-icon-box.gold { background: var(--atd-gold-light); color: var(--atd-gold); }
+.atd-icon-box.gray { background: var(--atd-g100); color: var(--atd-g400); }
+.atd-stat-card .atd-stat-label { font-size: 13px; color: var(--atd-g500); margin-bottom: 2px; }
+.atd-stat-card .atd-stat-value { font-size: 22px; font-weight: 700; color: var(--atd-navy); line-height: 1; }
+.atd-stat-card .atd-stat-value.zero { color: var(--atd-g300); }
+/* neutralise l'héritage badge/list-group sur les compteurs conservés pour le JS */
+.atd-stat-card .badge {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  border-radius: 0 !important;
+  min-width: 0;
+}
+
+/* ---------- Sections d'actions (dashboard) ---------- */
+.atd-section-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--atd-g500);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-family: var(--atd-font);
+}
+.atd-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.atd-action-list { display: flex; flex-direction: column; gap: 8px; }
+a.atd-action-card {
+  background: var(--atd-white);
+  border: 1px solid var(--atd-g200);
+  border-radius: var(--atd-radius-card);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+a.atd-action-card:hover {
+  box-shadow: 0 4px 14px rgba(15, 27, 45, 0.08);
+  transform: translateY(-1px);
+}
+a.atd-action-card .atd-icon-box { width: 36px; height: 36px; border-radius: 8px; font-size: 15px; }
+a.atd-action-card .atd-action-label { font-size: 14px; font-weight: 600; color: var(--atd-navy); }
+
+/* ---------- Cards admin (dashboard, userscale < 100) ---------- */
+.atd-admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+.atd-admin-card {
+  background: var(--atd-white);
+  border: 1px solid var(--atd-g200);
+  border-radius: var(--atd-radius-card);
+  padding: 16px 20px;
+}
+.atd-admin-card .atd-admin-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--atd-navy);
+  margin-bottom: 10px;
+}
+.atd-admin-card .atd-admin-title i { color: var(--atd-g400); }
+.atd-admin-card a.list-group-item {
+  border: none !important;
+  padding: 7px 10px;
+  border-radius: var(--atd-radius) !important;
+  font-size: 13px;
+  color: var(--atd-g600);
+  display: block;
+  background: transparent;
+}
+.atd-admin-card a.list-group-item:hover {
+  background: var(--atd-blue-pale);
+  color: var(--atd-blue);
+}
+.atd-admin-card h4 { margin: 0; }
+
+/* ---------- Modale demandes : n° d'ordre en pill code ---------- */
+#DetailledInformationTable td:first-child {
+  width: 1%;
+  white-space: nowrap;
+}
+#DetailledInformationTable td:first-child {
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--atd-blue);
+}
+
+@media (max-width: 991px) {
+  .atd-stat-grid { grid-template-columns: 1fr; }
+  .atd-actions-grid, .atd-admin-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Dashboard : neutralisation des règles legacy par id ---------- */
+#listOperations > .btnlike { border: 1px solid var(--atd-g200) !important; }
+#delete-ua-choice, #consult-ua-choice, #return-ua-choice, #exit-ua-choice {
+  color: inherit !important;
+  background-color: var(--atd-white) !important;
+  border-color: var(--atd-g200) !important;
+  border-radius: var(--atd-radius-card) !important;
+}
+#badgeNbTransfer, #badgeNbConsult, #badgeNbReturn, #badgeNbExit, #badgeNbDestroy, #badgeNbReloc {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: inherit !important;
+  height: auto !important;
+  width: auto !important;
+  padding: 0 !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  display: inline !important;
+}
+#btnarchivist .atd-admin-card, .atd-admin-card { border: 1px solid var(--atd-g200) !important; }
+.atd-admin-card a.list-group-item { color: var(--atd-g600) !important; }
+.atd-admin-card a.list-group-item:hover { color: var(--atd-blue) !important; }
+#liNbTransfer, #liNbConsult, #liNbReturn, #liNbExit, #liNbDestroy, #liNbReloc {
+  height: auto !important;
+  margin-bottom: 0 !important;
+  padding: 16px 20px !important;
+}
+#panel_manage_user_wants, #panel_manage_db, #panel_follow_operations, #panel_export_import {
+  color: inherit !important;
+  border-radius: var(--atd-radius-card) !important;
+}
+/* sidebar footer : neutralise les marges/rond hérités de l'ancienne navbar */
+#userFileResume { margin: 0 !important; }
+#btnParamAccount {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+/* th hors <thead> (tableaux générés en JS, ex. modale demandes) */
+.table tr > th {
+  background: var(--atd-g50) !important;
+  color: var(--atd-g500) !important;
+  text-transform: uppercase;
+  font-size: 11px !important;
+  letter-spacing: 0.8px;
+  font-weight: 600 !important;
+  border-bottom: 1px solid var(--atd-g200) !important;
+  padding: 11px 12px !important;
+}
+.modal-footer .btn { width: auto !important; height: auto !important; border-radius: var(--atd-radius) !important; }
