@@ -1626,45 +1626,39 @@ input.form-control:disabled {
 }
 #divViewLblOrdernumber { text-align: right !important; padding-right: 8px; }
 #divViewLblOrdernumber .control-label { font-weight: 500; }
-/* 3. boutons de la modale : footer aligné à droite, hiérarchie claire
-   (1 action primaire pleine, le reste discret ; Annuler repoussé à gauche) */
+/* 3. boutons de la modale : boutons classiques façon Bootstrap
+   (non étirés, alignés à droite, padding/margin réguliers, survol) */
 #zoneButtonViewArchive {
   display: flex !important;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-end;
+  gap: 8px;
   float: none !important;
   width: 100% !important;
   margin-top: 8px !important;
-  padding: 18px 0 4px !important;
+  padding: 16px 0 4px !important;
   border-top: 1px solid var(--atd-g200) !important;
 }
 #zoneButtonViewArchive > .btn {
+  display: inline-block;
   width: auto !important;
   height: auto !important;
   min-width: 0 !important;
   float: none !important;
   margin: 0 !important;
-  padding: 9px 20px !important;
+  padding: 8px 16px !important;
   border-radius: var(--atd-radius) !important;
   font-size: 13px !important;
-  font-weight: 600 !important;
-  line-height: 1.4 !important;
-  transition: background-color .12s ease, border-color .12s ease, color .12s ease;
-}
-/* Annuler : bouton fantôme, repoussé à gauche pour se détacher des actions */
-#zoneButtonViewArchive > #divCancel {
-  margin-right: auto !important;
-  background: transparent !important;
-  color: var(--atd-g600) !important;
-  border: 1px solid transparent !important;
   font-weight: 500 !important;
+  line-height: 1.42857143 !important;
+  cursor: pointer;
+  transition: background-color .12s ease, border-color .12s ease, color .12s ease, box-shadow .12s ease;
 }
-#zoneButtonViewArchive > #divCancel:hover {
-  background: var(--atd-g100) !important;
-  color: var(--atd-g700) !important;
+#zoneButtonViewArchive > .btn:active {
+  box-shadow: inset 0 2px 4px rgba(15, 27, 45, .12);
 }
-/* Actions primaires (Modifier / Valider) : bleu plein */
+/* Actions primaires (Modifier / Valider) — btn-primary */
 #zoneButtonViewArchive > #divModif,
 #zoneButtonViewArchive > #divSubmitModif {
   background: var(--atd-blue) !important;
@@ -1676,32 +1670,28 @@ input.form-control:disabled {
   background: var(--atd-blue-dark, #1d4ed8) !important;
   border-color: var(--atd-blue-dark, #1d4ed8) !important;
 }
-/* Impressions : boutons secondaires en contour bleu */
-#zoneButtonViewArchive > #divPrint {
-  background: #fff !important;
-  color: var(--atd-blue) !important;
-  border: 1px solid var(--atd-blue-border) !important;
-}
-#zoneButtonViewArchive > #divPrint:hover {
-  background: var(--atd-blue-pale) !important;
-  border-color: var(--atd-blue) !important;
-}
-/* Impression étiquette : contour gold, cohérent avec l'accent secondaire */
+/* Annuler + impressions — btn-default (blanc, bord gris, survol grisé) */
+#zoneButtonViewArchive > #divCancel,
+#zoneButtonViewArchive > #divPrint,
 #zoneButtonViewArchive > #divPrintTag {
   background: #fff !important;
-  color: var(--atd-gold) !important;
-  border: 1px solid var(--atd-gold-border) !important;
+  color: var(--atd-g700) !important;
+  border: 1px solid var(--atd-g300) !important;
 }
+#zoneButtonViewArchive > #divCancel:hover,
+#zoneButtonViewArchive > #divPrint:hover,
 #zoneButtonViewArchive > #divPrintTag:hover {
-  background: var(--atd-gold-light) !important;
+  background: var(--atd-g50) !important;
+  border-color: var(--atd-g400) !important;
+  color: var(--atd-navy) !important;
 }
-/* Supprimer : contour rouge (destructif, discret jusqu'au survol) */
+/* Supprimer — btn-danger */
 #zoneButtonViewArchive > #divDelete {
-  background: #fff !important;
-  color: var(--atd-red) !important;
+  background: var(--atd-red) !important;
+  color: #fff !important;
   border: 1px solid var(--atd-red) !important;
 }
 #zoneButtonViewArchive > #divDelete:hover {
-  background: var(--atd-red) !important;
-  color: #fff !important;
+  background: var(--atd-red-dark, #b91c1c) !important;
+  border-color: var(--atd-red-dark, #b91c1c) !important;
 }

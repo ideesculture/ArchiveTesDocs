@@ -1434,43 +1434,8 @@ div#tabValidateUserWants > .col-xs-9 > .bootstrap-table > .fixed-table-container
 	padding-right: 30px !important;
 }
 
-#zoneButtonViewArchive {
-	padding-left: 30px !important;
-	padding-right: 30px !important;
-}
-
-#zoneButtonViewArchive > #divPrintTag {
-	background-color: var(--atd-blue);
-	border: 1px solid var(--atd-blue);
-}
-
-#zoneButtonViewArchive > #divModif, #zoneButtonViewArchive > #divSubmitModif, #zoneButtonViewArchive > #divDelete, #zoneButtonViewArchive > #divCancel, #zoneButtonViewArchive > #divPrint, #zoneButtonViewArchive > #divPrintTag {
-	border-radius: 0 !important;
-	height: 30px;
-	font-size: 13px !important;
-	padding: 6px !important;
-	width: 24% !important;
-}
-
-#zoneButtonViewArchive > #divModif, #zoneButtonViewArchive > #divSubmitModif, #zoneButtonViewArchive > #divCancel {
-	margin-right: 1.33% !important;
-}
-
-#zoneButtonViewArchive > #divPrintTag {
-	margin-left: 1.33% !important;
-}
-
-#zoneButtonViewArchive > #divCancel {
-	color: var(--atd-blue);
-	border: 1px solid var(--atd-blue);
-}
-
-#zoneButtonViewArchive > #divPrint, #zoneButtonViewArchive > #divPrintTag {
-	margin-right: 0% !important;
-	background-color: var(--atd-blue) !important;
-	border: 1px solid var(--atd-blue);
-	color: white !important;
-}
+/* Boutons de la modale viewArchive : styles gérés dans atd-theme.css
+   (ancien bloc largeur 24%/hauteur 30px/radius 0 neutralisé lors de la refonte UI) */
 
 
 
