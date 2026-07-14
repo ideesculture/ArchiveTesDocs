@@ -1523,3 +1523,16 @@ ul.pagination li.active a, ul.pagination li.active span {
 .bootstrap-table .fixed-table-toolbar .search { margin-top: 0 !important; }
 .pull-right.search > input.form-control,
 .bootstrap-table .fixed-table-toolbar .search > input.form-control { margin-top: 0 !important; }
+
+/* Barre d'outils bootstrap-table : rangée flex alignée (fin des floats désalignés) */
+.bootstrap-table .fixed-table-toolbar {
+  display: flex !important;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.bootstrap-table .fixed-table-toolbar::after { content: none !important; }
+.bootstrap-table .fixed-table-toolbar .bs-bars { order: 1; margin: 0 !important; float: none !important; }
+.bootstrap-table .fixed-table-toolbar .search { order: 2; margin: 0 0 0 auto !important; float: none !important; }
+.bootstrap-table .fixed-table-toolbar .columns-right { order: 3; margin: 0 !important; float: none !important; }
+.bootstrap-table .fixed-table-toolbar .search > input.form-control { height: 34px; }
