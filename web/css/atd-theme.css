@@ -809,3 +809,111 @@ a.atd-action-card .atd-action-label { font-size: 14px; font-weight: 600; color: 
   padding: 11px 12px !important;
 }
 .modal-footer .btn { width: auto !important; height: auto !important; border-radius: var(--atd-radius) !important; }
+
+/* ---------- Gérer la base : groupes de boutons -> TabBar (ids JS conservés) ---------- */
+#btnaction, #btnsubactioninput, #btnsubactionsettings {
+  display: flex !important;
+  width: 100%;
+  border-bottom: 2px solid var(--atd-g200);
+  margin-bottom: 8px;
+  overflow-x: auto;
+}
+#btnsubactioninput, #btnsubactionsettings { margin-bottom: 20px; }
+#btnaction .btn-group, #btnsubactioninput .btn-group, #btnsubactionsettings .btn-group {
+  display: block !important;
+  width: auto !important;
+}
+#btnaction .btn, #btnsubactioninput .btn, #btnsubactionsettings .btn {
+  background: transparent !important;
+  color: var(--atd-g500) !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0 !important;
+  font-size: 13px !important;
+  padding: 12px 20px !important;
+  margin-bottom: -2px;
+  white-space: nowrap;
+}
+#btnaction .btn:hover, #btnsubactioninput .btn:hover, #btnsubactionsettings .btn:hover {
+  color: var(--atd-navy) !important;
+  opacity: 1;
+}
+#btnaction .btn-group.active > .btn,
+#btnsubactioninput .btn-group.active > .btn,
+#btnsubactionsettings .btn-group.active > .btn {
+  color: var(--atd-blue) !important;
+  border-bottom-color: var(--atd-blue) !important;
+  font-weight: 600 !important;
+}
+#btnsubactionsettings .btn[disabled] { visibility: hidden; }
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  background: transparent !important;
+  padding: 0 0 12px !important;
+  font-size: 12.5px;
+  margin-bottom: 0 !important;
+}
+.breadcrumb a { color: var(--atd-g500); }
+.breadcrumb > .active, .breadcrumb li:last-child a { color: var(--atd-navy); font-weight: 500; }
+
+/* ---------- bootstrap-table : conteneur en carte (tous écrans) ---------- */
+.bootstrap-table {
+  background: var(--atd-white);
+  border: 1px solid var(--atd-g200);
+  border-radius: var(--atd-radius-card);
+  padding: 16px 20px;
+}
+.bootstrap-table .fixed-table-container {
+  border: none !important;
+  border-radius: 0;
+}
+.bootstrap-table .fixed-table-toolbar .search input {
+  border: 1px solid var(--atd-g200) !important;
+  border-radius: var(--atd-radius) !important;
+  font-size: 13px !important;
+  padding: 8px 12px !important;
+  box-shadow: none !important;
+}
+.bootstrap-table .fixed-table-pagination {
+  font-size: 12.5px;
+  color: var(--atd-g500);
+}
+.bootstrap-table .fixed-table-pagination .pagination-info { color: var(--atd-g400); font-size: 12px; }
+.bootstrap-table .fixed-table-loading { background: var(--atd-white); }
+.fixed-table-container thead th .th-inner {
+  text-transform: uppercase;
+  font-size: 11px !important;
+  letter-spacing: 0.8px;
+  color: var(--atd-g500);
+  font-weight: 600;
+}
+/* neutralisation legacy onglets managedb + carte-table + bouton d'ajout */
+#btnaction > .btn-group.active,
+#btnsubactioninput > .btn-group.active,
+#btnsubactionsettings > .btn-group.active {
+  background-color: transparent !important;
+}
+#btnaction > .btn-group.active > button {
+  color: var(--atd-blue) !important;
+}
+.tabSaisie > .bootstrap-table { border: 1px solid var(--atd-g200) !important; }
+#panelAddUser {
+  border: 1px solid var(--atd-g200) !important;
+  margin-top: 16px;
+}
+#panelAddUser > .panel-heading {
+  background-color: var(--atd-white) !important;
+  border-radius: var(--atd-radius-card) !important;
+  text-align: left !important;
+  border-bottom: none !important;
+}
+#panelAddUser > .panel-heading > a {
+  color: var(--atd-blue) !important;
+  font-size: 14px !important;
+  font-weight: 600;
+}
+#panelAddUser > .panel-heading > a::before {
+  content: "+ ";
+  font-weight: 700;
+}
