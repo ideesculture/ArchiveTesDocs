@@ -1474,3 +1474,4 @@ ul.pagination li.active a, ul.pagination li.active span {
 
 /* .panel-heading : padding resserré (demande utilisateur) */
 .panel-heading { padding: 14px 4px !important; }
+.panel-heading { background-color: #fefbf7 !important; }
