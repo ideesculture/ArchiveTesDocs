@@ -122,17 +122,28 @@ Fichiers nouveaux :
 
 ## 4. Méthode de travail et validation
 
-- **Branche** : `ui-refonte` sur le repo `ideesculture/ArchiveTesDocs`.
-- **Boucle courte** : développer sur l'instance démo (`/var/www/ArchiveTesDocs`,
-  données de démo réalistes) → captures → comparaison maquette.
-- **Recette** : déployer sur `secourscatholique2` (préprod, données réelles) →
-  validation → prod `secourscatholique` (attention : la préprod/prod ont des
-  personnalisations locales — logo login — à ne pas écraser).
+- **Instance de développement** : `secourscatholique2.ideesculture.cloud`
+  (`/var/www/secourscatholique2`) — URL non diffusée, liberté totale. Les données de
+  la base de démo y ont été recopiées (123 UA réalistes) ; en fin de chantier, la base
+  sera re-clonée depuis la prod `secourscatholique`.
+- **Backups intermédiaires** : avant chaque étape risquée, dump dans
+  `/var/www/secourscatholique2-backups/` (`AAAAMMJJ_HHMMSS_<etape>.sql.gz`) pour
+  pouvoir revenir en arrière pendant les devs.
+- **Branche** : `ui-refonte` sur le repo `ideesculture/ArchiveTesDocs`
+  (commits non cosignés). Merge dans `main` en fin de chantier.
+- **Recette finale** : validation sur secourscatholique2 → déploiement prod
+  `secourscatholique` (attention : personnalisations locales — logo login — à ne pas
+  écraser) et instance démo.
+- **Cible navigateurs** : navigateurs modernes uniquement (~4-5 ans). **Toute trace
+  d'IE est supprimée** (commentaires conditionnels, hacks CSS/JS legacy) ; aucun fix
+  pour navigateur ancien.
 - **Captures automatisées 1400px** : `node /home/debian/ui-capture/capture.js`
   (utilisateur dédié `capture` sur secourscatholique2 ; `BASE=<url>` pour changer
   d'instance ; sortie `/home/debian/ui-capture/shots/`). Captures de référence
   « avant » déjà prises.
 - Après chaque phase : `cache:clear` prod + captures + comparaison côte à côte.
+- **Plan consultable en ligne** : https://secourscatholique2.ideesculture.cloud/REFONTE-UI.html
+  (régénéré depuis ce fichier via `marked`).
 
 ## 5. Contraintes et risques
 
