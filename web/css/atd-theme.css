@@ -1598,3 +1598,64 @@ ul.pagination li.active a, ul.pagination li.active span {
   padding: 0 !important;
   width: 100% !important;
 }
+
+/* ============================================================
+   Modale de consultation d'archive (viewArchive) — finitions
+   ============================================================ */
+/* 1. textarea Libellé : bordure au thème (fin de la bordure noire) */
+#frm_name { border: 1px solid var(--atd-g300) !important; border-radius: var(--atd-radius) !important; }
+/* 2. champs non modifiables : gris clair (au lieu du gris soutenu Bootstrap #eee) */
+.form-control[disabled], .form-control[readonly],
+select.form-control:disabled, textarea.form-control[disabled],
+input.form-control:disabled {
+  background-color: var(--atd-g50) !important;
+  color: var(--atd-g600) !important;
+  opacity: 1 !important;
+  cursor: default;
+}
+/* 4. numéro d'ordre : fond gris + gras (fin du jaune), label rapproché */
+#frm_ordernumber {
+  background-color: var(--atd-g50) !important;
+  color: var(--atd-navy) !important;
+  font-weight: 700 !important;
+  border: 1px solid var(--atd-g300) !important;
+  border-radius: var(--atd-radius) !important;
+}
+#divViewLblOrdernumber { text-align: right !important; padding-right: 8px; }
+#divViewLblOrdernumber .control-label { font-weight: 500; }
+/* 3. boutons de la modale : footer flex, boutons au thème */
+#zoneButtonViewArchive {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  float: none !important;
+  width: 100% !important;
+  padding: 12px 0 0 !important;
+}
+#zoneButtonViewArchive > .btn {
+  width: auto !important;
+  height: auto !important;
+  float: none !important;
+  margin: 0 !important;
+  min-width: 150px;
+  padding: 10px 18px !important;
+  border-radius: var(--atd-radius) !important;
+  font-size: 13px !important;
+}
+#zoneButtonViewArchive > #divCancel {
+  background: var(--atd-g100) !important;
+  color: var(--atd-g700) !important;
+  border: none !important;
+}
+#zoneButtonViewArchive > #divModif,
+#zoneButtonViewArchive > #divPrint {
+  background: var(--atd-blue) !important;
+  color: #fff !important;
+  border: none !important;
+}
+#zoneButtonViewArchive > #divPrintTag {
+  background: var(--atd-gold-light) !important;
+  color: var(--atd-gold) !important;
+  border: 1px solid var(--atd-gold-border) !important;
+}
