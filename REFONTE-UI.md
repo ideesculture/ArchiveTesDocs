@@ -118,7 +118,7 @@ Fichiers nouveaux :
 - [ ] Écran de login (harmonisation avec le thème — attention aux personnalisations
       par instance : logo client).
 - [ ] Purge de `main.css` (règles mortes), suppression des styles inline hérités.
-- [ ] `print.css` inchangé (les éditions ne bougent pas).
+- [ ] Refonte de `print.css` : l'existant hérité de l'ancienne UI n'est pas fiable — reprise complète avec tests d'impression réels (fiches, étiquettes).
 
 ## 4. Méthode de travail et validation
 
@@ -152,9 +152,9 @@ Fichiers nouveaux :
 | JS métier couplé aux id/classes Bootstrap (modals, collapse, bootbox, tutorialize) | Ne jamais renommer les `id` ; conserver les classes BS sur les éléments scriptés ; tests manuels des flux ajax après chaque écran |
 | 9 écrans `managedb_input_*` dupliqués | Factoriser le pattern dans un partial Twig unique |
 | Fonts Google = dépendance externe/RGPD | Auto-hébergement woff2 |
-| Iconographie maquette (Feather) ≠ FontAwesome | Garder FA5, mapper les pictos ; pas d'ajout de lib |
+| Iconographie maquette (Feather) ≠ FontAwesome | Garder FA5 et mapper les pictos ; si aucune icône FA n'est vraiment proche, récupérer le SVG de la maquette et créer une icône custom (pas de compromis approximatif) |
 | Régressions sur écrans non maquettés | La surcharge P2 est conservatrice ; balayage systématique en P4 avec captures |
-| Impression (fiches, étiquettes) | `print.css` et gabarits d'impression hors périmètre |
+| Impression (fiches, étiquettes) | `print.css` actuel jugé non fiable (hérité de l'ancienne UI) : passe de refonte dédiée en P4 avec tests d'impression réels |
 
 ## 6. Jalons proposés
 

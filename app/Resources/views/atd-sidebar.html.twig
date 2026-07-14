@@ -1,0 +1,72 @@
+{# ============================================================
+   Sidebar unique ATD 2025 — remplace navbar haute + menu accordéon.
+   Inclus par base.html.twig et mini.html.twig.
+   Libellés figés en français : headTranslations varie selon le layout
+   (T_HEAD vs T_HEAD_MINI), ses index ne sont pas fiables dans un partial
+   commun. Variables optionnelles : currentMenu, userscale, userFilesResume.
+   Les id historiques (left-menu, btnAccueil, btnArchives, btnGestion,
+   userFileResume, btnParamAccount, hrefLogout) sont conservés pour
+   le JS / tutorialize.
+   ============================================================ #}
+<nav class="atd-sidebar" id="left-menu">
+
+	<a class="atd-sidebar-logo" href="{{ path('bs_idp_dashboard_homepage') }}">
+		<img src="{{ asset('img/Logo_Archive_Tes_Docs.svg') }}" alt="ArchiveTesDocs"/>
+		<span class="atd-tagline">Gestion d'archives</span>
+	</a>
+
+	<div id="btnAccueil">
+		<a href="{{ path('bs_idp_dashboard_homepage') }}" class="atd-nav-item {% if currentMenu is defined and currentMenu == 0 %}atd-active{% endif %}">
+			<i class="fal fa-home"></i>Accueil
+		</a>
+	</div>
+
+	<div id="btnArchives">
+		<div class="atd-section-title">Archives</div>
+		<a href="{{ path('bs_idp_archive_new') }}" class="atd-nav-item {% if currentMenu|default(0) == 1 %}menu-selected{% endif %}"><i class="fal fa-pen"></i>Saisir</a>
+		<a href="{{ path('bs_idp_archive_transferscreen') }}" class="atd-nav-item {% if currentMenu|default(0) == 2 %}menu-selected{% endif %}"><i class="fal fa-paper-plane"></i>Transférer</a>
+		<a href="{{ path('bs_idp_archive_askconsult_screen') }}" class="atd-nav-item {% if currentMenu|default(0) == 3 %}menu-selected{% endif %}"><i class="fal fa-eye"></i>Consulter</a>
+		<a href="{{ path('bs_idp_archive_askreturn_screen') }}" class="atd-nav-item {% if currentMenu|default(0) == 4 %}menu-selected{% endif %}"><i class="fal fa-undo"></i>Retourner</a>
+		<a href="{{ path('bs_idp_archive_askexit_screen') }}" class="atd-nav-item {% if currentMenu|default(0) == 5 %}menu-selected{% endif %}"><i class="fal fa-sign-out-alt"></i>Sortir définitivement</a>
+		<a href="{{ path('bs_idp_archive_askdelete_screen') }}" class="atd-nav-item {% if currentMenu|default(0) == 6 %}menu-selected{% endif %}"><i class="fal fa-trash-alt"></i>Détruire</a>
+		<a href="{{ path('bs_idp_archive_askreloc_screen') }}" class="atd-nav-item {% if currentMenu|default(0) == 28 %}menu-selected{% endif %}"><i class="fal fa-arrows-alt-h"></i>Relocaliser</a>
+	</div>
+
+	{% if userscale|default(100) < 100 %}
+	<div id="btnGestion">
+		<div class="atd-section-title">Gestion</div>
+		<a href="{{ path('bs_idp_archivist_manage_user_wants') }}" class="atd-nav-item {% if currentMenu|default(0) == 21 %}menu-selected{% endif %}"><i class="fal fa-user-check"></i>Demandes utilisateurs</a>
+		<a href="{{ path('bs_idp_archivist_manage_provider_wants') }}" class="atd-nav-item {% if currentMenu|default(0) == 26 %}menu-selected{% endif %}"><i class="fal fa-truck"></i>Demandes des prestataires</a>
+		<a href="{{ path('bs_idp_archivist_close_user_wants') }}" class="atd-nav-item {% if currentMenu|default(0) == 27 %}menu-selected{% endif %}"><i class="fal fa-check-double"></i>Clôturer les demandes</a>
+		<a href="{{ path('bs_idp_archivist_managedb_input_services') }}" class="atd-nav-item {% if currentMenu|default(0) == 22 %}menu-selected{% endif %}"><i class="fal fa-database"></i>Gérer la base</a>
+		<a href="{{ path('bs_idp_archivist_askunlimited_screen') }}" class="atd-nav-item {% if currentMenu|default(0) == 35 %}menu-selected{% endif %}"><i class="fal fa-infinity"></i>Archives illimitées</a>
+		<a href="{{ path('bs_idp_export_all') }}" class="atd-nav-item {% if currentMenu|default(0) == 24 %}menu-selected{% endif %}"><i class="fal fa-file-export"></i>Exporter</a>
+		<a href="{{ path('bs_idp_archive_partialimportscreen') }}" class="atd-nav-item {% if currentMenu|default(0) == 25 %}menu-selected{% endif %}"><i class="fal fa-file-import"></i>Importer</a>
+	</div>
+	{% endif %}
+
+	<div class="atd-sidebar-footer">
+
+		{% if userFilesResume is defined and userFilesResume['in_progress'] %}
+			<a id="userFileResume" href="{{ path('bs_core_userspace_userfile_viewmainscreen') }}" class="atd-nav-item"><i class="fad fa-compact-disc fa-spin"></i>Fichier en préparation…</a>
+		{% elseif userFilesResume is defined and userFilesResume['nb_files_unseen'] > 0 %}
+			<a id="userFileResume" href="{{ path('bs_core_userspace_userfile_viewmainscreen') }}" class="atd-nav-item" style="color:var(--atd-green);"><i class="fas fa-file" style="color:var(--atd-green);"></i>Mes fichiers ({{ userFilesResume['nb_files_unseen'] }})</a>
+		{% else %}
+			<span id="userFileResume"></span>
+		{% endif %}
+
+		<div class="atd-user-chip dropup" id="btnParamAccount">
+			<a href="#" class="dropdown-toggle atd-avatar" data-toggle="dropdown" title="Mon compte">
+				<i class="fal fa-user"></i>
+			</a>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="{{ path('bs_core_user_change_mdp_screen') }}"><i class="fal fa-key"></i>&nbsp;&nbsp;Changer de mot de passe</a></li>
+				<li><a href="{{ path('bs_core_userspace_userfile_viewmainscreen') }}"><i class="fal fa-file"></i>&nbsp;&nbsp;Télécharger mes fichiers</a></li>
+			</ul>
+			<div class="atd-user-actions">
+				<a href="{{ path('bs_core_user_logout') }}" id="hrefLogout" class="atd-logout" title="Se déconnecter"><i class="fal fa-power-off"></i></a>
+			</div>
+		</div>
+	</div>
+
+</nav>

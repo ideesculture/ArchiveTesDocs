@@ -1,0 +1,258 @@
+/* ============================================================
+   ArchiveTesDocs — Thème « ATD 2025 » (refonte UI)
+   Chargé APRÈS bootstrap.css / main.css : surcharge par cascade.
+   Source de vérité design : maquettes archivetesdocs-mockups (App.jsx)
+   Navigateurs modernes uniquement (variables CSS, flex, calc).
+   ============================================================ */
+
+/* ---------- Fonts auto-hébergées ---------- */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('fonts/DMSans-var-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('fonts/DMSans-var-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/LexendDeca-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/LexendDeca-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ---------- Design tokens (maquettes : const C) ---------- */
+:root {
+  --atd-navy: #0F1B2D;
+  --atd-blue: #2563EB;
+  --atd-blue-pale: #EFF6FF;
+  --atd-blue-border: #BFDBFE;
+  --atd-gold: #D97706;
+  --atd-gold-light: #FEF3C7;
+  --atd-gold-border: #FDE68A;
+  --atd-sand: #FEFBF6;
+  --atd-white: #FFFFFF;
+  --atd-g50: #F9FAFB;
+  --atd-g100: #F3F4F6;
+  --atd-g200: #E5E7EB;
+  --atd-g300: #D1D5DB;
+  --atd-g400: #9CA3AF;
+  --atd-g500: #6B7280;
+  --atd-g600: #4B5563;
+  --atd-g700: #374151;
+  --atd-red: #DC2626;
+  --atd-red-pale: #FEF2F2;
+  --atd-green: #059669;
+  --atd-green-pale: #ECFDF5;
+  --atd-font: 'DM Sans', -apple-system, 'Segoe UI', sans-serif;
+  --atd-font-title: 'Lexend Deca', var(--atd-font);
+  --atd-radius: 8px;
+  --atd-radius-card: 12px;
+  --atd-sidebar-w: 250px;
+}
+
+/* ---------- Base typo / fond ---------- */
+html { box-sizing: border-box; }
+body {
+  font-family: var(--atd-font);
+  background: var(--atd-sand);
+  color: var(--atd-g700);
+  font-size: 13.5px;
+}
+h1, h2, .atd-page-title {
+  font-family: var(--atd-font-title);
+  color: var(--atd-navy);
+}
+::placeholder { color: var(--atd-g400); }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: var(--atd-g300); border-radius: 3px; }
+
+/* ============================================================
+   LAYOUT — coquille sidebar + contenu (P1)
+   ============================================================ */
+.atd-shell {
+  display: flex;
+  min-height: 100vh;
+  align-items: stretch;
+}
+
+/* ---------- Sidebar ---------- */
+.atd-sidebar {
+  width: var(--atd-sidebar-w);
+  flex-shrink: 0;
+  background: var(--atd-white);
+  border-right: 1px solid var(--atd-g200);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.atd-sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px 20px;
+}
+.atd-sidebar-logo img { width: 100%; max-width: 170px; height: auto; }
+.atd-sidebar-logo .atd-tagline {
+  font-size: 10px;
+  color: var(--atd-g400);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.atd-sidebar .atd-section-title {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--atd-g400);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 16px 14px 6px;
+}
+.atd-sidebar .atd-section-title:first-of-type { padding-top: 8px; }
+
+/* items de navigation (recouvre .list-group-item du menu historique) */
+.atd-sidebar a.atd-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 14px;
+  border: none;
+  border-radius: var(--atd-radius);
+  background: transparent;
+  color: var(--atd-g600);
+  font-size: 13.5px;
+  font-weight: 400;
+  text-align: left;
+  text-decoration: none;
+  transition: all 0.12s ease;
+  margin-bottom: 1px;
+}
+.atd-sidebar a.atd-nav-item i {
+  width: 18px;
+  text-align: center;
+  color: var(--atd-g400);
+  font-size: 14px;
+}
+.atd-sidebar a.atd-nav-item:hover {
+  background: var(--atd-g50);
+  color: var(--atd-navy);
+}
+.atd-sidebar a.atd-nav-item.menu-selected,
+.atd-sidebar a.atd-nav-item.atd-active {
+  /* !important : main.css impose .menu-selected { background:#FFE699 !important } */
+  background: var(--atd-blue-pale) !important;
+  color: var(--atd-blue) !important;
+  font-weight: 600;
+}
+.atd-sidebar a.atd-nav-item.menu-selected i,
+.atd-sidebar a.atd-nav-item.atd-active i { color: var(--atd-blue); }
+
+/* pied de sidebar : fichiers + compte */
+.atd-sidebar-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--atd-g200);
+  padding-top: 10px;
+}
+.atd-user-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+}
+.atd-user-chip .atd-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--atd-blue-pale);
+  color: var(--atd-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.atd-user-chip .atd-user-actions { display: flex; gap: 4px; margin-left: auto; }
+.atd-user-chip .atd-user-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  color: var(--atd-g500);
+  text-decoration: none;
+}
+.atd-user-chip .atd-user-actions a:hover { background: var(--atd-g100); color: var(--atd-navy); }
+.atd-user-chip .atd-user-actions a.atd-logout:hover { background: var(--atd-red-pale); color: var(--atd-red); }
+
+/* dropdown Bootstrap dans la sidebar (compte) */
+.atd-sidebar .dropdown-menu {
+  border-radius: var(--atd-radius);
+  border: 1px solid var(--atd-g200);
+  box-shadow: 0 8px 24px rgba(15, 27, 45, 0.10);
+  font-size: 13px;
+}
+
+/* ---------- Contenu principal ---------- */
+.atd-main {
+  flex: 1;
+  min-width: 0;
+  padding: 32px;
+  background: var(--atd-sand);
+  display: flow-root; /* confine les floats des .col-md-* Bootstrap */
+}
+
+/* le footer historique devient une signature discrète */
+#idpfooter {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  margin: 32px 0 8px;
+  text-align: center;
+}
+#idpfooter .panel-header p,
+#idpfooter p {
+  float: none !important;
+  font-size: 12px;
+  color: var(--atd-g400);
+  margin: 0;
+}
+#idpfooter a { color: var(--atd-g400); text-decoration: none; }
+#idpfooter a:hover { color: var(--atd-blue); }
+
+/* responsive : sidebar masquable sous 992px */
+@media (max-width: 991px) {
+  .atd-shell { flex-direction: column; }
+  .atd-sidebar {
+    width: 100%;
+    position: static;
+    max-height: none;
+    flex-direction: column;
+    border-right: none;
+    border-bottom: 1px solid var(--atd-g200);
+  }
+  .atd-main { padding: 20px 16px; }
+}
