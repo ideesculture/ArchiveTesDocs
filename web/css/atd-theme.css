@@ -1438,3 +1438,9 @@ ul.pagination li.active a, ul.pagination li.active span {
 .bootstrap-table .fixed-table-container .table thead th .sortable { padding-right: 20px !important; }
 /* th-inner : padding retiré (le padding est porté par le th ; évite le double espacement) */
 .bootstrap-table .fixed-table-container .table thead th .th-inner { padding: 0 !important; }
+/* fix : réserver l'espace de l'icône de tri sur les en-têtes triables
+   (th-inner.sortable = plus spécifique, prime sur th-inner{padding:0}) */
+.bootstrap-table .fixed-table-container .table thead th .th-inner.sortable {
+  padding: 0 22px 0 0 !important;
+  background-position: right center !important;
+}
