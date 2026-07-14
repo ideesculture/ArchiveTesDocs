@@ -1474,3 +1474,43 @@ ul.pagination li.active a, ul.pagination li.active span {
 /* .panel-heading : padding resserré (demande utilisateur) */
 .panel-heading { padding: 14px 4px !important; }
 .panel-heading { background-color: #fefbf7 !important; }
+
+/* ---------- Paniers : boutons +/x en petits boutons-icônes FA5 ---------- */
+#addToProvider, #addToService, #addToIntermediate, #addToRelocInternal, #addToRelocIntermediate,
+#addToRelocProvider, #addToDeliver, #addToDeliverPrepare, #addToReturn, #addToExit, #addToDelete,
+#addToAction, #addToCancel,
+#clearProvider, #clearService, #clearIntermediate, #clearDeliver, #clearDeliverPrepare,
+#clearReturn, #clearExit, #clearDelete, #clearRelocInternal, #clearRelocIntermediate,
+#clearRelocProvider, #clearAction, #clearCancel {
+  width: 30px !important;
+  height: 30px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  border: none !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  font-size: 13px !important;
+  background: var(--atd-g100) !important;
+  transition: background .15s, color .15s;
+}
+/* + : bleu */
+#addToProvider, #addToService, #addToIntermediate, #addToRelocInternal, #addToRelocIntermediate,
+#addToRelocProvider, #addToDeliver, #addToDeliverPrepare, #addToReturn, #addToExit, #addToDelete,
+#addToAction, #addToCancel { color: var(--atd-blue) !important; }
+#addToProvider:hover, #addToService:hover, #addToIntermediate:hover, #addToRelocInternal:hover,
+#addToRelocIntermediate:hover, #addToRelocProvider:hover, #addToDeliver:hover, #addToDeliverPrepare:hover,
+#addToReturn:hover, #addToExit:hover, #addToDelete:hover, #addToAction:hover, #addToCancel:hover {
+  background: var(--atd-blue-pale) !important;
+}
+/* x : gris -> rouge au survol */
+#clearProvider, #clearService, #clearIntermediate, #clearDeliver, #clearDeliverPrepare,
+#clearReturn, #clearExit, #clearDelete, #clearRelocInternal, #clearRelocIntermediate,
+#clearRelocProvider, #clearAction, #clearCancel { color: var(--atd-g400) !important; }
+#clearProvider:hover, #clearService:hover, #clearIntermediate:hover, #clearDeliver:hover,
+#clearDeliverPrepare:hover, #clearReturn:hover, #clearExit:hover, #clearDelete:hover,
+#clearRelocInternal:hover, #clearRelocIntermediate:hover, #clearRelocProvider:hover,
+#clearAction:hover, #clearCancel:hover { background: var(--atd-red-pale) !important; color: var(--atd-red) !important; }
+/* état désactivé */
+#addToService.disabled, #clearService.disabled, [id^="addTo"].disabled, [id^="clear"].disabled { opacity: .4 !important; }
