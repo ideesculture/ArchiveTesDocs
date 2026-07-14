@@ -1519,3 +1519,7 @@ ul.pagination li.active a, ul.pagination li.active span {
 /* barre d'outils bootstrap-table (droite) : espace entre bascule et choix des colonnes */
 .bootstrap-table .fixed-table-toolbar .columns-right > .keep-open.btn-group,
 .bootstrap-table .fixed-table-toolbar .columns-right > .btn + .btn-group { margin-left: 6px !important; }
+/* recherche bootstrap-table : suppression du margin-top de 10px */
+.bootstrap-table .fixed-table-toolbar .search { margin-top: 0 !important; }
+.pull-right.search > input.form-control,
+.bootstrap-table .fixed-table-toolbar .search > input.form-control { margin-top: 0 !important; }
