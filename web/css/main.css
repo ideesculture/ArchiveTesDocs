@@ -1005,14 +1005,8 @@ div#form > div > .required {
 	border: 1px solid #3282BE;
 }
 
-#frm_service, #frm_legalentity, #frm_budgetcode, #frm_documentnature, #frm_documenttype, #frm_description1, #frm_description2,
-#frm_closureyear, #frm_destructionyear, #frm_documentnumber, #frm_boxnumber, #frm_containernumber, #frm_provider, #frm_name,
-#frm_limitdatemin, #frm_limitdatemax, #frm_limitnummin, #frm_limitnummax, #frm_limitalphamin, #frm_limitalphamax, #frm_limitalphanummin,
-#frm_limitalphanummax, #frm_oldlocalization, #frm_localization {
-	border-color: #3282BE;
-	height: 25px !important;
-	border-radius: 0 !important;
-}
+/* ATD 2025 : height 25px + bordures bleues des champs supprimées (croppaient
+   le contenu) — styles gérés par .form-control dans atd-theme.css */
 
 /* Fenêtre modal emplacement d'étiquettes */
 
@@ -1207,16 +1201,8 @@ div#form > div > .required {
 
 
 
-#transferToService > .bootstrap-table > .fixed-table-container > .fixed-table-body, #transferToIntermediate > .bootstrap-table > .fixed-table-container > .fixed-table-body, #transferToProvider > .bootstrap-table > .fixed-table-container > .fixed-table-body,
-#deliver > .bootstrap-table > .fixed-table-container > .fixed-table-body,
-#deliverPrepare > .bootstrap-table > .fixed-table-container > .fixed-table-body,
-#relocInternal > .bootstrap-table > .fixed-table-container > .fixed-table-body,
-#relocIntermediate > .bootstrap-table > .fixed-table-container > .fixed-table-body,
-#relocProvider > .bootstrap-table > .fixed-table-container > .fixed-table-body,
-#doAction > .bootstrap-table > .fixed-table-container > .fixed-table-body,
-#cancelAction > .bootstrap-table > .fixed-table-container > .fixed-table-body {
-	border: 1px solid #3282BE !important;
-}
+/* ATD 2025 : bordure bleue des paniers de transfert supprimée (les zones
+   pointillées d'atd-theme.css assurent la délimitation) */
 
 #listsearchTable > thead > tr > th {
     border-bottom: 1px solid #ddd !important;
@@ -1922,14 +1908,10 @@ div#deliver.panel-body > div.bootstrap-table > div.fixed-table-container, div#de
 	border-bottom-color: transparent !important;
 }
 
-.fa-power-off:before, .fa-2x::before, .fa-file::before {
-	color: white !important;
-}
+/* ATD 2025 : icônes blanches de l'ancienne navbar supprimées (currentColor) */
 
-.fa-check::before, .fa-copy::before, .fa-trash-alt::before,  .fa-file-alt::before, .fa-clipboard-list::before, .fa-print::before, .fa-tasks::before, .fa-lock-alt::before, .fa-unlock-alt::before, .fa-lightbulb::before, .fa-question-circle::before, .fa-rectangle-portrait::before, .fa-archive::before {
-	color: #3282BE !important;
-	font-size: 15px !important;
-}
+/* ATD 2025 : couleur globale forcée des icônes supprimée — les pictos héritent
+   de la couleur de leur conteneur (currentColor), gérée par atd-theme.css */
 
 .fa-chevron-down::before, .fa-user-circle::before {
     color: white !important;
