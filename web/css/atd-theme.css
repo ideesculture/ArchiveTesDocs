@@ -917,3 +917,153 @@ a.atd-action-card .atd-action-label { font-size: 14px; font-weight: 600; color: 
   content: "+ ";
   font-weight: 700;
 }
+
+/* ---------- P3.4 File de transfert (manageuserwants & co) ---------- */
+/* onglets d'états -> TabBar (active sur le bouton ici) */
+#btnstates {
+  padding: 0 !important;
+  margin: 0 0 12px !important;
+  display: flex !important;
+  border-bottom: 2px solid var(--atd-g200);
+  overflow-x: auto;
+}
+#btnstates .btn-group { display: block !important; width: auto !important; }
+#btnstates .btn {
+  background: transparent !important;
+  color: var(--atd-g500) !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0 !important;
+  font-size: 13px !important;
+  padding: 12px 20px !important;
+  margin-bottom: -2px;
+  white-space: nowrap;
+}
+#btnstates .btn:hover { color: var(--atd-navy) !important; opacity: 1; }
+#btnstates .btn.active {
+  color: var(--atd-blue) !important;
+  border-bottom-color: var(--atd-blue) !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+}
+
+/* filtres où/comment -> pills */
+#btnwherehow, #btnwhere, #btnhow { padding: 0 !important; }
+#btnwhere, #btnhow { display: flex !important; gap: 6px; }
+#btnwhere .btn-group, #btnhow .btn-group { display: block !important; width: auto !important; }
+#btnwhere_provider, #btnwhere_intermediate, #btnwhere_internal, #btnwhere_new, #btnwhere_consult,
+#btnhow_withoutprepare, #btnhow_withprepare {
+  background-color: var(--atd-white) !important;
+  border: 1px solid var(--atd-g200) !important;
+  border-radius: 20px !important;
+  color: var(--atd-g500) !important;
+  font-weight: 400 !important;
+  font-size: 13px !important;
+  padding: 7px 16px !important;
+}
+#btnwhere_provider.btn.btn-success.btn-xs.active, #btnwhere_intermediate.btn.btn-success.btn-xs.active, #btnwhere_internal.btn.btn-success.btn-xs.active, #btnwhere_new.btn.btn-success.btn-xs.active, #btnwhere_consult.btn.btn-success.btn-xs.active,
+#btnhow_withoutprepare.btn.btn-success.btn-xs.active, #btnhow_withprepare.btn.btn-success.btn-xs.active {
+  background-color: var(--atd-blue-pale) !important;
+  border-color: var(--atd-blue) !important;
+  color: var(--atd-blue) !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+}
+
+/* panneau latéral Transfert / Annulation */
+#askAction, #askCancel {
+  border: 1px solid var(--atd-g200) !important;
+  border-radius: var(--atd-radius-card) !important;
+}
+#askAction > .panel-heading, #askCancel > .panel-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#askAction .pull-right, #askCancel .pull-right { margin-left: auto; float: none !important; }
+#doAction, #cancelAction {
+  margin: 12px !important;
+  padding: 10px !important;
+  border: 2px dashed var(--atd-g300) !important;
+  border-radius: var(--atd-radius) !important;
+  min-height: 80px;
+  color: var(--atd-g400);
+  font-size: 12.5px;
+}
+#btnAction {
+  background: var(--atd-blue) !important;
+  color: var(--atd-white) !important;
+  border-color: var(--atd-blue) !important;
+  margin-top: 12px;
+}
+#btnCancel {
+  background: var(--atd-red-pale) !important;
+  color: var(--atd-red) !important;
+  border-color: var(--atd-red-pale) !important;
+  margin-top: 12px;
+}
+#btnAction.disabled, #btnCancel.disabled { opacity: 0.45 !important; }
+/* neutralisations legacy file de transfert */
+#tabValidateUserWants, #tabCloseUserWants, #tabManageProvider {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#btnwhat_transfer.btn.btn-info.btn-xs.active, #btnwhat_deliver.btn.btn-info.btn-xs.active, #btnwhat_return.btn.btn-info.btn-xs.active, #btnwhat_exit.btn.btn-info.btn-xs.active, #btnwhat_destroy.btn.btn-info.btn-xs.active, #btnwhat_reloc.btn.btn-info.btn-xs.active {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  border-bottom: 2px solid var(--atd-blue) !important;
+  color: var(--atd-blue) !important;
+  border-radius: 0 !important;
+}
+#btnwhat_transfer, #btnwhat_deliver, #btnwhat_return, #btnwhat_exit, #btnwhat_destroy, #btnwhat_reloc {
+  font-weight: 500 !important;
+  color: var(--atd-g500) !important;
+  border-color: transparent !important;
+}
+/* boutons de toolbar : carrés arrondis secondaires (fin des ronds cerclés) */
+#divCheckAll, #divUncheckAll, #divSetUnlimited, #divUnsetUnlimited, #divLinkContainer, #divLinkBox, #divExport, #divExportPartial, #divPrintTags, #divDeleteUAs, #divPrintList, #divPrintPartialList, #divLinkLocalization {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: var(--atd-radius) !important;
+  border: none !important;
+  background: var(--atd-g100) !important;
+  color: var(--atd-g600) !important;
+  padding: 0 !important;
+}
+/* boutons + des paniers : discrets */
+#addToAction, #addToCancel {
+  border-radius: var(--atd-radius) !important;
+  background: var(--atd-blue-pale) !important;
+  color: var(--atd-blue) !important;
+  border: none !important;
+}
+#clearAction, #clearCancel { background: transparent !important; color: var(--atd-g400) !important; }
+/* aplatir les tables imbriquées dans les zones pointillées */
+#doAction .bootstrap-table, #cancelAction .bootstrap-table,
+#doAction .fixed-table-container, #cancelAction .fixed-table-container {
+  border: none !important;
+  padding: 0 !important;
+  background: transparent;
+}
+/* boutons intégrés bootstrap-table (refresh, colonnes) */
+.bootstrap-table .fixed-table-toolbar .btn,
+.bootstrap-table .fixed-table-toolbar .btn-default,
+.bootstrap-table .fixed-table-toolbar .keep-open .btn {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: var(--atd-radius) !important;
+  border: none !important;
+  background: var(--atd-g100) !important;
+  color: var(--atd-g600) !important;
+  padding: 0 !important;
+}
+/* tables denses (résultats) : cellules moins hautes */
+.fixed-table-container .table > tbody > tr > td { padding: 9px 12px !important; }
+/* paniers latéraux : aplatir totalement le contenu (pas de boîte dans la boîte) */
+#doAction .fixed-table-body, #cancelAction .fixed-table-body { border: none !important; }
+#doAction .table, #cancelAction .table { border: none !important; background: transparent !important; }
+#doAction .fixed-table-container, #cancelAction .fixed-table-container { border: none !important; }
+#doAction .fixed-table-toolbar, #cancelAction .fixed-table-toolbar { display: none; }
+#doAction .table td, #cancelAction .table td { background: transparent !important; border: none !important; font-size: 12.5px; color: var(--atd-g400); text-align: center; }
