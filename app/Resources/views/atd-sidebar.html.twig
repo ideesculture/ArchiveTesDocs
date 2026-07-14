@@ -42,6 +42,10 @@
 		<a href="{{ path('bs_idp_archivist_askunlimited_screen') }}" class="atd-nav-item {% if currentMenu|default(0) == 35 %}menu-selected{% endif %}"><i class="fal fa-infinity"></i>Archives illimitées</a>
 		<a href="{{ path('bs_idp_export_all') }}" class="atd-nav-item {% if currentMenu|default(0) == 24 %}menu-selected{% endif %}"><i class="fal fa-file-export"></i>Exporter</a>
 		<a href="{{ path('bs_idp_archive_partialimportscreen') }}" class="atd-nav-item {% if currentMenu|default(0) == 25 %}menu-selected{% endif %}"><i class="fal fa-file-import"></i>Importer</a>
+		{# Visibilité alignée sur les autres items Gestion (userscale<100) ; le droit
+		   granulaire RIGHT_IMPORTS_REPORT est contrôlé par ExportImportController
+		   qui affiche un écran d'erreur si l'utilisateur ne l'a pas. #}
+		<a href="{{ path('bs_idp_archive_importsrapportsee') }}" class="atd-nav-item"><i class="fal fa-history"></i>Log des imports</a>
 	</div>
 	{% endif %}
 

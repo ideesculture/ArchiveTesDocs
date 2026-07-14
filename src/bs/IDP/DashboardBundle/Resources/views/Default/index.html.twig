@@ -137,35 +137,28 @@
 <div class="atd-admin-grid" id="btnarchivist">
 
     <div class="atd-admin-card" id="panel_manage_user_wants">
-        <div class="atd-admin-title"><i class="fal fa-users"></i>{{ translations[21] }}</div>
-        <div id="manage-user-wants-choices" class="list-group">
-            <h4 id="choice-manage-userwants"><a href="{{ path('bs_idp_archivist_manage_user_wants') }}" class="list-group-item">Valider les demandes des utilisateurs</a></h4>
-            <h4 id="choice-manage-providerwants"><a href="{{ path('bs_idp_archivist_manage_provider_wants') }}" class="list-group-item">Gérer les demandes des prestataires</a></h4>
-            <h4 id="choice-close-userwants"><a href="{{ path('bs_idp_archivist_close_user_wants') }}" class="list-group-item">Clôturer les demandes des utilisateurs</a></h4>
+        <div class="atd-admin-icon"><i class="fal fa-users"></i></div>
+        <div class="atd-admin-title">Gérer les demandes</div>
+        <div id="manage-user-wants-choices" class="atd-admin-actions">
+            <a id="choice-manage-userwants" href="{{ path('bs_idp_archivist_manage_user_wants') }}" class="btn btn-default">Demandes utilisateurs</a>
+            <a id="choice-manage-providerwants" href="{{ path('bs_idp_archivist_manage_provider_wants') }}" class="btn btn-default">Demandes prestataires</a>
+            <a id="choice-close-userwants" href="{{ path('bs_idp_archivist_close_user_wants') }}" class="btn btn-default">Clôturer</a>
         </div>
     </div>
 
     <div class="atd-admin-card" id="panel_follow_operations">
-        <div class="atd-admin-title"><i class="fal fa-clock"></i>Suivre les opérations</div>
-        <div id="manage_follow_operations" class="list-group">
-            <h4 id="choice-manage-unlimited"><a href="{{ path('bs_idp_archivist_askunlimited_screen') }}" class="list-group-item">Gérer les conservations illimitées</a></h4>
-            <h4 id="reconciliation"><a href="{{ path('bs_idp_archive_reconciliation_index') }}" class="list-group-item">Rapprocher les stocks <span class="label label-warning">BETA</span></a></h4>
-        </div>
-    </div>
-
-    <div class="atd-admin-card" id="panel_export_import">
-        <div class="atd-admin-title"><i class="fal fa-exchange-alt"></i>{{ translations[24] }}</div>
-        <div id="manage-export_import" class="list-group">
-            <h4 id="choice-export-all"><a id="exportAllDashboard" class="list-group-item clicable">Exporter toutes les données</a></h4>
-            <h4 id="choice-import"><a href="{{ path('bs_idp_archive_partialimportscreen') }}" class="list-group-item">Importer des données</a></h4>
-            <h4 id="choice-importrapport"><a href="{{ path('bs_idp_archive_importsrapportsee') }}" class="list-group-item">Accéder au rapport des imports</a></h4>
+        <div class="atd-admin-icon"><i class="fal fa-clock"></i></div>
+        <div class="atd-admin-title">Suivre les opérations</div>
+        <div id="manage_follow_operations" class="atd-admin-actions">
+            <a id="choice-manage-unlimited" href="{{ path('bs_idp_archivist_askunlimited_screen') }}" class="btn btn-default">Conservations illimitées</a>
         </div>
     </div>
 
     <div class="atd-admin-card" id="panel_manage_db">
-        <div class="atd-admin-title"><i class="fal fa-database"></i>{{ translations[22] }}</div>
-        <div class="list-group">
-            <h4><a href="{{ path('bs_idp_archivist_managedb_input_services') }}" class="list-group-item">Paramétrer les référentiels et utilisateurs</a></h4>
+        <div class="atd-admin-icon"><i class="fal fa-database"></i></div>
+        <div class="atd-admin-title">{{ translations[22] }}</div>
+        <div class="atd-admin-actions">
+            <a href="{{ path('bs_idp_archivist_managedb_input_services') }}" class="btn btn-default">Paramétrer les référentiels</a>
         </div>
     </div>
 
@@ -187,12 +180,6 @@
             bs_idp_export_all_offline: '{{ path("bs_idp_export_all_offline") }}',
             bs_core_userspace_userfile_viewmainscreen: '{{ path("bs_core_userspace_userfile_viewmainscreen") }}'
         };
-    </script>
-    <script>
-        $('#exportAllDashboard').click( function( e ){
-            e.preventDefault();
-            exportAll();
-        });
     </script>
     {% javascripts
         '@bsIDPDashboardBundle/Resources/public/js/Dashboard.1.4.5.0.js'
