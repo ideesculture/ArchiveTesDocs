@@ -41,7 +41,9 @@
 
 			</div>
 			<div class="col-md-4 col-sm-12" style="padding: 60px 50px;">
-				<img class="logoArchimage" src="{{ asset('img/Logo_Archive_Tes_Docs.svg') }}" style="margin-top:40px; margin-bottom:60px;height:100px;"/>
+				<div style="margin-top:40px; margin-bottom:60px; text-align:center;">
+					<img class="logoArchimage" src="{{ asset('img/Logo_Archive_Tes_Docs.svg') }}" alt="ArchiveTesDocs (préprod)" style="height:220px; display:block; margin:0 auto;"/>
+				</div>
 				{% if msg != null %}
 					<div class="alert alert-danger alert-dismissible" role="alert">
 						<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -66,7 +68,7 @@
 					</div>
 
 					<div class="panel-footer login-panel-footer" style="padding:0; background:transparent; border:none;">
-						{{ form_widget(form.bsUsersLoginBtn, { 'attr': {'class': 'btn btn-primary', 'style': 'width:100%; padding:14px; font-size:16px; font-weight:500; border-radius:4px; background:#3282BE; border:none; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.3s ease;'} }) }}
+						{{ form_widget(form.bsUsersLoginBtn, { 'attr': {'class': 'btn btn-primary', 'style': 'width:100%; padding:14px; font-size:16px; font-weight:500; border-radius:4px; background:#2563EB; border:none; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.3s ease;'} }) }}
 					</div>
 
 					{{ form_rest(form) }}

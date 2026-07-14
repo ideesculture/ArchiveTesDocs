@@ -1,31 +1,91 @@
-@page{
-	size: landscape;
-}
+/* ============================================================
+   Impression navigateur (Ctrl+P) — refonte ATD 2025
+   NB : les fiches et étiquettes officielles sont générées en PDF
+   côté serveur (FPDF, PrintController) et NE dépendent PAS de ce fichier.
+   Ce CSS ne gouverne que l'impression navigateur (surtout la vue
+   détail d'archive via window.print()).
+   ============================================================ */
+@page { size: A4 landscape; margin: 12mm; }
 
-#topheader{
-	display: none !important;
-}
+@media print {
+  /* --- Masquer toute la chrome applicative --- */
+  .atd-sidebar, #left-menu, #mainOverlay, .overlay,
+  .atd-page-head, .atd-page-head-row,
+  .atd-form-actions, #zoneButton,
+  .atd-stat-grid, .atd-actions-grid, .atd-admin-grid,
+  .fixed-table-toolbar, .fixed-table-pagination,
+  .nav-tabs, .nav-pills, #btnaction, #btnsubactioninput, #btnsubactionsettings,
+  #btnstates, #btnwherehow, #btnwhere, #btnhow, #btnAction, #btnCancel,
+  #askAction, #askCancel,
+  .breadcrumb, #idpfooter,
+  .btn, button, .close, .dropdown, .dropdown-menu {
+    display: none !important;
+  }
 
-#left-menu{
-	display: none !important;
-}
-.panel{
-	display: none !important;
-}
-.list-group-item{
-	display: none !important;
-}
-#tab, #subtabmenu, #btnTransfer, #subtabaction{
-	display: none !important;
-}
-.fixed-table-toolbar{
-	display: none !important;
-}
+  /* --- Base impression : plein largeur, noir sur blanc --- */
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+    font-family: var(--atd-font, sans-serif);
+  }
+  .atd-shell { display: block !important; }
+  .atd-main {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    background: #fff !important;
+  }
 
-#btnstates, #btnwherehow, #btnwithnothing, #btnAction, #btnCancel{
-	display: none !important;
-}
+  /* --- Cartes / conteneurs : blocs neutres --- */
+  .panel, .atd-form-card, .atd-form-main, .atd-form-side,
+  .bootstrap-table, .well, .card {
+    border: none !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 0 10px !important;
+    width: 100% !important;
+    float: none !important;
+  }
+  .atd-form-layout { display: block !important; }
+  .panel-heading, .atd-card-title {
+    background: #fff !important;
+    color: #000 !important;
+    border: none !important;
+    border-bottom: 1px solid #000 !important;
+    padding: 0 0 4px !important;
+    font-weight: 700;
+  }
 
-#buttons, #parameters{
-	display: none !important;
+  /* --- Tables lisibles en N&B --- */
+  table, .table, .fixed-table-container table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+  table th, table td,
+  .table > thead > tr > th, .table > tbody > tr > td,
+  .fixed-table-container thead th, .fixed-table-container tbody td {
+    border: 1px solid #999 !important;
+    background: #fff !important;
+    color: #000 !important;
+    padding: 4px 6px !important;
+    font-size: 10pt !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .table > thead > tr > th { font-weight: 700; }
+
+  /* --- Divers --- */
+  a { color: #000 !important; text-decoration: none !important; }
+  code { background: #fff !important; color: #000 !important; }
+  input, select, textarea {
+    border: 1px solid #999 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+  tr, .atd-form-card, .panel { page-break-inside: avoid; }
+  h1, h2, h3 { page-break-after: avoid; }
 }
