@@ -1451,8 +1451,8 @@ ul.pagination li.active a, ul.pagination li.active span {
 #addToProvider, #addToService, #addToIntermediate, #addToRelocInternal, #addToRelocIntermediate,
 #addToRelocProvider, #addToDeliver, #addToDeliverPrepare, #addToReturn, #addToExit, #addToDelete,
 #addToAction, #addToCancel {
-  width: 40px !important;
-  height: 26px !important;
+  width: 34px !important;
+  height: 34px !important;
   display: inline-block !important;
   text-align: center !important;
   margin: 0 !important;
@@ -1463,11 +1463,14 @@ ul.pagination li.active a, ul.pagination li.active span {
 #clearProvider, #clearService, #clearIntermediate, #clearDeliver, #clearDeliverPrepare,
 #clearReturn, #clearExit, #clearDelete, #clearRelocInternal, #clearRelocIntermediate,
 #clearRelocProvider, #clearAction, #clearCancel {
-  width: 40px !important;
-  height: 26px !important;
+  width: 34px !important;
+  height: 34px !important;
   display: inline-block !important;
   text-align: center !important;
   margin: 0 !important;
   padding: 0 !important;
   line-height: 0 !important;
 }
+
+/* .panel-heading : padding resserré (demande utilisateur) */
+.panel-heading { padding: 14px 4px !important; }
