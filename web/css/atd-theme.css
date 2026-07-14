@@ -1447,3 +1447,15 @@ ul.pagination li.active a, ul.pagination li.active span {
 /* Colonne Libellé (data-field name) : largeur mini confortable (texte le plus long) */
 .fixed-table-container th[data-field="name"] { min-width: 300px !important; }
 .fixed-table-container th[data-field="name"] .th-inner { white-space: normal !important; }
+/* Boutons "+" des paniers (addTo*) : format compact uniforme (demande utilisateur sur #addToDeliver) */
+#addToProvider, #addToService, #addToIntermediate, #addToRelocInternal, #addToRelocIntermediate,
+#addToRelocProvider, #addToDeliver, #addToDeliverPrepare, #addToReturn, #addToExit, #addToDelete,
+#addToAction, #addToCancel {
+  width: 40px !important;
+  height: 26px !important;
+  display: inline-block !important;
+  text-align: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+}
