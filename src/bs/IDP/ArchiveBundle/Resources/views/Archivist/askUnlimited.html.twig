@@ -22,26 +22,23 @@
 
 {% block content %}
     {% set btnresults = 6 %}
-    <div class="row">
 
-        <div class="col-md-10 col-md-offset-1" id="rowUnlimited">
-            <div class="panel panel-default" id="panelUnlimited">
-                <div class="panel-heading">Gestion des archives illimitées</div>
-            </div>
+    <div class="atd-page-head">
+        <h1>Gestion des archives illimitées</h1>
+        <p>Suivi et gestion des unités d'archives à conservation illimitée</p>
+    </div>
+
+    <div id="tabUnlimited">
+        {% include "bsIDPArchiveBundle:Default:partial.tabMenu.html.twig" %}
+
+        <div class="tab-content">
+            {% include "bsIDPArchiveBundle:Default:partial.tabsearch.html.twig" %}
+
+            {% include "bsIDPArchiveBundle:Default:partial.tabfilter.html.twig" %}
+
+            {% include "bsIDPArchiveBundle:Default:partial.tabresults.html.twig" %}
         </div>
-
-        <div class="col-md-10 col-md-offset-1" id="tabUnlimited">
-            {% include "bsIDPArchiveBundle:Default:partial.tabMenu.html.twig" %}
-
-            <div class="tab-content">
-                {% include "bsIDPArchiveBundle:Default:partial.tabsearch.html.twig" %}
-
-                {% include "bsIDPArchiveBundle:Default:partial.tabfilter.html.twig" %}
-
-                {% include "bsIDPArchiveBundle:Default:partial.tabresults.html.twig" %}
-            </div>
-        </div>
-    </div> <!-- end of row -->
+    </div>
 {% endblock %}
 
 {% block javascripts %}

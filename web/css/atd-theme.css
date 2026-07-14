@@ -1589,3 +1589,12 @@ ul.pagination li.active a, ul.pagination li.active span {
 }
 /* première "carte" = case à cocher : discrète, alignée à droite */
 .card-views > .card-view:first-child { border-bottom: none; padding: 0; justify-content: flex-end; }
+
+/* Archives illimitées : conteneur pleine largeur, sans cadre bleu ni fond blanc */
+#tabUnlimited {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
