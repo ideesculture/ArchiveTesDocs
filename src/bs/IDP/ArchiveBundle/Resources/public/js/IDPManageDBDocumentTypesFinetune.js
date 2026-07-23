@@ -1,3 +1,4 @@
+var suppressServerSync = false;
 var documenttype_id = window.IDP_DATA.idp_documenttype_id;
 var all_documentnatures = [];
 var $_translations = null;
@@ -31,6 +32,8 @@ $(function(){
 
 function setLinkSelected( row ){
 
+	if( suppressServerSync ) return;
+
 	$("#waitAjax").show();
 	$.ajax({
 		type: "GET",
@@ -50,6 +53,8 @@ function setLinkSelected( row ){
 }
 
 function unsetLinkSelected( row ){
+
+	if( suppressServerSync ) return;
 
 	$("#waitAjax").show();
 	$.ajax({
@@ -131,6 +136,8 @@ function loadDocumentTypeLink( $data ){
 
 function updateLinkList( $data ){
 
+	suppressServerSync = true;
+
 	// Check all document natures of document type received
 	for (index = 0; index < $data.length; ++index) {
 		$documentnatureIDCurrent = $data[index]['documentNatureID'];
@@ -140,6 +147,7 @@ function updateLinkList( $data ){
 		}
 	}
 
+	suppressServerSync = false;
 	$("#waitAjax").hide();
 
 }

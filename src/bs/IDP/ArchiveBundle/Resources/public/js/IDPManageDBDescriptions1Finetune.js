@@ -1,3 +1,4 @@
+var suppressServerSync = false;
 var description1_id = window.IDP_DATA.idp_description1_id;
 var all_services = [];
 var $_translations = null;
@@ -31,6 +32,8 @@ $(function(){
 
 function setLinkSelected( row ){
 
+	if( suppressServerSync ) return;
+
 	$("#waitAjax").show();
 	$.ajax({
 		type: "GET",
@@ -50,6 +53,8 @@ function setLinkSelected( row ){
 }
 
 function unsetLinkSelected( row ){
+
+	if( suppressServerSync ) return;
 
 	$("#waitAjax").show();
 	$.ajax({
@@ -131,6 +136,8 @@ function loadDescription1Link( $data ){
 
 function updateLinkList( $data ){
 
+	suppressServerSync = true;
+
 	// Check all services of legal entity received
 	for (index = 0; index < $data.length; ++index) {
 		$serviceIDCurrent = $data[index]['serviceID'];
@@ -140,6 +147,7 @@ function updateLinkList( $data ){
 		}
 	}
 
+	suppressServerSync = false;
 	$("#waitAjax").hide();
 
 }
