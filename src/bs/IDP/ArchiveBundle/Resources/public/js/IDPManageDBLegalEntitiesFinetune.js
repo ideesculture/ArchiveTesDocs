@@ -1,6 +1,9 @@
 var legalentity_id = window.IDP_DATA.idp_legalentity_id;
 var all_services = [];
 var $_translations = null;
+// Vrai pendant les coches programmatiques d'affichage : évite de rejouer des appels
+// set/unset serveur (source d'une rafale de requêtes concurrentes → 403 aléatoires).
+var suppressServerSync = false;
 
 $(document).ready(function(){
 	$_translations = JSON.parse( window.IDP_CONST.bs_translations );
@@ -31,6 +34,8 @@ $(function(){
 
 function setLinkSelected( row ){
 
+	if( suppressServerSync ) return;
+
 	$("#waitAjax").show();
 	$.ajax({
 		type: "GET",
@@ -50,6 +55,8 @@ function setLinkSelected( row ){
 }
 
 function unsetLinkSelected( row ){
+
+	if( suppressServerSync ) return;
 
 	$("#waitAjax").show();
 	$.ajax({
@@ -131,6 +138,9 @@ function loadLegalEntityLink( $data ){
 
 function updateLinkList( $data ){
 
+	// Coches d'affichage : ne pas déclencher d'appels set/unset serveur (les liens existent déjà)
+	suppressServerSync = true;
+
 	// Check all services of legal entity received
 	for (index = 0; index < $data.length; ++index) {
 		$serviceIDCurrent = $data[index]['serviceID'];
@@ -139,6 +149,8 @@ function updateLinkList( $data ){
 			$('#LinksListTable').bootstrapTable('check', $result );
 		}
 	}
+
+	suppressServerSync = false;
 
 	$("#waitAjax").hide();
 
