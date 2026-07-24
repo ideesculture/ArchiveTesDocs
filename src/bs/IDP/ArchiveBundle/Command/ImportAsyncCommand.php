@@ -260,6 +260,7 @@ class ImportAsyncCommand extends ContainerAwareCommand
         } if( $debugMode && $verbose >= 5) $output->writeln( '<info>OK</info>');
 
         if( $debugMode && $verbose >= 5 ) $output->write('Open file to begin treatment : ');
+        ini_set( 'auto_detect_line_endings', true ); // fins de ligne hétérogènes (CR / CRLF / LF)
         $file = fopen( $fullName, "r" );
 		if( !$file ){
             if( $debugMode && $verbose >= 1) $output->writeln( '<error>Error</error>, cannot open the file ! [Error code='.error_get_last()['message'] );
@@ -268,6 +269,10 @@ class ImportAsyncCommand extends ContainerAwareCommand
             $this->endImport( $em, $globalStatuses, $import );
 			return;
 		} if( $debugMode && $verbose >= 5) $output->writeln( '<info>OK</info>');
+
+        // Ignore le BOM UTF-8 éventuel en tête de fichier (sinon il se colle au 1er champ)
+        $bom = fread( $file, 3 );
+        if( $bom !== "\xEF\xBB\xBF" ) rewind( $file );
 
 		// Authorized statuses
 		$authorizedStatuses = [ 'DTA', 'DISI', 'DISINT', 'DISP', 'CONI', 'CONINT', 'CONP' ];
@@ -320,18 +325,24 @@ class ImportAsyncCommand extends ContainerAwareCommand
             if( $countUntilFlush >= $blockSize)
                 $countUntilFlush = 0;
 
-			$line = fgets( $file );
+			// Lecture CSV respectant les guillemets : gère les champs entre "..." contenant
+			// des retours à la ligne, des points-virgules et des guillemets échappés ("").
+			$lineArray = fgetcsv( $file, 0, ';', '"' );
 			$lineNumber++;
             if( $debugMode && $verbose >= 8 ) $output->write('Line['.$lineNumber.'] ');
 
-			if( !$line ){
+			if( $lineArray === false || $lineArray === null ){
+                if( feof( $file ) ){ $lineNumber--; break; } // fin de fichier normale
                 if( $debugMode && $verbose >= 7 ) $output->write('X'); if( $debugMode && $verbose >= 8) $output->writeln( '<error>Error</error>, Read error. error code = '.error_get_last()['message'] );
                 $this->addDBEntry( $em, $import, $percent, 0, 'Ligne '.$lineNumber.': Erreur de lecture. [Code erreur='.error_get_last()['message'].']', null, null, true, $flushToDB );
 				$erreur++;
 				fclose( $file );
 				break;
 			}
-			$alreadyDone += strlen( $line );
+			// Ligne totalement vide (fgetcsv renvoie array(null)) : on l'ignore
+			if( $lineArray === array( null ) ){ $lineNumber--; continue; }
+			$line = implode( ';', $lineArray ); // ligne brute reconstituée pour la journalisation
+			$alreadyDone = ftell( $file );
 			$percent = (int)(( $alreadyDone / $fileSize )*100 );
 
             $now = new DateTime();
@@ -341,7 +352,7 @@ class ImportAsyncCommand extends ContainerAwareCommand
 			$this->addDBEntry( $em, $import, $percent, 1, 'Analyse de la ligne '.$lineNumber, null, null, true, $flushToDB );
 			$this->updateImport( $em, $import, IDPImport::IDP_IMPORT_STATUS_IN_PROGRESS, $percent, $estimated, $lineNumber, ($lineNumber-$erreur), $erreur );
 
-            $lineArray = explode( ';', $line );
+            // $lineArray déjà renseigné par fgetcsv ci-dessus
             if( $debugMode && $verbose >= 9 ){
                 $output->writeln( 'IDX_STATUS: '.$lineArray[self::IDX_STATUS] );
                 $output->writeln( 'IDX_SERVICE: '.$lineArray[self::IDX_SERVICE] );

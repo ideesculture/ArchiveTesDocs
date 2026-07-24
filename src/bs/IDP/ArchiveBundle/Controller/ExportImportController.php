@@ -546,18 +546,17 @@ class ExportImportController extends Controller
 
 			$file->move( $dir, $newFileName );
 
-            $process = new Process( "php ../bin/console app:import-file archimage/$newFileName" );
-            $process->start();
+            // Lancement DÉTACHÉ du worker d'import (nohup + arrière-plan) : il doit survivre à
+            // la fin de cette requête web. Avec new Process()->start(), la destruction de l'objet
+            // Process en fin de requête tuait le worker au bout d'~1 s → les imports volumineux
+            // étaient coupés (~18 lignes) tout en restant marqués « en cours ».
+            $consolePath = realpath( __DIR__.'/../../../../../bin/console' );
+            $importCmd = sprintf( 'nohup php %s app:import-file %s > /dev/null 2>&1 &',
+                escapeshellarg( $consolePath ),
+                escapeshellarg( "archimage/$newFileName" ) );
+            exec( $importCmd );
 
-            sleep(1); // wait for process to start
-
-            // check for errors and output them through flashbag
-            if (!$process->isRunning())
-                if (!$process->isSuccessful()){
-                    // TODO BETTER
-                    $this->get('session')->getFlashBag()->add('error', "Oops! The process fininished with an error:".$process->getExitCodeText());
-                    return $this->redirect($this->generateUrl('bs_idp_archive_partialimportscreen' ));
-                }
+            sleep(1); // laisse le worker créer l'import et renseigner current_import_id
 
             $globalStatuses = $this->getDoctrine()
                 ->getRepository('bsIDPBackofficeBundle:IDPGlobalStatuses')
