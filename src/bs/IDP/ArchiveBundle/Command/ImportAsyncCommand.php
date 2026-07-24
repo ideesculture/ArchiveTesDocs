@@ -113,6 +113,31 @@ class ImportAsyncCommand extends ContainerAwareCommand
         $em->persist($import);
         $em->flush();
     }
+    private function cleanupStaleImports( $em, $globalStatuses, $output=null, $debugMode=false, $verbose=1 ){
+        // Garde-fou : un worker d'import interrompu (crash/kill) laisse son import dans un
+        // état non terminal et le flag global "import_in_progress" à true, ce qui bloque
+        // durablement le suivi et les imports suivants. On clôt ici tout import resté bloqué
+        // (START / IN_PROGRESS / CANCEL_IN_PROGRESS) en erreur, et on réinitialise le flag global.
+        $staleStatuses = array(
+            IDPImport::IDP_IMPORT_STATUS_START,
+            IDPImport::IDP_IMPORT_STATUS_IN_PROGRESS,
+            IDPImport::IDP_IMPORT_STATUS_CANCEL_IN_PROGRESS
+        );
+        $staleImports = $em->getRepository('bsIDPArchiveBundle:IDPImport')
+            ->findBy( array( 'status' => $staleStatuses ) );
+        foreach( $staleImports as $stale ){
+            $stale->setStatus( IDPImport::IDP_IMPORT_STATUS_ERROR );
+            if( $stale->getDateEnd() == null )
+                $stale->setDateEnd( new DateTime() );
+            $em->persist( $stale );
+            if( $output && $debugMode && $verbose >= 1 )
+                $output->writeln( '<comment>Garde-fou : import bloqué #'.$stale->getId().' clôturé en erreur</comment>' );
+        }
+        $globalStatuses->setImportInProgress( false );
+        $globalStatuses->setCancelInProgress( false );
+        $em->persist( $globalStatuses );
+        $em->flush();
+    }
     private function createNewImport( $em, $filename ){
         $now = new DateTime();
 
@@ -185,6 +210,9 @@ class ImportAsyncCommand extends ContainerAwareCommand
             if( $debugMode && $verbose >= 1) $output->writeln( '<error>Reconciliation in progress, cannot import !</error>' );
             return;
         }
+
+        // Garde-fou : clôt tout import précédent resté bloqué (worker interrompu) avant de démarrer
+        $this->cleanupStaleImports( $em, $globalStatuses, $output, $debugMode, $verbose );
 
         if( $debugMode && $verbose >= 1 ) $output->writeln('Import is starting');
         $this->beginImport( $em, $globalStatuses );

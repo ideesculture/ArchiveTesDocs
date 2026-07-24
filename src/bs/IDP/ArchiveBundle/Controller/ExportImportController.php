@@ -979,6 +979,9 @@ class ExportImportController extends Controller
         //* 5) adjust global status with iddle mode
         $import->setStatus( IDPImport::IDP_IMPORT_STATUS_CANCELED );
         $globalStatuses->setCancelInProgress( false );
+        // Garde-fou : libère aussi le flag "import en cours" même si le worker est mort,
+        // afin de ne pas bloquer les imports suivants.
+        $globalStatuses->setImportInProgress( false );
         $em->persist($import);
         $em->persist($globalStatuses);
         $em->flush();
