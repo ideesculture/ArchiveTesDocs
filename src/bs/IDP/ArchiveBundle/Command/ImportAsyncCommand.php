@@ -82,7 +82,9 @@ class ImportAsyncCommand extends ContainerAwareCommand
 		$idpImportComm->setStatus( $status );
 		$idpImportComm->setMessage( $message );
 		if( $rawline )
-		    $idpImportComm->setRawLine( $rawline );
+		    // Tronque à la taille de la colonne rawline (varchar 2048) : une ligne brute plus
+		    // longue faisait échouer l'INSERT du log en mode SQL strict et tuait tout l'import.
+		    $idpImportComm->setRawLine( mb_substr( $rawline, 0, 2000 ) );
 		$idpImportComm->setAlreadyRead( 0 );
 
 		$em->persist($idpImportComm);
@@ -1239,14 +1241,13 @@ class ImportAsyncCommand extends ContainerAwareCommand
                 if( $debugMode && $stopOnError ) $helper->ask($input, $output, $question);
                 continue;	// Go to next line
             }
-            if( strlen( $lineArray[self::IDX_NAME] ) > 1000 ){
-                if( $debugMode && $verbose >= 7 ) $output->write('X'); if( $debugMode && $verbose >= 8) $output->writeln( '<error>Error</error>, Archive name length cannot be greater thant 10000 characters ' );
-                $this->addDBEntry( $em, $import, $percent, 0, 'Ligne '.$lineNumber.': Erreur, Le nom d\'archive est supérieur à 1000 caractères.', $line, null, true, $flushToDB );
-                $erreur++;
-                if( $debugMode && $stopOnError ) $helper->ask($input, $output, $question);
-                continue;	// Go to next line
-            }
             $name = $lineArray[self::IDX_NAME];
+            // Le libellé est limité à 2000 caractères (colonne name varchar(2000)) : au-delà,
+            // on tronque et on le signale, plutôt que de rejeter la ligne ou de planter l'import.
+            if( mb_strlen( $name ) > 2000 ){
+                $name = mb_substr( $name, 0, 2000 );
+                $this->addDBEntry( $em, $import, $percent, 1, 'Ligne '.$lineNumber.': le libellé dépassait 2000 caractères, il a été tronqué à 2000.', null, null, true, $flushToDB );
+            }
 
             // ===========================================================
 

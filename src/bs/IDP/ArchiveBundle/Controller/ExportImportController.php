@@ -551,9 +551,11 @@ class ExportImportController extends Controller
             // Process en fin de requête tuait le worker au bout d'~1 s → les imports volumineux
             // étaient coupés (~18 lignes) tout en restant marqués « en cours ».
             $consolePath = realpath( __DIR__.'/../../../../../bin/console' );
-            $importCmd = sprintf( 'nohup php %s app:import-file %s > /dev/null 2>&1 &',
+            $importLog = realpath( __DIR__.'/../../../../../var/logs' ).'/import_worker.log';
+            $importCmd = sprintf( 'nohup php %s app:import-file %s >> %s 2>&1 &',
                 escapeshellarg( $consolePath ),
-                escapeshellarg( "archimage/$newFileName" ) );
+                escapeshellarg( "archimage/$newFileName" ),
+                escapeshellarg( $importLog ) );
             exec( $importCmd );
 
             sleep(1); // laisse le worker créer l'import et renseigner current_import_id
