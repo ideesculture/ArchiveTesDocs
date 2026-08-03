@@ -14,7 +14,12 @@ framework:
     validation:      { enable_annotations: true }
     templating:
         engines: ['twig']
-        #assets_version: SomeVersionScheme
+    # Cache-busting : ajoute ?<version> à toutes les URL d'assets (JS assetic + CSS).
+    # >>> INCRÉMENTER cette valeur à chaque modification de JS ou CSS <<< sinon les
+    # navigateurs peuvent servir une ancienne version en cache (assetic nomme ses
+    # bundles par hash de chemin, stable, donc l'URL ne change pas seule au fil du contenu).
+    assets:
+        version: 'v2'
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
