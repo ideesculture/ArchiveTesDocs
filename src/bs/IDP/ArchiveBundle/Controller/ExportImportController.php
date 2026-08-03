@@ -315,21 +315,13 @@ class ExportImportController extends Controller
 
         if( $logger ) $logger->info( $processCmd );
 
-        $process = new Process( $processCmd );
-        $process->start();
+        // Lancement DÉTACHÉ (nohup + arrière-plan) : le worker d'export doit survivre à la fin
+        // de la requête web. Avec new Process()->start(), la destruction de l'objet Process en
+        // fin de requête tuait le worker au bout d'~1 s → les exports volumineux étaient tronqués.
+        $exportLog = realpath( __DIR__.'/../../../../../var/logs' ).'/export_worker.log';
+        exec( 'nohup '.$processCmd.' >> '.escapeshellarg( $exportLog ).' 2>&1 &' );
 
-        sleep(1); // wait for process to start
-
-        //check for errors and send them
-        if (!$process->isRunning())
-            if (!$process->isSuccessful()){
-                // $output['uploaded'] = true;
-                $output['message'] = "Oops! The process fininished with an error: ".$process->getExitCode();
-
-                return new JsonResponse( $output, 403 );
-            }
-
-        //return null;
+        sleep(1); // laisse le worker démarrer
 
         return new JsonResponse( $output );
     }
@@ -373,21 +365,11 @@ class ExportImportController extends Controller
 
         if( $logger ) $logger->info( $processCmd );
 
-        $process = new Process( $processCmd );
-        $process->start();
+        // Lancement DÉTACHÉ (nohup + arrière-plan) : voir exportOfflineAction ci-dessus.
+        $exportLog = realpath( __DIR__.'/../../../../../var/logs' ).'/export_worker.log';
+        exec( 'nohup '.$processCmd.' >> '.escapeshellarg( $exportLog ).' 2>&1 &' );
 
-        sleep(1); // wait for process to start
-
-        //check for errors and send them
-        if (!$process->isRunning())
-            if (!$process->isSuccessful()){
-                // $output['uploaded'] = true;
-                $output['message'] = "Oops! The process fininished with an error: ".$process->getExitCode();
-
-                return new JsonResponse( $output, 403 );
-            }
-
-        //return null;
+        sleep(1); // laisse le worker démarrer
 
         return new JsonResponse( $output );
     }
@@ -649,18 +631,17 @@ class ExportImportController extends Controller
 		else
 			return null;
 
-        $process = new Process( "php ../app/console app:import-file archimage/$filename" );
-        $process->start();
+        // Lancement DÉTACHÉ (comme partialimportdoAction) : le worker doit survivre à la requête.
+        // Corrige aussi l'ancien chemin console Symfony 2 (« ../app/console ») inopérant en Symfony 3.
+        $consolePath = realpath( __DIR__.'/../../../../../bin/console' );
+        $importLog = realpath( __DIR__.'/../../../../../var/logs' ).'/import_worker.log';
+        $importCmd = sprintf( 'nohup php %s app:import-file %s >> %s 2>&1 &',
+            escapeshellarg( $consolePath ),
+            escapeshellarg( "archimage/$filename" ),
+            escapeshellarg( $importLog ) );
+        exec( $importCmd );
 
-        sleep(1); // wait for process to start
-
-        // check for errors and output them through flashbag
-        if (!$process->isRunning())
-            if (!$process->isSuccessful()){
-                // TODO BETTER
-                $this->get('session')->getFlashBag()->add('error', "Oops! The process fininished with an error:".$process->getExitCodeText());
-                return $this->redirect($this->generateUrl('bs_idp_archive_partialimportscreen' ));
-            }
+        sleep(1); // laisse le worker créer l'import et renseigner current_import_id
 
         $globalStatuses = $this->getDoctrine()
             ->getRepository('bsIDPBackofficeBundle:IDPGlobalStatuses')
