@@ -21,6 +21,10 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
 */
 
 require __DIR__.'/../vendor/autoload.php';
+
+// Force une locale UTF-8 pour le process web (voir web/app.php pour le détail).
+setlocale(LC_CTYPE, 'C.UTF-8', 'C.utf8');
+
 Debug::enable();
 
 $kernel = new AppKernel('dev', true);
