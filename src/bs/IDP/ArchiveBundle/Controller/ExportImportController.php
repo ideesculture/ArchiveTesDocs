@@ -523,7 +523,24 @@ class ExportImportController extends Controller
 			}
 
 			$now = new DateTime();
-			$newFileName = sprintf( "%s-%d", str_replace(' ', '', $file->getClientOriginalName()), $now->getTimestamp() );
+			// Assainit le nom de fichier en ASCII AVANT enregistrement ET lancement du worker.
+			// Sous une locale serveur non-UTF-8 (web en C/POSIX), escapeshellarg() retire les
+			// caractères accentués : le fichier était enregistré « …complémentaire… » mais le
+			// worker recevait « …complmentaire… » → « fichier introuvable ». On translittère les
+			// accents puis on ne garde que des caractères sûrs, de façon identique des deux côtés.
+			$accents = array(
+				'À'=>'A','Á'=>'A','Â'=>'A','Ã'=>'A','Ä'=>'A','Å'=>'A','à'=>'a','á'=>'a','â'=>'a','ã'=>'a','ä'=>'a','å'=>'a',
+				'Ç'=>'C','ç'=>'c','È'=>'E','É'=>'E','Ê'=>'E','Ë'=>'E','è'=>'e','é'=>'e','ê'=>'e','ë'=>'e',
+				'Ì'=>'I','Í'=>'I','Î'=>'I','Ï'=>'I','ì'=>'i','í'=>'i','î'=>'i','ï'=>'i',
+				'Ñ'=>'N','ñ'=>'n','Ò'=>'O','Ó'=>'O','Ô'=>'O','Õ'=>'O','Ö'=>'O','ò'=>'o','ó'=>'o','ô'=>'o','õ'=>'o','ö'=>'o',
+				'Ù'=>'U','Ú'=>'U','Û'=>'U','Ü'=>'U','ù'=>'u','ú'=>'u','û'=>'u','ü'=>'u','Ý'=>'Y','ý'=>'y','ÿ'=>'y',
+				'Œ'=>'OE','œ'=>'oe','Æ'=>'AE','æ'=>'ae',
+			);
+			$safeName = strtr( $file->getClientOriginalName(), $accents );
+			$safeName = str_replace( ' ', '', $safeName );
+			$safeName = preg_replace( '/[^A-Za-z0-9._-]/', '', $safeName );
+			if( $safeName === '' ) $safeName = 'import';
+			$newFileName = sprintf( "%s-%d", $safeName, $now->getTimestamp() );
 			$dir = __DIR__.'/../../../../../web/import/archimage/';
 
 			$file->move( $dir, $newFileName );
